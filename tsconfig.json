@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    // ненужная херня
+    "outDir": "./build/",
+    // не дает использование перемененных без указания типа
+    "noImplicitAny": true,
+    // какая то система
+    "module": "ESNext",
+    // во что компилируем
+    "target": "es5",
+    // позволяет обрабатывать jsx и tsx файлы 
+    "jsx": "react-jsx",
+    // позволяет обрабатывать Js файлы 
+    "allowJs": true,
+    // какие импорты
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    // позволяет работать с require как import from
+    "esModuleInterop": true,
+    // позволяет обычный импорт без (* as), как модуль
+    "allowSyntheticDefaultImports": true,
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS",
+    }
+  }
+}
