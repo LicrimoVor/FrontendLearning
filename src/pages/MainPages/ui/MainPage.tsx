@@ -1,5 +1,5 @@
-import React from 'react'
 
+/** Главная страница */
 function MainPage() {
   return (
     <div>MainPage</div>

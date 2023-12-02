@@ -1,5 +1,5 @@
-import React from 'react'
 
+/** Об проекте */
 const AboutPage = () => {
   return (
     <div>AboutPage</div>
