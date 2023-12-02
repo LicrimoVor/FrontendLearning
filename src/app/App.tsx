@@ -2,10 +2,10 @@ import { Route, Routes, Link } from 'react-router-dom';
 import { Suspense,} from 'react';
 
 import './styles/index.scss';
-import { MainPageAsync } from './pages/MainPages/MainPage.async';
-import { AboutPageAsync } from './pages/AboutPages/AboutPage.async';
-import useTheme from './theme/useTheme';
-import { classNames } from './helpers/classNames/classNames';
+import { MainPage } from 'pages/MainPages';
+import { AboutPage } from 'pages/AboutPages';
+import { useTheme } from 'app/providers/ThemeProvider';
+import { classNames } from 'shared/lib/classNames/classNames';
 
 /** Главная приложуха */
 function App() {
@@ -17,8 +17,8 @@ function App() {
       <Link  to={'/about'}>О сайте</Link>
       <Suspense fallback={<div>Загрузонька...</div>}>
         <Routes>
-          <Route path={'/about'} element={<AboutPageAsync/>}/>
-          <Route path={'/'} element={<MainPageAsync/>}/>
+          <Route path={'/about'} element={<AboutPage/>}/>
+          <Route path={'/'} element={<MainPage/>}/>
         </Routes>
       </Suspense>
       <button onClick={hundlerTheme}>{theme}</button>

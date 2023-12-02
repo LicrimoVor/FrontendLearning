@@ -1,8 +1,14 @@
 import webpack from "webpack";
 
-/** Расширения, которые опускаются при импорте */
-export function BuildResolvers(): webpack.ResolveOptions {
+import { BuildOptions } from "./types/config";
+
+/** Настройка импортов */
+export function BuildResolvers(options: BuildOptions): webpack.ResolveOptions {
   return {
     extensions: ['.tsx', '.ts', '.js'],
+    preferAbsolute: true,
+    modules: [options.paths.src, 'node_modules'],
+    alias: {},
+    mainFiles: ['index'],
   }
 }

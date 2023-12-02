@@ -23,7 +23,7 @@ export function BuildWebpackConfig(options: BuildOptions): webpack.Configuration
     module: {
       rules: BuildLoaders(options),
     },
-    resolve: BuildResolvers(),
+    resolve: BuildResolvers(options),
     devtool: isDev ? 'inline-source-map': undefined,
     devServer: isDev ? BuildDevServer(options): undefined,
   }

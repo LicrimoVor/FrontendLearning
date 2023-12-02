@@ -9,7 +9,7 @@ interface UseThemeResult {
 }
 
 /** хук для тем (мой первый хук) */
-export default function useTheme(): UseThemeResult {
+export function useTheme(): UseThemeResult {
   const {theme, setTheme} = useContext(ThemeContext);
 
   const hundlerTheme = () => {
