@@ -11,4 +11,14 @@
   color: var(--primary-color);
 
   min-height: 100vh;
+  transition: background-color var(--transition-background-time);
+}
+
+.content-page {
+  display: flex;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+  padding: 20px;
 }

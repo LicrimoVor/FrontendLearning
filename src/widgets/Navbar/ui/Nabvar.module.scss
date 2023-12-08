@@ -5,6 +5,8 @@
   display: flex;
   align-items: center;
   padding: 20px;
+
+  transition: background-color var(--transition-background-time);
 }
 
 .links {
