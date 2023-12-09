@@ -4,5 +4,8 @@
   "About": "About",
   "Translate": "Translate",
   "Lang": "Eng",
-  "loading": "loading"
+  "loading": "loading",
+  "Error": "An error has occurred",
+  "Refresh": "Refresh page",
+  "ThrowError": "Throw an error"
 }

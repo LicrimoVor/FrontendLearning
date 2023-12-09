@@ -1,11 +1,14 @@
 {
   "About": "About",
   "About page": "About page",
+  "Error": "Error",
   "Lang": "Lang",
   "Loading": "Loading",
   "Main": "Main",
   "Main page": "Main page",
   "Not found page": "Not found page",
+  "Refresh": "Refresh",
+  "ThrowError": "ThrowError",
   "Wrap": "Wrap",
   "loading": "loading"
 }
