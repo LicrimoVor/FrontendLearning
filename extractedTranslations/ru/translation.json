@@ -7,8 +7,11 @@
   "Main": "Main",
   "Main page": "Main page",
   "Not found page": "Not found page",
+<<<<<<< HEAD
   "Refresh": "Refresh",
   "ThrowError": "ThrowError",
+=======
+>>>>>>> 9fcf296 (not found)
   "Wrap": "Wrap",
   "loading": "loading"
 }
