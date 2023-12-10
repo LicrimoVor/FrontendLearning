@@ -26,9 +26,11 @@ export const Sidebar: FC<SidebarProps> = (props) => {
 
     return (
         <div
+            data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
             <Button
+                data-testid="sidebar-wrap-button"
                 onClick={hundlerCollapsed}
             >
                 {t('Wrap')}
