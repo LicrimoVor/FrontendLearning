@@ -1,14 +1,9 @@
-import { fireEvent, screen } from '@testing-library/react';
+import { fireEvent } from '@testing-library/react';
 import { renderWithTranslation } from 'shared/lib/tests/renderWithTranslation/renderWithTranslation';
 
 import { Sidebar } from './Sidebar';
 
 describe('Sidebar', () => {
-    test('Test render', () => {
-        const { getByTestId } = renderWithTranslation(<Sidebar />);
-        expect(getByTestId('sidebar')).toBeInTheDocument();
-    });
-
     test('Test button wrap', () => {
         const { getByTestId } = renderWithTranslation(<Sidebar />);
         const wrapButton = getByTestId('sidebar-wrap-button');

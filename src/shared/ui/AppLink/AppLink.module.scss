@@ -3,17 +3,13 @@
 }
 
 .primary {
-    color: var(--primary-color);
+    &:not(.inverted) { color: var(--primary-color); }
+
+    &.inverted { color: var(--inverted-primary-color); }
 }
 
 .secondary {
-    color: var(--secondary-color);
-}
+    &:not(.inverted) { color: var(--secondary-color); }
 
-.primary.inverted {
-    color: var(--inverted-primary-color);
-}
-
-.secondary.inverted {
-    color: var(--inverted-secondary-color);
+    &.inverted { color: var(--inverted-secondary-color); }
 }
