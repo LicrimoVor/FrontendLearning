@@ -1,6 +1,6 @@
 import { fireEvent } from '@testing-library/react';
 
-import { renderWithRouter } from 'shared/lib/tests/renderWithRouter/renderWithRouter';
+import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
 import { Navbar } from './Navbar';
 
 jest.mock('react-i18next', () => ({
@@ -14,14 +14,14 @@ jest.mock('react-i18next', () => ({
 
 describe('Navbar', () => {
     test('Test main link', () => {
-        const { getByTestId } = renderWithRouter(<Navbar />);
+        const { getByTestId } = componentRender(<Navbar />);
         const link = getByTestId('main-link');
         fireEvent.click(link);
         expect(window.location.href).toEqual('http://localhost/');
     });
 
     test('Test about link', () => {
-        const { getByTestId } = renderWithRouter(<Navbar />, { route: '/about' });
+        const { getByTestId } = componentRender(<Navbar />, { route: '/about' });
         const link = getByTestId('about-link');
         fireEvent.click(link);
         expect(window.location.href).toEqual('http://localhost/about');

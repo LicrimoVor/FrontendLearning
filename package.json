@@ -14,6 +14,9 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
     "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:json": "node scripts/generate-visual-json-report.js",
+    "test:ui:html": "npx reg-cli --from .loki/report.json --report .loki/report.html",
+    "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:ok": "npx loki approve",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook"
@@ -70,6 +73,7 @@
     "react-dom": "^17.0.2",
     "react-refresh": "^0.12.0",
     "react-router-dom": "^6.2.1",
+    "reg-cli": "^0.17.6",
     "regenerator-runtime": "^0.13.9",
     "storybook": "^7.6.4",
     "stylelint": "^14.5.3",
