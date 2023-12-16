@@ -18,8 +18,7 @@ export const PageError: FC<PageErrorProps> = (props) => {
     } = props;
 
     const refreshPage = () => {
-        // eslint-disable-next-line no-restricted-globals
-        location.reload();
+        window.location.reload();
     };
 
     return (
@@ -27,7 +26,10 @@ export const PageError: FC<PageErrorProps> = (props) => {
             className={classNames(cls.PageError, {}, [className])}
         >
             <p>{t('Error')}</p>
-            <Button onClick={refreshPage}>
+            <Button
+                data-testid="button-reload"
+                onClick={refreshPage}
+            >
                 {t('Refresh')}
             </Button>
         </div>

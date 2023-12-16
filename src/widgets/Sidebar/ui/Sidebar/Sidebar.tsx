@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import cls from './Sidebar.module.scss';
@@ -30,13 +30,17 @@ export const Sidebar: FC<SidebarProps> = (props) => {
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
             <Button
+                data-testid="sidebar-wrap-button"
                 onClick={hundlerCollapsed}
+                className={cls.wrap}
+                theme={ButtonTheme.OUTLINE}
+                inverted
             >
                 {t('Wrap')}
             </Button>
             <div className={cls.switcher}>
                 <ThemeSwitcher />
-                <LangSwitcher className={cls.lang} />
+                <LangSwitcher className={classNames(cls.lang, { [cls.collapsed]: collapsed })} />
             </div>
         </div>
     );

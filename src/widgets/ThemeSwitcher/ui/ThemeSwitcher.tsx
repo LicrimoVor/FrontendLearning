@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTheme, Theme } from 'app/providers/ThemeProvider';
 
 interface ThemeSwitcherProps {
@@ -16,9 +16,10 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
 
     return (
         <Button
+            data-testid="theme-switcher-button"
             className={classNames('', {}, [className])}
             onClick={hundlerTheme}
-            theme={ThemeButton.CLEAR}
+            theme={ButtonTheme.CLEAR}
         >
             {theme === Theme.DARK ? <LightIcon /> : <DarkIcon />}
         </Button>

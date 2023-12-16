@@ -21,6 +21,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
         <div className={classNames(cls.Navbar, {}, [className])}>
             <div className={cls.links}>
                 <AppLink
+                    data-testid="main-link"
                     theme={AppLinkTheme.SECONDERY}
                     to="/"
                     inverted
@@ -29,6 +30,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
                     {t('Main')}
                 </AppLink>
                 <AppLink
+                    data-testid="about-link"
                     to="/about"
                     inverted
                 >
