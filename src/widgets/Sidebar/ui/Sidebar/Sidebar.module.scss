@@ -3,8 +3,7 @@
     width: var(--sidebar-width);
     background: var(--inverted-bg-color);
     position: relative;
-    transition: width 0.3s;
-    transition: background-color var(--transition-background-time);
+    transition: background-color var(--transition-background-time), width 0.5s;
 }
 
 .collapsed {
@@ -16,9 +15,21 @@
     bottom: 20px;
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
 .lang {
-    margin-left: 30px;
+    margin-left: 50px;
+
+    &.collapsed { margin-left: 0; }
+}
+
+.wrap {
+    position: relative;
+    left: 50%;
+
+    // margin-right: -50%;
+    transform: translate(-50%);
+    align-items: center;
 }

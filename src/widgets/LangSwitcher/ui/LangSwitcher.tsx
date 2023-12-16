@@ -23,9 +23,11 @@ export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
 
     return (
         <Button
+            data-testid="lang-switcher"
             onClick={hundler}
             className={classNames(cls.LangSwitcher, {}, [className])}
-            theme={ButtonTheme.CLEAR}
+            theme={ButtonTheme.OUTLINE}
+            inverted
         >
             {t('Lang')}
         </Button>
