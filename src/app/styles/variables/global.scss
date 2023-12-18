@@ -16,5 +16,13 @@
     // Размеры сайдбара
     --sidebar-width: 300px;
     --sidebar-width-collapsed: 80px;
+
+    // Время анимации
     --transition-background-time: 1s;
+
+    // Индексы
+    --modal-z-index: 10;
+
+    // Цвета модального окна
+    --overlay-color: rgba(0 0 0 / 50%);
 }

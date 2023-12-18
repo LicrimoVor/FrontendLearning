@@ -8,5 +8,6 @@
   "loading": "loading",
   "Error": "An error has occurred",
   "Refresh": "Refresh page",
-  "ThrowError": "Throw an error"
+  "ThrowError": "Throw an error",
+  "LogIn": "LogIn"
 }
