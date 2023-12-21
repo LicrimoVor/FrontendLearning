@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { BugButton } from 'app/providers/ErrorBoudarie';
+import { Counter } from 'entities/Counter';
 
 /** Главная страница */
 const MainPage: FC = () => {
@@ -11,6 +12,7 @@ const MainPage: FC = () => {
         <div>
             {t('Main page')}
             <BugButton />
+            <Counter />
         </div>
     );
 };
