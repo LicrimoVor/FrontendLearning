@@ -1,3 +1,3 @@
 export { Counter } from './ui/Counter';
-export { CounterSchema } from './model/types/CounterSchema';
-export { counterReducer } from './model/slice/CounterSlice';
+export { CounterSchema } from './model/types/counterSchema';
+export { counterReducer } from './model/slice/counterSlice';

@@ -2,20 +2,21 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Modal } from './Modal';
+import { Input } from './Input';
 
-const meta: Meta<typeof Modal> = {
-    title: 'shared/Modal',
-    component: Modal,
+const meta: Meta<typeof Input> = {
+    title: 'shared/Input',
+    component: Input,
     tags: ['autodocs'],
     args: {
-        isOpen: true,
-        children: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem similique optio mollitia dignissimos tenetur recusandae. Fugit nostrum beatae consequuntur, veritatis exercitationem quis? Eligendi officiis placeat, error possimus quo maxime?',
+        autofocus: true,
+        value: 'test',
+        placeholder: 'Stories:\\test',
     },
 };
 
 export default meta;
-type Story = StoryObj<typeof Modal>;
+type Story = StoryObj<typeof Input>;
 
 export const PrimaryLight: Story = {
     decorators: [

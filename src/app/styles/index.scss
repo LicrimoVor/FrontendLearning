@@ -5,13 +5,12 @@
 
 body {
     font: var(--font-m);
-    transition: background-color var(--transition-background-time);
+    color: var(--primary-color);
 }
 
 .app {
     background: var(--bg-color);
     min-height: 100vh;
-    color: var(--primary-color);
 }
 
 .content-page {

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { BugButton } from 'app/providers/ErrorBoudarie';
 import { Counter } from 'entities/Counter';
+import { Input } from 'shared/ui/Input/Input';
 
 /** Главная страница */
 const MainPage: FC = () => {
@@ -13,6 +14,7 @@ const MainPage: FC = () => {
             {t('Main page')}
             <BugButton />
             <Counter />
+            <Input placeholder="hello" />
         </div>
     );
 };

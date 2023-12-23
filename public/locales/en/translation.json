@@ -9,5 +9,8 @@
   "Error": "An error has occurred",
   "Refresh": "Refresh page",
   "ThrowError": "Throw an error",
-  "LogIn": "LogIn"
+  "LogIn": "LogIn",
+  "Login": "Login",
+  "EnterUsername": "Enter:\\username",
+  "EnterPassword": "Enter:\\password"
 }
