@@ -12,6 +12,7 @@ interface ModalProps {
     isOpen?: boolean,
     onClose?: ()=>void,
     lazy?: boolean,
+    element?: HTMLElement,
 }
 
 const ANIMATION_DELAY = 300;
@@ -24,6 +25,7 @@ export const Modal: FC<ModalProps> = (props) => {
         isOpen,
         onClose,
         lazy,
+        element,
     } = props;
 
     const [isClosing, setIsClosing] = useState(false);
@@ -76,7 +78,7 @@ export const Modal: FC<ModalProps> = (props) => {
     }
     // КОСТЫЛЬ!
     return (
-        <Portal>
+        <Portal element={element}>
             <div
                 className={classNames(cls.Modal, mods, [className])}
             >

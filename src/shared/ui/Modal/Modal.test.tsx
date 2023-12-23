@@ -3,6 +3,6 @@ import { Modal } from './Modal';
 
 describe('Modal', () => {
     test('Test render', () => {
-        const { getByText } = componentRender(<Modal />);
+        componentRender(<Modal />);
     });
 });

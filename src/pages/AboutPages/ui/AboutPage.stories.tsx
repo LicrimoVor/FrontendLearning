@@ -7,19 +7,18 @@ import AboutPage from './AboutPage';
 const meta: Meta<typeof AboutPage> = {
     title: 'pages/AboutPage',
     component: AboutPage,
-    tags: ['autodocs'],
 };
 
 export default meta;
 type Story = StoryObj<typeof AboutPage>;
 
-export const PrimaryLight: Story = {
+export const Light: Story = {
     decorators: [
         themeDecorator(Theme.LIGHT),
     ],
 };
 
-export const PrimaryDark: Story = {
+export const Dark: Story = {
     decorators: [
         themeDecorator(Theme.DARK),
     ],

@@ -7,19 +7,18 @@ import { Navbar } from './Navbar';
 const meta: Meta<typeof Navbar> = {
     title: 'widgets/Navbar',
     component: Navbar,
-    tags: ['autodocs'],
 };
 
 export default meta;
 type Story = StoryObj<typeof Navbar>;
 
-export const PrimaryLight: Story = {
+export const Light: Story = {
     decorators: [
         themeDecorator(Theme.LIGHT),
     ],
 };
 
-export const PrimaryDark: Story = {
+export const Dark: Story = {
     decorators: [
         themeDecorator(Theme.DARK),
     ],

@@ -68,6 +68,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
             )}
             <div className={cls.caretWrapper}>
                 <input
+                    data-testid="input"
                     ref={ref}
                     type={type}
                     value={value}

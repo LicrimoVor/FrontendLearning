@@ -7,7 +7,6 @@ import { AppLink } from './AppLink';
 const meta: Meta<typeof AppLink> = {
     title: 'shared/AppLink',
     component: AppLink,
-    tags: ['autodocs'],
     args: {
         to: '/',
         children: 'test',
@@ -17,13 +16,13 @@ const meta: Meta<typeof AppLink> = {
 export default meta;
 type Story = StoryObj<typeof AppLink>;
 
-export const PrimaryLight: Story = {
+export const Light: Story = {
     decorators: [
         themeDecorator(Theme.LIGHT),
     ],
 };
 
-export const PrimaryDark: Story = {
+export const Dark: Story = {
 
     decorators: [
         themeDecorator(Theme.DARK),

@@ -24,12 +24,14 @@ export const LoginForm: FC<LoginFormProps> = (props) => {
         >
             <Input
                 type="text"
+                data-testid="login"
                 className={cls.input}
                 placeholder={t('EnterUsername')}
                 autofocus
             />
             <Input
                 type="text"
+                data-testid="password"
                 className={cls.input}
                 placeholder={t('EnterPassword')}
             />
