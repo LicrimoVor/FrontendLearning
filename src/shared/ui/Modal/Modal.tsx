@@ -29,18 +29,24 @@ export const Modal: FC<ModalProps> = (props) => {
     } = props;
 
     const [isClosing, setIsClosing] = useState(false);
+    const [isOpening, setIsOpening] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
     const mods: Record<string, boolean> = {
-        [cls.opened]: isOpen,
+        [cls.opened]: isOpening,
         [cls.closing]: isClosing,
     };
 
     useEffect(() => {
-        if (isOpen) {
-            setIsMounted(true);
-        }
+        setIsMounted(isOpen);
+        // Хуй знает, как это работает, но это работает
+        // по факту просто костылина жесткая
+        // # анимашка появления модального окна
+        timerRef.current = setTimeout(() => {
+            setIsOpening(isOpen);
+        }, 0);
+        return () => setIsMounted(false);
     }, [isOpen]);
 
     const closeHandler = useCallback(() => {
