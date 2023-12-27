@@ -3,7 +3,6 @@ import { Preview } from '@storybook/react';
 import { styleDecorator } from '../../src/shared/config/storybook/styleDecorator/styleDecorator';
 import { themeDecorator } from '../../src/shared/config/storybook/themeDecorator/themeDecorator';
 import { routerDecorator } from '../../src/shared/config/storybook/routerDecorator/routerDecorator';
-import { storeDecorator } from '../../src/shared/config/storybook/storeDecorator/storeDecorator';
 import { Theme } from '../../src/app/providers/ThemeProvider';
 
 const preview: Preview = {
@@ -21,7 +20,6 @@ const preview: Preview = {
     },
     decorators: [
         styleDecorator,
-        storeDecorator,
         themeDecorator(Theme.LIGHT),
         routerDecorator,
     ],

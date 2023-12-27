@@ -9,7 +9,9 @@
   "Lang": "Lang",
   "Loading": "Loading",
   "LogIn": "LogIn",
+  "LogOut": "",
   "Login": "Login",
+  "LoginForm": "",
   "Main": "Main",
   "Main page": "Main page",
   "Not found page": "Not found page",
@@ -19,5 +21,6 @@
   "ThrowError": "ThrowError",
   "Username": "Username",
   "Wrap": "Wrap",
+  "Wrong username or password": "",
   "loading": "loading"
 }

@@ -82,3 +82,10 @@ export const SizeXL: Story = {
         children: '<',
     },
 };
+
+export const Disabled: Story = {
+    args: {
+        children: 'Login',
+        disabled: true,
+    },
+};

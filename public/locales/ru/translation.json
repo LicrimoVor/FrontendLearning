@@ -12,5 +12,8 @@
   "LogIn": "Войти",
   "Login": "Войти",
   "EnterUsername": "Ввод:\\логин",
-  "EnterPassword": "Ввод:\\пароль"
+  "EnterPassword": "Ввод:\\пароль",
+  "LoginForm": "Форма авторизации",
+  "Wrong username or password": "Вы ввели неправильный логин или пароль",
+  "LogOut": "Выйти"
 }

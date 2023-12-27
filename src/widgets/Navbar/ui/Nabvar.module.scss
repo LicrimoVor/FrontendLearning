@@ -6,6 +6,7 @@
     align-items: center;
     padding: 20px;
     transition: background-color var(--transition-background-time);
+    flex-direction: row-reverse;
 }
 
 .links {
