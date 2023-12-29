@@ -9,6 +9,7 @@ const initialState: LoginSchema = {
     password: '',
 };
 
+/** Слайс (он же редюсер) для логина */
 export const loginSlice = createSlice({
     name: 'login',
     initialState,

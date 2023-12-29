@@ -6,6 +6,7 @@ type ActionCreatorType<Return, Arg, RejectedValue> = (arg: Arg) => (
     AsyncThunkAction<Return, Arg, {rejectValue: RejectedValue}>
 )
 
+/** Класс для тестирования работы со стейтом */
 export class TestAsyncThunk<Return, Arg, RejectedValue> {
     dispatch: jest.MockedFn<any>;
 

@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { Link, LinkProps } from 'react-router-dom';
-import { FC } from 'react';
+import { FC, memo, ReactNode } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
@@ -13,10 +14,11 @@ interface AppLinkProps extends LinkProps {
   className?: string,
   inverted?: boolean,
   theme?: AppLinkTheme,
+  children?: ReactNode,
 }
 
 /** Ссылочка */
-export const AppLink: FC<AppLinkProps> = (props) => {
+export const AppLink: FC<AppLinkProps> = memo((props: AppLinkProps) => {
     const {
         className,
         to,
@@ -37,4 +39,4 @@ export const AppLink: FC<AppLinkProps> = (props) => {
             {children}
         </Link>
     );
-};
+});

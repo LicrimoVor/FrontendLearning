@@ -1,5 +1,6 @@
 type Mods = Record<string, boolean | string>
 
+/** Функция прокаченой конкатенации */
 export function classNames(cls:string, mods: Mods = {}, additional: string[] = []): string {
     return [
         cls,

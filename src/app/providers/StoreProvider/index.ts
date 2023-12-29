@@ -1,1 +1,1 @@
-export { StoreProvider } from './ui/StoreProvider';
+export { StoreProvider, AppDispatch } from './ui/StoreProvider';

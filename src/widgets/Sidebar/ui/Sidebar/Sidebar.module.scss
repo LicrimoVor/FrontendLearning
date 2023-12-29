@@ -40,35 +40,10 @@
     flex-direction: column;
 }
 
-.item {
-    display: flex;
-    align-items: center;
-}
-
-.link {
-    margin-left: 10px;
-    opacity: 1;
-}
-
-.icon {
-    &.secondary {
-        fill: var(--inverted-secondary-color);
-    }
-
-    &.primary {
-        fill: var(--inverted-primary-color);
-    }
-}
-
 .collapsed {
     width: var(--sidebar-width-collapsed);
 
     .switcher {
         flex-direction: column;
-    }
-
-    .link {
-        opacity: 0;
-        transition: 0.2s opacity;
     }
 }

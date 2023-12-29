@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
@@ -11,7 +11,7 @@ interface ThemeSwitcherProps {
 }
 
 /** Переключатель стилей */
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
+export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }: ThemeSwitcherProps) => {
     const { theme, hundlerTheme } = useTheme();
 
     return (
@@ -24,4 +24,4 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
             {theme === Theme.DARK ? <LightIcon /> : <DarkIcon />}
         </Button>
     );
-};
+});

@@ -1,6 +1,6 @@
 import {
     ChangeEvent,
-    FC, InputHTMLAttributes, memo, MemoExoticComponent, useEffect, useRef, useState,
+    FC, InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -11,6 +11,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value'|'onCha
 interface InputProps extends HTMLInputProps {
     className?: string,
     value?: string,
+    // eslint-disable-next-line no-unused-vars
     onChange?: (value: string) => void,
     type?: string,
     autofocus?: boolean,

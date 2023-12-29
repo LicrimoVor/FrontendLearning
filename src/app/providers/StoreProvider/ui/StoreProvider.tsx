@@ -30,3 +30,5 @@ export const StoreProvider: FC<StoreProviderProps> = (props) => {
         </Provider>
     );
 };
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

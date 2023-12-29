@@ -9,6 +9,7 @@ const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
     loginForm: loginReducer,
 };
 
+/** Декоратор глобал стора для сторисов */
 export const storeDecorator = (
     state: DeepPartial<StateSchema>,
     asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>,

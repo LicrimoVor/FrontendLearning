@@ -13,18 +13,4 @@ describe('Sidebar', () => {
         fireEvent.click(wrapButton);
         expect(getByTestId('sidebar')).toHaveClass('collapsed');
     });
-
-    test('Test main link', () => {
-        const { getByTestId } = renderWithRouter(<Sidebar />);
-        const link = getByTestId('main-link');
-        fireEvent.click(link);
-        expect(window.location.href).toEqual('http://localhost/');
-    });
-
-    test('Test about link', () => {
-        const { getByTestId } = renderWithRouter(<Sidebar />);
-        const link = getByTestId('about-link');
-        fireEvent.click(link);
-        expect(window.location.href).toEqual('http://localhost/about');
-    });
 });

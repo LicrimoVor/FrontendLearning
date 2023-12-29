@@ -1,4 +1,5 @@
-import { FC } from 'react';
+/* eslint-disable no-unused-vars */
+import { FC, memo } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
@@ -17,13 +18,12 @@ interface TextProps {
 }
 
 /** Красивенький текст везде и всюду */
-export const Text: FC<TextProps> = (props) => {
+export const Text: FC<TextProps> = memo((props: TextProps) => {
     const {
         className,
         title,
         text,
         theme = TextTheme.PRIMARY,
-        ...otherProps
     } = props;
 
     const mods = {
@@ -42,4 +42,4 @@ export const Text: FC<TextProps> = (props) => {
             )}
         </div>
     );
-};
+});

@@ -3,6 +3,7 @@ import {
 } from '@reduxjs/toolkit';
 import { ReducerManager, StateSchema, StateSchemaKey } from './stateShema';
 
+/** Менеджер редюсеров и стейтов. Позволяет динамически добавлять/удалять стейты */
 export function createReducerManager(
     initialReducers: ReducersMapObject<StateSchema>,
 ): ReducerManager {

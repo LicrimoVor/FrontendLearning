@@ -9,6 +9,7 @@ interface LoginByUsernameProps {
     password: string
 }
 
+/** Асинхронный редюсер для логина с помощью username и password */
 export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, {rejectValue: string}>(
     'login/loginByUsername',
     async (authData, thunkAPI) => {

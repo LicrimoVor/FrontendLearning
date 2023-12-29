@@ -13,6 +13,7 @@ export interface componentRenderOptions {
     initialState?: DeepPartial<StateSchema>
 }
 
+/** Декоратор для тестов. Добавляет стор, роутер и i18n */
 export const componentRender = (
     component: ReactNode,
     options: componentRenderOptions = {},
