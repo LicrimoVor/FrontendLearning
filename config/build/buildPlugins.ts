@@ -8,7 +8,9 @@ import { BuildOptions } from './types/config';
 const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 /** Настройка плагинов */
-export function BuildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
+export function BuildPlugins(
+    { paths, isDev, apiUrl }: BuildOptions,
+): webpack.WebpackPluginInstance[] {
     const plugins: webpack.WebpackPluginInstance[] = [
         new HtmlWebpackPlugin({
             template: paths.html,
@@ -20,6 +22,7 @@ export function BuildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
         }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl),
         }),
     ];
 

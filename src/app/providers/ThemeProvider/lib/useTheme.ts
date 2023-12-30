@@ -13,12 +13,15 @@ export function useTheme(): UseThemeResult {
 
     const hundlerTheme = () => {
         const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
-        setTheme(newTheme);
+        setTheme?.(newTheme);
 
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
     };
 
-    document.body.className = theme;
+    document.body.className = theme as string;
 
-    return { theme, hundlerTheme };
+    return {
+        theme: theme || Theme.LIGHT,
+        hundlerTheme,
+    };
 }
