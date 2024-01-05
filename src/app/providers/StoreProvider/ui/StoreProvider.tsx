@@ -12,7 +12,7 @@ interface StoreProviderProps {
     asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
 }
 
-/** Provider сторисов для редакса */
+/** Provider store для редакса */
 export const StoreProvider: FC<StoreProviderProps> = (props) => {
     const {
         children,

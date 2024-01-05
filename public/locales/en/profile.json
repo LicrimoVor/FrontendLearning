@@ -1,3 +1,16 @@
 {
-  "profile.Change": "Change"
+  "Change": "Change",
+  "FirstName": "FirstName",
+  "Profile": "Profile",
+  "LastName": "LastName",
+  "ErrorProfile": "An error occurred while uploading the profile",
+  "UpdatePage": "Refresh page",
+  "Edit": "Edit",
+  "Cancel": "Cancel",
+  "Save": "Save",
+  "Age": "Age",
+  "City": "City",
+  "Country": "Country",
+  "Currency": "Currency",
+  "ProfileAvatar": "Link/avatar"
 }

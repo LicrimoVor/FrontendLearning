@@ -15,5 +15,6 @@
   "EnterPassword": "Enter:\\password",
   "LoginForm": "Authorization form",
   "Wrong username or password": "You entered the wrong username or password",
-  "LogOut": "LogOut"
+  "LogOut": "LogOut",
+  "Avatar": "Avatar"
 }

@@ -1,10 +1,10 @@
-import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile';
 import { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { EditableProfileCard, fetchProfileData, profileReducer } from 'features/EditableProfile';
 import cls from './ProfilePage.module.scss';
 
 const reducers: ReducerList = {
@@ -33,7 +33,7 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
             <div
                 className={classNames('', {}, [className])}
             >
-                <ProfileCard />
+                <EditableProfileCard />
             </div>
         </DynamicModuleLoader>
 
