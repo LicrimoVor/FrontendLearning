@@ -15,13 +15,13 @@ export function createReduxStore(
     asyncReducers?: ReducersMapObject<StateSchema>,
     navigate?: NavigateFunction,
 ) {
-    const rootReducer: ReducersMapObject<StateSchema> = {
+    const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
     };
 
-    const reducerManager = createReducerManager(rootReducer);
+    const reducerManager = createReducerManager(rootReducers);
     const extraArg: ThunkExtraArg = {
         api: $api,
         navigate,

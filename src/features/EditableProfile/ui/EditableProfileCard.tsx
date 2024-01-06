@@ -1,28 +1,52 @@
-import { FC, useCallback } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
+import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ProfileCard } from 'entities/Profile';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getProfileData } from '../model/selectors/getProfileData/getProfileData';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
-import { profileActions } from '../model/slice/profileSlice';
+import { profileActions, profileReducer } from '../model/slice/profileSlice';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
+import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { ValidateProfileError } from '../model/types/validateProfileErrir';
+import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
 
 const regNumb: RegExp = /^[+ 0-9]{0,3}$/;
 
-/** Карта изменяемого профиля */
+const reducers: ReducerList = {
+    profile: profileReducer,
+};
+
+/** Карточка изменяемого профиля */
 export const EditableProfileCard: FC = () => {
-    const data = useSelector(getProfileData);
+    const validateErrors = useSelector(getProfileValidateErrors);
     const formData = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadonly);
     const dispatch = useAppDispatch();
+    const { t } = useTranslation('profile');
+
+    const validateErrorTranslate = {
+        [ValidateProfileError.INCORRECT_AGE]: t('INCORRECT_AGE'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('INCORRECT_COUNTRY'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('INCORRECT_USER_DATA'),
+        [ValidateProfileError.NO_DATA]: t('NO_DATA'),
+        [ValidateProfileError.SERVER_ERROR]: t('SERVER_ERROR'),
+    };
+
+    useEffect(() => {
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
+    }, [dispatch]);
 
     const onChangeFirstName = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({ first: value }));
@@ -33,7 +57,6 @@ export const EditableProfileCard: FC = () => {
     }, [dispatch]);
 
     const onChangeAge = useCallback((value?: string) => {
-        console.log(value);
         if (value === undefined) {
             dispatch(profileActions.updateProfile({ age: 0 }));
         }
@@ -59,8 +82,15 @@ export const EditableProfileCard: FC = () => {
     }, [dispatch]);
 
     return (
-        <div>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <ProfilePageHeader />
+            {validateErrors?.length && validateErrors.map((err) => (
+                <Text
+                    theme={TextTheme.ERROR}
+                    text={validateErrorTranslate[err]}
+                    key={err}
+                />
+            ))}
             <ProfileCard
                 data={formData}
                 error={error}
@@ -74,6 +104,6 @@ export const EditableProfileCard: FC = () => {
                 onChangeCountry={onChangeCountry}
                 readonly={readonly}
             />
-        </div>
+        </DynamicModuleLoader>
     );
 };

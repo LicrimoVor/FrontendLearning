@@ -22,7 +22,22 @@ const preview: Preview = {
         styleDecorator,
         themeDecorator(Theme.LIGHT),
         routerDecorator,
+
     ],
+    globalTypes: {
+        locale: {
+            name: 'Locale',
+            description: 'Переводы!',
+            toolbar: {
+                icon: 'globe',
+                items: [
+                    { value: 'en', title: 'English' },
+                    { value: 'ru', title: 'Russian' },
+                ],
+                showName: true,
+            },
+        },
+    },
 };
 
 export default preview;

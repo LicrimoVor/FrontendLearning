@@ -12,5 +12,10 @@
   "City": "Город",
   "Country": "Страна",
   "Currency": "Валюта",
-  "ProfileAvatar": "Ссылка/аватар"
+  "ProfileAvatar": "Ссылка/аватар",
+  "INCORRECT_USER_DATA": "Обязательны имя и фамилия",
+  "INCORRECT_AGE": "Некорректный возраст",
+  "INCORRECT_COUNTRY": "Некорретный регион",
+  "NO_DATA": "Данные не указаны",
+  "SERVER_ERROR": "Ошибка сервера"
 }

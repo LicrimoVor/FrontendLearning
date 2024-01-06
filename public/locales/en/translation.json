@@ -16,5 +16,6 @@
   "LoginForm": "Authorization form",
   "Wrong username or password": "You entered the wrong username or password",
   "LogOut": "LogOut",
-  "Avatar": "Avatar"
+  "Avatar": "Avatar",
+  "Profile": "Profile"
 }

@@ -1,15 +1,10 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { EditableProfileCard, fetchProfileData, profileReducer } from 'features/EditableProfile';
-import cls from './ProfilePage.module.scss';
 
-const reducers: ReducerList = {
-    profile: profileReducer,
-};
+import { EditableProfileCard } from 'features/EditableProfile';
+import cls from './ProfilePage.module.scss';
 
 interface ProfilePageProps {
     className?: string
@@ -18,24 +13,18 @@ interface ProfilePageProps {
 /** Страница профиля пользователя */
 const ProfilePage: FC<ProfilePageProps> = (props) => {
     const { t } = useTranslation();
-    const dispatch = useAppDispatch();
-
-    useEffect(() => {
-        dispatch(fetchProfileData());
-    }, [dispatch]);
 
     const {
         className,
     } = props;
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div
-                className={classNames('', {}, [className])}
-            >
-                <EditableProfileCard />
-            </div>
-        </DynamicModuleLoader>
+
+        <div
+            className={classNames('', {}, [className])}
+        >
+            <EditableProfileCard />
+        </div>
 
     );
 };

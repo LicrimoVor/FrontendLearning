@@ -1,6 +1,5 @@
 import { fireEvent } from '@testing-library/react';
 import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
-import { renderWithRouter } from 'shared/lib/tests/renderWithRouter/renderWithRouter';
 
 import { Sidebar } from './Sidebar';
 
