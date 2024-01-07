@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 
 import buildCssLoader from './loaders/buildCssLoader';
+import buildBabelLoader from './loaders/buildBabelLoader';
 import { BuildOptions } from './types/config';
 
 /** Настройка загрузчиков файлов */
@@ -12,26 +13,6 @@ export function BuildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
                 loader: 'file-loader',
             },
         ],
-    };
-
-    const babelLoader = {
-        test: /\.(js|tsx|tsx|ts)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-                plugins: [
-                    [
-                        'i18next-extract',
-                        {
-                            locales: ['ru', 'en'],
-                            keyAsDefaultValue: true,
-                        },
-                    ],
-                ],
-            },
-        },
     };
 
     const svgLoader = {
@@ -46,6 +27,7 @@ export function BuildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     };
 
     const cssLoader = buildCssLoader(isDev);
+    const babelLoader = buildBabelLoader(isDev);
 
     return [
         babelLoader,
