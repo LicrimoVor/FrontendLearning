@@ -2,7 +2,14 @@
   "About": "About",
   "About page": "About page",
   "Age": "Age",
+  "ArticleBlockCodeComponent": "",
+  "ArticleBlockImageComponent": "",
+  "ArticleBlockTextComponent": "",
+  "ArticleDetail": "ArticleDetail",
   "ArticleDetailPage": "ArticleDetailPage",
+  "ArticleErorr": "ArticleErorr",
+  "ArticleErrorInLoading": "ArticleErrorInLoading",
+  "ArticleNotFound": "ArticleNotFound",
   "ArticlePage": "ArticlePage",
   "Avatar": "Avatar",
   "Cancel": "Cancel",
@@ -50,5 +57,6 @@
     "ErrorProfile": "ErrorProfile",
     "RefreshPage": "RefreshPage"
   },
-  "АЗАЗЗАЗАЗ": "АЗАЗЗАЗАЗ"
+  "АЗАЗЗАЗАЗ": "АЗАЗЗАЗАЗ",
+  "Копировать": ""
 }

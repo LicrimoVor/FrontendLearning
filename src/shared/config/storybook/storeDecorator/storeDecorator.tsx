@@ -1,6 +1,7 @@
 import { Decorator } from '@storybook/react';
 
 import { StoreProvider } from 'app/providers/StoreProvider';
+import { articleDetailReducer } from 'entities/Article/model/slice/articleSlice';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { profileReducer } from 'features/EditableProfile';
 import { StateSchema } from 'shared/config/reduxConfig/stateShema';
@@ -9,6 +10,7 @@ import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicMo
 const defaultAsyncReducers: ReducerList = {
     loginForm: loginReducer,
     profile: profileReducer,
+    articleDetail: articleDetailReducer,
 };
 
 /** Декоратор глобал стора для сторисов */

@@ -11,12 +11,13 @@ i18n
         lng: 'ru',
         fallbackLng: 'ru',
         debug: __IS_DEV__,
+        load: 'languageOnly',
 
         interpolation: {
             escapeValue: false,
         },
         backend: {
-            loadPath: 'locales/{{lng}}//{{ns}}.json',
+            loadPath: '/locales/{{lng}}/{{ns}}.json',
         },
     });
 

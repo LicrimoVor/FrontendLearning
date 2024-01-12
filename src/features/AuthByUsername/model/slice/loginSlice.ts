@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { User } from 'entities/User';
 
 import { loginByUsername } from '../services/loginByUsername/loginByUsername';
 import { LoginSchema } from '../types/loginSchema';
@@ -27,12 +28,12 @@ export const loginSlice = createSlice({
                 state.error = undefined;
                 state.isLoading = true;
             })
-            .addCase(loginByUsername.fulfilled, (state, actions) => {
+            .addCase(loginByUsername.fulfilled, (state, action: PayloadAction<User>) => {
                 state.isLoading = false;
             })
-            .addCase(loginByUsername.rejected, (state, actions) => {
+            .addCase(loginByUsername.rejected, (state, action) => {
                 state.isLoading = false;
-                state.error = actions.payload;
+                state.error = action.payload;
             });
     },
 });

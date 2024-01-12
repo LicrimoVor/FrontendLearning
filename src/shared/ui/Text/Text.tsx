@@ -16,12 +16,18 @@ export enum TextAlign {
     CENTER = 'center',
 }
 
+export enum TextSize {
+    L = 'size_l',
+    M = 'size_m',
+}
+
 interface TextProps {
     className?: string
     title?: string,
     text?: string,
     theme?: TextTheme,
     align?: TextAlign,
+    size?: TextSize,
 }
 
 /** Красивенький текст везде и всюду */
@@ -32,11 +38,13 @@ export const Text: FC<TextProps> = memo((props: TextProps) => {
         text,
         theme = TextTheme.PRIMARY,
         align = TextAlign.LEFT,
+        size = TextSize.M,
     } = props;
 
     const mods = {
         [cls[theme]]: true,
         [cls[align]]: true,
+        [cls[size]]: true,
     };
 
     return (

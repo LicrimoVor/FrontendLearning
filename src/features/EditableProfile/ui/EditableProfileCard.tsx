@@ -15,7 +15,7 @@ import { profileActions, profileReducer } from '../model/slice/profileSlice';
 import { getProfileReadonly } from '../model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { ValidateProfileError } from '../model/types/validateProfileErrir';
+import { ValidateProfileError } from '../model/types/validateProfileError';
 import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
 
 const regNumb: RegExp = /^[+ 0-9]{0,3}$/;

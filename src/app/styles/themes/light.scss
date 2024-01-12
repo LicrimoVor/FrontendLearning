@@ -1,8 +1,15 @@
 .app_light_theme {
     --bg-color: #fff;
-    --primary-color: rgb(29 7 107);
-    --secondary-color: rgb(117 150 180);
+    --primary-color: #1d076b;
+    --secondary-color: #7596b4;
     --inverted-bg-color: #0e0e25;
     --inverted-primary-color: #00ff2a;
     --inverted-secondary-color: #7fc78d;
+
+    // skeleton
+    --skeleton-shadow: #b5f8ac;
+    --skeleton-color: #67ff67;
+
+    // code
+    --code-bg: #cfffd1;
 }

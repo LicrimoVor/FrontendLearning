@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 
 const meta: Meta<typeof Text> = {
     title: 'shared/Text',
@@ -36,21 +36,21 @@ export const Dark: Story = {
     },
 };
 
-export const InvertedLight: Story = {
-    decorators: [
-        themeDecorator(Theme.LIGHT),
-    ],
+export const Inverted: Story = {
     args: {
         theme: TextTheme.INVERTED,
     },
 };
 
-export const InvertedDark: Story = {
-    decorators: [
-        themeDecorator(Theme.DARK),
-    ],
+export const SizeM: Story = {
     args: {
-        theme: TextTheme.INVERTED,
+        size: TextSize.M,
+    },
+};
+
+export const SizeL: Story = {
+    args: {
+        size: TextSize.L,
     },
 };
 

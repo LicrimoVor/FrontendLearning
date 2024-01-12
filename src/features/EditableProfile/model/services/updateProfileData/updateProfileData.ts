@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Profile } from 'entities/Profile';
 import { ThunkConfig } from 'shared/config/reduxConfig/stateShema';
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
-import { ValidateProfileError } from '../../types/validateProfileErrir';
+import { ValidateProfileError } from '../../types/validateProfileError';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 
 /** Асинхронный редюсер для обновления profile */

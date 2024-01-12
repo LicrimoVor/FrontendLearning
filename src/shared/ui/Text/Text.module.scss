@@ -1,35 +1,29 @@
 .primary {
     &.title {
-        font: var(--font-l);
         color: var(--primary-color);
     }
 
     &.text {
-        font: var(--font-m);
         color: var(--secondary-color);
     }
 }
 
 .inverted {
     &.title {
-        font: var(--font-l);
         color: var(--inverted-primary-color);
     }
 
     &.text {
-        font: var(--font-m);
         color: var(--inverted-secondary-color);
     }
 }
 
 .error {
     &.title {
-        font: var(--font-l);
         color: var(--primary-red-color);
     }
 
     &.text {
-        font: var(--font-m);
         color: var(--secondary-red-color);
     }
 }
@@ -44,4 +38,34 @@
 
 .center {
     text-align: center;
+}
+
+.size_xl {
+    &.title {
+        font: var(--font-l);
+    }
+
+    &.text {
+        font: var(--font-m);
+    }
+}
+
+.size_l {
+    &.title {
+        font: var(--font-xl);
+    }
+
+    &.text {
+        font: var(--font-l);
+    }
+}
+
+.size_m {
+    &.title {
+        font: var(--font-l);
+    }
+
+    &.text {
+        font: var(--font-m);
+    }
 }

@@ -1,5 +1,5 @@
 import { StateSchema } from 'shared/config/reduxConfig/stateShema';
-import { ValidateProfileError } from '../../types/validateProfileErrir';
+import { ValidateProfileError } from '../../types/validateProfileError';
 import { getProfileValidateErrors } from './getProfileValidateErrors';
 
 describe('getProfileValidateErrors', () => {
