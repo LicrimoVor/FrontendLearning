@@ -11,7 +11,7 @@ import { LoginModal } from 'features/AuthByUsername';
 import cls from './Nabvar.module.scss';
 
 interface NavbarProps {
-  className?: string,
+    className?: string,
 }
 
 /** Верхний бар */

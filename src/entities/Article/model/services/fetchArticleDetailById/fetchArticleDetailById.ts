@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'shared/config/reduxConfig/stateShema';
 import { Article } from '../../types/article';
 
-/** Асинхронный редюсер для логина с помощью username и password */
+/** Асинхронный редюсер для получения полной статьи */
 export const fetchArticleDetailById = createAsyncThunk<
     Article, string, ThunkConfig<string>
 >(

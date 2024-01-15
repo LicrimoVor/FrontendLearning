@@ -1,76 +1,39 @@
 import { User, UserSchema } from '../types/user';
 import { userActions, userReducer } from './userSlice';
 
-const data = {};
-
 describe('userSlice', () => {
-    test('Test set readonly', () => {
-        const state: DeepPartial<UserSchema> = {
-            readonly: false,
+    test('Test set authData', () => {
+        const user: User = {
+            id: '1',
+            username: 'test',
         };
+        const state: DeepPartial<UserSchema> = {};
         expect(userReducer(
             state as UserSchema,
-            profileActions.setReadonly(true),
-        )).toEqual({ readonly: true });
+            userActions.setAuthData(user),
+        )).toEqual({ authData: user });
     });
 
-    test('Test cancel edit', () => {
-        const state: DeepPartial<UserSchema> = {
-            readonly: false,
-            validateError: [ValidateProfileError.INCORRECT_AGE],
-            data,
-        };
+    test('Test init authData', () => {
+        const state: DeepPartial<UserSchema> = {};
         expect(userReducer(
             state as UserSchema,
-            profileActions.cancelEdit(),
+            userActions.initAuthData(),
         )).toEqual({
-            readonly: true,
-            validateError: undefined,
-            data,
-            form: data,
+            _inited: true,
         });
     });
 
-    test('Test update profile', () => {
+    test('Test logout', () => {
         const state: DeepPartial<UserSchema> = {
-            data,
+            authData: {
+                id: '1',
+                username: 'test',
+            },
         };
         expect(userReducer(
             state as UserSchema,
-            profileActions.updateProfile({ ...data, lastname: 'admin' }),
-        )).toEqual({
-            data,
-            form: { ...data, lastname: 'admin' },
-        });
-    });
-
-    test('Test update profile pending service', () => {
-        const state: DeepPartial<UserSchema> = {
-            isLoading: false,
-            validateError: [ValidateProfileError.SERVER_ERROR],
-        };
-        expect(userReducer(
-            state as UserSchema,
-            updateProfileData.pending,
-        )).toEqual({
-            isLoading: true,
-            validateError: undefined,
-        });
-    });
-
-    test('Test update profile fulfilled service', () => {
-        const state: DeepPartial<UserSchema> = {
-            isLoading: true,
-        };
-        expect(userReducer(
-            state as UserSchema,
-            updateProfileData.fulfilled(data, ''),
-        )).toEqual({
-            isLoading: false,
-            readonly: true,
-            form: data,
-            data,
-            validateError: undefined,
-        });
+            userActions.logout(),
+        )).toEqual({ authData: undefined });
     });
 });
