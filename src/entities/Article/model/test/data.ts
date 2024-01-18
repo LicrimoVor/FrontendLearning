@@ -1,7 +1,7 @@
 import { Article, ArticleBlockType, ArticleType } from '../types/article';
 
-export const articleData: Article = {
-    id: 1,
+export const articleTest: Article = {
+    id: '1',
     title: 'JS news',
     subtitle: 'ЧТО то новое в JS за 23 год',
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png',

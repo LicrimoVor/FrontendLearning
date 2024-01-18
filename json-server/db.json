@@ -119,16 +119,78 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": 1,
+      "text": "hello world",
+      "userId": "1",
+      "id": "vRcF7Ea"
+    },
+    {
+      "articleId": 1,
+      "text": "",
+      "userId": "1",
+      "id": "uLD0dBl"
+    },
+    {
+      "articleId": 1,
+      "text": "hello world",
+      "userId": "1",
+      "id": "ONA-mua"
+    },
+    {
+      "articleId": 1,
+      "text": "мем",
+      "userId": "1",
+      "id": "YVEF8t2"
+    },
+    {
+      "articleId": 1,
+      "text": "дщд",
+      "userId": "1",
+      "id": "WKqYiUH"
+    },
+    {
+      "articleId": 1,
+      "text": "дщдыва",
+      "userId": "1",
+      "id": "wHk7cDG"
+    },
+    {
+      "articleId": 1,
+      "text": "hello",
+      "userId": "1",
+      "id": "mI7h3qj"
+    },
+    {
+      "articleId": 1,
+      "text": "asdasd",
+      "userId": "1",
+      "id": "pZIBoqj"
     }
   ],
-  "profile": {
-    "first": "asdasdasd",
-    "lastname": "asdsafsdf",
-    "age": 123,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "asdasda",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Admin",
+      "lastname": "asdsafsdf",
+      "age": 123,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "asdasda",
+      "username": "admin",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    },
+    {
+      "id": "2",
+      "first": "lol",
+      "lastname": "kek",
+      "age": 15,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "SBK",
+      "username": "user",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
+    }
+  ]
 }

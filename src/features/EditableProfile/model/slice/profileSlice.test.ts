@@ -1,19 +1,8 @@
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import { profileTest } from 'entities/Profile/model/test/data';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileSchema } from '../types/profileSchema';
 import { ValidateProfileError } from '../types/validateProfileError';
 import { profileActions, profileReducer } from './profileSlice';
-
-const data = {
-    username: 'licrimovor',
-    age: 21,
-    country: Country.Russia,
-    lastname: 'licrimovor',
-    first: 'ivan',
-    city: 'SBK',
-    currency: Currency.RUB,
-};
 
 describe('profileSlice', () => {
     test('Test set readonly', () => {
@@ -30,7 +19,7 @@ describe('profileSlice', () => {
         const state: DeepPartial<ProfileSchema> = {
             readonly: false,
             validateError: [ValidateProfileError.INCORRECT_AGE],
-            data,
+            data: profileTest,
         };
         expect(profileReducer(
             state as ProfileSchema,
@@ -38,21 +27,21 @@ describe('profileSlice', () => {
         )).toEqual({
             readonly: true,
             validateError: undefined,
-            data,
-            form: data,
+            data: profileTest,
+            form: profileTest,
         });
     });
 
     test('Test update profile', () => {
         const state: DeepPartial<ProfileSchema> = {
-            data,
+            data: profileTest,
         };
         expect(profileReducer(
             state as ProfileSchema,
-            profileActions.updateProfile({ ...data, lastname: 'admin' }),
+            profileActions.updateProfile({ ...profileTest, lastname: 'admin' }),
         )).toEqual({
-            data,
-            form: { ...data, lastname: 'admin' },
+            data: profileTest,
+            form: { ...profileTest, lastname: 'admin' },
         });
     });
 
@@ -76,12 +65,12 @@ describe('profileSlice', () => {
         };
         expect(profileReducer(
             state as ProfileSchema,
-            updateProfileData.fulfilled(data, ''),
+            updateProfileData.fulfilled(profileTest, ''),
         )).toEqual({
             isLoading: false,
             readonly: true,
-            form: data,
-            data,
+            form: profileTest,
+            data: profileTest,
             validateError: undefined,
         });
     });

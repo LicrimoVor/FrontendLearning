@@ -1,4 +1,6 @@
-import { FC, memo } from 'react';
+import {
+    FC, memo, useCallback, Suspense,
+} from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -11,9 +13,12 @@ import { CommentList } from 'entities/Comment';
 import { useInitialEffect } from 'shared/lib/hooks/userInitialEffect/userInitialEffect';
 import { fetchCommentsByAcrticleId } from 'pages/ArticleDetailPage/model/services/fetchCommentsByAcrticleId/fetchCommentsByAcrticleId';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { CreateCommentForm } from 'features/CreateComment';
+import { Loader } from 'shared/ui/Loader/Loader';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { articleDetailCommentsReducer, getArticleComments } from '../../model/slice/articleDetailCommentsSlice';
 import cls from './ArticleDetailPage.module.scss';
+import { sendCommentForArticle } from '../../model/services/createCommentForArticle/sendCommentForArticle';
 
 interface ArticleDetailPageProps {
     className?: string
@@ -29,7 +34,7 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (props) => {
         className,
     } = props;
     const { t } = useTranslation('article-detail');
-    const dispath = useAppDispatch();
+    const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
@@ -37,8 +42,12 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (props) => {
     if (__PROJECT__ === 'storybook') id = '1';
 
     useInitialEffect(() => {
-        dispath(fetchCommentsByAcrticleId(id));
+        dispatch(fetchCommentsByAcrticleId(id));
     });
+
+    const onCommentSend = useCallback((text: string) => {
+        dispatch(sendCommentForArticle(text));
+    }, [dispatch]);
 
     if (!id) {
         return (
@@ -51,21 +60,26 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (props) => {
     }
 
     return (
-        <DynamicModuleLoader reducers={redusers} removeAfterUnmount>
-            <div
-                className={classNames(cls.ArticleDetailPage, {}, [className])}
-            >
-                <ArticleDetail id={id} />
-                <Text
-                    title={t('Comments')}
-                    className={cls.commentTitle}
-                />
-                <CommentList
-                    isLoading={commentsIsLoading}
-                    comments={comments}
-                />
-            </div>
-        </DynamicModuleLoader>
+        <Suspense fallback={<Loader />}>
+            <DynamicModuleLoader reducers={redusers} removeAfterUnmount>
+                <div
+                    className={classNames(cls.ArticleDetailPage, {}, [className])}
+                >
+                    <ArticleDetail id={id} />
+                    <Text
+                        title={t('Comments')}
+                        className={cls.commentTitle}
+                    />
+                    <CreateCommentForm
+                        onCommentSend={onCommentSend}
+                    />
+                    <CommentList
+                        isLoading={commentsIsLoading}
+                        comments={comments}
+                    />
+                </div>
+            </DynamicModuleLoader>
+        </Suspense>
     );
 };
 

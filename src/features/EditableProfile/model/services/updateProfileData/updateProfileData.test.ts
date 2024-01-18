@@ -1,18 +1,7 @@
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import { profileTest } from 'entities/Profile/model/test/data';
 import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk';
 import { ValidateProfileError } from '../../types/validateProfileError';
 import { updateProfileData } from './updateProfileData';
-
-const data = {
-    username: 'licrimovor',
-    age: 21,
-    country: Country.Russia,
-    lastname: 'licrimovor',
-    first: 'ivan',
-    city: 'SBK',
-    currency: Currency.RUB,
-};
 
 describe('updateProfileData', () => {
     test('Test success update profile', async () => {
@@ -20,18 +9,18 @@ describe('updateProfileData', () => {
             updateProfileData,
             {
                 profile: {
-                    form: data,
+                    form: profileTest,
                 },
             },
         );
         thunk.api.put.mockReturnValue(
-            Promise.resolve({ data }),
+            Promise.resolve({ data: profileTest }),
         );
         const result = await thunk.callThunk();
 
         expect(thunk.api.put).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
-        expect(result.payload).toEqual(data);
+        expect(result.payload).toEqual(profileTest);
     });
 
     test('Test server-error', async () => {
@@ -39,7 +28,7 @@ describe('updateProfileData', () => {
             updateProfileData,
             {
                 profile: {
-                    form: data,
+                    form: profileTest,
                 },
             },
         );
@@ -59,7 +48,7 @@ describe('updateProfileData', () => {
             updateProfileData,
             {
                 profile: {
-                    form: { ...data, lastname: '' },
+                    form: { ...profileTest, lastname: '' },
                 },
             },
         );

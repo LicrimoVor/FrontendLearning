@@ -1,26 +1,15 @@
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import { profileTest } from 'entities/Profile/model/test/data';
 import { ValidateProfileError } from '../../types/validateProfileError';
 import { validateProfileData } from './validateProfileData';
 
-const data = {
-    username: 'licrimovor',
-    age: 21,
-    country: Country.Russia,
-    lastname: 'licrimovor',
-    first: 'ivan',
-    city: 'SBK',
-    currency: Currency.RUB,
-};
-
 describe('validateProfileData', () => {
     test('Test success ', async () => {
-        const errors = validateProfileData(data);
+        const errors = validateProfileData(profileTest);
         expect(errors).toEqual([]);
     });
 
     test('Test without first and last name', async () => {
-        const errors = validateProfileData({ ...data, first: '', lastname: '' });
+        const errors = validateProfileData({ ...profileTest, first: '', lastname: '' });
         expect(errors).toEqual([ValidateProfileError.INCORRECT_USER_DATA]);
     });
 
@@ -31,12 +20,12 @@ describe('validateProfileData', () => {
 
     test('Test age not number', async () => {
         // @ts-ignore
-        const errors = validateProfileData({ ...data, age: 'test' });
+        const errors = validateProfileData({ ...profileTest, age: 'test' });
         expect(errors).toEqual([ValidateProfileError.INCORRECT_AGE]);
     });
 
     test('Test without country', async () => {
-        const errors = validateProfileData({ ...data, country: undefined });
+        const errors = validateProfileData({ ...profileTest, country: undefined });
         expect(errors).toEqual([ValidateProfileError.INCORRECT_COUNTRY]);
     });
 

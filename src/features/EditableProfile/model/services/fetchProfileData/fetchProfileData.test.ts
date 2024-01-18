@@ -1,29 +1,18 @@
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import { profileTest } from 'entities/Profile/model/test/data';
 import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk';
 import { fetchProfileData } from './fetchProfileData';
-
-const data = {
-    username: 'licrimovor',
-    age: 21,
-    country: Country.Russia,
-    lastname: 'licrimovor',
-    first: 'ivan',
-    city: 'SBK',
-    currency: Currency.RUB,
-};
 
 describe('fetchProfileData', () => {
     test('Test success get profile', async () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         thunk.api.get.mockReturnValue(
-            Promise.resolve({ data }),
+            Promise.resolve({ data: profileTest }),
         );
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
-        expect(result.payload).toEqual(data);
+        expect(result.payload).toEqual(profileTest);
     });
 
     test('Test error get profile', async () => {
@@ -31,7 +20,7 @@ describe('fetchProfileData', () => {
         thunk.api.get.mockReturnValue(
             Promise.resolve({ status: 403 }),
         );
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');

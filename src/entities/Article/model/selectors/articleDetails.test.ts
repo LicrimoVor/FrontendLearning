@@ -1,16 +1,16 @@
 import { StateSchema } from 'shared/config/reduxConfig/stateShema';
+import { articleTest } from '../test/data';
 
 import { getArticleDetailData, getArticleDetailError, getArticleDetailIsLoadnig } from './articleDetails';
 
 describe('getArticleDetailData', () => {
     test('Test return data', () => {
-        const data = {};
         const state: DeepPartial<StateSchema> = {
             articleDetail: {
-                data,
+                data: articleTest,
             },
         };
-        expect(getArticleDetailData(state as StateSchema)).toBe(data);
+        expect(getArticleDetailData(state as StateSchema)).toBe(articleTest);
     });
     test('Test empty data', () => {
         const state: DeepPartial<StateSchema> = {};

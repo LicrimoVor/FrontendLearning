@@ -8,6 +8,8 @@ import { Country } from 'entities/Country';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks/userInitialEffect/userInitialEffect';
+import { useParams } from 'react-router-dom';
 import { getProfileError } from '../model/selectors/getProfileError/getProfileError';
 import { getProfileIsLoading } from '../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
@@ -42,11 +44,14 @@ export const EditableProfileCard: FC = () => {
         [ValidateProfileError.SERVER_ERROR]: t('SERVER_ERROR'),
     };
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    let { id } = useParams<{id: string}>();
+    if (__PROJECT__ === 'storybook') id = '1';
+
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     const onChangeFirstName = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({ first: value }));

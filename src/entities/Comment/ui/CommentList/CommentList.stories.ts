@@ -1,16 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
-import { storeDecorator } from 'shared/config/storybook/storeDecorator/storeDecorator';
+
 import { Theme } from 'app/providers/ThemeProvider';
 import { CommentList } from './CommentList';
+import { commentTest } from '../../model/test/data';
 
 const meta: Meta<typeof CommentList> = {
-    title: '/CommentList',
+    title: 'entities/Comment/CommentList',
     component: CommentList,
-    // decoratos: [
-    //     storeDecorator({}),
-    // ],
+    args: {
+        comments: [
+            commentTest,
+            commentTest,
+            commentTest,
+            commentTest,
+            commentTest,
+        ],
+    },
 };
 
 export default meta;
@@ -32,4 +39,10 @@ export const Red: Story = {
     decorators: [
         themeDecorator(Theme.RED),
     ],
+};
+
+export const IsLoading: Story = {
+    args: {
+        isLoading: true,
+    },
 };

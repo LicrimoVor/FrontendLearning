@@ -3,7 +3,9 @@ import { Decorator } from '@storybook/react';
 import { StoreProvider } from 'app/providers/StoreProvider';
 import { articleDetailReducer } from 'entities/Article/model/slice/articleSlice';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
-import { profileReducer } from 'features/EditableProfile';
+import { createCommentReducer } from 'features/CreateComment/model/slice/createCommentSlice';
+import { profileReducer } from 'features/EditableProfile/model/slice/profileSlice';
+import { articleDetailCommentsReducer } from 'pages/ArticleDetailPage/model/slice/articleDetailCommentsSlice';
 import { StateSchema } from 'shared/config/reduxConfig/stateShema';
 import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
@@ -11,6 +13,8 @@ const defaultAsyncReducers: ReducerList = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetail: articleDetailReducer,
+    createCommentForm: createCommentReducer,
+    articleDetailComments: articleDetailCommentsReducer,
 };
 
 /** Декоратор глобал стора для сторисов */

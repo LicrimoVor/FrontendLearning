@@ -42,3 +42,14 @@ export const Dark: Story = {
         themeDecorator(Theme.DARK),
     ],
 };
+
+export const Red: Story = {
+    loaders: [
+        () => {
+            modalRoot.className = `app ${Theme.RED}`;
+        },
+    ],
+    decorators: [
+        themeDecorator(Theme.RED),
+    ],
+};
