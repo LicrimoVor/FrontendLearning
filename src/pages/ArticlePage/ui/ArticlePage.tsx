@@ -1,3 +1,5 @@
+import { ArticleList, ArticleView } from 'entities/Article';
+import { articleTest } from 'entities/Article/model/test/data';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -14,14 +16,17 @@ const ArticlePage: FC<ArticlePageProps> = (props) => {
 
     const {
         className,
-        ...otherProps
     } = props;
 
     return (
         <div
             className={classNames(cls.ArticlePage, {}, [className])}
         >
-            {t('ArticlePage')}
+            <ArticleList
+                articles={[articleTest, articleTest, articleTest]}
+                view={ArticleView.BIG}
+                // isLoading
+            />
         </div>
     );
 };

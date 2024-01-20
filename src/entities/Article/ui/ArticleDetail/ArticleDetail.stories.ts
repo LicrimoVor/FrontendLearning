@@ -7,7 +7,7 @@ import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDeco
 import { ArticleDetail } from './ArticleDetail';
 
 const meta: Meta<typeof ArticleDetail> = {
-    title: 'entities/ArticleDetail',
+    title: 'entities/Article/ArticleDetail',
     component: ArticleDetail,
     decorators: [
         storeDecorator({

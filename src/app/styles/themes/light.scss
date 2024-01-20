@@ -1,7 +1,7 @@
 .app_light_theme {
     --bg-color: #fff;
     --primary-color: #1d076b;
-    --secondary-color: #7596b4;
+    --secondary-color: #3f57dd;
     --inverted-bg-color: #0e0e25;
     --inverted-primary-color: #00ff2a;
     --inverted-secondary-color: #7fc78d;
@@ -12,4 +12,7 @@
 
     // code
     --code-bg: #cfffd1;
+
+    // card
+    --card-bg: #eeeeee;
 }

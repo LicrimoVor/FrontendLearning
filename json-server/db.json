@@ -35,6 +35,7 @@
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png",
       "views": 1241,
       "createdAt": "25.12.2023",
+      "userId": "1",
       "type": [
         "IT",
         "JS"
@@ -167,6 +168,18 @@
       "text": "asdasd",
       "userId": "1",
       "id": "pZIBoqj"
+    },
+    {
+      "articleId": 1,
+      "text": "sdfsdfsdfsdf",
+      "userId": "1",
+      "id": "DnD25N2"
+    },
+    {
+      "articleId": 1,
+      "text": "fghjdgfghj",
+      "userId": "1",
+      "id": "BIwY7dV"
     }
   ],
   "profile": [

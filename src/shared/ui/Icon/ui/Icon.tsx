@@ -8,7 +8,7 @@ interface IconProps {
     Svg: FunctionComponent<SVGAttributes<SVGElement>>,
 }
 
-/** Докстринг */
+/** Иконка */
 export const Icon: FC<IconProps> = (props) => {
     const {
         className,

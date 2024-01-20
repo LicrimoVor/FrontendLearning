@@ -46,9 +46,11 @@
   "Password": "Password",
   "Profile": "Profile",
   "ProfileAvatar": "ProfileAvatar",
+  "ReadMore": "ReadMore",
   "Refresh": "Refresh",
   "RefreshPage": "RefreshPage",
   "Registration": "Registration",
+  "ReturnToList": "ReturnToList",
   "SERVER_ERROR": "SERVER_ERROR",
   "Save": "Save",
   "Send": "Send",
@@ -63,6 +65,7 @@
     "ErrorProfile": "ErrorProfile",
     "RefreshPage": "RefreshPage"
   },
+  "test": "test",
   "АЗАЗЗАЗАЗ": "АЗАЗЗАЗАЗ",
   "Копировать": "Копировать"
 }

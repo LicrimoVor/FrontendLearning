@@ -1,4 +1,6 @@
 {
   "ArticleNotFound": "Статья не найдена",
-  "ArticleErrorInLoading": "Ошибка при загрузке статьи"
+  "ArticleErrorInLoading": "Ошибка при загрузке статьи",
+  "ReadMore": "Читать далее...",
+  "ReturnToList": "Обратно к списку"
 }

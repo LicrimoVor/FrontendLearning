@@ -1,17 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
 import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
+import { Text } from 'shared/ui/Text/Text';
+import { Card } from './Card';
 
-import ArticlePage from './ArticlePage';
-
-const meta: Meta<typeof ArticlePage> = {
-    title: 'pages/ArticlePage',
-    component: ArticlePage,
+const meta: Meta<typeof Card> = {
+    title: 'shared/Card',
+    component: Card,
+    args: {
+        children: <Text text="test" title="Test" />,
+    },
 };
 
 export default meta;
-type Story = StoryObj<typeof ArticlePage>;
+type Story = StoryObj<typeof Card>;
 
 export const Light: Story = {
     decorators: [
@@ -29,10 +32,4 @@ export const Red: Story = {
     decorators: [
         themeDecorator(Theme.RED),
     ],
-};
-
-export const Big: Story = {
-};
-
-export const IsLoading: Story = {
 };

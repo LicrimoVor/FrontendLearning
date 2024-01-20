@@ -1,20 +1,22 @@
 import {
     FC, memo, useCallback, Suspense,
 } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Text } from 'shared/ui/Text/Text';
-import { ArticleDetail } from 'entities/Article';
-import { CommentList } from 'entities/Comment';
-import { useInitialEffect } from 'shared/lib/hooks/userInitialEffect/userInitialEffect';
-import { fetchCommentsByAcrticleId } from 'pages/ArticleDetailPage/model/services/fetchCommentsByAcrticleId/fetchCommentsByAcrticleId';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { CreateCommentForm } from 'features/CreateComment';
 import { Loader } from 'shared/ui/Loader/Loader';
+import { Button } from 'shared/ui/Button/Button';
+import { ArticleDetail } from 'entities/Article';
+import { CommentList } from 'entities/Comment';
+import { useInitialEffect } from 'shared/lib/hooks/userInitialEffect/userInitialEffect';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { fetchCommentsByAcrticleId } from '../../model/services/fetchCommentsByAcrticleId/fetchCommentsByAcrticleId';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { articleDetailCommentsReducer, getArticleComments } from '../../model/slice/articleDetailCommentsSlice';
 import cls from './ArticleDetailPage.module.scss';
@@ -37,6 +39,7 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (props) => {
     const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+    const navigate = useNavigate();
 
     let { id } = useParams<{id: string}>();
     if (__PROJECT__ === 'storybook') id = '1';
@@ -48,6 +51,10 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (props) => {
     const onCommentSend = useCallback((text: string) => {
         dispatch(sendCommentForArticle(text));
     }, [dispatch]);
+
+    const onBackToList = useCallback(() => {
+        navigate(RoutePath.articles);
+    }, [navigate]);
 
     if (!id) {
         return (
@@ -65,6 +72,9 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (props) => {
                 <div
                     className={classNames(cls.ArticleDetailPage, {}, [className])}
                 >
+                    <Button onClick={onBackToList}>
+                        {t('ReturnToList')}
+                    </Button>
                     <ArticleDetail id={id} />
                     <Text
                         title={t('Comments')}

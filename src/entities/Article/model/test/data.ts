@@ -1,3 +1,4 @@
+import { userTest } from 'entities/User/model/test/data';
 import { Article, ArticleBlockType, ArticleType } from '../types/article';
 
 export const articleTest: Article = {
@@ -7,7 +8,8 @@ export const articleTest: Article = {
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png',
     views: 1241,
     createdAt: '25.12.2023',
-    type: [ArticleType.IT],
+    user: userTest,
+    type: [ArticleType.IT, ArticleType.SCIENCE, ArticleType.MEDICINE],
     blocks: [
         {
             id: '1',
