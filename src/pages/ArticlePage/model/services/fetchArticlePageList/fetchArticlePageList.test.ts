@@ -1,15 +1,15 @@
 import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk';
-import { fetchArticlePage } from './fetchArticlePage';
+import { fetchArticlePageList } from './fetchArticlePageList';
 
 const data = {};
 
-describe('fetchArticlePage', () => {
+describe('fetchArticlePageList', () => {
     test('Test success ...', async () => {
-        const thunk = new TestAsyncThunk(fetchArticlePage);
+        const thunk = new TestAsyncThunk(fetchArticlePageList);
         thunk.api.get.mockReturnValue(
             Promise.resolve({ data }),
         );
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk({ page: 1 });
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');

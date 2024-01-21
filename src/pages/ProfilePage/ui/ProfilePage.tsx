@@ -1,10 +1,9 @@
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { EditableProfileCard } from 'features/EditableProfile';
-import cls from './ProfilePage.module.scss';
+import { Page } from 'shared/ui/Page';
 
 interface ProfilePageProps {
     className?: string
@@ -12,19 +11,17 @@ interface ProfilePageProps {
 
 /** Страница профиля пользователя */
 const ProfilePage: FC<ProfilePageProps> = (props) => {
-    const { t } = useTranslation();
-
     const {
         className,
     } = props;
 
     return (
 
-        <div
+        <Page
             className={classNames('', {}, [className])}
         >
             <EditableProfileCard />
-        </div>
+        </Page>
 
     );
 };

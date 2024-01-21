@@ -50,6 +50,7 @@ export const CommentList: FC<CommentListProps> = memo((props: CommentListProps) 
                         comment={comment}
                         isLoading={isLoading}
                         className={cls.comment}
+                        key={comment.text}
                     />
                 ))
                 : <Text text={t('There are no comments')} />}

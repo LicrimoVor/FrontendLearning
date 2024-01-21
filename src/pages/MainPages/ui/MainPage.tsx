@@ -3,17 +3,18 @@ import { useTranslation } from 'react-i18next';
 
 import { BugButton } from 'app/providers/ErrorBoudarie';
 import { Counter } from 'entities/Counter';
+import { Page } from 'shared/ui/Page';
 
 /** Главная страница */
 const MainPage: FC = () => {
     const { t } = useTranslation('main');
 
     return (
-        <div>
+        <Page>
             {t('Main page')}
             <BugButton />
             <Counter />
-        </div>
+        </Page>
     );
 };
 

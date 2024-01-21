@@ -45,7 +45,7 @@ export const ArticleViewSwitcher: FC<articleViewSwitcherProps> = memo((
                 <Button
                     theme={ButtonTheme.CLEAR}
                     onClick={onClick(viewType.view)}
-
+                    key={viewType.view}
                 >
                     <Icon
                         Svg={viewType.icon}

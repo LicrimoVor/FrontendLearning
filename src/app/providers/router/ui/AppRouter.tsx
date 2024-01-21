@@ -9,10 +9,13 @@ import { RequireAuth } from './RequireAuth';
 export const AppRouter = memo(() => {
     const renderWithWrapper = useCallback((route: AppRoutesProps) => {
         const element = (
-            <div className="page-wrapper">
+            <Suspense
+                fallback={(<PageLoader />)}
+            >
                 {route.element}
-            </div>
+            </Suspense>
         );
+
         return (
             <Route
                 key={route.path}
@@ -21,11 +24,10 @@ export const AppRouter = memo(() => {
             />
         );
     }, []);
+
     return (
-        <Suspense fallback={(<PageLoader />)}>
-            <Routes>
-                {Object.values(routeConfig).map(renderWithWrapper)}
-            </Routes>
-        </Suspense>
+        <Routes>
+            {Object.values(routeConfig).map(renderWithWrapper)}
+        </Routes>
     );
 });

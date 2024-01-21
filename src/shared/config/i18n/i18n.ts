@@ -10,7 +10,7 @@ i18n
     .init({
         lng: 'ru',
         fallbackLng: 'ru',
-        debug: __IS_DEV__,
+        // debug: __IS_DEV__,
         load: 'languageOnly',
 
         interpolation: {

@@ -1,5 +1,4 @@
 import { FC, memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { ArticleList, ArticleView } from 'entities/Article';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -8,10 +7,15 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/userInitialEffect/userInitialEffect';
 import { useSelector } from 'react-redux';
 import { ArticleViewSwitcher } from 'features/ArticleViewSwitcher';
+import { Page } from 'shared/ui/Page';
 import { articlePageActions, articlePageReducer, getArticles } from '../model/slice/articlePageSlice';
 import cls from './ArticlePage.module.scss';
-import { fetchArticlePage } from '../model/services/fetchArticlePage';
-import { getArticlePageError, getArticlePageIsLoading, getArticlePageView } from '../model/selectors/articlePage';
+import {
+    getArticlePageIsLoading,
+    getArticlePageView,
+} from '../model/selectors/articlePage';
+import { fetchNextArticlePage } from '../model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { initArticlePage } from '../model/services/initArticlePage/initArticlePage';
 
 interface ArticlePageProps {
     className?: string
@@ -23,30 +27,32 @@ const reducers: ReducerList = {
 
 /** Старница списка статей */
 const ArticlePage: FC<ArticlePageProps> = (props) => {
-    const { t } = useTranslation();
+    const {
+        className,
+    } = props;
+
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlePageIsLoading);
     const view = useSelector(getArticlePageView);
-    const error = useSelector(getArticlePageError);
 
     useInitialEffect(() => {
-        dispatch(fetchArticlePage());
-        dispatch(articlePageActions.initState());
+        dispatch(initArticlePage());
     });
 
     const onViewClick = useCallback((view: ArticleView) => {
         dispatch(articlePageActions.setView(view));
     }, [dispatch]);
 
-    const {
-        className,
-    } = props;
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlePage());
+    }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <div
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+            <Page
                 className={classNames(cls.ArticlePage, {}, [className])}
+                onScrollEnd={onLoadNextPart}
             >
                 <ArticleViewSwitcher view={view} onViewClick={onViewClick} />
                 <ArticleList
@@ -54,7 +60,7 @@ const ArticlePage: FC<ArticlePageProps> = (props) => {
                     view={view}
                     isLoading={isLoading}
                 />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

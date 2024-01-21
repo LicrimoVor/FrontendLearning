@@ -13,7 +13,6 @@ import { StateSchema, ThunkExtraArg } from './stateShema';
 export function createReduxStore(
     initialState?: StateSchema,
     asyncReducers?: ReducersMapObject<StateSchema>,
-    navigate?: NavigateFunction,
 ) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
@@ -24,7 +23,6 @@ export function createReduxStore(
     const reducerManager = createReducerManager(rootReducers);
     const extraArg: ThunkExtraArg = {
         api: $api,
-        navigate,
     };
 
     const store = configureStore({
