@@ -11,6 +11,7 @@ import { LoginSchema } from 'features/AuthByUsername';
 import { CreateCommentSchema } from 'features/CreateComment';
 import { ProfileSchema } from 'features/EditableProfile';
 import { ArticleDetailCommentsSchema } from 'pages/ArticleDetailPage';
+import { ArticlePageSchema } from 'pages/ArticlePage';
 import { NavigateFunction } from 'react-router-dom';
 
 export interface StateSchema {
@@ -23,6 +24,7 @@ export interface StateSchema {
     profile?: ProfileSchema,
     articleDetail?: ArticleDetailSchema,
     articleDetailComments?: ArticleDetailCommentsSchema,
+    articlePage?: ArticlePageSchema,
     createCommentForm?: CreateCommentSchema,
 }
 
