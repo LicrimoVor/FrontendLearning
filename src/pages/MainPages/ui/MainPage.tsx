@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { BugButton } from 'app/providers/ErrorBoudarie';
 import { Counter } from 'entities/Counter';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 
 /** Главная страница */
 const MainPage: FC = () => {

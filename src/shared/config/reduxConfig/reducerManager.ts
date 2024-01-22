@@ -1,7 +1,9 @@
 import {
     AnyAction, combineReducers, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { ReducerManager, StateSchema, StateSchemaKey } from './stateShema';
+import {
+    MountedReducers, ReducerManager, StateSchema, StateSchemaKey,
+} from './stateShema';
 
 /** Менеджер редюсеров и стейтов. Позволяет динамически добавлять/удалять стейты */
 export function createReducerManager(
@@ -13,8 +15,12 @@ export function createReducerManager(
 
     let keysToRemove: StateSchemaKey[] = [];
 
+    const mountedReducers: MountedReducers = {};
+
     return {
         getReducerMap: () => reducers,
+        getMountedReducers: () => mountedReducers,
+
         reduce: (state: StateSchema, action: AnyAction) => {
             if (keysToRemove.length > 0) {
                 state = { ...state };
@@ -33,6 +39,7 @@ export function createReducerManager(
             }
 
             reducers[key] = reducer;
+            mountedReducers[key] = true;
             combinedReducer = combineReducers(reducers);
         },
 
@@ -42,6 +49,7 @@ export function createReducerManager(
             }
 
             delete reducers[key];
+            mountedReducers[key] = false;
             keysToRemove.push(key);
             combinedReducer = combineReducers(reducers);
         },

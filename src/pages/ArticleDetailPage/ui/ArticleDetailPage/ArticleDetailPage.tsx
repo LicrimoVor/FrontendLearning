@@ -16,7 +16,7 @@ import { ArticleDetail } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { useInitialEffect } from 'shared/lib/hooks/userInitialEffect/userInitialEffect';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 import { fetchCommentsByAcrticleId } from '../../model/services/fetchCommentsByAcrticleId/fetchCommentsByAcrticleId';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { articleDetailCommentsReducer, getArticleComments } from '../../model/slice/articleDetailCommentsSlice';

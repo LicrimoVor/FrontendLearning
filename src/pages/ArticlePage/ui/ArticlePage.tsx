@@ -7,7 +7,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/userInitialEffect/userInitialEffect';
 import { useSelector } from 'react-redux';
 import { ArticleViewSwitcher } from 'features/ArticleViewSwitcher';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 import { articlePageActions, articlePageReducer, getArticles } from '../model/slice/articlePageSlice';
 import cls from './ArticlePage.module.scss';
 import {

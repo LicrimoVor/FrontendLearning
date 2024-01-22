@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { EditableProfileCard } from 'features/EditableProfile';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 
 interface ProfilePageProps {
     className?: string
