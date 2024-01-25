@@ -30,7 +30,7 @@ export const ArticleListItem: FC<articleListItemProps> = memo((props: articleLis
         view,
     } = props;
 
-    const { t } = useTranslation('article-detail');
+    const { t } = useTranslation('article');
     const navigate = useNavigate();
 
     const onOpenArticle = useCallback(() => {

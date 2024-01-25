@@ -109,7 +109,7 @@
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "IT", "MEDICINE"
       ],
       "blocks": [
         {
@@ -246,14 +246,14 @@
     },
     {
       "id": "4",
-      "title": "Kotlin news",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://nullclass.com/wp-content/uploads/2022/02/1_fnbqF0xNVwINs_RkygkX1g.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "title": "Go news",
+      "subtitle": "Что нового в Go за 2021 год?",
+      "img": "https://static.process-one.net/bootstrap/img/logo/golang.png",
+      "views": 231,
+      "createdAt": "26.02.2021",
       "userId": "1",
       "type": [
-        "IT"
+        "IT", "MEDICINE", "SCIENCE", "ECONOMICS"
       ],
       "blocks": [
         {
@@ -273,11 +273,11 @@
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 5123,
+      "createdAt": "12.03.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "MEDICINE"
       ],
       "blocks": [
         {
@@ -297,11 +297,11 @@
       "title": "Kotlin news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://nullclass.com/wp-content/uploads/2022/02/1_fnbqF0xNVwINs_RkygkX1g.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "views": 15412,
+      "createdAt": "23.05.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -342,14 +342,14 @@
     },
     {
       "id": "7",
-      "title": "Kotlin news",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://nullclass.com/wp-content/uploads/2022/02/1_fnbqF0xNVwINs_RkygkX1g.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "title": "Java news",
+      "subtitle": "Что нового в Java за 2022 год?",
+      "img": "https://tiniatov.ru/wp-content/uploads/0/d/2/0d2cb82cd19739a62a08a263590eff3b.jpeg",
+      "views": 6234,
+      "createdAt": "26.02.2021",
       "userId": "1",
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -366,14 +366,14 @@
     },
     {
       "id": "8",
-      "title": "Python news",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "title": "C++ news",
+      "subtitle": "Что нового в C++ за 2022 год?",
+      "img": "https://i.ytimg.com/vi/RagMVM_aeQk/maxresdefault.jpg?7857057827",
+      "views": 24564,
+      "createdAt": "21.08.2021",
       "userId": "1",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -390,11 +390,11 @@
     },
     {
       "id": "9",
-      "title": "Kotlin news",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://nullclass.com/wp-content/uploads/2022/02/1_fnbqF0xNVwINs_RkygkX1g.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "title": "C news",
+      "subtitle": "Что нового в C за 2025 год?",
+      "img": "https://repository-images.githubusercontent.com/605775853/fea1845d-8cc0-4902-8d3f-07dd860581a7",
+      "views": 5234,
+      "createdAt": "21.02.2025",
       "userId": "1",
       "type": [
         "IT"
@@ -414,14 +414,14 @@
     },
     {
       "id": "10",
-      "title": "Python news",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "title": "Ruby news",
+      "subtitle": "Что нового в Ruby за 2022 год?",
+      "img": "https://i.pinimg.com/originals/ab/e9/90/abe99075d41cebd87d10fa512f8faa90.png",
+      "views": 754,
+      "createdAt": "26.02.2021",
       "userId": "1",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -438,14 +438,14 @@
     },
     {
       "id": "11",
-      "title": "Kotlin news",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://nullclass.com/wp-content/uploads/2022/02/1_fnbqF0xNVwINs_RkygkX1g.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "title": "C# news",
+      "subtitle": "Что нового в C# за 2012 год?",
+      "img": "https://habrastorage.org/getpro/habr/upload_files/e5a/d1d/32f/e5ad1d32f04aec8be2b16d87a3ad6362.jpg",
+      "views": 5123,
+      "createdAt": "01.12.2012",
       "userId": "1",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -462,11 +462,11 @@
     },
     {
       "id": "12",
-      "title": "Python news",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "title": "Rust news",
+      "subtitle": "Что нового в Rust за 2021 год?",
+      "img": "https://sun9-16.userapi.com/impg/CTckA8yBtlb8nZL-7FYmib5PDdWP9ux55O4iXw/wojOC0lUfzU.jpg?size=1600x900&quality=95&sign=30a6d4f0e15e2050667772ef39f6c9f2&type=album",
+      "views": 1512,
+      "createdAt": "23.02.2021",
       "userId": "1",
       "type": [
         "IT"
@@ -486,14 +486,14 @@
     },
     {
       "id": "13",
-      "title": "Kotlin news",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://nullclass.com/wp-content/uploads/2022/02/1_fnbqF0xNVwINs_RkygkX1g.png",
-      "views": 1022,
+      "title": "TypeScript news",
+      "subtitle": "Что нового в TS за 2022 год?",
+      "img": "https://i2.wp.com/miro.medium.com/0*yFIm1Dj9PtsG1nRt.png",
+      "views": 1532,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -510,11 +510,11 @@
     },
     {
       "id": "14",
-      "title": "Python news",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "title": "Assembler news",
+      "subtitle": "Что нового в Assembler за 2002 год?",
+      "img": "https://bscholarly.com/wp-content/uploads/2021/10/Hacking-language-list.jpg",
+      "views": 1574,
+      "createdAt": "01.02.2002",
       "userId": "1",
       "type": [
         "IT"
@@ -534,14 +534,14 @@
     },
     {
       "id": "15",
-      "title": "Kotlin news",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://nullclass.com/wp-content/uploads/2022/02/1_fnbqF0xNVwINs_RkygkX1g.png",
+      "title": "Fortan news",
+      "subtitle": "Что нового в Fortan за 2022 год?",
+      "img": "https://i.ytimg.com/vi/vJN9vSaaqEQ/maxresdefault.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -558,14 +558,14 @@
     },
     {
       "id": "16",
-      "title": "Python news",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
-      "views": 1022,
+      "title": "Pascal news",
+      "subtitle": "Что нового в Pascal за 2022 год?",
+      "img": "https://sun9-63.userapi.com/impg/zSPyBo56k8WpVbImzEfb7Re4to4Ggvnm58Faig/Q6ZxVHUxNss.jpg?size=512x512&quality=96&sign=c51e7800a9e03ec78073d2289f1d5c1f&type=album",
+      "views": 5123,
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -582,14 +582,14 @@
     },
     {
       "id": "17",
-      "title": "Kotlin news",
-      "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://nullclass.com/wp-content/uploads/2022/02/1_fnbqF0xNVwINs_RkygkX1g.png",
-      "views": 1022,
-      "createdAt": "26.02.2022",
+      "title": "VBA news",
+      "subtitle": "Что нового в VBA за 2022 год?",
+      "img": "https://logodix.com/logo/701195.jpg",
+      "views": 11022,
+      "createdAt": "26.12.2022",
       "userId": "1",
       "type": [
-        "IT"
+        "IT", "SCIENCE"
       ],
       "blocks": [
         {

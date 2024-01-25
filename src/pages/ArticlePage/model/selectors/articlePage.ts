@@ -1,4 +1,4 @@
-import { ArticleView } from 'entities/Article';
+import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
 import { StateSchema } from 'shared/config/reduxConfig/stateShema';
 
 export const getArticlePageIsLoading = (state: StateSchema) => state.articlePage?.isLoading;
@@ -10,3 +10,11 @@ export const getArticlePageLimit = (state: StateSchema) => state.articlePage?.li
 export const getArticlePagePage = (state: StateSchema) => state.articlePage?.page || 1;
 export const getArticlePageHasMore = (state: StateSchema) => state.articlePage?.hasMore;
 export const getArticlePageInited = (state: StateSchema) => state.articlePage?._inited;
+export const getArticlePageOrder = (state: StateSchema) => state.articlePage?.order || 'asc';
+export const getArticlePageSort = (
+    state: StateSchema,
+) => state.articlePage?.sort || ArticleSortField.CREATED;
+export const getArticlePageSearch = (state: StateSchema) => state.articlePage?.search ?? '';
+export const getArticlePageType = (
+    state: StateSchema,
+) => state.articlePage?.type || ArticleType.All;

@@ -8,7 +8,7 @@ describe('scrollSaveSlice', () => {
         const state: DeepPartial<ScrollSaveSchema> = {};
         expect(scrollSaveReducer(
             state as ScrollSaveSchema,
-            scrollSaveActions.function(),
+            scrollSaveActions.setScrollPosition({ path: '', position: 12 }),
         )).toEqual({});
     });
 });

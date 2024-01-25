@@ -5,22 +5,29 @@ import {
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Card.module.scss';
 
-interface cardProps extends HTMLAttributes<HTMLDivElement> {
+export enum CardTheme {
+    NORMAL = 'normal',
+    OUTLINE = 'outline'
+}
+
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string,
     children: ReactNode,
+    theme?: CardTheme,
 }
 
 /** Карточка для данных */
-export const Card: FC<cardProps> = memo((props: cardProps) => {
+export const Card: FC<CardProps> = memo((props: CardProps) => {
     const {
         className,
         children,
+        theme = CardTheme.NORMAL,
         ...otherProps
     } = props;
 
     return (
         <div
-            className={classNames(cls.Card, {}, [className])}
+            className={classNames(cls.Card, {}, [className, cls[theme]])}
             {...otherProps}
         >
             {children}

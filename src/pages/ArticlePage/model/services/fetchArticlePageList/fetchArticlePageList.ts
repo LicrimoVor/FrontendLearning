@@ -1,12 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { Article } from 'entities/Article';
+import { Article, ArticleType } from 'entities/Article';
 
 import { ThunkConfig } from 'shared/config/reduxConfig/stateShema';
-import { getArticlePageLimit } from '../../selectors/articlePage';
+import { addQueryParams } from 'shared/url/addQueryParams/addQueryParams';
+import {
+    getArticlePageLimit,
+    getArticlePageOrder,
+    getArticlePagePage,
+    getArticlePageSearch,
+    getArticlePageSort,
+    getArticlePageType,
+} from '../../selectors/articlePage';
 
 interface FetchArticlePageListProps {
-    page: number,
-    // limit: number
+    replase?: boolean,
 }
 
 /** Асинхронный редюсер для получения списка статей */
@@ -14,25 +21,33 @@ export const fetchArticlePageList = createAsyncThunk<
     Article[], FetchArticlePageListProps, ThunkConfig<string>
 >(
     'pages/article/fetchArticlePage',
-    async (props, thunkApi) => {
+    async (_, thunkApi) => {
         const {
             extra,
             rejectWithValue,
             getState,
         } = thunkApi;
 
-        const {
-            page = 1,
-        } = props;
-
         const limit = getArticlePageLimit(getState());
+        const order = getArticlePageOrder(getState());
+        const sort = getArticlePageSort(getState());
+        const search = getArticlePageSearch(getState());
+        const page = getArticlePagePage(getState());
+        const type = getArticlePageType(getState());
 
         try {
+            addQueryParams({
+                sort, order, search, type,
+            });
             const respone = await extra.api.get<Article[]>('/articles', {
                 params: {
                     _expand: 'user',
                     _limit: limit,
                     _page: page,
+                    _sort: sort,
+                    _order: order,
+                    q: search,
+                    type: type === ArticleType.All ? undefined : type,
                 },
             });
             if (!respone.data) {

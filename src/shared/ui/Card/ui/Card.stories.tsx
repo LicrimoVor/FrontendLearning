@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Text } from 'shared/ui/Text/Text';
-import { Card } from './Card';
+import { Card, CardTheme } from './Card';
 
 const meta: Meta<typeof Card> = {
     title: 'shared/Card',
@@ -32,4 +32,10 @@ export const Red: Story = {
     decorators: [
         themeDecorator(Theme.RED),
     ],
+};
+
+export const Outline: Story = {
+    args: {
+        theme: CardTheme.OUTLINE,
+    },
 };
