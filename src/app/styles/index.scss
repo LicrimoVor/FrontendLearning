@@ -1,21 +1,35 @@
 @import "reset";
 @import "variables/global";
 @import "themes/dark";
-@import "themes/normal";
+@import "themes/light";
+@import "themes/red";
+
+body {
+    font: var(--font-m);
+    color: var(--primary-color);
+}
 
 .app {
-    font: var(--font-m);
     background: var(--bg-color);
-    color: var(--primary-color);
     min-height: 100vh;
-    transition: background-color var(--transition-background-time);
+    color: var(--primary-color);
 }
 
 .content-page {
     display: flex;
 }
 
-.page-wrapper {
-    flex-grow: 1;
-    padding: 20px;
+*::-webkit-scrollbar {
+    width: 12px;
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--card-bg);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--inverted-bg-color);
+    border-radius: 20px;
+    border: 1px solid var(--primary-color);
 }

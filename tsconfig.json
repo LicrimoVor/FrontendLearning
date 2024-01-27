@@ -15,6 +15,7 @@
     // какие импорты
     "moduleResolution": "node",
     "baseUrl": ".",
+    "strict": true,
     // позволяет работать с require как import from
     "esModuleInterop": true,
     // позволяет обычный импорт без (* as), как модуль

@@ -1,6 +1,7 @@
-import { Suspense } from 'react';
+import { getUserInited, userActions } from 'entities/User';
+import { Suspense, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import './styles/index.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
@@ -10,6 +11,12 @@ import { useTheme } from './providers/ThemeProvider';
 /** Главная приложуха */
 function App() {
     const { theme } = useTheme();
+    const dispatch = useDispatch();
+    const inited = useSelector(getUserInited);
+
+    useEffect(() => {
+        dispatch(userActions.initAuthData());
+    }, [dispatch]);
 
     return (
         <div className={classNames('app', {}, [theme])}>
@@ -17,7 +24,7 @@ function App() {
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />
-                    <AppRouter />
+                    { inited && <AppRouter />}
                 </div>
             </Suspense>
         </div>

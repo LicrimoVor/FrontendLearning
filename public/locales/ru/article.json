@@ -1,0 +1,18 @@
+{
+  "ReturnToList": "Обратно к списку",
+  "SortBy": "Сортировка по",
+  "Search": "Поиск",
+  "Increasing": "возрастанию",
+  "Decreasing": "убыванию",
+  "Created": "дате",
+  "Title": "названию",
+  "Views": "просмотрам",
+  "OrderBy": "Направление по",
+  "All": "Все статьи",
+  "IT": "Айти",
+  "ECONOMICS": "Экономика",
+  "MEDICINE": "Медицина",
+  "SCIENCE": "Наука",
+  "EditArticleById": "Редактировать статью с id",
+  "CreateNewArticle": "Создание новой статьи"
+}

@@ -1,12 +1,13 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Page } from 'widgets/Page';
 
 /** Об проекте */
 const AboutPage: FC = () => {
     const { t } = useTranslation('about');
 
     return (
-        <div>{t('About page')}</div>
+        <Page>{t('About page')}</Page>
     );
 };
 

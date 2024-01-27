@@ -6,12 +6,25 @@
     --font-size-l: 24px;
     --font-line-l: 32px;
     --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+    --font-size-xl: 32px;
+    --font-line-xl: 40px;
+    --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
     // Размеры навбара
-    --navbar-height: 50px;
+    --navbar-height: 40px;
 
     // Размеры сайдбара
-    --sidebar-width: 300px;
+    --sidebar-width: 200px;
     --sidebar-width-collapsed: 80px;
+
+    // Время анимации
     --transition-background-time: 1s;
+
+    // Индексы
+    --modal-z-index: 10;
+
+    // Цвета модального окна
+    --overlay-color: rgba(0 0 0 / 50%);
+    --primary-red-color: rgb(245 0 0);
+    --secondary-red-color: rgb(175 0 0);
 }

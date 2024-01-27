@@ -4,17 +4,20 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 import App from 'app/App';
 import 'app/styles/index.scss';
-import { ThemeProvider } from 'app/providers/ThemeProvider';
 import 'shared/config/i18n/i18n';
+import { ThemeProvider } from 'app/providers/ThemeProvider';
 import { ErrorBoundary } from 'app/providers/ErrorBoudarie';
+import { StoreProvider } from 'app/providers/StoreProvider';
 
 render(
     <BrowserRouter>
-        <ErrorBoundary>
-            <ThemeProvider>
-                <App />
-            </ThemeProvider>
-        </ErrorBoundary>
+        <StoreProvider>
+            <ErrorBoundary>
+                <ThemeProvider>
+                    <App />
+                </ThemeProvider>
+            </ErrorBoundary>
+        </StoreProvider>
     </BrowserRouter>,
     document.getElementById('root'),
 );

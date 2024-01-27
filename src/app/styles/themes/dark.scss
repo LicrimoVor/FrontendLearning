@@ -1,8 +1,18 @@
-.app.dark {
+.app_dark_theme {
     --bg-color: #0e0e25;
-    --inverted-bg-color: rgb(0 134 52);
     --primary-color: #00ff2a;
-    --secondary-color: #7fc78d;
-    --inverted-primary-color: rgb(29 7 107);
+    --secondary-color: #67df7f;
+    --inverted-bg-color: #008634;
+    --inverted-primary-color: #1d076b;
     --inverted-secondary-color: rgb(117 150 180);
+
+    // skeleton
+    --skeleton-shadow: #001486;
+    --skeleton-color: #0412d4;
+
+    // code
+    --code-bg: #0c0c3b;
+
+    // card
+    --card-bg: #113;
 }

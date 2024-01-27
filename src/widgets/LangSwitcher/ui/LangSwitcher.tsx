@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -6,13 +6,15 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import cls from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
-  className?: string
+  className?: string,
+  short?: boolean,
 }
 
 /** Кнопка переключения языка */
-export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
+export const LangSwitcher: FC<LangSwitcherProps> = memo((props: LangSwitcherProps) => {
     const {
         className,
+        short,
     } = props;
 
     const { t, i18n } = useTranslation();
@@ -29,7 +31,7 @@ export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
             theme={ButtonTheme.OUTLINE}
             inverted
         >
-            {t('Lang')}
+            {t(short ? 'Lang' : 'Languege')}
         </Button>
     );
-};
+});

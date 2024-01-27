@@ -1,31 +1,35 @@
-import { FC, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { FC, memo, useState } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
+import { useSelector } from 'react-redux';
+import { getUserInited } from 'entities/User';
+import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
 import cls from './Sidebar.module.scss';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
   className?: string
 }
 
 /** Боковая панель */
-export const Sidebar: FC<SidebarProps> = (props) => {
+export const Sidebar: FC<SidebarProps> = memo((props: SidebarProps) => {
     const {
         className,
     } = props;
 
     const [collapsed, setCollapsed] = useState<boolean>(false);
-    const { t } = useTranslation();
+    const inited = useSelector(getUserInited);
+    const sidebarItemsList = useSelector(getSidebarItems);
 
     const hundlerCollapsed = () => {
         setCollapsed(!collapsed);
     };
 
     return (
-        <div
+        <menu
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
@@ -33,15 +37,28 @@ export const Sidebar: FC<SidebarProps> = (props) => {
                 data-testid="sidebar-wrap-button"
                 onClick={hundlerCollapsed}
                 className={cls.wrap}
-                theme={ButtonTheme.OUTLINE}
-                inverted
+                theme={ButtonTheme.CLEAR}
+                size={ButtonSize.L}
+                square
             >
-                {t('Wrap')}
+                {collapsed ? '>' : '<'}
             </Button>
+            <div className={cls.items}>
+                {inited && sidebarItemsList.map((item) => (
+                    <SidebarItem
+                        key={item.path}
+                        item={item}
+                        collapsed={collapsed}
+                    />
+                ))}
+            </div>
             <div className={cls.switcher}>
                 <ThemeSwitcher />
-                <LangSwitcher className={classNames(cls.lang, { [cls.collapsed]: collapsed })} />
+                <LangSwitcher
+                    className={classNames(cls.lang, { [cls.collapsed]: collapsed })}
+                    short={collapsed}
+                />
             </div>
-        </div>
+        </menu>
     );
-};
+});
