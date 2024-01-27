@@ -4,15 +4,27 @@
     background: var(--inverted-bg-color);
     display: flex;
     align-items: center;
-    padding: 20px;
+    // padding: 20px;
     transition: background-color var(--transition-background-time);
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
-.links {
+.logoutBtn {
     margin-left: auto;
+    margin-right: 15px;
 }
 
-.mainLink {
+.appName {
+    width: var(--sidebar-width);
+    display: flex;
+    justify-content: center;
+}
+
+.loginBtn {
+    margin-left: auto;
     margin-right: 15px;
+}
+
+.createArticle {
+    margin-left: 20px;
 }

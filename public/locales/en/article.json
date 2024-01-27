@@ -12,5 +12,7 @@
   "IT": "IT",
   "ECONOMICS": "Economics",
   "MEDICINE": "Medicine",
-  "SCIENCE": "Science"
+  "SCIENCE": "Science",
+  "EditArticleById": "Edit article by id",
+  "CreateNewArticle": "Create new article"
 }

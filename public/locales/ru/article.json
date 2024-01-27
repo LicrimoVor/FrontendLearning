@@ -12,5 +12,7 @@
   "IT": "Айти",
   "ECONOMICS": "Экономика",
   "MEDICINE": "Медицина",
-  "SCIENCE": "Наука"
+  "SCIENCE": "Наука",
+  "EditArticleById": "Редактировать статью с id",
+  "CreateNewArticle": "Создание новой статьи"
 }

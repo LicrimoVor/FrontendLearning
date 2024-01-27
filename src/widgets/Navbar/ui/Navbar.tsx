@@ -8,6 +8,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Nabvar.module.scss';
 
 interface NavbarProps {
@@ -40,10 +43,24 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
+                <Text
+                    theme={TextTheme.INVERTED}
+                    className={cls.appName}
+                    title={t('PET-project')}
+                />
+                <AppLink
+                    theme={AppLinkTheme.PRIMARY}
+                    inverted
+                    to={RoutePath.article_create}
+                    className={cls.createArticle}
+                >
+                    {t('CreateArticle')}
+                </AppLink>
                 <Button
                     onClick={onLogout}
                     theme={ButtonTheme.OUTLINE}
                     inverted
+                    className={cls.logoutBtn}
                 >
                     {t('LogOut')}
                 </Button>
@@ -53,9 +70,15 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
 
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
+            <Text
+                theme={TextTheme.INVERTED}
+                className={cls.appName}
+                title={t('PET-project')}
+            />
             <Button
                 onClick={onOpenModal}
                 theme={ButtonTheme.OUTLINE}
+                className={cls.loginBtn}
                 inverted
             >
                 {t('LogIn')}
