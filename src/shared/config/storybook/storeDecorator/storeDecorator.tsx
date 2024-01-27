@@ -6,15 +6,18 @@ import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { createCommentReducer } from 'features/CreateComment/model/slice/createCommentSlice';
 import { profileReducer } from 'features/EditableProfile/model/slice/profileSlice';
 import { articleDetailPageReducer } from 'pages/ArticleDetailPage';
+import { articlePageReducer } from 'pages/ArticlePage/model/slice/articlePageSlice';
 import { StateSchema } from 'shared/config/reduxConfig/stateShema';
 import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducers: ReducerList = {
     loginForm: loginReducer,
     profile: profileReducer,
+    articlePage: articlePageReducer,
     articleDetail: articleDetailReducer,
-    createCommentForm: createCommentReducer,
     articleDetailPage: articleDetailPageReducer,
+    createCommentForm: createCommentReducer,
+
 };
 
 /** Декоратор глобал стора для сторисов */
