@@ -14,9 +14,11 @@ const meta: Meta<typeof ArticleDetailPage> = {
             articleDetail: {
                 data: articleTest,
             },
-            articleDetailComments: {
-                ids: [],
-                entities: {},
+            articleDetailPage: {
+                comments: {
+                    ids: [],
+                    entities: {},
+                },
             },
         }),
     ],

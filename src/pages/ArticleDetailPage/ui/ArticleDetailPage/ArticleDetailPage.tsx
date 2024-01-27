@@ -7,28 +7,32 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Text } from 'shared/ui/Text/Text';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { CreateCommentForm } from 'features/CreateComment';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Button } from 'shared/ui/Button/Button';
-import { ArticleDetail } from 'entities/Article';
+import { ArticleDetail, ArticleList } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { useInitialEffect } from 'shared/lib/hooks/userInitialEffect/userInitialEffect';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page';
+import { getArticleDetailRecommendIsLoading } from '../../model/selectors/recommend';
+import { articleDetailPageReducer } from '../../model/slice';
 import { fetchCommentsByAcrticleId } from '../../model/services/fetchCommentsByAcrticleId/fetchCommentsByAcrticleId';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
-import { articleDetailCommentsReducer, getArticleComments } from '../../model/slice/articleDetailCommentsSlice';
-import cls from './ArticleDetailPage.module.scss';
+import { getArticleComments } from '../../model/slice/articleDetailCommentsSlice';
 import { sendCommentForArticle } from '../../model/services/createCommentForArticle/sendCommentForArticle';
+import { getArticleRecommend } from '../../model/slice/articleDetailRecommendSlice';
+import { fetchArticlesRecommend } from '../../model/services/fetchArticlesRecommend/fetchArticlesRecommend';
+import cls from './ArticleDetailPage.module.scss';
 
 interface ArticleDetailPageProps {
     className?: string
 }
 
 const redusers: ReducerList = {
-    articleDetailComments: articleDetailCommentsReducer,
+    articleDetailPage: articleDetailPageReducer,
 };
 
 /** Полная статья с подробностями */
@@ -40,6 +44,8 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (props) => {
     const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComments.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+    const recommendArticles = useSelector(getArticleRecommend.selectAll);
+    const recommendIsLoading = useSelector(getArticleDetailRecommendIsLoading);
     const navigate = useNavigate();
 
     let { id } = useParams<{id: string}>();
@@ -47,6 +53,7 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (props) => {
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByAcrticleId(id));
+        dispatch(fetchArticlesRecommend());
     });
 
     const onCommentSend = useCallback((text: string) => {
@@ -78,6 +85,7 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (props) => {
                     </Button>
                     <ArticleDetail id={id} />
                     <Text
+                        size={TextSize.L}
                         title={t('Comments')}
                         className={cls.commentTitle}
                     />
@@ -87,6 +95,17 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (props) => {
                     <CommentList
                         isLoading={commentsIsLoading}
                         comments={comments}
+                    />
+                    <Text
+                        size={TextSize.L}
+                        title={t('Recommend')}
+                        className={cls.recommendTitle}
+                    />
+                    <ArticleList
+                        articles={recommendArticles}
+                        isLoading={recommendIsLoading}
+                        className={cls.recommendArticles}
+                        target="_blank"
                     />
                 </Page>
             </DynamicModuleLoader>

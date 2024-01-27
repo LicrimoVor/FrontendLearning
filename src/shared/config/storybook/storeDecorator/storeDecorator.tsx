@@ -5,7 +5,7 @@ import { articleDetailReducer } from 'entities/Article/model/slice/articleSlice'
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
 import { createCommentReducer } from 'features/CreateComment/model/slice/createCommentSlice';
 import { profileReducer } from 'features/EditableProfile/model/slice/profileSlice';
-import { articleDetailCommentsReducer } from 'pages/ArticleDetailPage/model/slice/articleDetailCommentsSlice';
+import { articleDetailPageReducer } from 'pages/ArticleDetailPage';
 import { StateSchema } from 'shared/config/reduxConfig/stateShema';
 import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
@@ -14,7 +14,7 @@ const defaultAsyncReducers: ReducerList = {
     profile: profileReducer,
     articleDetail: articleDetailReducer,
     createCommentForm: createCommentReducer,
-    articleDetailComments: articleDetailCommentsReducer,
+    articleDetailPage: articleDetailPageReducer,
 };
 
 /** Декоратор глобал стора для сторисов */

@@ -9,6 +9,7 @@ const meta: Meta<typeof Card> = {
     title: 'shared/Card',
     component: Card,
     args: {
+        // eslint-disable-next-line i18next/no-literal-string
         children: <Text text="test" title="Test" />,
     },
 };

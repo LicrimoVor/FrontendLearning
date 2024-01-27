@@ -6,7 +6,7 @@ const initialState: ScrollSaveSchema = {
     scroll: {},
 };
 
-/** Слайс (он же редюсер) для ... */
+/** Слайс (он же редюсер) для скрола */
 export const scrollSaveSlice = createSlice({
     name: 'scrollSave',
     initialState,

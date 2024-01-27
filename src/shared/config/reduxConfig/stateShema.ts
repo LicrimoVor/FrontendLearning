@@ -11,7 +11,7 @@ import { LoginSchema } from 'features/AuthByUsername';
 import { CreateCommentSchema } from 'features/CreateComment';
 import { ProfileSchema } from 'features/EditableProfile';
 import { ScrollSaveSchema } from 'features/ScrollSave';
-import { ArticleDetailCommentsSchema } from 'pages/ArticleDetailPage';
+import { ArticleDetailCommentsSchema, ArticleDetailPageSchema, ArticleDetailRecommendSchema } from 'pages/ArticleDetailPage';
 import { ArticlePageSchema } from 'pages/ArticlePage';
 
 export interface StateSchema {
@@ -24,7 +24,7 @@ export interface StateSchema {
     loginForm?: LoginSchema,
     profile?: ProfileSchema,
     articleDetail?: ArticleDetailSchema,
-    articleDetailComments?: ArticleDetailCommentsSchema,
+    articleDetailPage?: ArticleDetailPageSchema,
     articlePage?: ArticlePageSchema,
     createCommentForm?: CreateCommentSchema,
 }

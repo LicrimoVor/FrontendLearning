@@ -1,8 +1,8 @@
 import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk';
-import { fetchArticlePageList } from '../fetchArticlePageList/fetchArticlePageList';
+import { articlePageActions } from '../../slice/articlePageSlice';
 import { fetchNextArticlePage } from './fetchNextArticlePage';
 
-jest.mock('../fetchArticlePageList/fetchArticlePageList');
+jest.mock('../../slice/articlePageSlice');
 
 describe('fetchNextArticlePage', () => {
     test('Test success get', async () => {
@@ -19,7 +19,7 @@ describe('fetchNextArticlePage', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(4);
-        expect(fetchArticlePageList).toBeCalledWith({ page: 3 });
+        expect(articlePageActions.setPage).toBeCalledWith(3);
     });
 
     test('Test get is loading', async () => {
@@ -36,7 +36,7 @@ describe('fetchNextArticlePage', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(2);
-        expect(fetchArticlePageList).not.toHaveBeenCalled();
+        expect(articlePageActions.setPage).not.toHaveBeenCalled();
     });
 
     test('Test get not has more', async () => {
@@ -53,6 +53,6 @@ describe('fetchNextArticlePage', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(2);
-        expect(fetchArticlePageList).not.toHaveBeenCalled();
+        expect(articlePageActions.setPage).not.toHaveBeenCalled();
     });
 });
