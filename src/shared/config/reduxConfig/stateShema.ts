@@ -5,7 +5,6 @@ import {
 import { AxiosInstance } from 'axios';
 
 import { ArticleDetailSchema } from 'entities/Article';
-import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { CreateCommentSchema } from 'features/CreateComment';
@@ -16,7 +15,6 @@ import { ArticlePageSchema } from 'pages/ArticlePage';
 
 export interface StateSchema {
     // Синхронные редюсеры
-    counter: CounterSchema,
     user: UserSchema,
     scroll: ScrollSaveSchema,
 
