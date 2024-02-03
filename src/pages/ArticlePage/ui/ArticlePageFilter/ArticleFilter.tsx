@@ -1,5 +1,5 @@
 import {
-    FC, memo, useCallback, useMemo,
+    FC, memo, useCallback,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -13,8 +13,6 @@ import { Card } from 'shared/ui/Card';
 import { SortOrder } from 'shared/types/order';
 import { ArticleSortSelector } from 'features/Article/ArticleSortSelector';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { Tabs } from 'shared/ui/Tabs';
-import { TabItem } from 'shared/ui/Tabs/ui/Tabs';
 import { ArticleTypeTabs } from 'features/Article/ArticleTypeTabs';
 import { fetchArticlePageList } from '../../model/services/fetchArticlePageList/fetchArticlePageList';
 import { articlePageActions } from '../../model/slice/articlePageSlice';

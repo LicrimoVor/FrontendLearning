@@ -59,7 +59,7 @@ export const ArticleDetail: FC<ArticleDetailProps> = memo((props: ArticleDetailP
                 <ArticleBlockCodeComponent
                     className={cls.block}
                     block={block}
-                    key={cls.id}
+                    key={block.id}
                 />
             );
         case ArticleBlockType.IMAGE:
@@ -67,7 +67,7 @@ export const ArticleDetail: FC<ArticleDetailProps> = memo((props: ArticleDetailP
                 <ArticleBlockImageComponent
                     className={cls.block}
                     block={block}
-                    key={cls.id}
+                    key={block.id}
                 />
             );
         case ArticleBlockType.TEXT:
@@ -75,7 +75,7 @@ export const ArticleDetail: FC<ArticleDetailProps> = memo((props: ArticleDetailP
                 <ArticleBlockTextComponent
                     className={cls.block}
                     block={block}
-                    key={cls.id}
+                    key={block.id}
                 />
             );
         default:

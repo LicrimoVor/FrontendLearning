@@ -1,11 +1,35 @@
+.ArticleList{
+    height: 100%;
+}
+
 .BIG {
     .card {
-        margin-bottom: 30px;
+        margin: 30px;
     }
 }
 
 .SMALL {
+
+    .sceleton {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin: 0 30px;
+    }
+}
+
+.itemsWrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 30px;
+}
+
+.itemSceleton {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
 }

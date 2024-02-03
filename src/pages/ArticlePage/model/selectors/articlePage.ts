@@ -18,3 +18,4 @@ export const getArticlePageSearch = (state: StateSchema) => state.articlePage?.s
 export const getArticlePageType = (
     state: StateSchema,
 ) => state.articlePage?.type || ArticleType.All;
+export const getArticlePageIndex = (state: StateSchema) => state.articlePage?.index || 0;

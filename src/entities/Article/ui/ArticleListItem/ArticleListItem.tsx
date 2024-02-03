@@ -23,7 +23,8 @@ interface articleListItemProps {
     className?: string,
     article: Article,
     view: ArticleView,
-    target?: HTMLAttributeAnchorTarget
+    target?: HTMLAttributeAnchorTarget,
+    onClickBtn?: () => void,
 }
 
 /** Отображение самой статьи на главном экране */
@@ -33,6 +34,7 @@ export const ArticleListItem: FC<articleListItemProps> = memo((props: articleLis
         article,
         view,
         target,
+        onClickBtn,
     } = props;
 
     const { t } = useTranslation('article');
@@ -77,6 +79,7 @@ export const ArticleListItem: FC<articleListItemProps> = memo((props: articleLis
                         <AppLink
                             target={target}
                             to={RoutePath.article_detail + article.id}
+                            onClick={onClickBtn}
                         >
                             <Button
                                 theme={ButtonTheme.OUTLINE}
@@ -96,6 +99,7 @@ export const ArticleListItem: FC<articleListItemProps> = memo((props: articleLis
             target={target}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             to={RoutePath.article_detail + article.id}
+            onClick={onClickBtn}
         >
             <Card>
                 <div className={cls.imageWrapper}>

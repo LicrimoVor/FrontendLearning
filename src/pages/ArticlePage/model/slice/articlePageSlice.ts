@@ -25,14 +25,15 @@ export const articlePageSlice = createSlice({
         error: undefined,
         ids: [],
         entities: {},
-        limit: 10,
+        limit: 20,
         page: 1,
         hasMore: true,
-        view: ArticleView.SMALL,
+        view: ArticleView.BIG,
         sort: ArticleSortField.CREATED,
         search: '',
         order: 'asc',
         type: ArticleType.All,
+        index: 0,
         _inited: false,
     }),
     reducers: {
@@ -41,6 +42,7 @@ export const articlePageSlice = createSlice({
         },
         setView: (state, action: PayloadAction<ArticleView>) => {
             state.view = action.payload;
+            state.limit = state.view === ArticleView.BIG ? 10 : 20;
             localStorage.setItem(ARTICLE_VIEW_LOCALSTORAGE_KEY, action.payload);
         },
         setSort: (state, action: PayloadAction<ArticleSortField>) => {
@@ -55,10 +57,13 @@ export const articlePageSlice = createSlice({
         setType: (state, action: PayloadAction<ArticleType>) => {
             state.type = action.payload;
         },
+        setIndex: (state, action: PayloadAction<number>) => {
+            state.index = action.payload;
+        },
         initState: (state) => {
             const view = localStorage.getItem(ARTICLE_VIEW_LOCALSTORAGE_KEY) as ArticleView;
             state.view = view;
-            state.limit = view === ArticleView.BIG ? 5 : 10;
+            state.limit = state.view === ArticleView.BIG ? 5 : 20;
             state._inited = true;
         },
     },
