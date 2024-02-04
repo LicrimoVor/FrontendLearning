@@ -1,7 +1,6 @@
 import { ReducersMapObject } from '@reduxjs/toolkit';
 import { FC, ReactNode } from 'react';
 import { Provider } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 import { createReduxStore } from 'shared/config/reduxConfig/reduxConfig';
 import { StateSchema } from 'shared/config/reduxConfig/stateShema';

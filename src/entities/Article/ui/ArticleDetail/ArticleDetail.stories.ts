@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from 'app/providers/ThemeProvider';
-import { articleTest } from 'entities/Article/model/test/data';
 import { storeDecorator } from 'shared/config/storybook/storeDecorator/storeDecorator';
 import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
+import { articleTest } from '../../model/test/data';
 import { ArticleDetail } from './ArticleDetail';
 
 const meta: Meta<typeof ArticleDetail> = {

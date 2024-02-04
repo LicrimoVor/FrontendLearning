@@ -1,3 +1,4 @@
+/* eslint-disable lkx-fsd/path-checker */
 import { Decorator } from '@storybook/react';
 
 import { StoreProvider } from 'app/providers/StoreProvider';
@@ -7,8 +8,8 @@ import { createCommentReducer } from 'features/CreateComment/model/slice/createC
 import { profileReducer } from 'features/EditableProfile/model/slice/profileSlice';
 import { articleDetailPageReducer } from 'pages/ArticleDetailPage';
 import { articlePageReducer } from 'pages/ArticlePage/model/slice/articlePageSlice';
-import { StateSchema } from 'shared/config/reduxConfig/stateShema';
 import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { StateSchema } from '../../reduxConfig/stateShema';
 
 const defaultAsyncReducers: ReducerList = {
     loginForm: loginReducer,
@@ -17,7 +18,6 @@ const defaultAsyncReducers: ReducerList = {
     articleDetail: articleDetailReducer,
     articleDetailPage: articleDetailPageReducer,
     createCommentForm: createCommentReducer,
-
 };
 
 /** Декоратор глобал стора для сторисов */

@@ -1,3 +1,4 @@
+// @ts-ignore
 module.exports = {
     env: {
         browser: true,
@@ -18,6 +19,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'lkx-fsd',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -45,6 +47,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
+        'lkx-fsd/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,
