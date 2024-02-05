@@ -1,5 +1,5 @@
 import {
-    FC, HTMLAttributeAnchorTarget, memo, useEffect, useRef,
+    FC, HTMLAttributeAnchorTarget, memo, useRef,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
@@ -13,7 +13,6 @@ import { ArticleListItemSceleton } from '../ArticleListItem/ArticleListItemScele
 import cls from './ArticleList.module.scss';
 
 interface articleListProps {
-
     articles: Article[],
     className?: string,
     isLoading?: boolean,
@@ -25,9 +24,10 @@ interface articleListProps {
         setIndex: (index: number) => void,
         index: number,
     },
+    countSceleton?: number,
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.BIG ? 3 : 10)
+const getSkeletons = (view: ArticleView, countSceleton: number) => new Array(countSceleton)
     .fill(0)
     .map((_, index) => (
         <ArticleListItemSceleton
@@ -48,6 +48,7 @@ export const ArticleList: FC<articleListProps> = memo((props: articleListProps) 
         Header,
         onLoadNextPart,
         initialArticleIndex,
+        countSceleton = view === ArticleView.BIG ? 3 : 10,
     } = props;
 
     const { t } = useTranslation('article');
@@ -81,7 +82,7 @@ export const ArticleList: FC<articleListProps> = memo((props: articleListProps) 
                 <div
                     className={cls.sceleton}
                 >
-                    {getSkeletons(view)}
+                    {getSkeletons(view, countSceleton)}
                 </div>
             );
         }
@@ -105,11 +106,10 @@ export const ArticleList: FC<articleListProps> = memo((props: articleListProps) 
     ));
 
     return (
-        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+        <div className={classNames('', {}, [className, cls[view]])}>
             {view === ArticleView.BIG
                 ? (
                     <Virtuoso
-                        style={{ height: '100%' }}
                         endReached={onLoadNextPart}
                         itemContent={renderArticle}
                         data={articles}
@@ -123,7 +123,6 @@ export const ArticleList: FC<articleListProps> = memo((props: articleListProps) 
                 : (
                     <VirtuosoGrid
                         ref={virtuosoGridRef}
-                        style={{ height: '100%' }}
                         totalCount={articles.length}
                         endReached={onLoadNextPart}
                         data={articles}

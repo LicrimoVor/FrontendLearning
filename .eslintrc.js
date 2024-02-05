@@ -39,7 +39,19 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': [
             'error',
-            { markupOnly: true, ignoreAttribute: ['to', 'data-testid', 'target'] }],
+            {
+                markupOnly: true,
+                ignoreAttribute: [
+                    'to',
+                    'data-testid',
+                    'target',
+                    'direction',
+                    'justify',
+                    'align',
+                    'gap',
+                    'Component',
+                ],
+            }],
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
         'react-hooks/rules-of-hooks': 'error',

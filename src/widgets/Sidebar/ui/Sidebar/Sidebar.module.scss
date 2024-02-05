@@ -4,46 +4,41 @@
     background: var(--inverted-bg-color);
     position: relative;
     transition: background-color var(--transition-background-time), width 0.5s;
+
+    &.collapsed {
+        width: var(--sidebar-width-collapsed);
+    }
+    
 }
 
-.switcher {
+.switchers {
     position: absolute;
     bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+}
+
+.collapsed {
+    .switchers{
+        flex-direction: column;
+    }
 }
 
 .lang {
-    margin-left: 50px;
+    padding: 0 10px;
 
-    &.collapsed { margin-left: 0; }
+    &.collapsed { 
+        margin-left: 0;
+    }
 }
 
 .wrap {
     position: absolute;
     bottom: 40px;
-
-    // left: 50%;
     right: -32px;
-
-    // margin-right: -50%;
-    // transform: translate(-50%);
-    // align-items: center;
+    z-index: 1;
 }
 
 .items {
     margin-top: 20px;
-    margin-left: 10px;
-    display: flex;
-    flex-direction: column;
+    margin-left: 25px;
 }
 
-.collapsed {
-    width: var(--sidebar-width-collapsed);
-
-    .switcher {
-        flex-direction: column;
-    }
-}

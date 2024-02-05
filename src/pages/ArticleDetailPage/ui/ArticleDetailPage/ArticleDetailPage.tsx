@@ -15,6 +15,7 @@ import { ArticleDetail, ArticleList } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { useInitialEffect } from 'shared/lib/hooks/userInitialEffect/userInitialEffect';
 import { Page } from 'widgets/Page';
+import { VStack } from 'shared/ui/Stack';
 import { getArticleDetailRecommendIsLoading } from '../../model/selectors/recommend';
 import { articleDetailPageReducer } from '../../model/slice';
 import { fetchCommentsByAcrticleId } from '../../model/services/fetchCommentsByAcrticleId/fetchCommentsByAcrticleId';
@@ -23,8 +24,8 @@ import { getArticleComments } from '../../model/slice/articleDetailCommentsSlice
 import { sendCommentForArticle } from '../../model/services/createCommentForArticle/sendCommentForArticle';
 import { getArticleRecommend } from '../../model/slice/articleDetailRecommendSlice';
 import { fetchArticlesRecommend } from '../../model/services/fetchArticlesRecommend/fetchArticlesRecommend';
-import cls from './ArticleDetailPage.module.scss';
 import { ArticleDetailPageHeader } from '../ArticleDetailPageHeader/ArticleDetailPageHeader';
+import cls from './ArticleDetailPage.module.scss';
 
 interface ArticleDetailPageProps {
     className?: string
@@ -74,30 +75,34 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (props) => {
                 <Page
                     className={classNames(cls.ArticleDetailPage, {}, [className])}
                 >
-                    <ArticleDetailPageHeader />
-                    <ArticleDetail id={id} />
-                    <Text
-                        size={TextSize.L}
-                        title={t('Comments')}
-                        className={cls.commentTitle}
-                    />
-                    <CreateCommentForm
-                        onCommentSend={onCommentSend}
-                    />
-                    <CommentList
-                        isLoading={commentsIsLoading}
-                        comments={comments}
-                    />
-                    <Text
-                        size={TextSize.L}
-                        title={t('Recommend')}
-                        className={cls.recommendTitle}
-                    />
+                    <VStack gap={32} max>
+                        <ArticleDetailPageHeader />
+                        <ArticleDetail id={id} />
+                        <Text
+                            size={TextSize.L}
+                            title={t('Comments')}
+                            className={cls.commentTitle}
+                        />
+
+                        <CreateCommentForm
+                            onCommentSend={onCommentSend}
+                        />
+                        <CommentList
+                            isLoading={commentsIsLoading}
+                            comments={comments}
+                        />
+                        <Text
+                            size={TextSize.L}
+                            title={t('Recommend')}
+                            className={cls.recommendTitle}
+                        />
+                    </VStack>
                     <ArticleList
                         articles={recommendArticles}
                         isLoading={recommendIsLoading}
                         className={cls.recommendArticles}
                         target="_blank"
+                        countSceleton={4}
                     />
                 </Page>
             </DynamicModuleLoader>

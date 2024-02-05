@@ -109,7 +109,8 @@
       "createdAt": "26.02.2022",
       "userId": "1",
       "type": [
-        "IT", "MEDICINE"
+        "IT",
+        "MEDICINE"
       ],
       "blocks": [
         {
@@ -253,7 +254,10 @@
       "createdAt": "26.02.2021",
       "userId": "1",
       "type": [
-        "IT", "MEDICINE", "SCIENCE", "ECONOMICS"
+        "IT",
+        "MEDICINE",
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -589,7 +593,8 @@
       "createdAt": "26.12.2022",
       "userId": "1",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -637,7 +642,8 @@
       "createdAt": "12.02.1999",
       "userId": "1",
       "type": [
-        "IT", "SCIENCE"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -737,6 +743,18 @@
       "text": "Python!!!",
       "userId": "1",
       "id": "mtZMsr6"
+    },
+    {
+      "articleId": "14",
+      "text": "коммент 1",
+      "userId": "1",
+      "id": "1CZM_4n"
+    },
+    {
+      "articleId": "14",
+      "text": "коммент 2",
+      "userId": "1",
+      "id": "knoCXr7"
     }
   ],
   "profile": [

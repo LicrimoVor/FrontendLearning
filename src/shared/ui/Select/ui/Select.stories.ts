@@ -7,15 +7,6 @@ import { Select } from './Select';
 const meta: Meta<typeof Select> = {
     title: 'shared/Select',
     component: Select,
-};
-
-export default meta;
-type Story = StoryObj<typeof Select>;
-
-export const Size200px: Story = {
-    decorators: [
-        themeDecorator(Theme.LIGHT),
-    ],
     args: {
         label: 'label',
         options: [
@@ -24,4 +15,25 @@ export const Size200px: Story = {
             { value: '3', content: 'third' },
         ],
     },
+};
+
+export default meta;
+type Story = StoryObj<typeof Select>;
+
+export const LIGHT: Story = {
+    decorators: [
+        themeDecorator(Theme.LIGHT),
+    ],
+};
+
+export const DARK: Story = {
+    decorators: [
+        themeDecorator(Theme.DARK),
+    ],
+};
+
+export const RED: Story = {
+    decorators: [
+        themeDecorator(Theme.RED),
+    ],
 };

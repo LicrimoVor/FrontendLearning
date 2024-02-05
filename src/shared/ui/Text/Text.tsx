@@ -1,7 +1,7 @@
-/* eslint-disable no-unused-vars */
 import { FC, memo } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
+import { HTMLTags } from 'shared/types/ui';
 import cls from './Text.module.scss';
 
 export enum TextTheme {
@@ -19,9 +19,16 @@ export enum TextAlign {
 }
 
 export enum TextSize {
-    L = 'size_l',
+    S = 'size_s',
     M = 'size_m',
+    L = 'size_l',
 }
+
+const TitleTags: Record<TextSize, HTMLTags> = {
+    size_s: 'h3',
+    size_m: 'h2',
+    size_l: 'h1',
+};
 
 interface TextProps {
     className?: string
@@ -49,12 +56,18 @@ export const Text: FC<TextProps> = memo((props: TextProps) => {
         [cls[size]]: true,
     };
 
+    const TitleTag = TitleTags[size];
+
     return (
         <div
             className={classNames('', {}, [className])}
         >
             {title && (
-                <p className={classNames(cls.title, mods)}>{title}</p>
+                <TitleTag
+                    className={classNames(cls.title, mods)}
+                >
+                    {title}
+                </TitleTag>
             )}
             {text && (
                 <p className={classNames(cls.text, mods)}>{text}</p>

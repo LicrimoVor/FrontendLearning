@@ -8,7 +8,7 @@ import { useInitialEffect } from 'shared/lib/hooks/userInitialEffect/userInitial
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { articlePageActions, articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
-import cls from './ArticlePage.module.scss';
+
 import {
     getArticlePageIndex,
     getArticlePageIsLoading,
@@ -17,6 +17,7 @@ import {
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';
 import { ArticlePageFilter } from '../ArticlePageFilter/ArticleFilter';
+import cls from './ArticlePage.module.scss';
 
 interface ArticlePageProps {
     className?: string

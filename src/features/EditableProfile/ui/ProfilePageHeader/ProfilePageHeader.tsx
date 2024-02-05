@@ -7,6 +7,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
+import { HStack } from 'shared/ui/Stack';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
@@ -23,7 +24,6 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
     const authData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
     const canEdit = authData?.id === profileData?.id;
-    console.log(profileData, authData);
 
     const {
         className,
@@ -45,7 +45,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
     }, [dispatch]);
 
     return (
-        <div
+        <HStack
             className={classNames(cls.ProfilePageHeader, {}, [className])}
         >
             <Text title={t('Profile')} />
@@ -79,7 +79,6 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = (props) => {
                     )}
                 </div>
             )}
-
-        </div>
+        </HStack>
     );
 };

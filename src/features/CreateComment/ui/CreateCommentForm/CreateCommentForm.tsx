@@ -7,6 +7,7 @@ import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicM
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
+import { HStack } from 'shared/ui/Stack';
 import { getCreateCommentError, getCreateCommentText } from '../../model/selectors/createComment';
 import { createCommentActions, createCommentReducer } from '../../model/slice/createCommentSlice';
 import cls from './CreateCommentForm.module.scss';
@@ -45,7 +46,7 @@ const CreateCommentForm: FC<CreateCommentFormProps> = memo((
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.CreateCommentForm, {}, [className])}>
+            <HStack max className={classNames(cls.CreateCommentForm, {}, [className])}>
                 <Input
                     className={cls.input}
                     placeholder={t('Enter a comment')}
@@ -57,7 +58,7 @@ const CreateCommentForm: FC<CreateCommentFormProps> = memo((
                 >
                     {t('Send')}
                 </Button>
-            </div>
+            </HStack>
         </DynamicModuleLoader>
     );
 });
