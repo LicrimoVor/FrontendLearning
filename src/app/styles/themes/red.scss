@@ -1,8 +1,8 @@
 .app_red_theme {
     --bg-color: #fbf3f3;
-    --primary-color: #8b0000;
-    --secondary-color: #b32c2c;
-    --inverted-bg-color: #ff4f4f;
+    --primary-color: #740000;
+    --secondary-color: #ca2424;
+    --inverted-bg-color: #d43636;
     --inverted-primary-color: #fff;
     --inverted-secondary-color: #ffc3c3;
 
@@ -11,8 +11,11 @@
     --skeleton-color: #ff9595;
 
     // code
-    --code-bg: #fadfdf;
+    --code-bg: #ffd6d6;
 
     // card
-    --card-bg: #fae8e8;
+    --card-bg: #ffdcdc;
+
+    //listbox
+    --listbox-bg: #e65353; 
 }

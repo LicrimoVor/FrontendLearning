@@ -1,0 +1,72 @@
+.ListBox {
+    position: relative;
+}
+
+.trigger {
+    background: none;
+    border: 2px solid var(--primary-color);
+    outline-color: transparent;
+    margin: 0;
+    padding: 0 4px;
+
+    &.disabled {
+        border: none
+    }
+}
+
+.item {
+    cursor: pointer;
+    color: var(--inverted-primary-color);
+    border-radius: 10px;
+    padding: 1px 20px;
+    min-width: 100%;
+
+    &.selected {
+        background-color: var(--secondary-color);
+    }
+
+    &.active:not(.readonly) {
+        background-color: var(--primary-color);
+    }
+
+    &.readonly {
+        cursor: default;
+        border-radius: 0;
+        opacity: 0.5;
+    }
+}
+
+.options {
+    position: absolute;
+    z-index: 10000;
+    border: 2px solid var(--primary-color);
+    background-color: var(--listbox-bg);
+
+    &.topRight {
+        border-radius: 12px 12px 12px 0;
+        left: 0%;
+        bottom: 100%;
+    }
+
+    &.topLeft {
+        border-radius: 12px 12px 0 12px;
+        bottom: 100%;
+        right: 0%;
+    }
+
+    &.bottomRight {
+        border-radius: 0 12px 12px 12px;
+        top: 100%;
+        left: 0%;
+    }
+
+    &.bottomLeft {
+        border-radius: 12px 0 12px 12px;
+        top: 100%;
+        right: 0%;
+    }
+}
+
+.listText {
+    margin: 2px 0;
+}

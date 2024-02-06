@@ -50,6 +50,7 @@ module.exports = {
                     'align',
                     'gap',
                     'Component',
+                    'as',
                 ],
             }],
         'jsx-a11y/click-events-have-key-events': 'off',
