@@ -51,6 +51,7 @@ module.exports = {
                     'gap',
                     'Component',
                     'as',
+                    'refName',
                 ],
             }],
         'jsx-a11y/click-events-have-key-events': 'off',

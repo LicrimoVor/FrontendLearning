@@ -1,12 +1,9 @@
 .ListBox {
     position: relative;
+    display: flex;
 }
 
 .trigger {
-    background: none;
-    border: 2px solid var(--primary-color);
-    outline-color: transparent;
-    margin: 0;
     padding: 0 4px;
 
     &.disabled {

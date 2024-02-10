@@ -11,10 +11,11 @@ export enum AppLinkTheme {
 }
 
 interface AppLinkProps extends LinkProps {
-  className?: string,
-  inverted?: boolean,
-  theme?: AppLinkTheme,
-  children?: ReactNode,
+    className?: string,
+    inverted?: boolean,
+    theme?: AppLinkTheme,
+    children?: ReactNode,
+    disabled?: boolean,
 }
 
 /** Ссылочка */
@@ -25,6 +26,7 @@ export const AppLink: FC<AppLinkProps> = memo((props: AppLinkProps) => {
         children,
         inverted = false,
         theme = AppLinkTheme.PRIMARY,
+        disabled,
         ...otherProps
     } = props;
 

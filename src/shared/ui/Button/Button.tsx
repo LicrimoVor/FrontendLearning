@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import {
-    ButtonHTMLAttributes, FC, memo, ReactNode,
+    ButtonHTMLAttributes, FC, forwardRef, LegacyRef, memo, ReactNode,
 } from 'react';
 
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
@@ -20,17 +20,20 @@ export enum ButtonSize {
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string,
-  theme?: ButtonTheme,
-  inverted?: boolean,
-  square?: boolean,
-  size?: ButtonSize,
-  disabled?: boolean,
-  children?: ReactNode,
+    className?: string,
+    theme?: ButtonTheme,
+    inverted?: boolean,
+    square?: boolean,
+    size?: ButtonSize,
+    disabled?: boolean,
+    children?: ReactNode,
 }
 
-/** Своя кнопочка */
-export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
+/** Своя кнопочка, поддерживает ref */
+export const Button: FC<ButtonProps> = forwardRef((
+    props: ButtonProps,
+    ref: LegacyRef<HTMLButtonElement>,
+) => {
     const {
         className,
         theme = ButtonTheme.OUTLINE,
@@ -53,10 +56,9 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
     return (
         <button
             type="button"
-            className={
-                classNames(cls.Button, mods, [className])
-            }
+            className={classNames(cls.Button, mods, [className])}
             disabled={disabled}
+            ref={ref}
             {...otherProps}
         >
             {children}

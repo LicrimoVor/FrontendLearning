@@ -59,12 +59,10 @@ export const ListBox: FC<ListBoxProps> = memo((props: ListBoxProps) => {
                 onChange={onChange}
                 className={cls.ListBox}
             >
-                <HListbox.Button
-                    className={classNames(cls.trigger, { [cls.disabled]: disabled }, [])}
-                >
+                <HListbox.Button as="div">
                     <Button
                         disabled={disabled}
-                        theme={ButtonTheme.CLEAR}
+                        className={classNames(cls.trigger, { [cls.disabled]: disabled }, [])}
                     >
                         {disabled ? textBtn : `${textBtn} \\/`}
                     </Button>
