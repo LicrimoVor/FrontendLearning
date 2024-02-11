@@ -113,6 +113,11 @@
     "react-router-dom": "^6.2.1",
     "react-virtuoso": "^4.6.3"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "^axios$": "axios/dist/node/axios.cjs"
+    }
+  },
   "loki": {
     "configurations": {
       "chrome.laptop": {

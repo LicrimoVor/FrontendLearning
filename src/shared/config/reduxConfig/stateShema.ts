@@ -6,23 +6,25 @@ import { AxiosInstance } from 'axios';
 
 import { ArticleDetailSchema } from 'entities/Article';
 import { UserSchema } from 'entities/User';
+import { ArticleCommentSchema } from 'features/Article/ArticleCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
 import { CreateCommentSchema } from 'features/CreateComment';
 import { ProfileSchema } from 'features/EditableProfile';
 import { ScrollSaveSchema } from 'features/ScrollSave';
-import { ArticleDetailCommentsSchema, ArticleDetailPageSchema, ArticleDetailRecommendSchema } from 'pages/ArticleDetailPage';
-import { ArticlePageSchema } from 'pages/ArticlePage';
+import { ArticlePageSchema } from 'pages/Article/ArticlePage';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
     // Синхронные редюсеры
     user: UserSchema,
     scroll: ScrollSaveSchema,
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>,
 
     // Асинхронные редюсеры
     loginForm?: LoginSchema,
     profile?: ProfileSchema,
     articleDetail?: ArticleDetailSchema,
-    articleDetailPage?: ArticleDetailPageSchema,
+    articleComments?: ArticleCommentSchema,
     articlePage?: ArticlePageSchema,
     createCommentForm?: CreateCommentSchema,
 }

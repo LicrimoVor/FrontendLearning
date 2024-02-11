@@ -14,7 +14,7 @@ interface CommentListProps {
     isLoading?: boolean,
 }
 
-/** Докстринг */
+/** Список комментариев */
 export const CommentList: FC<CommentListProps> = memo((props: CommentListProps) => {
     const {
         className,

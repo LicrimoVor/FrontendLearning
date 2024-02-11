@@ -13,7 +13,7 @@ import { ArticleListItemSceleton } from '../ArticleListItem/ArticleListItemScele
 import cls from './ArticleList.module.scss';
 
 interface articleListProps {
-    articles: Article[],
+    articles?: Article[],
     className?: string,
     isLoading?: boolean,
     view?: ArticleView,
@@ -41,7 +41,7 @@ const getSkeletons = (view: ArticleView, countSceleton: number) => new Array(cou
 export const ArticleList: FC<articleListProps> = memo((props: articleListProps) => {
     const {
         className,
-        articles,
+        articles = [],
         isLoading,
         view = ArticleView.SMALL,
         target,

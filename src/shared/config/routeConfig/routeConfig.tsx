@@ -5,9 +5,9 @@ import { AboutPage } from 'pages/AboutPages';
 import { MainPage } from 'pages/MainPages';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
-import { ArticlePage } from 'pages/ArticlePage';
-import { ArticleDetailPage } from 'pages/ArticleDetailPage';
-import { ArticleEditPage } from 'pages/ArticleEditPage';
+import { ArticlePage } from 'pages/Article/ArticlePage';
+import { ArticleDetailPage } from 'pages/Article/ArticleDetailPage';
+import { ArticleEditPage } from 'pages/Article/ArticleEditPage';
 
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean,

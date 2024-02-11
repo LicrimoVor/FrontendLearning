@@ -3,6 +3,8 @@ import { componentRender } from 'shared/lib/tests/componentRender/componentRende
 
 import { Sidebar } from './Sidebar';
 
+jest.mock('shared/api/rtkApi');
+
 describe('Sidebar', () => {
     test('Test button wrap', () => {
         const { getByTestId } = componentRender(<Sidebar />);

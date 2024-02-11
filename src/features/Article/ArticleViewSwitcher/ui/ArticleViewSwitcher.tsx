@@ -6,6 +6,7 @@ import TilesIcon from 'shared/assets/icons/field.svg';
 import { ArticleView } from 'entities/Article';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon';
+import { HStack } from 'shared/ui/Stack';
 import cls from './ArticleViewSwitcher.module.scss';
 
 interface articleViewSwitcherProps {
@@ -40,7 +41,7 @@ export const ArticleViewSwitcher: FC<articleViewSwitcherProps> = memo((
     };
 
     return (
-        <div className={classNames(cls.ArticleViewSwitcher, {}, [className])}>
+        <HStack className={classNames(cls.ArticleViewSwitcher, {}, [className])}>
             {viewTypes.map((viewType) => (
                 <Button
                     theme={ButtonTheme.CLEAR}
@@ -55,6 +56,6 @@ export const ArticleViewSwitcher: FC<articleViewSwitcherProps> = memo((
                     />
                 </Button>
             ))}
-        </div>
+        </HStack>
     );
 });

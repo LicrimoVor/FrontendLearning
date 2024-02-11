@@ -15,6 +15,7 @@ import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import { Icon } from 'shared/ui/Icon';
 import { HStack, VStack } from 'shared/ui/Stack';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import { getArticleDetailData, getArticleDetailError, getArticleDetailIsLoadnig } from '../../model/selectors/articleDetails';
 import { fetchArticleDetailById } from '../../model/services/fetchArticleDetailById/fetchArticleDetailById';
@@ -25,7 +26,7 @@ import { ArticleBlockTextComponent } from '../ArticleBlockTextComponent/ArticleB
 
 interface ArticleDetailProps {
     className?: string,
-    id: string,
+    articleId: string,
 }
 
 const reducers: ReducerList = {
@@ -36,7 +37,7 @@ const reducers: ReducerList = {
 export const ArticleDetail: FC<ArticleDetailProps> = memo((props: ArticleDetailProps) => {
     const {
         className,
-        id,
+        articleId,
     } = props;
 
     const dispatch = useAppDispatch();
@@ -47,9 +48,9 @@ export const ArticleDetail: FC<ArticleDetailProps> = memo((props: ArticleDetailP
 
     useEffect(() => {
         if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleDetailById(id));
+            dispatch(fetchArticleDetailById(articleId));
         }
-    }, [dispatch, id]);
+    }, [dispatch, articleId]);
 
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
@@ -82,7 +83,11 @@ export const ArticleDetail: FC<ArticleDetailProps> = memo((props: ArticleDetailP
     let content;
     if (isLoading) {
         content = (
-            <VStack gap={12} max>
+            <VStack
+                gap={12}
+                max
+                className={classNames('', {}, [className])}
+            >
                 <HStack max justify="center">
                     <Skeleton border="50%" width={200} height={200} />
                 </HStack>
@@ -98,11 +103,16 @@ export const ArticleDetail: FC<ArticleDetailProps> = memo((props: ArticleDetailP
                 title={t('ArticleErrorInLoading')}
                 align={TextAlign.CENTER}
                 theme={TextTheme.ERROR}
+                className={classNames('', {}, [className])}
             />
         );
     } else {
         content = (
-            <VStack gap={12} max>
+            <VStack
+                gap={12}
+                max
+                className={classNames('', {}, [className])}
+            >
                 <HStack max justify="center">
                     <Avatar
                         size={200}

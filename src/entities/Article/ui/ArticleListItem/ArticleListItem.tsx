@@ -1,6 +1,4 @@
-import {
-    FC, HTMLAttributeAnchorTarget, memo, useCallback,
-} from 'react';
+import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
@@ -10,7 +8,6 @@ import { Card } from 'shared/ui/Card';
 import { Avatar } from 'shared/ui/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import {

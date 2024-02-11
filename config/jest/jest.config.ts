@@ -42,4 +42,6 @@ export default {
         __API__: JSON.stringify('/'),
         __PROJECT__: JSON.stringify('jest'),
     },
+
+    transformIgnorePatterns: ['node_modules/(?!axios)'],
 };

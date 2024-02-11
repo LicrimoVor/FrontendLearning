@@ -4,6 +4,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 import { EditableProfileCard } from 'features/EditableProfile';
 import { Page } from 'widgets/Page';
+import { useParams } from 'react-router-dom';
 
 interface ProfilePageProps {
     className?: string
@@ -15,14 +16,15 @@ const ProfilePage: FC<ProfilePageProps> = (props) => {
         className,
     } = props;
 
-    return (
+    let { id } = useParams<{id: string}>();
+    if (__PROJECT__ === 'storybook') id = '1';
 
+    return (
         <Page
             className={classNames('', {}, [className])}
         >
-            <EditableProfileCard />
+            <EditableProfileCard profileId={id} />
         </Page>
-
     );
 };
 

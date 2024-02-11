@@ -46,12 +46,11 @@ export const ArticleTypeTabs: FC<articleTypeTabsProps> = memo((props: articleTyp
     ], [t]);
 
     return (
-        <div className={classNames('', {}, [className])}>
-            <Tabs<ArticleType>
-                tabs={typeTabs}
-                value={value}
-                onTabClick={onChangeType}
-            />
-        </div>
+        <Tabs<ArticleType>
+            tabs={typeTabs}
+            value={value}
+            onTabClick={onChangeType}
+            className={classNames('', {}, [className])}
+        />
     );
 });

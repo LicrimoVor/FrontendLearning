@@ -755,16 +755,28 @@
       "text": "коммент 2",
       "userId": "1",
       "id": "knoCXr7"
+    },
+    {
+      "articleId": "18",
+      "text": "test comment",
+      "userId": "1",
+      "id": "966vk8D"
+    },
+    {
+      "articleId": "4",
+      "text": "test comment",
+      "userId": "1",
+      "id": "W2JUrNf"
     }
   ],
   "profile": [
     {
       "id": "1",
       "first": "Admin",
-      "lastname": "asdsafsdf",
+      "lastname": "Ликримовор",
       "age": 123,
-      "currency": "EUR",
-      "country": "China",
+      "currency": "USD",
+      "country": "Armenia",
       "city": "asdasda",
       "username": "admin",
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
