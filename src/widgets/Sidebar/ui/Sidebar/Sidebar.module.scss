@@ -8,7 +8,6 @@
     &.collapsed {
         width: var(--sidebar-width-collapsed);
     }
-    
 }
 
 .switchers {
@@ -17,7 +16,7 @@
 }
 
 .collapsed {
-    .switchers{
+    .switchers {
         flex-direction: column;
     }
 }
@@ -25,7 +24,7 @@
 .lang {
     padding: 0 10px;
 
-    &.collapsed { 
+    &.collapsed {
         margin-left: 0;
     }
 }
@@ -41,4 +40,3 @@
     margin-top: 20px;
     margin-left: 25px;
 }
-
