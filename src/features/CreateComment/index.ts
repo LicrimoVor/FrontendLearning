@@ -1,2 +1,2 @@
 export { CreateCommentFormAsync as CreateCommentForm } from './ui/CreateCommentForm/CreateCommentForm.async';
-export { CreateCommentSchema } from './model/types/createComment';
+export type { CreateCommentSchema } from './model/types/createComment';

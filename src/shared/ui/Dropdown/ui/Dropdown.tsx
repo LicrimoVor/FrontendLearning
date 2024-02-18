@@ -1,5 +1,5 @@
 import {
-    FC, Fragment, memo, ReactNode, forwardRef,
+    FC, Fragment, memo, ReactNode,
 } from 'react';
 import { Menu } from '@headlessui/react';
 

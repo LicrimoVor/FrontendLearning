@@ -1,2 +1,2 @@
 export { ArticleCommentForm } from './ui/ArticleCommentForm';
-export { ArticleCommentSchema } from './model/types/ArticleCommentSchema';
+export type { ArticleCommentSchema } from './model/types/ArticleCommentSchema';

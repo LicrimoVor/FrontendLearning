@@ -19,7 +19,7 @@ export const componentRender = (
 ): ReturnType<typeof render> => {
     const {
         route = ['/'],
-        initialState,
+        initialState = {},
     } = options;
 
     return render(

@@ -1,6 +1,8 @@
 {
   "About": "About",
   "About page": "About page",
+  "Admin": "Admin",
+  "Adminka": "Adminka",
   "Age": "Age",
   "All": "All",
   "AllArticlies": "AllArticlies",
@@ -48,6 +50,7 @@
   "Increasing": "Increasing",
   "Increment": "Increment",
   "Lang": "Lang",
+  "Languege": "Languege",
   "LastName": "LastName",
   "Loading": "Loading",
   "LogIn": "LogIn",
@@ -89,6 +92,7 @@
   "WasHappenedExcept": "WasHappenedExcept",
   "Wrap": "Wrap",
   "Wrong username or password": "Wrong username or password",
+  "You are not authorized to view this page": "You are not authorized to view this page",
   "loading": "loading",
   "menu": "menu",
   "profile": {

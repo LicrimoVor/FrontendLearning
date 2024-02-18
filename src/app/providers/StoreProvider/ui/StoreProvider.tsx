@@ -19,12 +19,9 @@ export const StoreProvider: FC<StoreProviderProps> = (props) => {
         asyncReducers,
     } = props;
 
-    // const navigate = useNavigate();
-
     const store = createReduxStore(
         initialState as StateSchema,
         asyncReducers as ReducersMapObject<StateSchema>,
-        // navigate,
     );
 
     return (
@@ -33,5 +30,3 @@ export const StoreProvider: FC<StoreProviderProps> = (props) => {
         </Provider>
     );
 };
-
-export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

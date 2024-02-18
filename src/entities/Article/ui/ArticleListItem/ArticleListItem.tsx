@@ -11,8 +11,9 @@ import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import {
-    Article, ArticleBlockText, ArticleBlockType, ArticleView,
+    Article, ArticleBlockText,
 } from '../../model/types/article';
+import { ArticleView, ArticleBlockType } from '../../model/consts/article';
 import cls from './ArticleListItem.module.scss';
 import { ArticleBlockTextComponent } from '../ArticleBlockTextComponent/ArticleBlockTextComponent';
 

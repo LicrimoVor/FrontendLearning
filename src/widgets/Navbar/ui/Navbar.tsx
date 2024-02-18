@@ -6,7 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+    getUserAuthData, isUserAdmin, isUserManager, userActions,
+} from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
@@ -30,6 +32,8 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
     const authData = useSelector(getUserAuthData);
     const { t } = useTranslation();
     const dispatch = useDispatch();
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
 
     const onCloseModal = useCallback(() => {
         setIsOpenAuth(false);
@@ -48,11 +52,14 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
             return null;
         }
 
+        const isAdminPanelAvaible = isAdmin || isManager;
+
         return [
+            ...(isAdminPanelAvaible ? [{ component: t('Admin'), href: RoutePath.admin_panel }] : []),
             { component: t('Profile'), href: RoutePath.profile + authData.id },
             { component: t('LogOut'), onClick: onLogout },
         ];
-    }, [onLogout, authData, t]);
+    }, [onLogout, authData, t, isAdmin, isManager]);
 
     if (authData) {
         return (
