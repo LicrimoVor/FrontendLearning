@@ -28,6 +28,21 @@ const meta: Meta<typeof ArticlePage> = {
             },
         }),
     ],
+    parameters: {
+        mockData: [
+            {
+                url: `${__API__}/articles?_limit=5`,
+                method: 'GET',
+                status: 200,
+                response: [
+                    articleTest,
+                    articleTest,
+                    articleTest,
+                    articleTest,
+                ],
+            },
+        ],
+    },
 };
 
 export default meta;

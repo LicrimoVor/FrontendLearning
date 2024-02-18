@@ -112,6 +112,7 @@ export const ArticleList: FC<articleListProps> = memo((props: articleListProps) 
                 ? (
                     <Virtuoso
                         endReached={onLoadNextPart}
+                        totalCount={articles.length}
                         itemContent={renderArticle}
                         data={articles}
                         initialTopMostItemIndex={initialArticleIndex?.index}

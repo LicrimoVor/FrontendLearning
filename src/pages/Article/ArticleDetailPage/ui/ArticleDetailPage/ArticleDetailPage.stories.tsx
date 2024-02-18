@@ -18,12 +18,23 @@ const meta: Meta<typeof ArticleDetailPage> = {
                 ids: [],
                 entities: {},
             },
-            // articleRecommend: {
-            //     ids: [],
-            //     entities: {},
-            // },
         }),
     ],
+    parameters: {
+        mockData: [
+            {
+                url: `${__API__}/articles?_limit=5`,
+                method: 'GET',
+                status: 200,
+                response: [
+                    articleTest,
+                    articleTest,
+                    articleTest,
+                    articleTest,
+                ],
+            },
+        ],
+    },
 };
 
 export default meta;

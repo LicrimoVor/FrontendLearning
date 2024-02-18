@@ -17,7 +17,7 @@ import { ArticleView, ArticleBlockType } from '../../model/consts/article';
 import cls from './ArticleListItem.module.scss';
 import { ArticleBlockTextComponent } from '../ArticleBlockTextComponent/ArticleBlockTextComponent';
 
-interface articleListItemProps {
+interface ArticleListItemProps {
     className?: string,
     article: Article,
     view: ArticleView,
@@ -26,7 +26,7 @@ interface articleListItemProps {
 }
 
 /** Отображение самой статьи на главном экране */
-export const ArticleListItem: FC<articleListItemProps> = memo((props: articleListItemProps) => {
+export const ArticleListItem: FC<ArticleListItemProps> = memo((props: ArticleListItemProps) => {
     const {
         className,
         article,

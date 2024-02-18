@@ -1,10 +1,14 @@
+
 .BIG {
+    height: 100vh;
     .card {
         margin: 30px;
     }
 }
 
 .SMALL {
+    height: 100vh;
+
     .sceleton {
         display: flex;
         flex-wrap: wrap;

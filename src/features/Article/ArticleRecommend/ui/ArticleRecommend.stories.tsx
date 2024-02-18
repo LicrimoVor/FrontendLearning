@@ -7,19 +7,30 @@ import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDeco
 import { ArticleRecommend } from './ArticleRecommend';
 
 const meta: Meta<typeof ArticleRecommend> = {
-    title: 'pages/Article/ArticleRecommend',
+    title: 'features/Article/ArticleRecommend',
     component: ArticleRecommend,
     decorators: [
         storeDecorator({
-            articleDetail: {
-                data: articleTest,
-            },
-            // articleRecommend: {
-            //     ids: [],
-            //     entities: {},
+            // articleDetail: {
+            //     data: articleTest,
             // },
         }),
     ],
+    parameters: {
+        mockData: [
+            {
+                url: `${__API__}/articles?_limit=5`,
+                method: 'GET',
+                status: 200,
+                response: [
+                    articleTest,
+                    articleTest,
+                    articleTest,
+                    articleTest,
+                ],
+            },
+        ],
+    },
 };
 
 export default meta;

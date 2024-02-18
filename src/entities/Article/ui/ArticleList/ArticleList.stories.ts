@@ -10,6 +10,7 @@ const meta: Meta<typeof ArticleList> = {
     title: 'entities/Article/ArticleList',
     component: ArticleList,
     args: {
+        isLoading: false,
         articles: [articleTest, articleTest, articleTest],
     },
 };
@@ -45,6 +46,7 @@ export const IsLoadingSmall: Story = {
     args: {
         isLoading: true,
         view: ArticleView.SMALL,
+        articles: [],
     },
 };
 
@@ -52,5 +54,6 @@ export const IsLoadingBig: Story = {
     args: {
         isLoading: true,
         view: ArticleView.BIG,
+        articles: [],
     },
 };

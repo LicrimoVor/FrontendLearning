@@ -7,17 +7,7 @@ const config: StorybookConfig = {
         '@storybook/addon-essentials',
         '@storybook/addon-onboarding',
         '@storybook/addon-interactions',
-        // '@storybook/addon-jest',
-        // {
-        //     name: '@storybook/addon-coverage',
-        //     options: {
-        //         istanbul: {
-        //             exclude: ['**/components/**/index.ts'],
-        //         },
-        //     },
-        // },
-        // 'storybook-addon-module-mock',
-
+        'storybook-addon-mock',
     ],
     framework: '@storybook/react-webpack5',
 
