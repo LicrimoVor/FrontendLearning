@@ -1,5 +1,5 @@
 import {
-    FC, HTMLAttributeAnchorTarget, memo, useRef,
+    FC, HTMLAttributeAnchorTarget, LegacyRef, memo, useRef, forwardRef,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
@@ -13,7 +13,7 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSceleton } from '../ArticleListItem/ArticleListItemSceleton';
 import cls from './ArticleList.module.scss';
 
-interface articleListProps {
+interface ArticleListProps {
     articles?: Article[],
     className?: string,
     isLoading?: boolean,
@@ -39,7 +39,7 @@ const getSkeletons = (view: ArticleView, countSceleton: number) => new Array(cou
     ));
 
 /** Отображения списка статей */
-export const ArticleList: FC<articleListProps> = memo((props: articleListProps) => {
+export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) => {
     const {
         className,
         articles = [],
@@ -125,7 +125,6 @@ export const ArticleList: FC<articleListProps> = memo((props: articleListProps) 
                 : (
                     <VirtuosoGrid
                         ref={virtuosoGridRef}
-                        totalCount={articles.length}
                         endReached={onLoadNextPart}
                         data={articles}
                         itemContent={renderArticle}

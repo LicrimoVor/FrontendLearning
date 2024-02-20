@@ -52,6 +52,7 @@ module.exports = {
                     'Component',
                     'as',
                     'refName',
+                    'border',
                 ],
             }],
         'jsx-a11y/click-events-have-key-events': 'off',

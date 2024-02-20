@@ -1,16 +1,16 @@
-.Dropdown {
+.Popup {
     position: relative;
     display: inline-block;
 }
 
-.options {
+.popupMenu {
     position: absolute;
-    z-index: 10000;
+    z-index: var(--popup-z-index);
     display: flex;
     flex-direction: column;
-    background-color: var(--dropdown-bg);
     border: 2px solid var(--primary-color);
-    box-shadow: 2px 2px 3px var(--dropdown-shadow);
+    background-color: var(--popup-bg);
+    box-shadow: 1px 1px 2px var(--popup-shadow);
 
     &.topRight {
         border-radius: 12px 12px 12px 0;
@@ -34,20 +34,5 @@
         border-radius: 12px 0 12px 12px;
         top: 100%;
         right: 0%;
-    }
-}
-
-.item {
-    border-radius: 10px;
-    padding: 5px 20px;
-    min-width: 100%;
-
-    &.selected {
-        background-color: var(--secondary-color);
-    }
-
-    &.active {
-        background-color: var(--primary-color);
-        box-shadow: inset 1px 2px var(--dropdown-shadow);
     }
 }

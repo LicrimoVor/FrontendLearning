@@ -2,11 +2,13 @@ import { FC, memo, ReactNode } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Direction } from 'shared/types/ui';
-import { HStack } from '../../Stack';
-import { Text } from '../../Text/Text';
-import { Button, ButtonTheme } from '../../Button/Button';
+import { HStack } from '../../../Stack';
+import { Text } from '../../../Text/Text';
+import { Button } from '../../../Button/Button';
+import { PopupDirection } from '../../styles/types';
 import cls from './ListBox.module.scss';
+import popupsCls from '../../styles/popups.module.scss';
+import { PopupDirectionConvert } from '../../styles/consts';
 
 interface ListBoxItem {
     value: string,
@@ -21,16 +23,9 @@ interface ListBoxProps {
     defaultValue?: string,
     disabled?: boolean,
     label?: string,
-    direction?: Direction,
+    direction?: PopupDirection,
     onChange: (value: string) => void,
 }
-
-const ListBoxDirection: Record<Direction, string> = {
-    'bottom left': cls.bottomLeft,
-    'bottom right': cls.bottomRight,
-    'top left': cls.topLeft,
-    'top right': cls.topRight,
-};
 
 /** Всплывающее окно с выбором */
 export const ListBox: FC<ListBoxProps> = memo((props: ListBoxProps) => {
@@ -46,7 +41,7 @@ export const ListBox: FC<ListBoxProps> = memo((props: ListBoxProps) => {
     } = props;
 
     const optionsClasses = [
-        ListBoxDirection[direction],
+        PopupDirectionConvert[direction],
     ];
     const textBtn = selectedValue || defaultValue || data[0].value;
 
@@ -57,7 +52,7 @@ export const ListBox: FC<ListBoxProps> = memo((props: ListBoxProps) => {
                 as="div"
                 value={selectedValue}
                 onChange={onChange}
-                className={cls.ListBox}
+                className={popupsCls.Popup}
             >
                 <HListbox.Button as="div">
                     <Button
@@ -67,7 +62,7 @@ export const ListBox: FC<ListBoxProps> = memo((props: ListBoxProps) => {
                         {disabled ? textBtn : `${textBtn} \\/`}
                     </Button>
                 </HListbox.Button>
-                <HListbox.Options className={classNames(cls.options, {}, optionsClasses)}>
+                <HListbox.Options className={classNames(popupsCls.popupMenu, {}, optionsClasses)}>
                     {data.map((item) => (
                         <HListbox.Option
                             key={item.value}

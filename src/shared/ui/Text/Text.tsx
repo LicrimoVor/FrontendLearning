@@ -1,14 +1,16 @@
 import { FC, memo } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { HTMLTags } from 'shared/types/ui';
+import { HTMLTags } from 'shared/types/tags';
 import cls from './Text.module.scss';
 
 export enum TextTheme {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
+    COMBINE = 'combine',
     INVERTED = 'inverted',
     INVERTED_SECONDARY = 'inverted_secondary',
+    INVERTED_COMBINE = 'inverted_combine',
     ERROR = 'error',
 }
 

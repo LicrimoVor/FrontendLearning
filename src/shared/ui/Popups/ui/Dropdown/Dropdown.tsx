@@ -4,10 +4,12 @@ import {
 import { Menu } from '@headlessui/react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Direction } from 'shared/types/ui';
-import { AppLink } from '../../AppLink/AppLink';
-import { Button, ButtonTheme } from '../../Button/Button';
+import { AppLink } from '../../../AppLink/AppLink';
+import { Button, ButtonTheme } from '../../../Button/Button';
 import cls from './Dropdown.module.scss';
+import popupsCls from '../../styles/popups.module.scss';
+import { PopupDirection } from '../../styles/types';
+import { PopupDirectionConvert } from '../../styles/consts';
 
 interface DropdownItem {
     component: ReactNode,
@@ -20,15 +22,8 @@ interface DropdownProps {
     className?: string,
     data: DropdownItem[],
     label: ReactNode,
-    direction?: Direction,
+    direction?: PopupDirection,
 }
-
-const DropdownDirection: Record<Direction, string> = {
-    'bottom left': cls.bottomLeft,
-    'bottom right': cls.bottomRight,
-    'top left': cls.topLeft,
-    'top right': cls.topRight,
-};
 
 /** Всплывающее меню */
 export const Dropdown: FC<DropdownProps> = memo((props: DropdownProps) => {
@@ -51,7 +46,7 @@ export const Dropdown: FC<DropdownProps> = memo((props: DropdownProps) => {
                 {label}
             </Menu.Button>
             <Menu.Items
-                className={classNames(cls.options, {}, [DropdownDirection[direction]])}
+                className={classNames(popupsCls.popupMenu, {}, [PopupDirectionConvert[direction]])}
             >
                 {data.map((item, indx) => {
                     const content = ({ active }: {active: boolean}) => {

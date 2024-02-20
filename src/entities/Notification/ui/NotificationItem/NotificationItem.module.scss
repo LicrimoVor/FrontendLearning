@@ -1,0 +1,13 @@
+.NotificationItem {
+    padding: 2px 10px;
+    width: var(--notigication-width);
+    border-bottom: 1px solid var(--inverted-primary-color);
+}
+
+.href {
+    &.NotificationItem:hover {
+        opacity: 0.8;
+        border-radius: 10px;
+        background: var(--secondary-color);
+    }
+}

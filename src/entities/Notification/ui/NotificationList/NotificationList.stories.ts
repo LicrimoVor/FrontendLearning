@@ -1,28 +1,27 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
-import { articleTest } from 'entities/Article/model/test/data';
-import { storeDecorator } from 'shared/config/storybook/storeDecorator/storeDecorator';
 import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
-import { ArticleRecommend } from './ArticleRecommend';
+import { Theme } from 'app/providers/ThemeProvider';
+import { storeDecorator } from 'shared/config/storybook/storeDecorator/storeDecorator';
+import { NotificationList } from './NotificationList';
+import { notificationTest } from '../../model/test/notification';
 
-const meta: Meta<typeof ArticleRecommend> = {
-    title: 'features/Article/ArticleRecommend',
-    component: ArticleRecommend,
+const meta: Meta<typeof NotificationList> = {
+    title: 'entities/NotificationList',
+    component: NotificationList,
     decorators: [
         storeDecorator({}),
     ],
     parameters: {
         mockData: [
             {
-                url: `${__API__}/articles?_limit=5`,
+                url: `${__API__}/notifications?_limit=5`,
                 method: 'GET',
                 status: 200,
                 response: [
-                    articleTest,
-                    articleTest,
-                    articleTest,
-                    articleTest,
+                    notificationTest,
+                    notificationTest,
+                    notificationTest,
                 ],
             },
         ],
@@ -30,7 +29,7 @@ const meta: Meta<typeof ArticleRecommend> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof ArticleRecommend>;
+type Story = StoryObj<typeof NotificationList>;
 
 export const Light: Story = {
     decorators: [

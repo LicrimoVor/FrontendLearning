@@ -1,21 +1,20 @@
 import {
-    FC, memo, useCallback, useMemo, useState,
+    FC, memo, useCallback, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
+import { getUserAuthData } from 'entities/User';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import {
-    getUserAuthData, isUserAdmin, isUserManager, userActions,
-} from 'entities/User';
-import { LoginModal } from 'features/AuthByUsername';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { HStack } from 'shared/ui/Stack';
-import { Dropdown } from 'shared/ui/Dropdown';
-import { Avatar } from 'shared/ui/Avatar';
+import { LoginModal } from 'features/AuthByUsername';
+
+import { AvatarDropdown } from 'features/AvatarDropdown';
+import { NotificationBtn } from 'features/NotificationBtn';
 import cls from './Nabvar.module.scss';
 
 interface NavbarProps {
@@ -31,9 +30,6 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
     const [isOpenAuth, setIsOpenAuth] = useState(false);
     const authData = useSelector(getUserAuthData);
     const { t } = useTranslation();
-    const dispatch = useDispatch();
-    const isAdmin = useSelector(isUserAdmin);
-    const isManager = useSelector(isUserManager);
 
     const onCloseModal = useCallback(() => {
         setIsOpenAuth(false);
@@ -42,24 +38,6 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
     const onOpenModal = useCallback(() => {
         setIsOpenAuth(true);
     }, []);
-
-    const onLogout = useCallback(() => {
-        dispatch(userActions.logout());
-    }, [dispatch]);
-
-    const dropdownData = useMemo(() => {
-        if (authData === undefined) {
-            return null;
-        }
-
-        const isAdminPanelAvaible = isAdmin || isManager;
-
-        return [
-            ...(isAdminPanelAvaible ? [{ component: t('Admin'), href: RoutePath.admin_panel }] : []),
-            { component: t('Profile'), href: RoutePath.profile + authData.id },
-            { component: t('LogOut'), onClick: onLogout },
-        ];
-    }, [onLogout, authData, t, isAdmin, isManager]);
 
     if (authData) {
         return (
@@ -81,13 +59,11 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
                     >
                         {t('CreateArticle')}
                     </AppLink>
-                    <Dropdown
-                        data={dropdownData!}
-                        label={(
-                            <Avatar size={40} src={authData.avatar} />
-                        )}
+                    <NotificationBtn
+                        className={cls.notification}
+                    />
+                    <AvatarDropdown
                         className={cls.dropMenu}
-                        direction="bottom left"
                     />
                 </HStack>
             </header>

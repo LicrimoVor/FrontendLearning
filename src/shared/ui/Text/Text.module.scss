@@ -59,3 +59,23 @@
         font: var(--font-l);
     }
 }
+
+.combine {
+    &.title {
+        color: var(--primary-color);
+    }
+
+    &.text {
+        color: var(--secondary-color);
+    }
+}
+
+.inverted_combine {
+    &.title {
+        color: var(--inverted-primary-color);
+    }
+
+    &.text {
+        color: var(--inverted-secondary-color);
+    }
+}

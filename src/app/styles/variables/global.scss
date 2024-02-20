@@ -20,11 +20,17 @@
     --sidebar-width: 200px;
     --sidebar-width-collapsed: 80px;
 
+    // Размеры уведомлений
+    --notigication-width: 250px;
+
     // Время анимации
     --transition-background-time: 1s;
 
     // Индексы
-    --modal-z-index: 10;
+    --closed-modal-z-index: -1;
+    --opened-modal-z-index: 10;
+    --popup-z-index: 5;
+    --second-z-index: 2;
 
     // Цвета модального окна
     --overlay-color: rgba(0 0 0 / 50%);
