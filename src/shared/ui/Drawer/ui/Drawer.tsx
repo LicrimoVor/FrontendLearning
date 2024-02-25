@@ -1,10 +1,10 @@
 import {
-    FC, memo, ReactNode, useMemo,
+    FC, memo, ReactNode, useCallback, useEffect,
 } from 'react';
 
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider';
-import { useModal } from 'shared/lib/hooks/useModal/useModal';
+import { AnimationProvider, useAnimationContext } from 'shared/lib/components/AnimationProvider/AnimationProvider';
 import { Overlay } from '../../Overlay';
 import { Portal } from '../../Portal';
 import cls from './Drawer.module.scss';
@@ -16,10 +16,10 @@ interface DrawerProps {
     isOpen?: boolean,
     lazy?: boolean,
 }
-const ANIMATION_DELAY = 300;
+const height = window.innerHeight - 100;
 
 /** Всплывающее окно снизу для телефоном (шторка) */
-export const Drawer: FC<DrawerProps> = memo((props: DrawerProps) => {
+const DrawerContent: FC<DrawerProps> = memo((props: DrawerProps) => {
     const {
         className,
         children,
@@ -28,30 +28,88 @@ export const Drawer: FC<DrawerProps> = memo((props: DrawerProps) => {
         lazy,
     } = props;
 
-    const {
-        isClosing,
-        isMounted,
-        close,
-    } = useModal({ onClose, isOpen, animationDelay: ANIMATION_DELAY });
+    const { Spring: { useSpring, config, a }, Gesture: { useDrag } } = useAnimationContext();
+    const [{ y }, api] = useSpring(() => ({ y: height }));
     const { theme } = useTheme();
 
-    const mods: Mods = useMemo(() => ({
-        [cls.opened]: isOpen,
-        [cls.closing]: isClosing,
-    }), [isOpen, isClosing]);
+    const openDrawer = useCallback(() => {
+        api.start({ y: 0, immediate: false });
+    }, [api]);
 
-    if (lazy && !isMounted) {
+    useEffect(() => {
+        if (isOpen) {
+            openDrawer();
+        }
+    }, [api, isOpen, openDrawer]);
+
+    const close = (velocity = 0) => {
+        api.start({
+            y: height,
+            immediate: false,
+            config: { ...config.stiff, velocity },
+            onResolve: onClose,
+        });
+    };
+
+    const bind = useDrag(({
+        last,
+        velocity: [, vy],
+        direction: [, dy],
+        movement: [, my],
+        cancel,
+    }) => {
+        if (my < -200) cancel();
+
+        if (last) {
+            if (my > height * 0.5 || (vy > 0.5 && dy > 0)) {
+                close();
+            } else {
+                openDrawer();
+            }
+        } else {
+            api.start({ y: my, immediate: true });
+        }
+    }, {
+        from: () => [0, y.get()],
+        filterTaps: true,
+        bounds: { top: 0 },
+        rubberband: true,
+    });
+
+    if (!isOpen) {
         return null;
     }
 
+    const display = y.to((py) => (py < height ? 'block' : 'none'));
+
     return (
         <Portal>
-            <div className={classNames(cls.Drawer, mods, [className, theme, 'app_drawer'])}>
+            <div className={classNames(cls.Drawer, {}, [className, theme, 'app_drawer'])}>
                 <Overlay onClick={close} />
-                <div className={cls.content}>
+                <a.div
+                    className={cls.sheet}
+                    style={{ display, bottom: `calc(-100vh + ${height - 200}px)`, y }}
+                    {...bind()}
+                >
                     {children}
-                </div>
+                </a.div>
             </div>
         </Portal>
     );
 });
+
+export const DrawerLoading = memo((props: DrawerProps) => {
+    const { isLoading } = useAnimationContext();
+
+    if (isLoading) {
+        return null;
+    }
+
+    return <DrawerContent {...props} />;
+});
+
+export const Drawer = memo((props: DrawerProps) => (
+    <AnimationProvider>
+        <DrawerLoading {...props} />
+    </AnimationProvider>
+));

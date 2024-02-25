@@ -28,11 +28,14 @@ export const NotificationList: FC<NotificationListProps> = memo((props: Notifica
     if (isLoading) {
         return (
             <VStack gap={4}>
-                <Skeleton height={57} width={250} border="10px" />
-                <Skeleton height={57} width={250} border="10px" />
-                <Skeleton height={57} width={250} border="10px" />
-                <Skeleton height={57} width={250} border="10px" />
-                <Skeleton height={57} width={250} border="10px" />
+                <Skeleton height={57} width="100%" border="10px" />
+                <Skeleton height={57} width="100%" border="10px" />
+                <Skeleton height={57} width="100%" border="10px" />
+                <Skeleton height={57} width="100%" border="10px" />
+                <Skeleton height={57} width="100%" border="10px" />
+                <Skeleton height={57} width="100%" border="10px" />
+                <Skeleton height={57} width="100%" border="10px" />
+                <Skeleton height={57} width="100%" border="10px" />
             </VStack>
         );
     }
