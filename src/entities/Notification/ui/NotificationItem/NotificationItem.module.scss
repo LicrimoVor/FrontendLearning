@@ -1,7 +1,10 @@
 .NotificationItem {
     padding: 2px 10px;
-    width: var(--notigication-width);
-    border-bottom: 1px solid var(--inverted-primary-color);
+    border-bottom: 1px solid var(--primary-color);
+
+    &.inverted {
+        border-bottom: 1px solid var(--inverted-primary-color);
+    }
 }
 
 .href {

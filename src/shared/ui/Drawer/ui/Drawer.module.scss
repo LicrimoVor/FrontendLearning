@@ -1,4 +1,4 @@
-.Modal {
+.Drawer {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -10,30 +10,46 @@
     color: var(--primary-color);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: end;
+    flex-shrink: 1;
 }
 
 .content {
     padding: 20px;
     border-radius: 12px;
     background: var(--bg-color);
-    transform: scale(0.5);
-    transition: 0.3s transform;
-    max-width: 60%;
+    overflow-y: scroll;
+    height: 30%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
 }
+
 
 .opened {
     opacity: 1;
     pointer-events: auto;
     z-index: var(--opened-modal-z-index);
+    transition: background-color 5s;
 
     .content {
-        transform: scale(1);
+        animation: open 0.5s forwards;
     }
 }
 
+@keyframes open {
+    0% {transform: translateY(140%);}
+    100% {transform: translateX(0);}
+}
+
+
 .closing {
     .content {
-        transform: scale(0.2);
+        animation: close 0.5s forwards;
     }
+}
+
+@keyframes close {
+    0% {transform: translateX(0);}
+    100% {transform: translateY(140%);}
 }

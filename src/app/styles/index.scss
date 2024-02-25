@@ -4,19 +4,18 @@
 @import "themes/light";
 @import "themes/red";
 
-body {
+.app,
+.app_drawer,
+.app_modal {
     font: var(--font-m);
-    color: var(--primary-color);
-}
-
-.app {
-    background: var(--bg-color);
-    min-height: 100vh;
-    color: var(--primary-color);
+    color: var(--primary-color);   
 }
 
 .content-page {
     display: flex;
+    background: var(--bg-color);
+    min-height: calc(100vh - var(--navbar-height));
+    color: var(--primary-color);
 }
 
 *::-webkit-scrollbar {
@@ -26,6 +25,7 @@ body {
 
 *::-webkit-scrollbar-track {
     background: var(--card-bg);
+    border-radius: 20px;
 }
 
 *::-webkit-scrollbar-thumb {

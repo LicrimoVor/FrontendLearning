@@ -1,4 +1,6 @@
-import { FC, memo, ReactNode } from 'react';
+import {
+    CSSProperties, FC, memo, ReactNode,
+} from 'react';
 import { Popover as HPopover } from '@headlessui/react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -13,6 +15,8 @@ interface PopoverProps {
     children?: ReactNode,
     className?: string,
     direction?: PopupDirection,
+    height?: string,
+    autoScroll?: boolean,
 }
 
 /** Тот же дроп-даун, но с любым внутренним содержимым */
@@ -22,6 +26,8 @@ export const Popover: FC<PopoverProps> = memo((props: PopoverProps) => {
         children,
         trigger,
         direction = 'bottom right',
+        height,
+        autoScroll,
     } = props;
 
     const panelClasses = [
@@ -29,12 +35,18 @@ export const Popover: FC<PopoverProps> = memo((props: PopoverProps) => {
         popupsCls.popupMenu,
     ];
 
+    const styles: CSSProperties = {
+        height,
+        overflowY: autoScroll ? 'scroll' : undefined,
+    };
+
     return (
         <HPopover className={classNames(cls.Popover, {}, [className, popupsCls.Popup])}>
             <HPopover.Button as={Button} theme={ButtonTheme.CLEAR}>
                 {trigger}
             </HPopover.Button>
             <HPopover.Panel
+                style={styles}
                 className={classNames(cls.menu, {}, panelClasses)}
             >
                 {children}

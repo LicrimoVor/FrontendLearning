@@ -10,12 +10,14 @@ import { NotificationItem } from '../NotificationItem/NotificationItem';
 
 interface NotificationListProps {
     className?: string,
+    inverted?: boolean,
 }
 
 /** Список уведомлений */
 export const NotificationList: FC<NotificationListProps> = memo((props: NotificationListProps) => {
     const {
         className,
+        inverted,
     } = props;
 
     const { t } = useTranslation();
@@ -45,6 +47,7 @@ export const NotificationList: FC<NotificationListProps> = memo((props: Notifica
                 <NotificationItem
                     key={notification.id}
                     data={notification}
+                    inverted={inverted}
                 />
             ))}
         </div>

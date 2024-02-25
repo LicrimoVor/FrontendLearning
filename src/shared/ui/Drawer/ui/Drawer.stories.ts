@@ -2,19 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Modal } from './Modal';
+import { Drawer } from './Drawer';
 
-const meta: Meta<typeof Modal> = {
-    title: 'shared/Modal',
-    component: Modal,
-    args: {
-        isOpen: true,
-        children: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis voluptatem similique optio mollitia dignissimos tenetur recusandae. Fugit nostrum beatae consequuntur, veritatis exercitationem quis? Eligendi officiis placeat, error possimus quo maxime?',
-    },
+const meta: Meta<typeof Drawer> = {
+    title: 'shared/Drawer',
+    component: Drawer,
 };
 
 export default meta;
-type Story = StoryObj<typeof Modal>;
+type Story = StoryObj<typeof Drawer>;
 
 export const Light: Story = {
     decorators: [

@@ -11,6 +11,7 @@ import cls from './NotificationItem.module.scss';
 interface NotificationItemProps {
     className?: string,
     data: Notification,
+    inverted?: boolean,
 }
 
 /** Отображение одного уведомления */
@@ -18,6 +19,7 @@ export const NotificationItem: FC<NotificationItemProps> = memo((props: Notifica
     const {
         className,
         data,
+        inverted,
     } = props;
 
     const Item = useCallback(() => (
@@ -25,13 +27,14 @@ export const NotificationItem: FC<NotificationItemProps> = memo((props: Notifica
             className={cls.item}
             title={data.title}
             text={data.description}
-            theme={TextTheme.INVERTED_COMBINE}
+            theme={inverted ? TextTheme.INVERTED_COMBINE : TextTheme.PRIMARY}
         />
-    ), [data]);
+    ), [data, inverted]);
 
     const mods = useMemo(() => ({
         [cls.href]: Boolean(data.href),
-    }), [data]);
+        [cls.inverted]: inverted,
+    }), [data, inverted]);
 
     return (
         <div
@@ -41,6 +44,7 @@ export const NotificationItem: FC<NotificationItemProps> = memo((props: Notifica
                 ? (
                     <AppLink
                         to={data.href}
+                        inverted
                     >
                         <Item />
                     </AppLink>

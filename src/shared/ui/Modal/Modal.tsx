@@ -1,8 +1,10 @@
+import { useTheme } from 'app/providers/ThemeProvider';
 import React, {
-    FC, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
+    FC, MutableRefObject, ReactNode, useCallback, useEffect, useMemo, useRef, useState,
 } from 'react';
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { Portal } from '../Portal/Portal';
+import { Overlay } from '../Overlay';
+import { Portal } from '../Portal';
 
 import cls from './Modal.module.scss';
 
@@ -10,9 +12,8 @@ interface ModalProps {
     className?: string,
     children?: ReactNode,
     isOpen?: boolean,
-    onClose?: ()=>void,
+    onClose?: () => void,
     lazy?: boolean,
-    element?: HTMLElement,
 }
 
 const ANIMATION_DELAY = 300;
@@ -25,25 +26,23 @@ export const Modal: FC<ModalProps> = (props) => {
         isOpen,
         onClose,
         lazy,
-        element,
     } = props;
 
     const [isClosing, setIsClosing] = useState(false);
     const [isOpening, setIsOpening] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const { theme } = useTheme();
 
-    const mods: Mods = {
+    const mods: Mods = useMemo(() => ({
         [cls.opened]: isOpening,
         [cls.closing]: isClosing,
-    };
+    }), [isOpening, isClosing]);
 
     useEffect(() => {
         if (isOpen) {
             setIsMounted(true);
         }
-        // Хуй знает, как это работает, но это работает
-        // по факту просто костылина жесткая
         // # анимашка появления модального окна
         timerRef.current = setTimeout(() => {
             setIsOpening(true);
@@ -77,29 +76,25 @@ export const Modal: FC<ModalProps> = (props) => {
         };
     }, [isOpen, onKeyDown]);
 
-    const onContentClick = (e: React.MouseEvent) => {
+    const onContentClick = useCallback((e: React.MouseEvent) => {
         e.stopPropagation();
-    };
+    }, []);
 
     if (lazy && !isMounted) {
         return null;
     }
-    // КОСТЫЛЬ!
+
     return (
-        <Portal element={element}>
+        <Portal>
             <div
-                className={classNames(cls.Modal, mods, [className])}
+                className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}
             >
+                <Overlay onClick={closeHandler} />
                 <div
-                    className={cls.overlay}
-                    onClick={closeHandler}
+                    className={cls.content}
+                    onClick={onContentClick}
                 >
-                    <div
-                        className={cls.content}
-                        onClick={onContentClick}
-                    >
-                        {children}
-                    </div>
+                    {children}
                 </div>
             </div>
         </Portal>
