@@ -4,9 +4,9 @@ import {
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useInitialEffect } from 'shared/lib/hooks/userInitialEffect/userInitialEffect';
-import { Text } from 'shared/ui/Text/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect/userInitialEffect';
+import { Text } from '@/shared/ui/Text/Text';
 import { Article } from '../../model/types/article';
 import { ArticleView } from '../../model/consts/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';

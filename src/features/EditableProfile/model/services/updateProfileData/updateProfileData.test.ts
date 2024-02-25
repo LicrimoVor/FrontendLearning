@@ -1,5 +1,5 @@
-import { profileTest } from 'entities/Profile/model/test/data';
-import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk';
+import { profileTest } from '@/entities/Profile/model/test/data';
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/testAsyncThunk';
 import { ValidateProfileError } from '../../types/validateProfileError';
 import { updateProfileData } from './updateProfileData';
 

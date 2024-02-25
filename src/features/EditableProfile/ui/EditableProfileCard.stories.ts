@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { storeDecorator } from 'shared/config/storybook/storeDecorator/storeDecorator';
-import { profileTest } from 'entities/Profile/model/test/data';
+import { storeDecorator } from '@/shared/config/storybook/storeDecorator/storeDecorator';
+import { profileTest } from '@/entities/Profile/model/test/data';
 import { EditableProfileCard } from './EditableProfileCard';
 
 const meta: Meta<typeof EditableProfileCard> = {

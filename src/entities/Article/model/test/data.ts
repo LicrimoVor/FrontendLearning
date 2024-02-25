@@ -1,4 +1,4 @@
-import { userTest } from 'entities/User/model/test/data';
+import { userTest } from '@/entities/User/model/test/data';
 import { Article } from '../types/article';
 import { ArticleType, ArticleBlockType } from '../consts/article';
 

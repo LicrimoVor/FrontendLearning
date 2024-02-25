@@ -1,5 +1,5 @@
-import { userTest } from 'entities/User/model/test/data';
-import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/testAsyncThunk';
+import { userTest } from '@/entities/User/model/test/data';
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/testAsyncThunk';
 import { sendCommentForArticle } from './sendCommentForArticle';
 
 describe('sendCommentForArticle', () => {

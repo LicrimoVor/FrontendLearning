@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
-import { ArticleView } from 'entities/Article';
-import { articleTest } from 'entities/Article/model/test/data';
-import { storeDecorator } from 'shared/config/storybook/storeDecorator/storeDecorator';
-import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ArticleView } from '@/entities/Article';
+import { articleTest } from '@/entities/Article/model/test/data';
+import { storeDecorator } from '@/shared/config/storybook/storeDecorator/storeDecorator';
+import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDecorator';
 
 import ArticlePage from './ArticlePage';
 

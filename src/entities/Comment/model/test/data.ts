@@ -1,4 +1,4 @@
-import { userTest } from 'entities/User/model/test/data';
+import { userTest } from '@/entities/User/model/test/data';
 import { Comment } from '../types/comment';
 
 export const commentTest: Comment = {

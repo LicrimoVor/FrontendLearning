@@ -2,9 +2,9 @@ import {
     FC, memo, useCallback, useMemo,
 } from 'react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
 import { Notification } from '../../model/types/notification';
 import cls from './NotificationItem.module.scss';
 

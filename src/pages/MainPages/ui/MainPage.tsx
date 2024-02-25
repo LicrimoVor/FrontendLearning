@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { BugButton } from 'app/providers/ErrorBoudarie';
-import { Page } from 'widgets/Page';
+import { BugButton } from '@/app/providers/ErrorBoudarie';
+import { Page } from '@/widgets/Page';
 
 /** Главная страница */
 const MainPage: FC = () => {

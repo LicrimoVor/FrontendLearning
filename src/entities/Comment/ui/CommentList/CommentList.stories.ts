@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
+import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDecorator';
 
-import { Theme } from 'app/providers/ThemeProvider';
+import { Theme } from '@/app/providers/ThemeProvider';
 import { CommentList } from './CommentList';
 import { commentTest } from '../../model/test/data';
 

@@ -1,4 +1,4 @@
-import AvatarImg from 'shared/assets/tests/avatar.jpg';
+import AvatarImg from '@/shared/assets/tests/avatar.jpg';
 import { User } from '../types/user';
 
 export const userTest: User = {

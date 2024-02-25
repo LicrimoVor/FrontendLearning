@@ -1,16 +1,16 @@
 /* eslint-disable no-unused-vars */
 import { RouteProps } from 'react-router-dom';
 
-import { AboutPage } from 'pages/AboutPages';
-import { MainPage } from 'pages/MainPages';
-import { NotFoundPage } from 'pages/NotFoundPage';
-import { ProfilePage } from 'pages/ProfilePage';
-import { ArticlePage } from 'pages/Article/ArticlePage';
-import { ArticleDetailPage } from 'pages/Article/ArticleDetailPage';
-import { ArticleEditPage } from 'pages/Article/ArticleEditPage';
-import { AdminPanelPage } from 'pages/Admin/AdminPanelPage';
-import { UserRole } from 'entities/User';
-import { ForbiddenPage } from 'pages/ForbiddenPage';
+import { AboutPage } from '@/pages/AboutPages';
+import { MainPage } from '@/pages/MainPages';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { ProfilePage } from '@/pages/ProfilePage';
+import { ArticlePage } from '@/pages/Article/ArticlePage';
+import { ArticleDetailPage } from '@/pages/Article/ArticleDetailPage';
+import { ArticleEditPage } from '@/pages/Article/ArticleEditPage';
+import { AdminPanelPage } from '@/pages/Admin/AdminPanelPage';
+import { UserRole } from '@/entities/User';
+import { ForbiddenPage } from '@/pages/ForbiddenPage';
 
 export type AppRoutesProps = RouteProps & {
     authOnly?: boolean,

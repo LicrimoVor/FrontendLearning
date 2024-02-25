@@ -4,17 +4,17 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { getUserAuthData } from 'entities/User';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { HStack } from 'shared/ui/Stack';
-import { LoginModal } from 'features/AuthByUsername';
+import { getUserAuthData } from '@/entities/User';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { HStack } from '@/shared/ui/Stack';
+import { LoginModal } from '@/features/AuthByUsername';
 
-import { AvatarDropdown } from 'features/AvatarDropdown';
-import { NotificationBtn } from 'features/NotificationBtn';
+import { AvatarDropdown } from '@/features/AvatarDropdown';
+import { NotificationBtn } from '@/features/NotificationBtn';
 import cls from './Nabvar.module.scss';
 
 interface NavbarProps {

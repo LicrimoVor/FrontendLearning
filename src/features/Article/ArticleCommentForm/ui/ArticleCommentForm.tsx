@@ -1,15 +1,15 @@
-import { CreateCommentForm } from 'features/CreateComment';
+import { CreateCommentForm } from '@/features/CreateComment';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { CommentList } from 'entities/Comment';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextSize } from 'shared/ui/Text/Text';
+import { CommentList } from '@/entities/Comment';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
 import { useSelector } from 'react-redux';
-import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from 'shared/ui/Stack';
-import { useInitialEffect } from 'shared/lib/hooks/userInitialEffect/userInitialEffect';
+import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { VStack } from '@/shared/ui/Stack';
+import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect/userInitialEffect';
 import { getArticleCommentError, getArticleCommentIsLoading } from '../model/selectors/comments';
 import { articleCommentReducer, getArticleComments } from '../model/slice/articleCommentsSlice';
 import { sendCommentForArticle } from '../model/services/sendCommentsForArticle/sendCommentForArticle';

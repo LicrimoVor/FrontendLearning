@@ -1,4 +1,4 @@
-import { profileTest } from 'entities/Profile/model/test/data';
+import { profileTest } from '@/entities/Profile/model/test/data';
 import { ValidateProfileError } from '../../types/validateProfileError';
 import { validateProfileData } from './validateProfileData';
 

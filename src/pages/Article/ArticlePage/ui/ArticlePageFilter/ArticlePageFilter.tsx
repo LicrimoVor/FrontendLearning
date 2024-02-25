@@ -4,17 +4,17 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
-import { ArticleViewSwitcher } from 'features/Article/ArticleViewSwitcher';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Input } from 'shared/ui/Input/Input';
-import { Card } from 'shared/ui/Card';
-import { SortOrder } from 'shared/types/order';
-import { ArticleSortSelector } from 'features/Article/ArticleSortSelector';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { ArticleTypeTabs } from 'features/Article/ArticleTypeTabs';
-import { HStack } from 'shared/ui/Stack';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
+import { ArticleViewSwitcher } from '@/features/Article/ArticleViewSwitcher';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Input } from '@/shared/ui/Input/Input';
+import { Card } from '@/shared/ui/Card';
+import { SortOrder } from '@/shared/types/order';
+import { ArticleSortSelector } from '@/features/Article/ArticleSortSelector';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { ArticleTypeTabs } from '@/features/Article/ArticleTypeTabs';
+import { HStack } from '@/shared/ui/Stack';
 import { fetchArticlePageList } from '../../model/services/fetchArticlePageList/fetchArticlePageList';
 import { articlePageActions } from '../../model/slice/articlePageSlice';
 import {

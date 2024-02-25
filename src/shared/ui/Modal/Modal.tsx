@@ -2,9 +2,9 @@ import {
     FC, ReactNode, useMemo,
 } from 'react';
 
-import { useTheme } from 'app/providers/ThemeProvider';
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { useModal } from 'shared/lib/hooks/useModal/useModal';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { Overlay } from '../Overlay';
 import { Portal } from '../Portal';
 import cls from './Modal.module.scss';

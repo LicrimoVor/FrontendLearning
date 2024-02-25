@@ -1,7 +1,7 @@
 import { FC, memo } from 'react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { HTMLTags } from 'shared/types/tags';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { HTMLTags } from '@/shared/types/tags';
 import cls from './Text.module.scss';
 
 export enum TextTheme {

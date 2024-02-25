@@ -1,7 +1,7 @@
 import { FC, memo, ReactNode } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { HStack } from '../../../Stack';
 import { Text } from '../../../Text/Text';
 import { Button } from '../../../Button/Button';

@@ -1,7 +1,7 @@
 import { fireEvent, render } from '@testing-library/react';
 
-import { Theme } from 'app/providers/ThemeProvider';
-import * as theme from 'app/providers/ThemeProvider/lib/useTheme';
+import { Theme } from '@/app/providers/ThemeProvider';
+import * as theme from '@/app/providers/ThemeProvider/lib/useTheme';
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 describe('ThemeSwitcher', () => {

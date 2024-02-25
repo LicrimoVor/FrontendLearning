@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { ThunkConfig } from 'shared/config/reduxConfig/stateShema';
-import { Comment } from 'entities/Comment';
+import { ThunkConfig } from '@/shared/config/reduxConfig/stateShema';
+import { Comment } from '@/entities/Comment';
 
 /** Асинхронный редюсер для получения комметариев статьи */
 export const fetchCommentsByAcrticleId = createAsyncThunk<

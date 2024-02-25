@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { ThunkConfig } from 'shared/config/reduxConfig/stateShema';
+import { ThunkConfig } from '@/shared/config/reduxConfig/stateShema';
 import { Article } from '../../types/article';
 
 /** Асинхронный редюсер для получения полной статьи */

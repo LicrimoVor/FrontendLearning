@@ -1,6 +1,6 @@
 import { Decorator } from '@storybook/react';
 
-import { Theme, ThemeProvider } from 'app/providers/ThemeProvider';
+import { Theme, ThemeProvider } from '@/app/providers/ThemeProvider';
 
 /** Декоратор тем для сторисов */
 export const themeDecorator = (theme: Theme): Decorator => (Story) => (

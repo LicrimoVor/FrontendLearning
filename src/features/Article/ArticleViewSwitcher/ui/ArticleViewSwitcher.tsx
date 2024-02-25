@@ -1,12 +1,12 @@
 import { FC, memo } from 'react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import ListIcon from 'shared/assets/icons/list.svg';
-import TilesIcon from 'shared/assets/icons/field.svg';
-import { ArticleView } from 'entities/Article';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Icon } from 'shared/ui/Icon';
-import { HStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import ListIcon from '@/shared/assets/icons/list.svg';
+import TilesIcon from '@/shared/assets/icons/field.svg';
+import { ArticleView } from '@/entities/Article';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon';
+import { HStack } from '@/shared/ui/Stack';
 import cls from './ArticleViewSwitcher.module.scss';
 
 interface articleViewSwitcherProps {
