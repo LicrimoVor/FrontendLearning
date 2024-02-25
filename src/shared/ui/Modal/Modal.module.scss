@@ -7,7 +7,6 @@
     opacity: 0;
     pointer-events: none;
     z-index: var(--closed-modal-z-index);
-    color: var(--primary-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,8 +16,6 @@
     padding: 20px;
     border-radius: 12px;
     background: var(--bg-color);
-    transform: scale(0.5);
-    transition: 0.3s transform;
     max-width: 60%;
 }
 
@@ -28,12 +25,22 @@
     z-index: var(--opened-modal-z-index);
 
     .content {
-        transform: scale(1);
+        animation: open 0.4s forwards;
     }
+}
+
+@keyframes open {
+    0% {transform: scale(0.2);}
+    100% {transform: scale(1);}
 }
 
 .closing {
     .content {
-        transform: scale(0.2);
+        animation: close 0.4s forwards;
     }
+}
+
+@keyframes close {
+    0% {transform: scale(1);}
+    100% {transform: scale(0.2);}
 }

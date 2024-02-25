@@ -30,10 +30,9 @@
     opacity: 1;
     pointer-events: auto;
     z-index: var(--opened-modal-z-index);
-    transition: background-color 5s;
 
     .content {
-        animation: open 0.5s forwards;
+        animation: open 0.3s forwards;
     }
 }
 
@@ -45,7 +44,7 @@
 
 .closing {
     .content {
-        animation: close 0.5s forwards;
+        animation: close 0.3s forwards;
     }
 }
 
