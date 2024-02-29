@@ -1,11 +1,11 @@
 import { FC, memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { ArticleList } from '@/entities/Article';
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect/userInitialEffect';
-import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { articlePageActions, articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
 

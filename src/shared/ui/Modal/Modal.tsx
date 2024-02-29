@@ -48,10 +48,10 @@ export const Modal: FC<ModalProps> = (props) => {
     return (
         <Portal>
             <div
-                className={classNames(cls.Modal, mods, [className, theme, 'app_modal'])}
+                className={classNames(cls.Modal, mods, [theme, 'app_modal'])}
             >
                 <Overlay onClick={close} />
-                <div className={cls.content}>
+                <div className={classNames(cls.content, {}, [className])}>
                     {children}
                 </div>
             </div>

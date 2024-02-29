@@ -1,7 +1,6 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { VStack } from '@/shared/ui/Stack';
 import { Text, TextTheme } from '@/shared/ui/Text/Text';

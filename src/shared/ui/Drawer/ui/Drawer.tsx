@@ -1,5 +1,5 @@
 import {
-    FC, memo, ReactNode, useCallback, useEffect,
+    FC, memo, ReactNode, useCallback, useEffect, useMemo,
 } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -14,9 +14,8 @@ interface DrawerProps {
     children?: ReactNode,
     onClose?: () => void,
     isOpen?: boolean,
-    lazy?: boolean,
+    heightPercent?: number,
 }
-const height = window.innerHeight - 100;
 
 /** Всплывающее окно снизу для телефоном (шторка) */
 const DrawerContent: FC<DrawerProps> = memo((props: DrawerProps) => {
@@ -25,8 +24,12 @@ const DrawerContent: FC<DrawerProps> = memo((props: DrawerProps) => {
         children,
         onClose,
         isOpen,
-        lazy,
+        heightPercent = 80,
     } = props;
+
+    const height = useMemo(() => (
+        Math.round((window.innerHeight + 200) * (heightPercent / 100))
+    ), [heightPercent]);
 
     const { Spring: { useSpring, config, a }, Gesture: { useDrag } } = useAnimationContext();
     const [{ y }, api] = useSpring(() => ({ y: height }));

@@ -1,5 +1,5 @@
 import {
-    FC, HTMLAttributeAnchorTarget, LegacyRef, memo, useRef, forwardRef,
+    FC, HTMLAttributeAnchorTarget, memo, useRef,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';

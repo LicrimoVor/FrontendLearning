@@ -9,6 +9,7 @@ interface IconProps {
     className?: string,
     Svg: FunctionComponent<SVGAttributes<SVGElement>>,
     inverted?: boolean,
+    size?: string | number,
 }
 
 /** Иконка */
@@ -17,6 +18,7 @@ export const Icon: FC<IconProps> = memo((props: IconProps) => {
         className,
         Svg,
         inverted,
+        size,
     } = props;
 
     const mods = useMemo(() => ({
@@ -25,6 +27,10 @@ export const Icon: FC<IconProps> = memo((props: IconProps) => {
 
     return (
         <Svg
+            style={{
+                height: size,
+                width: size,
+            }}
             className={classNames(cls.Icon, mods, [className])}
         />
     );

@@ -1,16 +1,17 @@
 /* eslint-disable no-unused-vars */
 import {
-    ButtonHTMLAttributes, FC, forwardRef, LegacyRef, memo, ReactNode,
+    ButtonHTMLAttributes, FC, forwardRef, LegacyRef, ReactNode,
 } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
-  CLEAR = 'clear',
-  OUTLINE = 'outline',
-  OUTLINE_RED = 'outline-red',
-  BACKGROUND = 'background',
+    CLEAR = 'clear',
+    CLEAR_FULLL = 'clear_full',
+    OUTLINE = 'outline',
+    OUTLINE_RED = 'outline-red',
+    BACKGROUND = 'background',
 }
 
 export enum ButtonSize {

@@ -1,0 +1,24 @@
+.TextArea {
+    position: relative;
+    
+}
+
+.textInput {
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: var(--primary-color);
+    border: 2px solid var(--inverted-bg-color);
+    resize: none;
+
+    &:not(.overflow) {
+        overflow: hidden;
+    }
+}
+
+.arrow {
+    position: absolute;
+    left: 8px;
+    top: 2px;
+}
