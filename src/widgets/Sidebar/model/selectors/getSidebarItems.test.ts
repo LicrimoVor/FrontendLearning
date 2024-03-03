@@ -1,6 +1,6 @@
 import { StateSchema } from '@/shared/config/reduxConfig/stateShema';
 import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { userTest } from '@/entities/User/model/test/data';
+import { userTest } from '@/entities/User/testing';
 import MainIcon from '@/shared/assets/icons/main.svg';
 import AboutIcon from '@/shared/assets/icons/about.svg';
 import ProfileIcon from '@/shared/assets/icons/profile.svg';

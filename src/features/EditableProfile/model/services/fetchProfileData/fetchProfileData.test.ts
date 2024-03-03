@@ -1,4 +1,4 @@
-import { profileTest } from '@/entities/Profile/model/test/data';
+import { profileTest } from '@/entities/Profile/testing';
 import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/testAsyncThunk';
 import { fetchProfileData } from './fetchProfileData';
 

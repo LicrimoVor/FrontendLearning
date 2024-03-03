@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 import { TextArea } from './TextArea';
 
 const meta: Meta<typeof TextArea> = {
-    title: '/TextArea',
+    title: 'shared/TextArea',
     component: TextArea,
 };
 

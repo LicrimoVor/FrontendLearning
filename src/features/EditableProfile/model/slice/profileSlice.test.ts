@@ -1,4 +1,4 @@
-import { profileTest } from '@/entities/Profile/model/test/data';
+import { profileTest } from '@/entities/Profile/testing';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileSchema } from '../types/profileSchema';
 import { ValidateProfileError } from '../types/validateProfileError';

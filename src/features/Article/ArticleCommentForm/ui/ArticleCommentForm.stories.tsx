@@ -4,6 +4,7 @@ import { Theme } from '@/app/providers/ThemeProvider';
 import { storeDecorator } from '@/shared/config/storybook/storeDecorator/storeDecorator';
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDecorator';
 import { ArticleCommentForm } from './ArticleCommentForm';
+import { commentTest } from '@/entities/Comment/testing';
 
 const meta: Meta<typeof ArticleCommentForm> = {
     title: 'features/Article/ArticleCommentForm',
@@ -11,11 +12,18 @@ const meta: Meta<typeof ArticleCommentForm> = {
     decorators: [
         storeDecorator({
             articleComments: {
-                ids: [],
-                entities: {},
+                ids: [1, 2, 3],
+                entities: {
+                    1: commentTest,
+                    2: commentTest,
+                    3: commentTest,
+                },
             },
         }),
     ],
+    args: {
+        articleId: '1',
+    },
 };
 
 export default meta;

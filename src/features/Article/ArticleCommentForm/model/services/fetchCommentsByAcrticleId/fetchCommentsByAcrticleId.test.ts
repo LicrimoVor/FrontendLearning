@@ -1,5 +1,5 @@
 import { Comment } from '@/entities/Comment';
-import { commentTest } from '@/entities/Comment/model/test/data';
+import { commentTest } from '@/entities/Comment/test/data';
 import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/testAsyncThunk';
 import { fetchCommentsByAcrticleId } from './fetchCommentsByAcrticleId';
 

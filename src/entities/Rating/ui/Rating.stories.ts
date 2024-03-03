@@ -1,12 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 import { Rating } from './Rating';
 
 const meta: Meta<typeof Rating> = {
-    title: '/Rating',
+    title: 'entities/Rating',
     component: Rating,
+    args: {
+        selectStar: 3,
+        feedback: true,
+        feedbackTitle: 'Титул фидбека',
+        feedbackValue: 'Какой нибудь отзыв',
+        title: 'Титульник',
+    },
 };
 
 export default meta;
@@ -28,4 +35,10 @@ export const Red: Story = {
     decorators: [
         themeDecorator(Theme.RED),
     ],
+};
+
+export const Loading: Story = {
+    args: {
+        isLoading: true,
+    },
 };

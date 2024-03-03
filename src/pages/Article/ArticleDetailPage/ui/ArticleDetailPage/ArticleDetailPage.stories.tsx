@@ -1,10 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
-import { articleTest } from '@/entities/Article/model/test/data';
+import { articleTest } from '@/entities/Article/testing';
 import { storeDecorator } from '@/shared/config/storybook/storeDecorator/storeDecorator';
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDecorator';
 import ArticleDetailPage from './ArticleDetailPage';
+import { userTest } from '@/entities/User/testing';
+import { commentTest } from '@/entities/Comment/testing';
 
 const meta: Meta<typeof ArticleDetailPage> = {
     title: 'pages/Article/ArticleDetailPage',
@@ -15,8 +17,16 @@ const meta: Meta<typeof ArticleDetailPage> = {
                 data: articleTest,
             },
             articleComments: {
-                ids: [],
-                entities: {},
+                ids: [1, 2, 3],
+                entities: {
+                    1: commentTest,
+                    2: commentTest,
+                    3: commentTest,
+                },
+            },
+            user: {
+                authData: userTest,
+                _inited: true,
             },
         }),
     ],

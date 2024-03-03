@@ -1,29 +1,33 @@
 import {
-    FC, FunctionComponent, memo, SVGAttributes, useMemo,
+    FC, FunctionComponent, memo, SVGAttributes,
 } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Icon.module.scss';
 
+type IconTheme = 'inverted' | 'normal' | 'clear';
+
 interface IconProps {
     className?: string,
     Svg: FunctionComponent<SVGAttributes<SVGElement>>,
-    inverted?: boolean,
+    theme?: IconTheme,
     size?: string | number,
 }
+
+const themeClass: Record<IconTheme, string> = {
+    clear: cls.clear,
+    inverted: cls.inverted,
+    normal: cls.normal,
+};
 
 /** Иконка */
 export const Icon: FC<IconProps> = memo((props: IconProps) => {
     const {
         className,
         Svg,
-        inverted,
         size,
+        theme = 'normal',
     } = props;
-
-    const mods = useMemo(() => ({
-        [cls.inverted]: inverted,
-    }), [inverted]);
 
     return (
         <Svg
@@ -31,7 +35,7 @@ export const Icon: FC<IconProps> = memo((props: IconProps) => {
                 height: size,
                 width: size,
             }}
-            className={classNames(cls.Icon, mods, [className])}
+            className={classNames('', {}, [className, themeClass[theme]])}
         />
     );
 });

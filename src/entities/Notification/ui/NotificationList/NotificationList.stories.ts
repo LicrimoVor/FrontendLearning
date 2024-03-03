@@ -4,7 +4,7 @@ import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDe
 import { Theme } from '@/app/providers/ThemeProvider';
 import { storeDecorator } from '@/shared/config/storybook/storeDecorator/storeDecorator';
 import { NotificationList } from './NotificationList';
-import { notificationTest } from '../../model/test/notification';
+import { notificationTest } from '../../test/notification';
 
 const meta: Meta<typeof NotificationList> = {
     title: 'entities/NotificationList',
@@ -47,4 +47,22 @@ export const Red: Story = {
     decorators: [
         themeDecorator(Theme.RED),
     ],
+};
+
+export const Loading: Story = {
+    parameters: {
+        mockData: [
+            {
+                url: `${__API__}/notifications?_limit=5`,
+                method: 'GET',
+                status: 200,
+                response: [
+                    notificationTest,
+                    notificationTest,
+                    notificationTest,
+                ],
+                delay: 100000,
+            },
+        ],
+    },
 };

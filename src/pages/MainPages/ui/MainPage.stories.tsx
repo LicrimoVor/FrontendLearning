@@ -8,6 +8,9 @@ import MainPage from './MainPage';
 const meta: Meta<typeof MainPage> = {
     title: 'pages/MainPage',
     component: MainPage,
+    decorators: [
+        storeDecorator({}),
+    ],
 };
 
 export default meta;
@@ -16,13 +19,17 @@ type Story = StoryObj<typeof MainPage>;
 export const Light: Story = {
     decorators: [
         themeDecorator(Theme.LIGHT),
-        storeDecorator({}),
     ],
 };
 
 export const Dark: Story = {
     decorators: [
         themeDecorator(Theme.DARK),
-        storeDecorator({}),
+    ],
+};
+
+export const Red: Story = {
+    decorators: [
+        themeDecorator(Theme.RED),
     ],
 };

@@ -32,7 +32,7 @@ export const NotificationBtn: FC<NotificationBtnProps> = memo((props: Notificati
         setIsOpen(false);
     }, []);
 
-    const trigger = <Icon inverted Svg={NotificationSvg} />;
+    const trigger = <Icon theme="inverted" Svg={NotificationSvg} />;
 
     return (
         <>

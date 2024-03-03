@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from '@/app/providers/ThemeProvider';
-import { articleTest } from '@/entities/Article/model/test/data';
+import { articleTest } from '@/entities/Article/testing';
 import { storeDecorator } from '@/shared/config/storybook/storeDecorator/storeDecorator';
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDecorator';
-import { ArticleRecommend } from './ArticleRecommend';
+import ArticleRecommend from './ArticleRecommend';
 
 const meta: Meta<typeof ArticleRecommend> = {
     title: 'features/Article/ArticleRecommend',

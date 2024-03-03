@@ -4,6 +4,7 @@ import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDe
 import { Theme } from '@/app/providers/ThemeProvider';
 import { storeDecorator } from '@/shared/config/storybook/storeDecorator/storeDecorator';
 import { Navbar } from './Navbar';
+import { userTest } from '@/entities/User/testing';
 
 const meta: Meta<typeof Navbar> = {
     title: 'widgets/Navbar',
@@ -36,6 +37,6 @@ export const Red: Story = {
 
 export const Auth: Story = {
     decorators: [
-        storeDecorator({ user: { authData: {} } }),
+        storeDecorator({ user: { authData: userTest } }),
     ],
 };

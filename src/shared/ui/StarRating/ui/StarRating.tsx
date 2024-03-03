@@ -62,6 +62,7 @@ export const StarRating: FC<StarRatingProps> = memo((props: StarRatingProps) => 
                         <Icon
                             Svg={StarSVG}
                             size={size}
+                            theme="clear"
                             className={classNames(cls.starSvg, mods, [])}
                         />
                     </Button>

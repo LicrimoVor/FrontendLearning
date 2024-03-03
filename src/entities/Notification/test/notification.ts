@@ -1,4 +1,4 @@
-import { Notification } from '../types/notification';
+import { Notification } from '../model/types/notification';
 
 export const notificationTest: Notification = {
     id: '1',

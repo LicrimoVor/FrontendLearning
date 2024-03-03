@@ -1,4 +1,3 @@
-import { getUserInited, userActions } from '@/entities/User';
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -7,6 +6,7 @@ import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { AppRouter } from './providers/router';
 import { useTheme } from './providers/ThemeProvider';
+import { getUserInited, userActions } from '@/entities/User';
 
 /** Главная приложуха */
 function App() {

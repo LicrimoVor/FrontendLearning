@@ -4,7 +4,7 @@ import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDe
 
 import { Theme } from '@/app/providers/ThemeProvider';
 import { CommentList } from './CommentList';
-import { commentTest } from '../../model/test/data';
+import { commentTest } from '../../test/data';
 
 const meta: Meta<typeof CommentList> = {
     title: 'entities/Comment/CommentList',

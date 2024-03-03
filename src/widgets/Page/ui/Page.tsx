@@ -1,12 +1,12 @@
-import { scrollSaveActions } from '@/features/ScrollSave';
-import { getScrollSaveScrollByPath } from '@/features/ScrollSave/model/selectors/scrollSave';
 import {
     FC, memo, MutableRefObject, ReactNode, useRef, UIEvent,
 } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { StateSchema } from '@/shared/config/reduxConfig/stateShema';
 
+import { getScrollSaveScrollByPath } from '@/features/ScrollSave/model/selectors/scrollSave';
+import { scrollSaveActions } from '@/features/ScrollSave';
+import { StateSchema } from '@/shared/config/reduxConfig/stateShema';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';

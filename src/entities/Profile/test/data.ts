@@ -1,7 +1,7 @@
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import AvatarImg from '@/shared/assets/tests/avatar.jpg';
-import { Profile } from '../types/profile';
+import { Profile } from '../model/types/profile';
 
 export const profileTest: Profile = {
     id: '1',

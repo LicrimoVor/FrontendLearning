@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { storeDecorator } from '@/shared/config/storybook/storeDecorator/storeDecorator';
-import { userTest } from '@/entities/User/model/test/data';
+import { userTest } from '@/entities/User/testing';
 import { Sidebar } from './Sidebar';
 
 const meta: Meta<typeof Sidebar> = {

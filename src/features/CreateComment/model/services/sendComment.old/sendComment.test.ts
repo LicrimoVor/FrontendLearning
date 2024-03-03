@@ -1,4 +1,4 @@
-import { userTest } from '@/entities/User/model/test/data';
+import { userTest } from '@/entities/User/testing';
 import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/testAsyncThunk';
 import { sendComment } from './sendComment';
 

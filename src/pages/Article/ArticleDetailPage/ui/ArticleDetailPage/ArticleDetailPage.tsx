@@ -13,7 +13,7 @@ import { ArticleRating } from '@/features/Article/ArticleRating';
 
 /** Полная статья с подробностями */
 const ArticleDetailPage: FC = () => {
-    const { t } = useTranslation('article/detail');
+    const { t } = useTranslation('article-detail');
 
     let { id } = useParams<{id: string}>();
     if (__PROJECT__ === 'storybook') id = '1';

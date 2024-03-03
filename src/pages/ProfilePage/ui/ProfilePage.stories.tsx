@@ -7,6 +7,7 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import AvatarImg from '@/shared/assets/tests/avatar.jpg';
 import ProfilePage from './ProfilePage';
+import { userTest } from '@/entities/User/testing';
 
 const meta: Meta<typeof ProfilePage> = {
     title: 'pages/ProfilePage',
@@ -25,6 +26,10 @@ const meta: Meta<typeof ProfilePage> = {
                     avatar: AvatarImg,
                 },
             },
+            user: {
+                authData: userTest,
+                _inited: true,
+            },
         }),
     ],
 };
@@ -41,5 +46,11 @@ export const Light: Story = {
 export const Dark: Story = {
     decorators: [
         themeDecorator(Theme.DARK),
+    ],
+};
+
+export const Red: Story = {
+    decorators: [
+        themeDecorator(Theme.RED),
     ],
 };

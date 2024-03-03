@@ -1,6 +1,6 @@
-import { userTest } from '@/entities/User/model/test/data';
-import { Article } from '../types/article';
-import { ArticleType, ArticleBlockType } from '../consts/article';
+import { userTest } from '@/entities/User/testing';
+import { Article } from '../model/types/article';
+import { ArticleType, ArticleBlockType } from '../model/consts/article';
 
 export const articleTest: Article = {
     id: '1',

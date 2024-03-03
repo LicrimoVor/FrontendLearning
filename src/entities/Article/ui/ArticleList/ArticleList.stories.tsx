@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDecorator';
 import { Theme } from '@/app/providers/ThemeProvider';
-import { articleTest } from '../../model/test/data';
+import { articleTest } from '../../test/data';
 import { ArticleView } from '../../model/consts/article';
 import { ArticleList } from './ArticleList';
 
@@ -11,7 +11,8 @@ const meta: Meta<typeof ArticleList> = {
     component: ArticleList,
     args: {
         isLoading: false,
-        articles: [articleTest, articleTest, articleTest],
+        articles: Array(10).fill(articleTest),
+        Header: () => <>Заголовок</>,
     },
 };
 
@@ -34,12 +35,6 @@ export const Red: Story = {
     decorators: [
         themeDecorator(Theme.RED),
     ],
-};
-
-export const Big: Story = {
-    args: {
-        view: ArticleView.BIG,
-    },
 };
 
 export const IsLoadingSmall: Story = {
