@@ -1,5 +1,5 @@
 import {
-    FC, memo, useCallback, useState,
+    FC, memo, useCallback, useEffect, useState,
 } from 'react';
 
 import { useTranslation } from 'react-i18next';
@@ -13,13 +13,16 @@ import { Modal } from '@/shared/ui/Modal/Modal';
 import { Drawer } from '@/shared/ui/Drawer';
 import { Button } from '@/shared/ui/Button/Button';
 import { TextArea } from '@/shared/ui/TextArea';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface RatingProps {
     className?: string,
     title?: string,
     selectStar?: number,
     feedback?: boolean,
+    isLoading?: boolean,
     feedbackTitle?: string,
+    feedbackValue?: string,
     onSubmitFeedback?: (value: string) => void,
     onSelectStar?: (value: number) => void,
 }
@@ -31,7 +34,9 @@ export const Rating: FC<RatingProps> = memo((props: RatingProps) => {
         title,
         selectStar,
         feedback,
+        isLoading,
         feedbackTitle,
+        feedbackValue = '',
         onSubmitFeedback,
         onSelectStar,
     } = props;
@@ -52,6 +57,11 @@ export const Rating: FC<RatingProps> = memo((props: RatingProps) => {
             />
         </>
     );
+
+    useEffect(() => {
+        setTextFeedBack(feedbackValue);
+    }, [feedbackValue]);
+
     const onSelectStarHandler = useCallback((val: number) => {
         if (onSelectStar) {
             onSelectStar(val);
@@ -75,11 +85,21 @@ export const Rating: FC<RatingProps> = memo((props: RatingProps) => {
     return (
         <VStack className={classNames(cls.Rating, {}, [className])}>
             <Text title={title} />
-            <StarRating
-                size={50}
-                value={selectStar}
-                onChange={onSelectStarHandler}
-            />
+            {isLoading
+                ? (
+                    <Skeleton
+                        height={50}
+                        width={290}
+                        border="12px"
+                    />
+                )
+                : (
+                    <StarRating
+                        size={50}
+                        value={isLoading ? 0 : selectStar}
+                        onChange={onSelectStarHandler}
+                    />
+                )}
             <BrowserView>
                 <Modal
                     isOpen={modalOpen}
@@ -87,7 +107,11 @@ export const Rating: FC<RatingProps> = memo((props: RatingProps) => {
                     className={cls.modalFeedback}
                 >
                     {feedbackContent}
-                    <Button>{t('Send')}</Button>
+                    <Button
+                        onClick={onSubmitFeedbackHandler}
+                    >
+                        {t('Send')}
+                    </Button>
                 </Modal>
             </BrowserView>
             <MobileView>

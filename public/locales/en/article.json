@@ -14,5 +14,7 @@
   "MEDICINE": "Medicine",
   "SCIENCE": "Science",
   "EditArticleById": "Edit article by id",
-  "CreateNewArticle": "Create new article"
+  "CreateNewArticle": "Create new article",
+  "NotFoundArticles": "No articles found",
+  "ReadMore": "Read more"
 }

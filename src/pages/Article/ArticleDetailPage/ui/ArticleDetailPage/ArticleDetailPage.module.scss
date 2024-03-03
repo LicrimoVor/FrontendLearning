@@ -13,3 +13,11 @@
     overflow-y: hidden;
     overflow-x: auto;
 }
+
+.rating {
+    background: var(--card-bg);
+    padding: 15px 40px;
+    border-radius: 14px;
+    align-self: center;
+    justify-content: center;
+}

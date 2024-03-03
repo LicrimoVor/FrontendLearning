@@ -16,7 +16,7 @@ const MainPage: FC = () => {
             {t('Main page')}
             <BugButton />
             <Rating
-                title="Рейтинг"
+                title="Оцените сайт"
                 selectStar={id}
                 onSelectStar={setId}
                 feedback

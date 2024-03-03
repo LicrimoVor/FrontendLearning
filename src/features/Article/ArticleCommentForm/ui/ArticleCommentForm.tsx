@@ -1,12 +1,12 @@
-import { CreateCommentForm } from '@/features/CreateComment';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { CreateCommentForm } from '@/features/CreateComment';
 
 import { CommentList } from '@/entities/Comment';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text, TextSize } from '@/shared/ui/Text/Text';
-import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack';
 import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect/userInitialEffect';
@@ -38,7 +38,7 @@ export const ArticleCommentForm: FC<ArticleCommentFormProps> = memo((
     const comments = useSelector(getArticleComments.selectAll);
     const isLoading = useSelector(getArticleCommentIsLoading);
     const error = useSelector(getArticleCommentError);
-    const { t } = useTranslation('article/comments');
+    const { t } = useTranslation('article-detail');
 
     const onCommentSend = useCallback((text: string) => {
         dispatch(sendCommentForArticle(
@@ -51,7 +51,7 @@ export const ArticleCommentForm: FC<ArticleCommentFormProps> = memo((
     });
 
     if (error) {
-        return <Text text={t('WasHappenedExcept')} />;
+        return <Text text={t('Error')} />;
     }
 
     return (

@@ -14,5 +14,7 @@
   "MEDICINE": "Медицина",
   "SCIENCE": "Наука",
   "EditArticleById": "Редактировать статью с id",
-  "CreateNewArticle": "Создание новой статьи"
+  "CreateNewArticle": "Создание новой статьи",
+  "NotFoundArticles": "Статьи не найдены",
+  "ReadMore": "Читать далее"
 }

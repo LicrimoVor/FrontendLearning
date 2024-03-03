@@ -20,12 +20,12 @@ export const ArticleRecommend: FC<ArticleRecommendProps> = memo((
         className,
     } = props;
 
-    const { t } = useTranslation('article/recommend');
+    const { t } = useTranslation('article-detail');
 
     const { data: articles, error, isLoading } = useArticleRecommendList(5);
 
     if (error) {
-        return <Text text={t('Blia')} />;
+        return <Text text={t('Error')} />;
     }
 
     return (

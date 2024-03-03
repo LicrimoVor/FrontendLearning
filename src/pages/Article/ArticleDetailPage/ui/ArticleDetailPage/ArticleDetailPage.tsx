@@ -10,6 +10,7 @@ import { ArticleRecommend } from '@/features/Article/ArticleRecommend';
 import { ArticleCommentForm } from '@/features/Article/ArticleCommentForm';
 import { ArticleDetailPageHeader } from '../ArticleDetailPageHeader/ArticleDetailPageHeader';
 import cls from './ArticleDetailPage.module.scss';
+import { ArticleRating } from '@/features/Article/ArticleRating';
 
 interface ArticleDetailPageProps {
     className?: string
@@ -43,6 +44,7 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (props) => {
             <VStack gap={32} max>
                 <ArticleDetailPageHeader />
                 <ArticleDetail articleId={id} />
+                <ArticleRating articleId={id} className={cls.rating} />
                 <ArticleCommentForm articleId={id} />
                 <ArticleRecommend />
             </VStack>

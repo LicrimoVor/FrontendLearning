@@ -40,7 +40,7 @@ export const NotificationList: FC<NotificationListProps> = memo((props: Notifica
     }
 
     if (error) {
-        return <Text theme={TextTheme.ERROR} title={t('beda')} />;
+        return <Text theme={TextTheme.ERROR} title={t('Error')} />;
     }
 
     return (
