@@ -1,8 +1,9 @@
 import { Reducer } from '@reduxjs/toolkit';
-import { FC, ReactNode, useEffect } from 'react';
+import { FC, ReactNode } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 
 import { ReduxStoreWithManager, StateSchema, StateSchemaKey } from '@/shared/config/reduxConfig/stateShema';
+import { useInitialEffect } from '../../hooks/userInitialEffect/userInitialEffect';
 
 export type ReducerList = {
     [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
@@ -26,7 +27,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     const store = useStore() as ReduxStoreWithManager;
     const dispatch = useDispatch();
 
-    useEffect(() => {
+    useInitialEffect(() => {
         const mountedReducers = store.reducerManager.getMountedReducers();
         Object.entries(reducers).forEach(([name, reducer]) => {
             const mounted = mountedReducers[name as StateSchemaKey];
@@ -45,8 +46,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
                 });
             }
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    });
 
     // eslint-disable-next-line react/jsx-no-useless-fragment
     return <>{ children }</>;

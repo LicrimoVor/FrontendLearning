@@ -13,9 +13,7 @@ interface ArticleRecommendProps {
 }
 
 /** Список рекомендованных статей */
-export const ArticleRecommend: FC<ArticleRecommendProps> = memo((
-    props: ArticleRecommendProps,
-) => {
+const ArticleRecommend: FC<ArticleRecommendProps> = (props) => {
     const {
         className,
     } = props;
@@ -43,4 +41,6 @@ export const ArticleRecommend: FC<ArticleRecommendProps> = memo((
             />
         </VStack>
     );
-});
+};
+
+export default memo(ArticleRecommend);

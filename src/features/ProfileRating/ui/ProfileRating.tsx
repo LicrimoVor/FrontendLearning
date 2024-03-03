@@ -1,34 +1,34 @@
-import {
-    FC, memo, useCallback,
-} from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { useSelector } from 'react-redux';
-
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Rating } from '@/entities/Rating';
-import { useCreateArticleRating, useGetArticleRating, useUpdateArticleRating } from '../api/articleRatingApi';
+import { useCreateProfileRating, useGetProfileRating, useUpdateProfileRating } from '../api/profileRatingApi';
 import { getUserAuthData } from '@/entities/User';
+import { Rating } from '@/entities/Rating';
 
-interface ArticleRatingProps {
+interface ProfileRatingProps {
     className?: string,
-    articleId: string,
+    profileId: string,
 }
 
-/** Рейтинг статей */
-const ArticleRating: FC<ArticleRatingProps> = (props) => {
+/** Рейтинг профиля */
+export const ProfileRating: FC<ProfileRatingProps> = memo((
+    props: ProfileRatingProps,
+) => {
     const {
         className,
-        articleId,
+        profileId,
     } = props;
 
-    const { t } = useTranslation('article-detail');
+    const { t } = useTranslation('profile');
     const authData = useSelector(getUserAuthData);
-    const { data, isFetching } = useGetArticleRating(
-        { userId: authData!.id, articleId },
-        { skip: authData === undefined },
+    const { data, isFetching } = useGetProfileRating(
+        { userId: authData!.id, profileId },
+        { skip: !authData },
     );
-    const [createRating, { isLoading: isLoadingCreate }] = useCreateArticleRating();
-    const [updateRating, { isLoading: isLoadingUpdate }] = useUpdateArticleRating();
+    const [createRating, { isLoading: isLoadingCreate }] = useCreateProfileRating();
+    const [updateRating, { isLoading: isLoadingUpdate }] = useUpdateProfileRating();
 
     const onSelectStar = useCallback((value: number) => {
         if (data) {
@@ -38,12 +38,12 @@ const ArticleRating: FC<ArticleRatingProps> = (props) => {
             });
         } else {
             createRating({
-                articleId,
+                profileId,
                 userId: authData!.id,
                 rate: value,
             });
         }
-    }, [data, authData, articleId, createRating, updateRating]);
+    }, [data, authData, profileId, createRating, updateRating]);
 
     const onSubmitFeedback = useCallback((value: string) => {
         updateRating({
@@ -65,6 +65,4 @@ const ArticleRating: FC<ArticleRatingProps> = (props) => {
             selectStar={data?.rate}
         />
     );
-};
-
-export default memo(ArticleRating);
+});

@@ -2,7 +2,6 @@ import { FC, memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleDetail } from '@/entities/Article';
 import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/Stack';
@@ -12,16 +11,8 @@ import { ArticleDetailPageHeader } from '../ArticleDetailPageHeader/ArticleDetai
 import cls from './ArticleDetailPage.module.scss';
 import { ArticleRating } from '@/features/Article/ArticleRating';
 
-interface ArticleDetailPageProps {
-    className?: string
-}
-
 /** Полная статья с подробностями */
-const ArticleDetailPage: FC<ArticleDetailPageProps> = (props) => {
-    const {
-        className,
-    } = props;
-
+const ArticleDetailPage: FC = () => {
     const { t } = useTranslation('article/detail');
 
     let { id } = useParams<{id: string}>();
@@ -30,7 +21,7 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (props) => {
     if (!id) {
         return (
             <div
-                className={classNames(cls.ArticleDetailPage, {}, [className])}
+                className={cls.ArticleDetailPage}
             >
                 {t('ArticleNotFound')}
             </div>
@@ -39,7 +30,7 @@ const ArticleDetailPage: FC<ArticleDetailPageProps> = (props) => {
 
     return (
         <Page
-            className={classNames(cls.ArticleDetailPage, {}, [className])}
+            className={cls.ArticleDetailPage}
         >
             <VStack gap={32} max>
                 <ArticleDetailPageHeader />

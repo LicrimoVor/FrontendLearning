@@ -1,1 +1,1 @@
-export { ArticleRecommend } from './ui/ArticleRecommend';
+export { ArticleRecommendAsync as ArticleRecommend } from './ui/ArticleRecommend.async';

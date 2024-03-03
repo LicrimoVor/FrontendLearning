@@ -18,6 +18,7 @@ import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm
 import { getProfileValidateErrors } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { ValidateProfileError } from '../model/types/validateProfileError';
 import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
+import { ProfileRating } from '@/features/ProfileRating';
 
 const regNumb: RegExp = /^[+ 0-9]{0,3}$/;
 
@@ -26,14 +27,12 @@ const reducers: ReducerList = {
 };
 
 interface EditableProfileCardProps {
-    className?: string,
-    profileId?: string,
+    profileId: string,
 }
 
 /** Карточка изменяемого профиля */
 export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
     const {
-        className,
         profileId,
     } = props;
 
@@ -54,9 +53,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
     };
 
     useInitialEffect(() => {
-        if (profileId) {
-            dispatch(fetchProfileData(profileId));
-        }
+        dispatch(fetchProfileData(profileId));
     });
 
     const onChangeFirstName = useCallback((value?: string) => {
@@ -114,6 +111,9 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
                 onChangeCurrency={onChangeCurrency}
                 onChangeCountry={onChangeCountry}
                 readonly={readonly}
+            />
+            <ProfileRating
+                profileId={profileId}
             />
         </DynamicModuleLoader>
     );

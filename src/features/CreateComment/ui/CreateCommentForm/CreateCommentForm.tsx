@@ -30,7 +30,7 @@ const CreateCommentForm: FC<CreateCommentFormProps> = memo((
         onCommentSend,
     } = props;
 
-    const { t } = useTranslation('comments');
+    const { t } = useTranslation();
     const text = useSelector(getCreateCommentText);
     const error = useSelector(getCreateCommentError);
     const dispatch = useAppDispatch();

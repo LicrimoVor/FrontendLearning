@@ -6,7 +6,7 @@ interface GetArticleRatingProps {
     articleId: string,
 }
 
-const articleRecommendApi = rtkApi
+const articleRatingdApi = rtkApi
     .enhanceEndpoints({
         addTagTypes: ['ArticleRating'],
     })
@@ -42,6 +42,6 @@ const articleRecommendApi = rtkApi
         }),
     });
 
-export const useGetArticleRating = articleRecommendApi.useGetArticleRatingQuery;
-export const useCreateArticleRating = articleRecommendApi.useCreateArticleRatingMutation;
-export const useUpdateArticleRating = articleRecommendApi.useUpdateArticleRatingMutation;
+export const useGetArticleRating = articleRatingdApi.useGetArticleRatingQuery;
+export const useCreateArticleRating = articleRatingdApi.useCreateArticleRatingMutation;
+export const useUpdateArticleRating = articleRatingdApi.useUpdateArticleRatingMutation;
