@@ -1,5 +1,5 @@
-import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { StateSchema } from '@/shared/config/reduxConfig/stateShema';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 
 export const getArticlePageIsLoading = (state: StateSchema) => state.articlePage?.isLoading;
 export const getArticlePageError = (state: StateSchema) => state.articlePage?.error;

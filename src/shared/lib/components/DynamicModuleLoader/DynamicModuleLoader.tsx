@@ -1,13 +1,9 @@
-import { Reducer } from '@reduxjs/toolkit';
 import { FC, ReactNode } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 
-import { ReduxStoreWithManager, StateSchema, StateSchemaKey } from '@/shared/config/reduxConfig/stateShema';
+import { ReduxStoreWithManager, StateSchemaKey } from '@/shared/config/reduxConfig/stateShema';
 import { useInitialEffect } from '../../hooks/userInitialEffect/userInitialEffect';
-
-export type ReducerList = {
-    [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
-}
+import { ReducerList } from './types';
 
 interface DynamicModuleLoaderProps {
     children: ReactNode,

@@ -2,7 +2,7 @@ import {
     ChangeEvent, FC, memo, TextareaHTMLAttributes, useCallback, useMemo,
 } from 'react';
 
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames';
 import cls from './TextArea.module.scss';
 
 type HTMLTextAreaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'value'|'onChange' | 'readonly' | 'rows'>

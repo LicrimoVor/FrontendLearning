@@ -2,14 +2,15 @@ import { FC, memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { ArticleDetail } from '@/entities/Article';
-import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/Stack';
+import { ArticleDetail } from '@/entities/Article';
 import { ArticleRecommend } from '@/features/Article/ArticleRecommend';
 import { ArticleCommentForm } from '@/features/Article/ArticleCommentForm';
+import { ArticleRating } from '@/features/Article/ArticleRating';
+import { Page } from '@/widgets/Page';
+
 import { ArticleDetailPageHeader } from '../ArticleDetailPageHeader/ArticleDetailPageHeader';
 import cls from './ArticleDetailPage.module.scss';
-import { ArticleRating } from '@/features/Article/ArticleRating';
 
 /** Полная статья с подробностями */
 const ArticleDetailPage: FC = () => {

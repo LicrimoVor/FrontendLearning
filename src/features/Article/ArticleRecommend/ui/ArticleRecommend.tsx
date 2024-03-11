@@ -2,11 +2,12 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ArticleList } from '@/entities/Article';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { Text, TextSize } from '@/shared/ui/Text';
 import { VStack } from '@/shared/ui/Stack';
-import cls from './ArticleRecommend.module.scss';
+import { ArticleList } from '@/entities/Article';
+
 import { useArticleRecommendList } from '../api/articleRecommendApi';
+import cls from './ArticleRecommend.module.scss';
 
 interface ArticleRecommendProps {
     className?: string

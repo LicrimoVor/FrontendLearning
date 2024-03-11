@@ -1,1 +1,1 @@
-export { notificationTest } from './test/notification';
+export { notificationTest } from './test/data.test';

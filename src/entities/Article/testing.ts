@@ -1,1 +1,3 @@
-export { articleTest } from './test/data';
+export { articleDetailReducer } from './model/slice/articleSlice';
+
+export { articleTest } from './test/data.test';

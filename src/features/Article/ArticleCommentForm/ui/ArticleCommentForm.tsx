@@ -1,20 +1,20 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { CreateCommentForm } from '@/features/CreateComment';
 
-import { CommentList } from '@/entities/Comment';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
-import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Text, TextSize } from '@/shared/ui/Text';
+import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/Stack';
-import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect/userInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
+import { CommentList, CreateCommentForm } from '@/entities/Comment';
+
 import { getArticleCommentError, getArticleCommentIsLoading } from '../model/selectors/comments';
 import { articleCommentReducer, getArticleComments } from '../model/slice/articleCommentsSlice';
 import { sendCommentForArticle } from '../model/services/sendCommentsForArticle/sendCommentForArticle';
-import cls from './ArticleCommentForm.module.scss';
 import { fetchCommentsByAcrticleId } from '../model/services/fetchCommentsByAcrticleId/fetchCommentsByAcrticleId';
+import cls from './ArticleCommentForm.module.scss';
 
 const redusers: ReducerList = {
     articleComments: articleCommentReducer,

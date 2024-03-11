@@ -1,9 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/lib/context/ThemeContext';
+import { storeDecorator } from '@/shared/config/storybook/storeDecorator';
+import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { articleTest } from '@/entities/Article/testing';
-import { storeDecorator } from '@/shared/config/storybook/storeDecorator/storeDecorator';
-import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDecorator';
+
 import ArticleRecommend from './ArticleRecommend';
 
 const meta: Meta<typeof ArticleRecommend> = {

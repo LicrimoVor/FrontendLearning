@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { typedMemo } from '@/shared/lib/typedMemo/typedMemo';
+
 import { TabItem } from '../model/types/item';
 import { Card, CardTheme } from '../../Card';
 import cls from './Tabs.module.scss';

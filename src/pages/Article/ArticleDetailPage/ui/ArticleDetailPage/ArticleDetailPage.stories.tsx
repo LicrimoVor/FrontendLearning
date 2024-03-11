@@ -1,12 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/lib/context/ThemeContext';
+import { storeDecorator } from '@/shared/config/storybook/storeDecorator';
+import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { articleTest } from '@/entities/Article/testing';
-import { storeDecorator } from '@/shared/config/storybook/storeDecorator/storeDecorator';
-import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDecorator';
-import ArticleDetailPage from './ArticleDetailPage';
 import { userTest } from '@/entities/User/testing';
 import { commentTest } from '@/entities/Comment/testing';
+
+import ArticleDetailPage from './ArticleDetailPage';
 
 const meta: Meta<typeof ArticleDetailPage> = {
     title: 'pages/Article/ArticleDetailPage',

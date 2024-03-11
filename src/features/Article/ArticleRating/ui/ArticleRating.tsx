@@ -1,13 +1,12 @@
-import {
-    FC, memo, useCallback,
-} from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Rating } from '@/entities/Rating';
-import { useCreateArticleRating, useGetArticleRating, useUpdateArticleRating } from '../api/articleRatingApi';
 import { getUserAuthData } from '@/entities/User';
+
+import { useCreateArticleRating, useGetArticleRating, useUpdateArticleRating } from '../api/articleRatingApi';
 
 interface ArticleRatingProps {
     className?: string,

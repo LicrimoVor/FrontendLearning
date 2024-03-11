@@ -3,10 +3,11 @@ import {
 } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './StarRating.module.scss';
 import StarSVG from '@/shared/assets/icons/star.svg';
+
 import { Icon } from '../../Icon';
-import { Button, ButtonTheme } from '../../Button/Button';
+import { Button, ButtonTheme } from '../../Button/ui/Button';
+import cls from './StarRating.module.scss';
 
 interface StarRatingProps {
     className?: string,

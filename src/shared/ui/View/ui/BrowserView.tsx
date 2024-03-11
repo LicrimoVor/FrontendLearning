@@ -1,5 +1,5 @@
 import { FC, memo, ReactNode } from 'react';
-import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
+import { useDevice } from '@/shared/lib/hooks/useDevice';
 
 interface BrowserViewProps {
     children?: ReactNode,

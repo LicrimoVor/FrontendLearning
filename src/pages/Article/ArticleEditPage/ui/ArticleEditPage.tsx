@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
 import { Page } from '@/widgets/Page';
-import cls from './ArticleEditPage.module.scss';
 
 /** Страница для редактирования статьи */
 const ArticleEditPage: FC = () => {
@@ -12,7 +11,7 @@ const ArticleEditPage: FC = () => {
     const isEdit = Boolean(id);
 
     return (
-        <Page className={cls.ArticleEditPage}>
+        <Page>
             {isEdit
                 ? t('EditArticleById') + id
                 : t('CreateNewArticle')}

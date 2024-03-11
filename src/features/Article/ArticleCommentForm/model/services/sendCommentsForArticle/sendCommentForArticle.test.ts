@@ -1,5 +1,6 @@
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk';
 import { userTest } from '@/entities/User/testing';
-import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/testAsyncThunk';
+
 import { sendCommentForArticle } from './sendCommentForArticle';
 
 describe('sendCommentForArticle', () => {

@@ -2,13 +2,14 @@ import { FC, memo, ReactNode } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+
 import { HStack } from '../../../Stack';
-import { Text } from '../../../Text/Text';
-import { Button } from '../../../Button/Button';
+import { Text } from '../../../Text/ui/Text';
+import { Button } from '../../../Button/ui/Button';
 import { PopupDirection } from '../../styles/types';
+import { PopupDirectionConvert } from '../../styles/consts';
 import cls from './ListBox.module.scss';
 import popupsCls from '../../styles/popups.module.scss';
-import { PopupDirectionConvert } from '../../styles/consts';
 
 interface ListBoxItem {
     value: string,

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
+import { Theme } from '@/shared/lib/context/ThemeContext';
 import { PageError } from './PageError';
 
 const meta: Meta<typeof PageError> = {

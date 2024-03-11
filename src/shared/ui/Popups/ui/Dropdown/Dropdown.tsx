@@ -4,12 +4,13 @@ import {
 import { Menu } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink } from '../../../AppLink/AppLink';
-import { Button, ButtonTheme } from '../../../Button/Button';
-import cls from './Dropdown.module.scss';
-import popupsCls from '../../styles/popups.module.scss';
+
+import { AppLink } from '../../../AppLink';
+import { Button, ButtonTheme } from '../../../Button';
 import { PopupDirection } from '../../styles/types';
 import { PopupDirectionConvert } from '../../styles/consts';
+import cls from './Dropdown.module.scss';
+import popupsCls from '../../styles/popups.module.scss';
 
 interface DropdownItem {
     component: ReactNode,

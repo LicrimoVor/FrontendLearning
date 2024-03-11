@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { Theme } from '@/app/providers/ThemeProvider';
-import { storeDecorator } from '@/shared/config/storybook/storeDecorator/storeDecorator';
-import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDecorator';
-import { ArticleCommentForm } from './ArticleCommentForm';
+import { Theme } from '@/shared/lib/context/ThemeContext';
+import { storeDecorator } from '@/shared/config/storybook/storeDecorator';
+import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { commentTest } from '@/entities/Comment/testing';
+
+import { ArticleCommentForm } from './ArticleCommentForm';
 
 const meta: Meta<typeof ArticleCommentForm> = {
     title: 'features/Article/ArticleCommentForm',

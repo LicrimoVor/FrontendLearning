@@ -3,8 +3,9 @@ import {
 } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useTheme } from '@/app/providers/ThemeProvider';
-import { AnimationProvider, useAnimationContext } from '@/shared/lib/components/AnimationProvider/AnimationProvider';
+import { AnimationProvider, useAnimationContext } from '@/shared/lib/components/AnimationProvider';
+import { useTheme } from '@/shared/lib/hooks/useTheme';
+
 import { Overlay } from '../../Overlay';
 import { Portal } from '../../Portal';
 import cls from './Drawer.module.scss';

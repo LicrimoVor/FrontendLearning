@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
-import { articleTest } from '../../test/data';
+import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
+import { Theme } from '@/shared/lib/context/ThemeContext';
+import { articleTest } from '../../test/data.test';
 import { ArticleView } from '../../model/consts/article';
 import { ArticleList } from './ArticleList';
 
@@ -12,6 +12,7 @@ const meta: Meta<typeof ArticleList> = {
     args: {
         isLoading: false,
         articles: Array(10).fill(articleTest),
+        // eslint-disable-next-line i18next/no-literal-string
         Header: () => <>Заголовок</>,
     },
 };

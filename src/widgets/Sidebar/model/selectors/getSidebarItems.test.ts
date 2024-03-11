@@ -1,10 +1,11 @@
 import { StateSchema } from '@/shared/config/reduxConfig/stateShema';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { userTest } from '@/entities/User/testing';
+import { RoutePath } from '@/shared/const/route';
 import MainIcon from '@/shared/assets/icons/main.svg';
 import AboutIcon from '@/shared/assets/icons/about.svg';
 import ProfileIcon from '@/shared/assets/icons/profile.svg';
 import ArticlesIcon from '@/shared/assets/icons/articles.svg';
+import { userTest } from '@/entities/User/testing';
+
 import { getSidebarItems } from './getSidebarItems';
 
 describe('getSidebarItems', () => {

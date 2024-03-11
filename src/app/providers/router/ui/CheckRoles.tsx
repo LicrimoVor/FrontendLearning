@@ -2,8 +2,8 @@ import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useMemo } from 'react';
 
+import { RoutePath } from '@/shared/const/route';
 import { getUserRoles, UserRole } from '@/entities/User';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 interface CheckRolesProps {
     children: JSX.Element,

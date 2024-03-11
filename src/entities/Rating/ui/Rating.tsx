@@ -1,19 +1,20 @@
 import {
     FC, memo, useCallback, useEffect, useState,
 } from 'react';
-
 import { useTranslation } from 'react-i18next';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './Rating.module.scss';
 import { VStack } from '@/shared/ui/Stack';
 import { StarRating } from '@/shared/ui/StarRating';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { BrowserView, MobileView } from '@/shared/ui/View';
-import { Modal } from '@/shared/ui/Modal/Modal';
+import { Modal } from '@/shared/ui/Modal';
 import { Drawer } from '@/shared/ui/Drawer';
-import { Button } from '@/shared/ui/Button/Button';
+import { Button } from '@/shared/ui/Button';
 import { TextArea } from '@/shared/ui/TextArea';
 import { Skeleton } from '@/shared/ui/Skeleton';
+
+import cls from './Rating.module.scss';
 
 interface RatingProps {
     className?: string,

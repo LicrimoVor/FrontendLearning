@@ -1,5 +1,6 @@
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk';
 import { articleTest } from '@/entities/Article/testing';
-import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/testAsyncThunk';
+
 import { fetchArticlePageList } from './fetchArticlePageList';
 
 const data = [

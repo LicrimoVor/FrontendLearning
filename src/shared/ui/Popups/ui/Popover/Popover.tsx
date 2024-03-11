@@ -4,11 +4,12 @@ import {
 import { Popover as HPopover } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '../../../Button/Button';
-import cls from './Popover.module.scss';
-import popupsCls from '../../styles/popups.module.scss';
+
+import { Button, ButtonTheme } from '../../../Button/ui/Button';
 import { PopupDirectionConvert } from '../../styles/consts';
 import { PopupDirection } from '../../styles/types';
+import cls from './Popover.module.scss';
+import popupsCls from '../../styles/popups.module.scss';
 
 interface PopoverProps {
     trigger?: ReactNode,

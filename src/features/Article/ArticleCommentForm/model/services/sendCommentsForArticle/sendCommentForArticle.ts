@@ -1,8 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+import { ThunkConfig } from '@/shared/config/reduxConfig/stateShema';
 import { Comment } from '@/entities/Comment';
 import { getUserAuthData } from '@/entities/User';
-import { ThunkConfig } from '@/shared/config/reduxConfig/stateShema';
+
 import { fetchCommentsByAcrticleId } from '../fetchCommentsByAcrticleId/fetchCommentsByAcrticleId';
 
 interface sendCommentForArticleProps {

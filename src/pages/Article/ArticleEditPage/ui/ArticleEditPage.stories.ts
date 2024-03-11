@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { themeDecorator } from '@/shared/config/storybook/themeDecorator/themeDecorator';
-import { storeDecorator } from '@/shared/config/storybook/storeDecorator/storeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
+import { storeDecorator } from '@/shared/config/storybook/storeDecorator';
+import { Theme } from '@/shared/lib/context/ThemeContext';
 import { userTest } from '@/entities/User/testing';
 import { articleTest } from '@/entities/Article/testing';
 import ArticleEditPage from './ArticleEditPage';

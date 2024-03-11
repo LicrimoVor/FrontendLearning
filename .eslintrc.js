@@ -63,7 +63,20 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
-        'lkx-fsd/path-checker': 'error',
+        'lkx-fsd/path-checker': ['error', { alias: '@' }],
+        'lkx-fsd/order-imports': ['error', { alias: '@' }],
+        'lkx-fsd/public-import': [
+            'error',
+            {
+                alias: '@',
+                layersPlusOne: ['shared'],
+                otherPublicImport: 'testing',
+                otherPublicPatterns: ['**/*.stories.{ts,tsx}', '**/*.test.{ts,tsx}'],
+                sharedEnclosure: ['lib', 'assets', 'config'],
+                featuresEnclosure: ['Article', 'Switcher', 'Profile'],
+                pageEnclosure: ['Article', 'Admin'],
+            }],
+        'lkx-fsd/layer-checker': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,

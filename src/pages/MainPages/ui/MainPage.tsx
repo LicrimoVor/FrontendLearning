@@ -1,9 +1,9 @@
+/* eslint-disable i18next/no-literal-string */
 import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { BugButton } from '@/app/providers/ErrorBoudarie';
-import { Page } from '@/widgets/Page';
 import { Rating } from '@/entities/Rating';
+import { Page } from '@/widgets/Page';
 
 /** Главная страница */
 const MainPage: FC = () => {
@@ -14,7 +14,6 @@ const MainPage: FC = () => {
     return (
         <Page>
             {t('Main page')}
-            <BugButton />
             <Rating
                 title="Оцените сайт"
                 selectStar={id}

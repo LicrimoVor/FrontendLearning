@@ -1,18 +1,18 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable lkx-fsd/layer-checker */
 import {
     AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 
+import { rtkApi } from '@/shared/api/rtkApi';
 import { ArticleDetailSchema } from '@/entities/Article';
 import { UserSchema } from '@/entities/User';
+import { CreateCommentSchema } from '@/entities/Comment';
 import { ArticleCommentSchema } from '@/features/Article/ArticleCommentForm';
 import { LoginSchema } from '@/features/AuthByUsername';
-import { CreateCommentSchema } from '@/features/CreateComment';
-import { ProfileSchema } from '@/features/EditableProfile';
+import { ProfileSchema } from '@/features/Profile/EditableProfile';
 import { ScrollSaveSchema } from '@/features/ScrollSave';
 import { ArticlePageSchema } from '@/pages/Article/ArticlePage';
-import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateSchema {
     // Синхронные редюсеры

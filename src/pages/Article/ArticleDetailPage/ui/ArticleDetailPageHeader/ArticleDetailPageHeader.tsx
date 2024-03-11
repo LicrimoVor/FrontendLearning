@@ -4,10 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button/Button';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { getArticleDetailData } from '@/entities/Article';
+import { Button } from '@/shared/ui/Button';
+import { RoutePath } from '@/shared/const/route';
 import { HStack } from '@/shared/ui/Stack';
+import { getArticleDetailData } from '@/entities/Article';
+
 import { getArticleCanEdit } from '../../model/selectors/canEdit';
 
 interface ArticleDetailPageHeaderProps {

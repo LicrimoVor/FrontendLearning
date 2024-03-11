@@ -4,12 +4,13 @@ import {
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import NotificationSvg from '@/shared/assets/icons/notification.svg';
-import { Popover } from '@/shared/ui/Popups/ui/Popover/Popover';
-import { NotificationList } from '@/entities/Notification';
+import { Popover } from '@/shared/ui/Popups';
 import { Drawer } from '@/shared/ui/Drawer';
 import { BrowserView, MobileView } from '@/shared/ui/View';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
+import { NotificationList } from '@/entities/Notification';
+
 import cls from './NotificationBtn.module.scss';
 
 interface NotificationBtnProps {
