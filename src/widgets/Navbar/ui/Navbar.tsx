@@ -8,7 +8,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Text, TextTheme } from '@/shared/ui/Text';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
-import { RoutePath } from '@/shared/const/route';
+import { getRouteArticleCreate } from '@/shared/const/route';
 import { HStack } from '@/shared/ui/Stack';
 import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
@@ -54,7 +54,7 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
                     <AppLink
                         theme={AppLinkTheme.PRIMARY}
                         inverted
-                        to={RoutePath.article_create}
+                        to={getRouteArticleCreate()}
                         className={cls.createArticle}
                     >
                         {t('CreateArticle')}

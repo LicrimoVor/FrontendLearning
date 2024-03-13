@@ -13,6 +13,15 @@ const preview: Preview = {
                 date: /Date$/i,
             },
         },
+        layout: 'fullscreen',
+        themes: {
+            default: 'light',
+            list: [
+                { name: 'light', class: Theme.LIGHT, color: '#ffffff' },
+                { name: 'dark', class: Theme.DARK, color: '#000000' },
+                { name: 'red', class: Theme.RED, color: '#ca2424' },
+            ],
+        },
     },
     globals: {
         __IS_DEV__: true,
@@ -21,20 +30,20 @@ const preview: Preview = {
         routerDecorator,
         themeDecorator(Theme.LIGHT),
     ],
-    globalTypes: {
-        locale: {
-            name: 'Locale',
-            description: 'Переводы!',
-            toolbar: {
-                icon: 'globe',
-                items: [
-                    { value: 'en', title: 'English' },
-                    { value: 'ru', title: 'Russian' },
-                ],
-                showName: true,
-            },
-        },
-    },
+    // globalTypes: {
+    //     locale: {
+    //         name: 'Locale',
+    //         description: 'Переводы!',
+    //         toolbar: {
+    //             icon: 'globe',
+    //             items: [
+    //                 { value: 'en', title: 'English' },
+    //                 { value: 'ru', title: 'Russian' },
+    //             ],
+    //             showName: true,
+    //         },
+    //     },
+    // },
 };
 
 export default preview;
