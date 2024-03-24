@@ -10,6 +10,8 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { getRouteArticleDetails } from '@/shared/const/route';
 import { AppLink } from '@/shared/ui/AppLink';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 import { Article, ArticleBlockText } from '../../model/types/article';
 import { ArticleView, ArticleBlockType } from '../../model/consts/article';
@@ -68,7 +70,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props: ArticleLis
                     </div>
                     <Text title={article.title} className={cls.title} />
                     {types}
-                    <img src={article.img} className={cls.img} alt={article.title} />
+                    <AppImage
+                        fallback={<Skeleton width="100%" height={282} />}
+                        src={article.img}
+                        className={cls.img}
+                        alt={article.title}
+                    />
                     {textBlock && (
                         <ArticleBlockTextComponent block={textBlock} className={cls.textBlock} />
                     )}
@@ -100,7 +107,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props: ArticleLis
         >
             <Card>
                 <div className={cls.imageWrapper}>
-                    <img src={article.img} className={cls.img} alt={article.title} />
+                    <AppImage
+                        fallback={<Skeleton width={200} height={200} />}
+                        src={article.img}
+                        className={cls.img}
+                        alt={article.title}
+                    />
                     <Text text={article.createdAt} className={cls.createdAt} />
                 </div>
                 <div className={cls.infoWrapper}>

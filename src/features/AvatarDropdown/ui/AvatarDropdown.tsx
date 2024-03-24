@@ -14,12 +14,14 @@ import {
 
 interface AvatarDropdownProps {
     className?: string,
+    inverted?: boolean,
 }
 
 /** Аватарка с всплывающем меню */
 export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props: AvatarDropdownProps) => {
     const {
         className,
+        inverted,
     } = props;
 
     const { t } = useTranslation();
@@ -54,7 +56,7 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props: AvatarDropdo
         <Dropdown
             data={dropdownData!}
             label={(
-                <Avatar size={40} src={authData.avatar} />
+                <Avatar size={40} src={authData.avatar} fallabackInverted={inverted} />
             )}
             className={classNames('', {}, [className])}
             direction="bottom left"

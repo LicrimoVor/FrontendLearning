@@ -63,6 +63,7 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
                         className={cls.notification}
                     />
                     <AvatarDropdown
+                        inverted
                         className={cls.dropMenu}
                     />
                 </HStack>
