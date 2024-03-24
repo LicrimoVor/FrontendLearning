@@ -8,7 +8,7 @@ const AdminPanelPage: FC = () => {
     const { t } = useTranslation();
 
     return (
-        <Page>
+        <Page data-testid="AdminPanelPage">
             {t('Adminka')}
         </Page>
     );

@@ -11,6 +11,7 @@ export const NotFoundPage: FC = () => {
     return (
         <Page
             className={cls.NotFoundPage}
+            data-testid="NotFoundPage"
         >
             {t('Not found page')}
         </Page>

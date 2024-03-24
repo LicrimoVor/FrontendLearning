@@ -10,18 +10,21 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
+import { TestProps } from '@/shared/types/testProps';
 import { getScrollSaveScrollByPath, scrollSaveActions } from '@/features/ScrollSave';
 
 import cls from './Page.module.scss';
 
-interface pageProps {
+interface PageProps extends TestProps {
     className?: string,
     children: ReactNode,
     onScrollEnd?: () => void,
 }
 
+export const PAGE_ID = 'PAGE_ID';
+
 /** Обертка для страницы. */
-export const Page: FC<pageProps> = memo((props: pageProps) => {
+export const Page: FC<PageProps> = memo((props: PageProps) => {
     const {
         className,
         children,
@@ -54,10 +57,12 @@ export const Page: FC<pageProps> = memo((props: pageProps) => {
     }, 500);
 
     return (
-        <section
+        <main
             ref={wrapperRef}
             onScroll={onScroll}
             className={classNames(cls.Page, {}, [className])}
+            id={PAGE_ID}
+            data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
             {onScrollEnd ? (
@@ -66,6 +71,6 @@ export const Page: FC<pageProps> = memo((props: pageProps) => {
                     ref={triggerRef}
                 />
             ) : null}
-        </section>
+        </main>
     );
 });

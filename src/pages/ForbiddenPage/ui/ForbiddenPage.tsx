@@ -8,7 +8,7 @@ const ForbiddenPage: FC = () => {
     const { t } = useTranslation();
 
     return (
-        <Page>
+        <Page data-testid="ForbiddenPage">
             {t('You are not authorized to view this page')}
         </Page>
     );

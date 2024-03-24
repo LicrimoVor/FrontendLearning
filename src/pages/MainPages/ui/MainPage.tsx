@@ -12,7 +12,7 @@ const MainPage: FC = () => {
     const [id, setId] = useState(0);
 
     return (
-        <Page>
+        <Page data-testid="MainPage">
             {t('Main page')}
             <Rating
                 title="Оцените сайт"

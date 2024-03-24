@@ -20,7 +20,7 @@ const ProfilePage: FC = () => {
     }
 
     return (
-        <Page>
+        <Page data-testid="ProfilePage">
             <EditableProfileCard profileId={id} />
         </Page>
     );
