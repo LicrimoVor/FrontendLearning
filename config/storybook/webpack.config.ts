@@ -25,10 +25,48 @@ export default ({ config }: {config: webpack.Configuration}) => {
         }
         return rule;
     });
+
+    if (config.module?.rules) {
+        // Исключаем дефолтный png jpg svg loader
+        // eslint-disable-next-line no-param-reassign
+        config.module.rules = config.module.rules.map(
+            // @ts-ignore
+            (rule: webpack.RuleSetRule | '...') => {
+                if (
+                    rule !== '...'
+                    && /svg/.test(rule.test as string)
+                    && /png/.test(rule.test as string)
+                    && /jpg/.test(rule.test as string)
+                ) {
+                    return { ...rule, exclude: /\.(png|jpe?g|svg)$/i };
+                }
+                return rule;
+            },
+        );
+    }
+
+    // Потом пушим наш лоадер для "png" и "jpg" лоадером:
+    config.module?.rules?.push(
+        {
+        // Добавляем png jpg loader
+            test: /\.(png|jpe?g)$/i,
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'static/assets/', // Путь где будут лежать файлы
+                    },
+                },
+            ],
+        },
+    );
+
     config.module!.rules!.push({
         test: /\.svg$/,
         use: ['@svgr/webpack'],
     });
+
     config.module!.rules!.push(buildCssLoader(true));
 
     config.plugins!.push(new webpack.DefinePlugin({
