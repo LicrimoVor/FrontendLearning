@@ -51,7 +51,7 @@ export const Button: FC<ButtonProps> = forwardRef((
         [cls.inverted]: inverted,
         [cls.square]: square,
         [cls[size]]: true,
-        [cls.disabled]: disabled,
+        [cls.disabledBtn]: disabled,
     };
 
     return (

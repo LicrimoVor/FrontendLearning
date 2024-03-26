@@ -4,14 +4,14 @@
     bottom: 0;
     right: 0;
     left: 0;
-    
-    
     z-index: var(--opened-modal-z-index);
+
     // pointer-events: none;
     // opacity: 0;
     display: flex;
     justify-content: center;
     align-items: end;
+
     // flex-shrink: 1;
 }
 
