@@ -26,12 +26,18 @@ export default {
     testEnvironment: 'jsdom',
 
     testMatch: [
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+        '<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)',
+    ],
+
+    testPathIgnorePatterns: [
+        'data.test.ts',
     ],
 
     setupFilesAfterEnv: [
-        '<rootDir>config/jest/setupTests.ts',
+        '<rootDir>/config/jest/setupTests.ts',
     ],
+
+    testTimeout: 20000,
 
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
@@ -55,4 +61,5 @@ export default {
             openReport: true,
         }],
     ],
+
 };

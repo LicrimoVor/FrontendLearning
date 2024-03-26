@@ -7,7 +7,7 @@ import { UserRole } from '@/entities/User';
 
 import { AppRouter } from './AppRouter';
 
-describe('Approuter', () => {
+describe('AppRouter', () => {
     test('Проверка рендера страницы', async () => {
         componentRender(<AppRouter />, {
             route: [getRouteAbout()],
