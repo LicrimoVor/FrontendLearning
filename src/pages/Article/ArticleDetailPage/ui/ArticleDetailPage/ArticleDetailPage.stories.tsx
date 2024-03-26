@@ -6,6 +6,7 @@ import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { articleTest } from '@/entities/Article/testing';
 import { userTest } from '@/entities/User/testing';
 import { commentTest } from '@/entities/Comment/testing';
+import { articleRatingTest } from '@/features/Article/ArticleRating/testing';
 
 import ArticleDetailPage from './ArticleDetailPage';
 
@@ -20,9 +21,9 @@ const meta: Meta<typeof ArticleDetailPage> = {
             articleComments: {
                 ids: [1, 2, 3],
                 entities: {
-                    1: commentTest,
-                    2: commentTest,
-                    3: commentTest,
+                    1: { ...commentTest, id: '1' },
+                    2: { ...commentTest, id: '2' },
+                    3: { ...commentTest, id: '3' },
                 },
             },
             user: {
@@ -39,9 +40,14 @@ const meta: Meta<typeof ArticleDetailPage> = {
                 status: 200,
                 response: [
                     articleTest,
-                    articleTest,
-                    articleTest,
-                    articleTest,
+                ],
+            },
+            {
+                url: `${__API__}/article-ratings?userId=1&articleId=1`,
+                method: 'GET',
+                status: 200,
+                response: [
+                    articleRatingTest,
                 ],
             },
         ],

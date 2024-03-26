@@ -7,6 +7,7 @@ import { profileTest } from '@/entities/Profile/testing';
 import { userTest } from '@/entities/User/testing';
 
 import { EditableProfileCard } from './EditableProfileCard';
+import { profileRatingTest } from '../../ProfileRating/testing';
 
 const meta: Meta<typeof EditableProfileCard> = {
     title: 'features/EditableProfileCard',
@@ -25,6 +26,16 @@ const meta: Meta<typeof EditableProfileCard> = {
             },
         }),
     ],
+    parameters: {
+        mockData: [
+            {
+                url: `${__API__}/profile-ratings?userId=1&profileId=1`,
+                method: 'GET',
+                status: 200,
+                response: [profileRatingTest],
+            },
+        ],
+    },
 };
 
 export default meta;

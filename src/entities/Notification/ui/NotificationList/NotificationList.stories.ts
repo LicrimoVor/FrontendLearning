@@ -19,9 +19,9 @@ const meta: Meta<typeof NotificationList> = {
                 method: 'GET',
                 status: 200,
                 response: [
-                    notificationTest,
-                    notificationTest,
-                    notificationTest,
+                    { ...notificationTest, id: 1 },
+                    { ...notificationTest, id: 2 },
+                    { ...notificationTest, id: 3 },
                 ],
             },
         ],
