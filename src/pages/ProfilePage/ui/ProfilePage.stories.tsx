@@ -7,6 +7,7 @@ import AvatarImg from '@/shared/assets/tests/avatar.jpg';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { userTest } from '@/entities/User/testing';
+import { profileRatingTest } from '@/features/Profile/ProfileRating/testing';
 
 import ProfilePage from './ProfilePage';
 
@@ -33,6 +34,16 @@ const meta: Meta<typeof ProfilePage> = {
             },
         }),
     ],
+    parameters: {
+        mockData: [
+            {
+                url: `${__API__}/profile-ratings?userId=1&profileId=1`,
+                method: 'GET',
+                status: 200,
+                response: [profileRatingTest],
+            },
+        ],
+    },
 };
 
 export default meta;
