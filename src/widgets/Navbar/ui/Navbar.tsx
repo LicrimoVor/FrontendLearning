@@ -2,15 +2,19 @@ import {
     FC, memo, useCallback, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { getUserAuthData, userActions } from 'entities/User';
-import { LoginModal } from 'features/AuthByUsername';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Text, TextTheme } from '@/shared/ui/Text';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
+import { getRouteArticleCreate } from '@/shared/const/route';
+import { HStack } from '@/shared/ui/Stack';
+import { getUserAuthData } from '@/entities/User';
+import { LoginModal } from '@/features/AuthByUsername';
+import { AvatarDropdown } from '@/features/AvatarDropdown';
+import { NotificationBtn } from '@/features/NotificationBtn';
+
 import cls from './Nabvar.module.scss';
 
 interface NavbarProps {
@@ -26,7 +30,6 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
     const [isOpenAuth, setIsOpenAuth] = useState(false);
     const authData = useSelector(getUserAuthData);
     const { t } = useTranslation();
-    const dispatch = useDispatch();
 
     const onCloseModal = useCallback(() => {
         setIsOpenAuth(false);
@@ -36,54 +39,59 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
         setIsOpenAuth(true);
     }, []);
 
-    const onLogout = useCallback(() => {
-        dispatch(userActions.logout());
-    }, [dispatch]);
-
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
-                <Text
-                    theme={TextTheme.INVERTED}
-                    className={cls.appName}
-                    title={t('PET-project')}
-                />
-                <AppLink
-                    theme={AppLinkTheme.PRIMARY}
-                    inverted
-                    to={RoutePath.article_create}
-                    className={cls.createArticle}
+                <HStack
+                    justify="spaceBetween"
+                    max
                 >
-                    {t('CreateArticle')}
-                </AppLink>
-                <Button
-                    onClick={onLogout}
-                    theme={ButtonTheme.OUTLINE}
-                    inverted
-                    className={cls.logoutBtn}
-                >
-                    {t('LogOut')}
-                </Button>
+                    <Text
+                        theme={TextTheme.INVERTED}
+                        className={cls.appName}
+                        title={t('PET-project')}
+                    />
+                    <AppLink
+                        theme={AppLinkTheme.PRIMARY}
+                        inverted
+                        to={getRouteArticleCreate()}
+                        className={cls.createArticle}
+                    >
+                        {t('CreateArticle')}
+                    </AppLink>
+                    <NotificationBtn
+                        className={cls.notification}
+                    />
+                    <AvatarDropdown
+                        inverted
+                        className={cls.dropMenu}
+                    />
+                </HStack>
             </header>
         );
     }
 
     return (
         <header className={classNames(cls.Navbar, {}, [className])}>
-            <Text
-                theme={TextTheme.INVERTED}
-                className={cls.appName}
-                title={t('PET-project')}
-            />
-            <Button
-                onClick={onOpenModal}
-                theme={ButtonTheme.OUTLINE}
-                className={cls.loginBtn}
-                inverted
+            <HStack
+                justify="spaceBetween"
+                max
             >
-                {t('LogIn')}
-            </Button>
-            <LoginModal isOpen={isOpenAuth} onClose={onCloseModal} />
+                <Text
+                    theme={TextTheme.INVERTED}
+                    className={cls.appName}
+                    title={t('PET-project')}
+                />
+                <Button
+                    onClick={onOpenModal}
+                    theme={ButtonTheme.OUTLINE}
+                    className={cls.loginBtn}
+                    inverted
+                >
+                    {t('LogIn')}
+                </Button>
+                <LoginModal isOpen={isOpenAuth} onClose={onCloseModal} />
+            </HStack>
         </header>
     );
 });

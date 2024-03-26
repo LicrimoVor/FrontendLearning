@@ -20,8 +20,9 @@
     "esModuleInterop": true,
     // позволяет обычный импорт без (* as), как модуль
     "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
     "paths": {
-      "*": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "ts-node": {

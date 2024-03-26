@@ -1,10 +1,16 @@
-import { StateSchema } from 'shared/config/reduxConfig/stateShema';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { userTest } from 'entities/User/model/test/data';
-import MainIcon from 'shared/assets/icons/main.svg';
-import AboutIcon from 'shared/assets/icons/about.svg';
-import ProfileIcon from 'shared/assets/icons/profile.svg';
-import ArticlesIcon from 'shared/assets/icons/articles.svg';
+import { StateSchema } from '@/shared/config/reduxConfig/stateShema';
+import {
+    getRouteAbout,
+    getRouteArticles,
+    getRouteMain,
+    getRouteProfile,
+} from '@/shared/const/route';
+import MainIcon from '@/shared/assets/icons/main.svg';
+import AboutIcon from '@/shared/assets/icons/about.svg';
+import ProfileIcon from '@/shared/assets/icons/profile.svg';
+import ArticlesIcon from '@/shared/assets/icons/articles.svg';
+import { userTest } from '@/entities/User/testing';
+
 import { getSidebarItems } from './getSidebarItems';
 
 describe('getSidebarItems', () => {
@@ -18,12 +24,12 @@ describe('getSidebarItems', () => {
         expect(getSidebarItems(state as StateSchema)).toEqual(
             [
                 {
-                    path: RoutePath.main,
+                    path: getRouteMain(),
                     text: 'Main',
                     Icon: MainIcon,
                 },
                 {
-                    path: RoutePath.about,
+                    path: getRouteAbout(),
                     text: 'About',
                     Icon: AboutIcon,
                 },
@@ -41,23 +47,23 @@ describe('getSidebarItems', () => {
         expect(getSidebarItems(state as StateSchema)).toEqual(
             [
                 {
-                    path: RoutePath.main,
+                    path: getRouteMain(),
                     text: 'Main',
                     Icon: MainIcon,
                 },
                 {
-                    path: RoutePath.about,
+                    path: getRouteAbout(),
                     text: 'About',
                     Icon: AboutIcon,
                 },
                 {
-                    path: RoutePath.profile + userTest.id,
+                    path: getRouteProfile(userTest.id),
                     text: 'Profile',
                     Icon: ProfileIcon,
                     authOnly: true,
                 },
                 {
-                    path: RoutePath.articles,
+                    path: getRouteArticles(),
                     text: 'Articles',
                     Icon: ArticlesIcon,
                     authOnly: true,

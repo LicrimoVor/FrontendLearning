@@ -1,0 +1,38 @@
+.Popup {
+    position: relative;
+    display: inline-block;
+}
+
+.popupMenu {
+    position: absolute;
+    z-index: var(--popup-z-index);
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--primary-color);
+    background-color: var(--popup-bg);
+    box-shadow: 1px 1px 2px var(--popup-shadow);
+
+    &.topRight {
+        border-radius: 12px 12px 12px 0;
+        left: 0%;
+        bottom: 100%;
+    }
+
+    &.topLeft {
+        border-radius: 12px 12px 0;
+        bottom: 100%;
+        right: 0%;
+    }
+
+    &.bottomRight {
+        border-radius: 0 12px 12px;
+        top: 100%;
+        left: 0%;
+    }
+
+    &.bottomLeft {
+        border-radius: 12px 0 12px 12px;
+        top: 100%;
+        right: 0%;
+    }
+}

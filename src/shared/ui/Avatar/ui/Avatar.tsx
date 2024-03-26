@@ -1,7 +1,11 @@
 import { CSSProperties, FC, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import UserIcon from '@/shared/assets/icons/user.svg';
+
+import { AppImage } from '../../AppImage';
+import { Icon } from '../../Icon';
+import { Skeleton } from '../../Skeleton';
 import cls from './Avatar.module.scss';
 
 interface AvatarProps {
@@ -9,17 +13,17 @@ interface AvatarProps {
     src?: string,
     size?: number,
     alt?:string,
+    fallabackInverted?: boolean,
 }
 
 /** Аватар */
 export const Avatar: FC<AvatarProps> = (props) => {
-    const { t } = useTranslation();
-
     const {
         className,
         src,
         size = 100,
         alt = 'Avatar',
+        fallabackInverted,
     } = props;
 
     const mods = {
@@ -32,11 +36,19 @@ export const Avatar: FC<AvatarProps> = (props) => {
     }), [size]);
 
     return (
-        <img
+        <AppImage
+            fallback={<Skeleton width={size} height={size} border="50%" />}
+            errorFallback={(
+                <Icon
+                    Svg={UserIcon}
+                    size={size}
+                    theme={fallabackInverted ? 'inverted' : 'normal'}
+                />
+            )}
             src={src}
             style={styles}
             className={classNames(cls.Avatar, mods, [className])}
-            alt={t(alt)}
+            alt={alt}
         />
     );
 };

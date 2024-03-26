@@ -1,11 +1,32 @@
 .BIG {
+    height: 100vh;
+
     .card {
-        margin-bottom: 30px;
+        margin: 30px;
     }
 }
 
 .SMALL {
+    height: 100vh;
+
+    .sceleton {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+.itemsWrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    justify-content: center;
+    gap: 20px;
+}
+
+.itemSceleton {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
 }

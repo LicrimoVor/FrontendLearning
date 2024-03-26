@@ -3,5 +3,12 @@
   "ArticleErrorInLoading": "Error loading the article",
   "ReadMore": "Read more...",
   "ReturnToList": "Return to list",
-  "Edit": "Edit"
+  "Edit": "Edit",
+  "Evaluation": "Evaluation of the article",
+  "EvaluationComplete": "Thanks for the assessment!",
+  "Feedback": "Write a review",
+  "FeedbackComplete": "Thanks for the feedback!",
+  "Error": "An error has occurred",
+  "Comments": "Comments",
+  "Recommend": "Recommendations"
 }

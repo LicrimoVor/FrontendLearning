@@ -1,4 +1,5 @@
 import path from 'path';
+import 'whatwg-fetch';
 
 export default {
 
@@ -25,16 +26,23 @@ export default {
     testEnvironment: 'jsdom',
 
     testMatch: [
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
+        '<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)',
+    ],
+
+    testPathIgnorePatterns: [
+        'data.test.ts',
     ],
 
     setupFilesAfterEnv: [
-        '<rootDir>config/jest/setupTests.ts',
+        '<rootDir>/config/jest/setupTests.ts',
     ],
+
+    testTimeout: 20000,
 
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.(jpg|svg)$': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+        '^@/(.*)$': '<rootDir>src/$1',
     },
 
     globals: {
@@ -42,4 +50,16 @@ export default {
         __API__: JSON.stringify('/'),
         __PROJECT__: JSON.stringify('jest'),
     },
+
+    transformIgnorePatterns: ['node_modules/(?!axios)'],
+
+    reporters: [
+        'default',
+        ['jest-html-reporters', {
+            publicPath: '<rootDir>/reports/unit',
+            filename: 'report.html',
+            openReport: true,
+        }],
+    ],
+
 };

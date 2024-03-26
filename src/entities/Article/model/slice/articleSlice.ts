@@ -13,11 +13,7 @@ const initialState: ArticleDetailSchema = {
 const articleDetailSlice = createSlice({
     name: 'articleDetail',
     initialState,
-    reducers: {
-        function: (state, action) => {
-            console.log(state);
-        },
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(fetchArticleDetailById.pending, (state) => {

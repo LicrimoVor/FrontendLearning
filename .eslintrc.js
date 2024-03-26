@@ -1,3 +1,4 @@
+// @ts-ignore
 module.exports = {
     env: {
         browser: true,
@@ -18,6 +19,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'lkx-fsd',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -37,7 +39,23 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': [
             'error',
-            { markupOnly: true, ignoreAttribute: ['to', 'data-testid', 'target'] }],
+            {
+                markupOnly: true,
+                ignoreAttribute: [
+                    'to',
+                    'data-testid',
+                    'target',
+                    'direction',
+                    'justify',
+                    'align',
+                    'gap',
+                    'Component',
+                    'as',
+                    'refName',
+                    'border',
+                    'theme',
+                ],
+            }],
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
         'react-hooks/rules-of-hooks': 'error',
@@ -45,6 +63,20 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
+        'lkx-fsd/path-checker': ['error', { alias: '@' }],
+        'lkx-fsd/order-imports': ['error', { alias: '@' }],
+        'lkx-fsd/public-import': [
+            'error',
+            {
+                alias: '@',
+                layersPlusOne: ['shared'],
+                otherPublicImport: 'testing',
+                otherPublicPatterns: ['**/*.stories.{ts,tsx}', '**/*.test.{ts,tsx}'],
+                sharedEnclosure: ['lib', 'assets', 'config'],
+                featuresEnclosure: ['Article', 'Switcher', 'Profile'],
+                pageEnclosure: ['Article', 'Admin'],
+            }],
+        'lkx-fsd/layer-checker': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,

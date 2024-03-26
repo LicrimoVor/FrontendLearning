@@ -1,14 +1,16 @@
 import { FC, memo, useState } from 'react';
-
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { LangSwitcher } from 'widgets/LangSwitcher';
 import { useSelector } from 'react-redux';
-import { getUserInited } from 'entities/User';
-import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
-import cls from './Sidebar.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { getUserInited } from '@/entities/User';
+import { ThemeSwitcher } from '@/features/Switcher/ThemeSwitcher';
+import { LangSwitcher } from '@/features/Switcher/LangSwitcher';
+
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
   className?: string
@@ -29,7 +31,7 @@ export const Sidebar: FC<SidebarProps> = memo((props: SidebarProps) => {
     };
 
     return (
-        <menu
+        <aside
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
@@ -43,7 +45,11 @@ export const Sidebar: FC<SidebarProps> = memo((props: SidebarProps) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-            <div className={cls.items}>
+            <VStack
+                className={cls.items}
+                gap={8}
+                Component="nav"
+            >
                 {inited && sidebarItemsList.map((item) => (
                     <SidebarItem
                         key={item.path}
@@ -51,14 +57,19 @@ export const Sidebar: FC<SidebarProps> = memo((props: SidebarProps) => {
                         collapsed={collapsed}
                     />
                 ))}
-            </div>
-            <div className={cls.switcher}>
+            </VStack>
+            <HStack
+                className={cls.switchers}
+                max
+                gap={collapsed ? 12 : 32}
+                justify="center"
+            >
                 <ThemeSwitcher />
                 <LangSwitcher
                     className={classNames(cls.lang, { [cls.collapsed]: collapsed })}
                     short={collapsed}
                 />
-            </div>
-        </menu>
+            </HStack>
+        </aside>
     );
 });

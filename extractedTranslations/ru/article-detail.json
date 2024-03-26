@@ -1,4 +1,14 @@
 {
-    
+  "ArticleErrorInLoading": "ArticleErrorInLoading",
+  "ArticleNotFound": "ArticleNotFound",
+  "Comments": "Comments",
+  "Edit": "Edit",
+  "Error": "Error",
+  "Evaluation": "Evaluation",
+  "EvaluationComplete": "EvaluationComplete",
+  "Feedback": "Feedback",
+  "FeedbackComplete": "FeedbackComplete",
+  "Recommend": "Recommend",
+  "ReturnToList": "ReturnToList"
 }
   

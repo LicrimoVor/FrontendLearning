@@ -17,5 +17,9 @@
   "INCORRECT_AGE": "Incorrect age",
   "INCORRECT_COUNTRY": "Incorrect country",
   "NO_DATA": "The data is not specified",
-  "SERVER_ERROR": "Server error"
+  "SERVER_ERROR": "Server error",
+  "Evaluation": "Evaluation of the profile",
+  "EvaluationComplete": "Thanks for the assessment!",
+  "Feedback": "Write a review",
+  "FeedbackComplete": "Thanks for the feedback!"
 }

@@ -1,38 +1,39 @@
-import {
-    FC, HTMLAttributeAnchorTarget, memo, useCallback,
-} from 'react';
-
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Text } from 'shared/ui/Text/Text';
-import EyeIcon from 'shared/assets/icons/eye.svg';
-import { Icon } from 'shared/ui/Icon';
-import { Card } from 'shared/ui/Card';
-import { Avatar } from 'shared/ui/Avatar';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import {
-    Article, ArticleBlockText, ArticleBlockType, ArticleView,
-} from '../../model/types/article';
-import cls from './ArticleListItem.module.scss';
-import { ArticleBlockTextComponent } from '../ArticleBlockTextComponent/ArticleBlockTextComponent';
 
-interface articleListItemProps {
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/Text';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+import { Icon } from '@/shared/ui/Icon';
+import { Card } from '@/shared/ui/Card';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { getRouteArticleDetails } from '@/shared/const/route';
+import { AppLink } from '@/shared/ui/AppLink';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
+
+import { Article, ArticleBlockText } from '../../model/types/article';
+import { ArticleView, ArticleBlockType } from '../../model/consts/article';
+import { ArticleBlockTextComponent } from '../ArticleBlockTextComponent/ArticleBlockTextComponent';
+import cls from './ArticleListItem.module.scss';
+
+interface ArticleListItemProps {
     className?: string,
     article: Article,
     view: ArticleView,
-    target?: HTMLAttributeAnchorTarget
+    target?: HTMLAttributeAnchorTarget,
+    onClickBtn?: () => void,
 }
 
 /** Отображение самой статьи на главном экране */
-export const ArticleListItem: FC<articleListItemProps> = memo((props: articleListItemProps) => {
+export const ArticleListItem: FC<ArticleListItemProps> = memo((props: ArticleListItemProps) => {
     const {
         className,
         article,
         view,
         target,
+        onClickBtn,
     } = props;
 
     const { t } = useTranslation('article');
@@ -69,14 +70,20 @@ export const ArticleListItem: FC<articleListItemProps> = memo((props: articleLis
                     </div>
                     <Text title={article.title} className={cls.title} />
                     {types}
-                    <img src={article.img} className={cls.img} alt={article.title} />
+                    <AppImage
+                        fallback={<Skeleton width="100%" height={282} />}
+                        src={article.img}
+                        className={cls.img}
+                        alt={article.title}
+                    />
                     {textBlock && (
                         <ArticleBlockTextComponent block={textBlock} className={cls.textBlock} />
                     )}
                     <div className={cls.footer}>
                         <AppLink
                             target={target}
-                            to={RoutePath.article_detail + article.id}
+                            to={getRouteArticleDetails(article.id)}
+                            onClick={onClickBtn}
                         >
                             <Button
                                 theme={ButtonTheme.OUTLINE}
@@ -95,11 +102,17 @@ export const ArticleListItem: FC<articleListItemProps> = memo((props: articleLis
         <AppLink
             target={target}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-            to={RoutePath.article_detail + article.id}
+            to={getRouteArticleDetails(article.id)}
+            onClick={onClickBtn}
         >
             <Card>
                 <div className={cls.imageWrapper}>
-                    <img src={article.img} className={cls.img} alt={article.title} />
+                    <AppImage
+                        fallback={<Skeleton width={200} height={200} />}
+                        src={article.img}
+                        className={cls.img}
+                        alt={article.title}
+                    />
                     <Text text={article.createdAt} className={cls.createdAt} />
                 </div>
                 <div className={cls.infoWrapper}>

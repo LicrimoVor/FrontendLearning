@@ -1,0 +1,12 @@
+.ArticlePage {
+    flex-grow: 1;
+    overflow-y: hidden;
+}
+
+.header {
+    margin: 30px;
+}
+
+.list {
+    height: calc(100vh - var(--navbar-height));
+}

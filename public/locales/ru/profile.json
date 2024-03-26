@@ -17,5 +17,9 @@
   "INCORRECT_AGE": "Некорректный возраст",
   "INCORRECT_COUNTRY": "Некорретный регион",
   "NO_DATA": "Данные не указаны",
-  "SERVER_ERROR": "Ошибка сервера"
+  "SERVER_ERROR": "Ошибка сервера",
+  "Evaluation": "Оцените профиль",
+  "EvaluationComplete": "Спасибо за оценку!",
+  "Feedback": "Напишите отзыв",
+  "FeedbackComplete": "Спасибо за отзыв!"
 }

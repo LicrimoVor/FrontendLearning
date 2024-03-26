@@ -1,4 +1,4 @@
-import { StateSchema } from 'shared/config/reduxConfig/stateShema';
+import { StateSchema } from '@/shared/config/reduxConfig/stateShema';
 import { getScrollSaveScroll, getScrollSaveScrollByPath } from './scrollSave';
 
 describe('getScrollSaveScroll', () => {

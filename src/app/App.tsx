@@ -1,12 +1,13 @@
-import { getUserInited, userActions } from 'entities/User';
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useTheme } from '@/shared/lib/hooks/useTheme';
+import { getUserInited, userActions } from '@/entities/User';
+import { Sidebar } from '@/widgets/Sidebar';
+import { Navbar } from '@/widgets/Navbar';
+
 import { AppRouter } from './providers/router';
-import { useTheme } from './providers/ThemeProvider';
 
 /** Главная приложуха */
 function App() {

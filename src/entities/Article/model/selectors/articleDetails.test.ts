@@ -1,5 +1,5 @@
-import { StateSchema } from 'shared/config/reduxConfig/stateShema';
-import { articleTest } from '../test/data';
+import { StateSchema } from '@/shared/config/reduxConfig/stateShema';
+import { articleTest } from '../../test/data.test';
 
 import { getArticleDetailData, getArticleDetailError, getArticleDetailIsLoadnig } from './articleDetails';
 

@@ -1,23 +1,25 @@
+/* eslint-disable lkx-fsd/public-import */
+/* eslint-disable lkx-fsd/layer-checker */
 import { Decorator } from '@storybook/react';
 
-import { StoreProvider } from 'app/providers/StoreProvider';
-import { articleDetailReducer } from 'entities/Article/model/slice/articleSlice';
-import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
-import { createCommentReducer } from 'features/CreateComment/model/slice/createCommentSlice';
-import { profileReducer } from 'features/EditableProfile/model/slice/profileSlice';
-import { articleDetailPageReducer } from 'pages/ArticleDetailPage';
-import { articlePageReducer } from 'pages/ArticlePage/model/slice/articlePageSlice';
-import { StateSchema } from 'shared/config/reduxConfig/stateShema';
-import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { StoreProvider } from '@/app/providers/StoreProvider';
+import { ReducerList } from '@/shared/lib/components/DynamicModuleLoader';
+import { createCommentReducer } from '@/entities/Comment/testing';
+import { articleDetailReducer } from '@/entities/Article/testing';
+import { articleCommentReducer } from '@/features/Article/ArticleCommentForm/testing';
+import { loginReducer } from '@/features/AuthByUsername/testing';
+import { profileReducer } from '@/features/Profile/EditableProfile/testing';
+import { articlePageReducer } from '@/pages/Article/ArticlePage/testing';
+
+import { StateSchema } from '../../reduxConfig/stateShema';
 
 const defaultAsyncReducers: ReducerList = {
     loginForm: loginReducer,
     profile: profileReducer,
     articlePage: articlePageReducer,
     articleDetail: articleDetailReducer,
-    articleDetailPage: articleDetailPageReducer,
+    articleComments: articleCommentReducer,
     createCommentForm: createCommentReducer,
-
 };
 
 /** Декоратор глобал стора для сторисов */

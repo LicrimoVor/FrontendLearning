@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
+import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 
-import { Theme } from 'app/providers/ThemeProvider';
+import { Theme } from '@/shared/lib/context/ThemeContext';
 import { CommentList } from './CommentList';
-import { commentTest } from '../../model/test/data';
+import { commentTest } from '../../test/data.test';
 
 const meta: Meta<typeof CommentList> = {
     title: 'entities/Comment/CommentList',

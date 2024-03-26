@@ -3,5 +3,12 @@
   "ArticleErrorInLoading": "Ошибка при загрузке статьи",
   "ReadMore": "Читать далее...",
   "ReturnToList": "Назад к списку",
-  "Edit": "Редактировать"
+  "Edit": "Редактировать",
+  "Evaluation": "Оцените статью",
+  "EvaluationComplete": "Спасибо за оценку!",
+  "Feedback": "Напишите отзыв",
+  "FeedbackComplete": "Спасибо за отзыв!",
+  "Error": "Произошла ошибка",
+  "Comments": "Комментарии",
+  "Recommend": "Рекомендации"
 }

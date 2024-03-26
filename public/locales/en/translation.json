@@ -20,5 +20,9 @@
   "Profile": "Profile",
   "Articles": "Articles",
   "PET-project": "PET-project",
-  "CreateArticle": "Create article"
+  "CreateArticle": "Create article",
+  "You are not authorized to view this page": "You are not authorized to view this page",
+  "There are no comments": "There are no comments",
+  "Send": "Send",
+  "Enter a comment": "Enter a comment"
 }

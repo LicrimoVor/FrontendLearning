@@ -1,8 +1,8 @@
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Select } from 'shared/ui/Select';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ListBox } from '@/shared/ui/Popups';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
@@ -13,12 +13,12 @@ interface CountrySelectProps {
 }
 
 const options = [
-    { value: Country.Armenia, content: Country.Armenia },
-    { value: Country.Belarus, content: Country.Belarus },
-    { value: Country.Russia, content: Country.Russia },
-    { value: Country.China, content: Country.China },
-    { value: Country.Japan, content: Country.Japan },
-    { value: Country.Kazakhstan, content: Country.Kazakhstan },
+    { value: Country.Armenia, component: Country.Armenia },
+    { value: Country.Belarus, component: Country.Belarus },
+    { value: Country.Russia, component: Country.Russia },
+    { value: Country.China, component: Country.China },
+    { value: Country.Japan, component: Country.Japan },
+    { value: Country.Kazakhstan, component: Country.Kazakhstan },
 ];
 
 /** Выбор валюты */
@@ -37,13 +37,14 @@ export const CountrySelect: FC<CountrySelectProps> = memo((props: CountrySelectP
     }, [onChange]);
 
     return (
-        <Select
+        <ListBox
             className={classNames('', {}, [className])}
             label={t('Country')}
-            options={options}
-            value={value}
+            data={options}
+            selectedValue={value}
             onChange={onChangeHandler}
-            readonly={readonly}
+            disabled={readonly}
+            direction="top right"
         />
     );
 });

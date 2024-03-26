@@ -1,17 +1,11 @@
-import {
-    FC, ReactNode, useCallback,
-} from 'react';
+import { useCallback } from 'react';
 
-import { classNames } from 'shared/lib/classNames/classNames';
-import { typedMemo } from 'shared/lib/typedMemo/typedMemo';
-import { Card } from 'shared/ui/Card';
-import { CardTheme } from 'shared/ui/Card/ui/Card';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { typedMemo } from '@/shared/lib/typedMemo/typedMemo';
+
+import { TabItem } from '../model/types/item';
+import { Card, CardTheme } from '../../Card';
 import cls from './Tabs.module.scss';
-
-export interface TabItem<T extends string> {
-    value: T,
-    content: ReactNode,
-}
 
 interface TabsProps<T extends string> {
     className?: string,

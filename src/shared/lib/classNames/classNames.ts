@@ -1,4 +1,4 @@
-export type Mods = Record<string, boolean | string | undefined>
+import { Mods } from './types';
 
 /** Функция прокаченой конкатенации */
 export function classNames(

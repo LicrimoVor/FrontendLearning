@@ -1,0 +1,19 @@
+.Dropdown {
+    position: relative;
+    display: flex;
+}
+
+.item {
+    border-radius: 10px;
+    padding: 5px 20px;
+    min-width: 100%;
+
+    &.selected {
+        background-color: var(--secondary-color);
+    }
+
+    &.active {
+        background-color: var(--primary-color);
+        box-shadow: inset 1px 2px var(--dropdown-shadow);
+    }
+}

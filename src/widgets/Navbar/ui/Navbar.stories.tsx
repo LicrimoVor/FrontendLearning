@@ -1,8 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { themeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { storeDecorator } from 'shared/config/storybook/storeDecorator/storeDecorator';
+import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
+import { Theme } from '@/shared/lib/context/ThemeContext';
+import { storeDecorator } from '@/shared/config/storybook/storeDecorator';
+import { userTest } from '@/entities/User/testing';
+
 import { Navbar } from './Navbar';
 
 const meta: Meta<typeof Navbar> = {
@@ -36,6 +38,6 @@ export const Red: Story = {
 
 export const Auth: Story = {
     decorators: [
-        storeDecorator({ user: { authData: {} } }),
+        storeDecorator({ user: { authData: userTest } }),
     ],
 };

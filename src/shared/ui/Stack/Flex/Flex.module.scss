@@ -1,0 +1,67 @@
+.Flex {
+    display: flex;
+}
+
+.justifyCenter {
+    justify-content: center;
+}
+
+.justifyEnd {
+    justify-content: end;
+}
+
+.justifyStart {
+    justify-content: start;
+}
+
+.justifySpaceBetween {
+    justify-content: space-between;
+}
+
+.alignCenter {
+    align-items: center;
+}
+
+.alignEnd {
+    align-items: end;
+}
+
+.alignStart {
+    align-items: start;
+}
+
+.alignBaseline {
+    align-items: baseline;
+}
+
+.gap4 {
+    gap: 4px;
+}
+
+.gap8 {
+    gap: 8px;
+}
+
+.gap12 {
+    gap: 12px;
+}
+
+.gap16 {
+    gap: 16px;
+}
+
+.gap32 {
+    gap: 32px;
+}
+
+.directionRow {
+    flex-direction: row;
+}
+
+.directionColumn {
+    flex-direction: column;
+}
+
+.maxWidth {
+    min-width: 100%;
+}
