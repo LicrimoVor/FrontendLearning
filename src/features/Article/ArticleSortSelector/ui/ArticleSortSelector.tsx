@@ -56,18 +56,24 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = memo((
     ], [t]);
 
     return (
-        <HStack gap={8} className={classNames('', {}, [className])}>
+        <HStack
+            gap={8}
+            className={classNames('', {}, [className])}
+            data-testid="ArticleSortSelector"
+        >
             <Select<ArticleSortField>
                 options={sortOptions}
                 label={t('SortBy')}
                 value={sort}
                 onChange={onChangeSort}
+                data-testid="ArticleSortSelector.SORT"
             />
             <Select<SortOrder>
                 options={orderOptions}
                 label={t('OrderBy')}
                 value={order}
                 onChange={onChangeOrder}
+                data-testid="ArticleSortSelector.ORDER"
             />
         </HStack>
     );

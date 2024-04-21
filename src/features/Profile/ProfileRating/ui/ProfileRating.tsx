@@ -64,6 +64,7 @@ export const ProfileRating: FC<ProfileRatingProps> = memo((
             feedbackTitle={data ? t('FeedbackComplete') : t('Feedback')}
             feedbackValue={data?.feedback}
             selectStar={data?.rate}
+            data-testid="ProfileRating"
         />
     );
 });

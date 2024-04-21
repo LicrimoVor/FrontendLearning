@@ -51,6 +51,7 @@ export const ArticleTypeTabs: FC<articleTypeTabsProps> = memo((props: articleTyp
             value={value}
             onTabClick={onChangeType}
             className={classNames('', {}, [className])}
+            data-testid="ArticleTypeTabs"
         />
     );
 });

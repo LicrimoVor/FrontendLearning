@@ -46,15 +46,21 @@ const CreateCommentForm: FC<CreateCommentFormProps> = memo((
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <HStack max className={classNames(cls.CreateCommentForm, {}, [className])}>
+            <HStack
+                max
+                className={classNames(cls.CreateCommentForm, {}, [className])}
+                data-testid="CreateCommentForm"
+            >
                 <Input
                     className={cls.input}
                     placeholder={t('Enter a comment')}
                     value={text}
                     onChange={onCommentTextChange}
+                    data-testid="CreateCommentForm.input"
                 />
                 <Button
                     onClick={onSendHandler}
+                    data-testid="CreateCommentForm.send"
                 >
                     {t('Send')}
                 </Button>

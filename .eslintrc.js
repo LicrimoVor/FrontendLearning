@@ -71,7 +71,7 @@ module.exports = {
                 alias: '@',
                 layersPlusOne: ['shared'],
                 otherPublicImport: 'testing',
-                otherPublicPatterns: ['**/*.stories.{ts,tsx}', '**/*.test.{ts,tsx}'],
+                otherPublicPatterns: ['**/*.stories.{ts,tsx}', '**/*.test.{ts,tsx}', '**/cypress/**/*.{ts,tsx}'],
                 sharedEnclosure: ['lib', 'assets', 'config'],
                 featuresEnclosure: ['Article', 'Switcher', 'Profile'],
                 pageEnclosure: ['Article', 'Admin'],

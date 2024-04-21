@@ -27,6 +27,7 @@ export const Icon: FC<IconProps> = memo((props: IconProps) => {
         Svg,
         size,
         theme = 'normal',
+        ...otherProps
     } = props;
 
     return (
@@ -36,6 +37,7 @@ export const Icon: FC<IconProps> = memo((props: IconProps) => {
                 width: size,
             }}
             className={classNames('', {}, [className, themeClass[theme]])}
+            {...otherProps}
         />
     );
 });

@@ -44,7 +44,11 @@ export const CommentList: FC<CommentListProps> = memo((props: CommentListProps) 
     }
 
     return (
-        <VStack max className={classNames('', {}, [className])}>
+        <VStack
+            max
+            className={classNames('', {}, [className])}
+            data-testid="CommentList"
+        >
             {comments?.length
                 ? comments.map((comment) => (
                     <CommentCard

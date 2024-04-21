@@ -114,6 +114,7 @@ export const ArticleDetail: FC<ArticleDetailProps> = memo((props: ArticleDetailP
                 gap={12}
                 max
                 className={classNames('', {}, [className])}
+                data-testid="ArticleDetail"
             >
                 <HStack max justify="center">
                     <Avatar

@@ -22,6 +22,7 @@ export const ArticleBlockImageComponent: FC<ArticleBlockImageComponentProps> = m
     return (
         <div
             className={classNames(cls.ArticleBlockImageComponent, {}, [className])}
+            data-testid="ArticleBlockImageComponent"
         >
             <img src={block.src} className={cls.img} alt={block.title} />
             {block.title && (

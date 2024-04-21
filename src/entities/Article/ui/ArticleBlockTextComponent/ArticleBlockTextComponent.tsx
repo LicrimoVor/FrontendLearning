@@ -22,6 +22,7 @@ export const ArticleBlockTextComponent: FC<ArticleBlockTextComponentProps> = mem
     return (
         <div
             className={classNames(cls.ArticleBlockTextComponent, {}, [className])}
+            data-testid="ArticleBlockTextComponent"
         >
             {block.title && (
                 <Text

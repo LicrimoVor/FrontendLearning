@@ -81,7 +81,10 @@ export const ArticlePageFilter: FC<articlePageFilterProps> = memo((
     }, [dispatch, fetchData]);
 
     return (
-        <div className={classNames('', {}, [className])}>
+        <div
+            className={classNames('', {}, [className])}
+            data-testid="ArticlePageFilter"
+        >
             <HStack justify="spaceBetween">
                 <ArticleSortSelector
                     sort={sort}

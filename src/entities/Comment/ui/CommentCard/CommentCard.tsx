@@ -16,7 +16,7 @@ interface CommentCardProps {
     isLoading?: boolean,
 }
 
-/** Докстринг */
+/** Карточка комментария */
 export const CommentCard: FC<CommentCardProps> = memo((props: CommentCardProps) => {
     const {
         className,
@@ -53,7 +53,10 @@ export const CommentCard: FC<CommentCardProps> = memo((props: CommentCardProps) 
     }
 
     return (
-        <div className={classNames(cls.CommentCard, {}, [className])}>
+        <div
+            className={classNames(cls.CommentCard, {}, [className])}
+            data-testid="CommentCard"
+        >
             <AppLink className={cls.header} to={getRouteProfile(comment.user.id)}>
                 {comment.user?.avatar ? (
                     <Avatar

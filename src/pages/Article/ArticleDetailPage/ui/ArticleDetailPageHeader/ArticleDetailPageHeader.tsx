@@ -42,6 +42,7 @@ export const ArticleDetailPageHeader: FC<ArticleDetailPageHeaderProps> = memo((
             className={classNames('', {}, [className])}
             justify="spaceBetween"
             max
+            data-testid="ArticleDetailPageHeader"
         >
             <Button onClick={onBackToList}>
                 {t('ReturnToList')}

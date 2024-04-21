@@ -32,6 +32,7 @@ const ArticleDetailPage: FC = () => {
     return (
         <Page
             className={cls.ArticleDetailPage}
+            data-testid="ArticleDetailPage"
         >
             <VStack gap={32} max>
                 <ArticleDetailPageHeader />

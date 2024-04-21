@@ -56,7 +56,12 @@ export const ArticleCommentForm: FC<ArticleCommentFormProps> = memo((
 
     return (
         <DynamicModuleLoader reducers={redusers}>
-            <VStack max gap={8} className={classNames('', {}, [className])}>
+            <VStack
+                max
+                gap={8}
+                className={classNames('', {}, [className])}
+                data-testid="ArticleCommentForm"
+            >
                 <Text
                     size={TextSize.L}
                     title={t('Comments')}

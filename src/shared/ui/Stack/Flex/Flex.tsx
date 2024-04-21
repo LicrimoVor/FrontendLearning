@@ -58,6 +58,7 @@ export const Flex: FC<FlexProps> = (props) => {
         gap,
         max,
         Component = 'div',
+        ...otherProps
     } = props;
 
     const classes = [
@@ -75,6 +76,7 @@ export const Flex: FC<FlexProps> = (props) => {
     return (
         <Component
             className={classNames(cls.Flex, mods, classes)}
+            {...otherProps}
         >
             {children}
         </Component>

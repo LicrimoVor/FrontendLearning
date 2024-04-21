@@ -50,6 +50,7 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = mem
     return (
         <HStack
             className={classNames(cls.ProfilePageHeader, {}, [className])}
+            data-testid="EditableProfileCardHeader"
         >
             <Text title={t('Profile')} />
             {canEdit && (
@@ -58,6 +59,7 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = mem
                         theme={ButtonTheme.OUTLINE}
                         className={cls.editBtn}
                         onClick={onEdit}
+                        data-testid="EditableProfileCardHeader.edit"
                     >
                         {t('Edit')}
                     </Button>
@@ -67,6 +69,7 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = mem
                             theme={ButtonTheme.OUTLINE_RED}
                             className={cls.cancelBtn}
                             onClick={onCancelEdit}
+                            data-testid="EditableProfileCardHeader.cancel"
                         >
                             {t('Cancel')}
                         </Button>
@@ -74,6 +77,7 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = mem
                             theme={ButtonTheme.OUTLINE}
                             className={cls.saveBtn}
                             onClick={onSave}
+                            data-testid="EditableProfileCardHeader.save"
                         >
                             {t('Save')}
                         </Button>

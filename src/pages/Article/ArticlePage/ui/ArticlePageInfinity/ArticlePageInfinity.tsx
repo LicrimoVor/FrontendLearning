@@ -61,6 +61,7 @@ export const ArticlePageInfinity: FC<ArticlePageInfinityProps> = (props) => {
         >
             <div
                 className={classNames(cls.ArticlePage, {}, [className])}
+                data-testid="ArticlePageInfinity"
             >
                 <ArticleList
                     className={cls.list}

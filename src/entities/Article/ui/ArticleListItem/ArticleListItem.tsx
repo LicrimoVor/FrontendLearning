@@ -51,7 +51,10 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props: ArticleLis
             (block) => block.type === ArticleBlockType.TEXT,
         ) as ArticleBlockText;
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <div
+                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+                data-testid="ArticleListItem.BIG"
+            >
                 <Card>
                     <div className={cls.header}>
                         <Avatar
@@ -104,6 +107,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props: ArticleLis
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             to={getRouteArticleDetails(article.id)}
             onClick={onClickBtn}
+            data-testid="ArticleListItem.SMALL"
         >
             <Card>
                 <div className={cls.imageWrapper}>

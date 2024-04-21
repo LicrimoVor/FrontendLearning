@@ -42,12 +42,16 @@ export const ArticleViewSwitcher: FC<articleViewSwitcherProps> = memo((
     };
 
     return (
-        <HStack className={classNames(cls.ArticleViewSwitcher, {}, [className])}>
+        <HStack
+            className={classNames(cls.ArticleViewSwitcher, {}, [className])}
+            data-testid="ArticleViewSwitcher"
+        >
             {viewTypes.map((viewType) => (
                 <Button
                     theme={ButtonTheme.CLEAR}
                     onClick={onClick(viewType.view)}
                     key={viewType.view}
+                    data-testid={`ArticleViewSwitcher.${viewType.view}`}
                 >
                     <Icon
                         Svg={viewType.icon}

@@ -28,7 +28,11 @@ const ArticleRecommend: FC<ArticleRecommendProps> = (props) => {
     }
 
     return (
-        <VStack max className={classNames('', {}, [className])}>
+        <VStack
+            max
+            className={classNames('', {}, [className])}
+            data-testid="ArticleRecommend"
+        >
             <Text
                 size={TextSize.L}
                 title={t('Recommend')}

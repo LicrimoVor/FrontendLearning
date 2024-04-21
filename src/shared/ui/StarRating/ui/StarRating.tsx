@@ -46,8 +46,9 @@ export const StarRating: FC<StarRatingProps> = memo((props: StarRatingProps) => 
     return (
         <div className={classNames(cls.StarRating, {}, [className])}>
             {STARS.map((starId) => {
+                const isSelected = value ? starId <= value : false;
                 const mods = {
-                    [cls.selected]: value ? starId <= value : false,
+                    [cls.selected]: isSelected,
                     [cls.hovered]: starId <= hoverId,
                 };
 
@@ -59,6 +60,7 @@ export const StarRating: FC<StarRatingProps> = memo((props: StarRatingProps) => 
                         onClick={onSelectStar(starId)}
                         key={starId}
                         className={cls.star}
+                        data-testid={`StarRating.${starId}${isSelected ? '.selected' : ''}`}
                     >
                         <Icon
                             Svg={StarSVG}

@@ -30,7 +30,8 @@ const ArticleRating: FC<ArticleRatingProps> = (props) => {
     const [updateRating, { isLoading: isLoadingUpdate }] = useUpdateArticleRating();
 
     const onSelectStar = useCallback((value: number) => {
-        if (data) {
+        console.log(data);
+        if (data !== undefined) {
             updateRating({
                 rate: value,
                 id: data.id,
@@ -45,10 +46,16 @@ const ArticleRating: FC<ArticleRatingProps> = (props) => {
     }, [data, authData, articleId, createRating, updateRating]);
 
     const onSubmitFeedback = useCallback((value: string) => {
-        updateRating({
-            id: data!.id,
-            feedback: value,
-        });
+        if (data === undefined) {
+            setTimeout(() => {
+                onSubmitFeedback(value);
+            }, 1000);
+        } else {
+            updateRating({
+                id: data!.id,
+                feedback: value,
+            });
+        }
     }, [updateRating, data]);
 
     return (

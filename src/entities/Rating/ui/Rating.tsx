@@ -55,6 +55,7 @@ export const Rating: FC<RatingProps> = memo((props: RatingProps) => {
                 value={textFeedback}
                 onChange={setTextFeedBack}
                 rows={5}
+                data-testid="Rating.text"
             />
         </>
     );
@@ -84,7 +85,10 @@ export const Rating: FC<RatingProps> = memo((props: RatingProps) => {
     }, [setModalOpen, onSubmitFeedback, textFeedback]);
 
     return (
-        <VStack className={classNames(cls.Rating, {}, [className])}>
+        <VStack
+            className={classNames(cls.Rating, {}, [className])}
+            data-testid="Rating"
+        >
             <Text title={title} />
             {isLoading
                 ? (
@@ -110,6 +114,7 @@ export const Rating: FC<RatingProps> = memo((props: RatingProps) => {
                     {feedbackContent}
                     <Button
                         onClick={onSubmitFeedbackHandler}
+                        data-testid="Rating.send"
                     >
                         {t('Send')}
                     </Button>
@@ -124,6 +129,7 @@ export const Rating: FC<RatingProps> = memo((props: RatingProps) => {
                     {feedbackContent}
                     <Button
                         onClick={onSubmitFeedbackHandler}
+                        data-testid="Rating.send"
                     >
                         {t('Send')}
                     </Button>
