@@ -17,7 +17,9 @@ files.forEach((someFile) => {
     importDeclarations.forEach((importDeclaration) => {
         const value = importDeclaration.getModuleSpecifierValue();
         if (isOldThemeImport(value)) {
-            importDeclaration.setModuleSpecifier('@/shared/lib/context/ThemeContext');
+            importDeclaration.setModuleSpecifier(
+                '@/shared/lib/context/ThemeContext',
+            );
         }
     });
 });

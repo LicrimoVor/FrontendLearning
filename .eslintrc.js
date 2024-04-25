@@ -5,7 +5,12 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: ['plugin:react/recommended', 'airbnb', 'plugin:i18next/recommended', 'plugin:storybook/recommended'],
+    extends: [
+        'plugin:react/recommended',
+        'airbnb',
+        'plugin:i18next/recommended',
+        'plugin:storybook/recommended',
+    ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -22,10 +27,16 @@ module.exports = {
         'lkx-fsd',
     ],
     rules: {
+        quotes: ['error', 'single'],
+        // 'arrow-body-style': ['error', 'as-needed'],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],
-        'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+        'react/jsx-filename-extension': [
+            2,
+            { extensions: ['.js', '.jsx', '.tsx'] },
+        ],
+        // 'react/jsx-max-props-per-line': ['error', { maximum: 3 }],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'warn',
@@ -55,7 +66,8 @@ module.exports = {
                     'border',
                     'theme',
                 ],
-            }],
+            },
+        ],
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
         'react-hooks/rules-of-hooks': 'error',
@@ -71,11 +83,16 @@ module.exports = {
                 alias: '@',
                 layersPlusOne: ['shared'],
                 otherPublicImport: 'testing',
-                otherPublicPatterns: ['**/*.stories.{ts,tsx}', '**/*.test.{ts,tsx}', '**/cypress/**/*.{ts,tsx}'],
+                otherPublicPatterns: [
+                    '**/*.stories.{ts,tsx}',
+                    '**/*.test.{ts,tsx}',
+                    '**/cypress/**/*.{ts,tsx}',
+                ],
                 sharedEnclosure: ['lib', 'assets', 'config'],
                 featuresEnclosure: ['Article', 'Switcher', 'Profile'],
                 pageEnclosure: ['Article', 'Admin'],
-            }],
+            },
+        ],
         'lkx-fsd/layer-checker': ['error', { alias: '@' }],
     },
     globals: {
@@ -83,11 +100,12 @@ module.exports = {
         __API__: true,
         __PROJECT__: true,
     },
-    overrides: [{
-        files: ['**/src/**/*.{test, stories}.{ts,tsx}'],
-        rules: {
-            'i18next/no-literal-string': 'off',
+    overrides: [
+        {
+            files: ['**/src/**/*.{test, stories}.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
         },
-    },
     ],
 };
