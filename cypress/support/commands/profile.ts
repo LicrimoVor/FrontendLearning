@@ -15,6 +15,7 @@ export const resetProfile = (profileId: string) => cy.request({
         Authorization: '123',
     },
     body: {
+        id: '4',
         first: 'test_first',
         lastname: 'test_last',
         age: 10,

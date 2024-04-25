@@ -1,0 +1,11 @@
+{
+    "id": "4",
+    "first": "test_first",
+    "lastname": "test_last",
+    "age": 10,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "SBK",
+    "username": "testuser",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
+}

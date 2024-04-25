@@ -5,7 +5,13 @@ describe('Список статей', () => {
         });
     });
 
-    it('Загрузка страницы', () => {
+    it.skip('Загрузка страницы', () => {
+        cy.getByDataTestId('ArticleList').should('exist');
+        cy.getByDataTestId('ArticleListItem.SMALL').should('have.length.greaterThan', 3);
+    });
+
+    it('Загрузка страницы на фикстурах', () => {
+        cy.intercept('GET', '**/articles?*', { fixture: 'articles.json' });
         cy.getByDataTestId('ArticleList').should('exist');
         cy.getByDataTestId('ArticleListItem.SMALL').should('have.length.greaterThan', 3);
     });

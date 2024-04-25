@@ -25,24 +25,26 @@ export const ProfileRating: FC<ProfileRatingProps> = memo((
     const { t } = useTranslation('profile');
     const authData = useSelector(getUserAuthData);
     const { data, isFetching } = useGetProfileRating(
-        { userId: authData!.id, profileId },
-        { skip: !authData },
+        { userId: authData?.id || '', profileId },
+        { skip: authData === undefined },
     );
     const [createRating, { isLoading: isLoadingCreate }] = useCreateProfileRating();
     const [updateRating, { isLoading: isLoadingUpdate }] = useUpdateProfileRating();
 
     const onSelectStar = useCallback((value: number) => {
-        if (data) {
-            updateRating({
-                rate: value,
-                id: data.id,
-            });
-        } else {
-            createRating({
-                profileId,
-                userId: authData!.id,
-                rate: value,
-            });
+        if (authData) {
+            if (data) {
+                updateRating({
+                    rate: value,
+                    id: data.id,
+                });
+            } else {
+                createRating({
+                    profileId,
+                    userId: authData.id,
+                    rate: value,
+                });
+            }
         }
     }, [data, authData, profileId, createRating, updateRating]);
 

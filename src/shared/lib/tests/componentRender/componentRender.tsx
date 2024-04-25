@@ -2,48 +2,48 @@ import { render } from '@testing-library/react';
 import { ReactNode } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
+
+// eslint-disable-next-line lkx-fsd/layer-checker
+import { StoreProvider } from '@/app/providers/StoreProvider';
 import { StateSchema } from '@/shared/config/reduxConfig/stateShema';
-
 import i18nForTests from '@/shared/config/i18n/i18nForTests';
+import { TestThemProvider } from '@/shared/config/storybook/themeDecorator';
 
-import { StoreProvider } from '../../../../app/providers/StoreProvider';
+import { Theme } from '../../context/ThemeContext';
 
 interface componentRenderOptions {
     route?: string[],
     initialState?: DeepPartial<StateSchema>
 }
 
-Object.defineProperty(window, 'matchMedia', {
-    writable: true,
-    value: jest.fn().mockImplementation((query) => ({
-        matches: false,
-        media: query,
-        onchange: null,
-        addListener: jest.fn(), // Deprecated
-        removeListener: jest.fn(), // Deprecated
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn(),
-        dispatchEvent: jest.fn(),
-    })),
-});
+interface TestProviderProps {
+    children: ReactNode,
+    options?: componentRenderOptions,
+    theme?: Theme
+}
+
+export function TestProvider(props: TestProviderProps) {
+    const {
+        children,
+        options = {},
+        theme = Theme.LIGHT,
+    } = props;
+
+    return (
+        <MemoryRouter initialEntries={options?.route} initialIndex={1}>
+            <StoreProvider initialState={options?.initialState as StateSchema}>
+                <I18nextProvider i18n={i18nForTests}>
+                    <TestThemProvider theme={theme}>
+                        {children}
+                    </TestThemProvider>
+                </I18nextProvider>
+            </StoreProvider>
+        </MemoryRouter>
+    );
+}
 
 /** Декоратор для тестов. Добавляет стор, роутер и i18n */
 export const componentRender = (
     component: ReactNode,
     options: componentRenderOptions = {},
-): ReturnType<typeof render> => {
-    const {
-        route = ['/'],
-        initialState = {},
-    } = options;
-
-    return render(
-        <MemoryRouter initialEntries={route} initialIndex={1}>
-            <StoreProvider initialState={initialState as StateSchema}>
-                <I18nextProvider i18n={i18nForTests}>
-                    {component}
-                </I18nextProvider>
-            </StoreProvider>
-        </MemoryRouter>,
-    );
-};
+): ReturnType<typeof render> => render(<TestProvider options={options}>{component}</TestProvider>);

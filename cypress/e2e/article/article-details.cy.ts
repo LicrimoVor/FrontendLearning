@@ -32,6 +32,7 @@ describe('Детальная статья', () => {
     });
 
     it.only('Оценка статьи', () => {
+        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
         cy.getByDataTestId('Rating').scrollIntoView();
         cy.setRate(3, 'test text');
         cy.getByDataTestId('Rating')
