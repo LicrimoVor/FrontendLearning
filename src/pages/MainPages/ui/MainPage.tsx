@@ -1,8 +1,8 @@
-/* eslint-disable i18next/no-literal-string */
 import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Rating } from '@/entities/Rating';
+import { GreetingModal } from '@/features/GreetingModal';
 import { Page } from '@/widgets/Page';
 
 /** Главная страница */
@@ -15,12 +15,13 @@ const MainPage: FC = () => {
         <Page data-testid="MainPage">
             {t('Main page')}
             <Rating
-                title="Оцените сайт"
+                title={t('Оцените сайт')}
                 selectStar={id}
                 onSelectStar={setId}
                 feedback
-                feedbackTitle="Оцените что то"
+                feedbackTitle={t('Оцените что то')}
             />
+            <GreetingModal />
         </Page>
     );
 };
