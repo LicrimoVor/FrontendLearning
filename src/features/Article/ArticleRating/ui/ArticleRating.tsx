@@ -30,7 +30,6 @@ const ArticleRating: FC<ArticleRatingProps> = (props) => {
     const [updateRating, { isLoading: isLoadingUpdate }] = useUpdateArticleRating();
 
     const onSelectStar = useCallback((value: number) => {
-        console.log(data);
         if (data !== undefined) {
             updateRating({
                 rate: value,

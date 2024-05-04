@@ -2,6 +2,8 @@ import { FC, memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import { Card } from '@/shared/ui/Card';
+import { toggleFeatures } from '@/shared/lib/features';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleDetail } from '@/entities/Article';
 import { ArticleRecommend } from '@/features/Article/ArticleRecommend';
@@ -16,7 +18,7 @@ import cls from './ArticleDetailPage.module.scss';
 const ArticleDetailPage: FC = () => {
     const { t } = useTranslation('article-detail');
 
-    let { id } = useParams<{id: string}>();
+    let { id } = useParams<{ id: string }>();
     if (__PROJECT__ === 'storybook') id = '1';
 
     if (!id) {
@@ -28,6 +30,13 @@ const ArticleDetailPage: FC = () => {
             </div>
         );
     }
+    const toggleFeature = toggleFeatures(
+        {
+            name: 'isArticleRatingEnabled',
+            off: () => <Card>{t('Скоро будет рейтинг')}</Card>,
+            on: () => <ArticleRating articleId={id!} className={cls.rating} />,
+        },
+    );
 
     return (
         <Page
@@ -37,7 +46,7 @@ const ArticleDetailPage: FC = () => {
             <VStack gap={32} max>
                 <ArticleDetailPageHeader />
                 <ArticleDetail articleId={id} />
-                <ArticleRating articleId={id} className={cls.rating} />
+                {toggleFeature}
                 <ArticleCommentForm articleId={id} />
                 <ArticleRecommend />
             </VStack>
