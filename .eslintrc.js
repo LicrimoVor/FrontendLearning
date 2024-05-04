@@ -66,6 +66,7 @@ module.exports = {
                     'refName',
                     'border',
                     'theme',
+                    'feature',
                 ],
             },
         ],

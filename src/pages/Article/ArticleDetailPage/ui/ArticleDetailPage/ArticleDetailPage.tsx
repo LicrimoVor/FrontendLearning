@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { Card } from '@/shared/ui/Card';
-import { toggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleDetail } from '@/entities/Article';
 import { ArticleRecommend } from '@/features/Article/ArticleRecommend';
@@ -30,13 +30,6 @@ const ArticleDetailPage: FC = () => {
             </div>
         );
     }
-    const toggleFeature = toggleFeatures(
-        {
-            name: 'isArticleRatingEnabled',
-            off: () => <Card>{t('Скоро будет рейтинг')}</Card>,
-            on: () => <ArticleRating articleId={id!} className={cls.rating} />,
-        },
-    );
 
     return (
         <Page
@@ -46,7 +39,11 @@ const ArticleDetailPage: FC = () => {
             <VStack gap={32} max>
                 <ArticleDetailPageHeader />
                 <ArticleDetail articleId={id} />
-                {toggleFeature}
+                <ToggleFeatures
+                    feature="isArticleRatingEnabled"
+                    off={<Card>{t('Скоро будет рейтинг')}</Card>}
+                    on={<ArticleRating articleId={id!} className={cls.rating} />}
+                />
                 <ArticleCommentForm articleId={id} />
                 <ArticleRecommend />
             </VStack>
