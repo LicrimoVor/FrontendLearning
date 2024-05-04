@@ -1,10 +1,9 @@
 import { useContext } from 'react';
-import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage';
 
 import { Theme, ThemeContext } from '../../context/ThemeContext/ThemeContext';
 
 interface UseThemeResult {
-  hundlerTheme: () => void;
+  hundlerTheme: (saveAction: (theme: Theme) => void) => void;
   theme: Theme;
 }
 
@@ -12,7 +11,7 @@ interface UseThemeResult {
 export function useTheme(): UseThemeResult {
     const { theme, setTheme } = useContext(ThemeContext);
 
-    const hundlerTheme = () => {
+    const hundlerTheme = (saveAction: (theme: Theme) => void) => {
         let newTheme: Theme;
 
         switch (theme) {
@@ -30,8 +29,7 @@ export function useTheme(): UseThemeResult {
         }
 
         setTheme?.(newTheme);
-
-        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+        saveAction?.(newTheme);
     };
 
     document.body.className = theme as string;
