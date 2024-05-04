@@ -1,3 +1,4 @@
+import { initAuthData } from '../services/initAuthData';
 import { User, UserSchema } from '../types/user';
 import { userActions, userReducer } from './userSlice';
 
@@ -12,16 +13,6 @@ describe('userSlice', () => {
             state as UserSchema,
             userActions.setAuthData(user),
         )).toEqual({ authData: user });
-    });
-
-    test('Test init authData', () => {
-        const state: DeepPartial<UserSchema> = {};
-        expect(userReducer(
-            state as UserSchema,
-            userActions.initAuthData(),
-        )).toEqual({
-            _inited: true,
-        });
     });
 
     test('Test logout', () => {

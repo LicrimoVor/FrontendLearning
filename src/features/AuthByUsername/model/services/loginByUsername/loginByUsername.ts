@@ -28,8 +28,6 @@ export const loginByUsername = createAsyncThunk<
             }
 
             dispatch(userActions.setAuthData(response.data));
-            localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
-            // extra.navigate?.('/about');
             return response.data;
         } catch (e) {
             return rejectWithValue('Error!');
