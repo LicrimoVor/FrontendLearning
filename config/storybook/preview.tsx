@@ -1,5 +1,6 @@
 import { Preview } from '@storybook/react';
 
+import { storeDecorator } from '../../src/shared/config/storybook/storeDecorator/storeDecorator';
 import { themeDecorator } from '../../src/shared/config/storybook/themeDecorator/themeDecorator';
 import { routerDecorator } from '../../src/shared/config/storybook/routerDecorator/routerDecorator';
 import { Theme } from '../../src/shared/lib/context/ThemeContext';
@@ -29,6 +30,7 @@ const preview: Preview = {
     decorators: [
         routerDecorator,
         themeDecorator(Theme.LIGHT),
+        storeDecorator({}),
     ],
     // globalTypes: {
     //     locale: {

@@ -5,14 +5,17 @@ import { useSelector } from 'react-redux';
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { ArticleList } from '@/entities/Article';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 import { articlePageActions, articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
-import { getArticlePageIndex, getArticlePageIsLoading, getArticlePageView } from '../../model/selectors/articlePage';
+import {
+    getArticlePageHasMore, getArticlePageIndex, getArticlePageIsLoading, getArticlePageView,
+} from '../../model/selectors/articlePage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';
 import { ArticlePageFilter } from '../ArticlePageFilter/ArticlePageFilter';
+import { DeprecatedArticleInfinity } from './DeprecatedArticleInfinity';
+import { RedesignedArticleInfinity } from './RedesignedArticleInfinity';
 import cls from './ArticlePageInfinity.module.scss';
 
 interface ArticlePageInfinityProps {
@@ -34,6 +37,7 @@ export const ArticlePageInfinity: FC<ArticlePageInfinityProps> = (props) => {
     const index = useSelector(getArticlePageIndex);
     const isLoading = useSelector(getArticlePageIsLoading);
     const view = useSelector(getArticlePageView);
+    const hasMore = useSelector(getArticlePageHasMore);
     const [searchParams] = useSearchParams();
 
     useInitialEffect(() => {
@@ -44,38 +48,51 @@ export const ArticlePageInfinity: FC<ArticlePageInfinityProps> = (props) => {
         dispatch(fetchNextArticlePage());
     }, [dispatch]);
 
+    const setIndex = useCallback((index: number) => {
+        dispatch(articlePageActions.setIndex(index));
+    }, [dispatch]);
+
     const Header = memo(() => (
         <ArticlePageFilter
             className={cls.header}
         />
     ));
 
-    const setIndex = useCallback((index: number) => {
-        dispatch(articlePageActions.setIndex(index));
-    }, [dispatch]);
-
     return (
         <DynamicModuleLoader
             reducers={reducers}
             removeAfterUnmount={false}
         >
-            <div
-                className={classNames(cls.ArticlePage, {}, [className])}
-                data-testid="ArticlePageInfinity"
-            >
-                <ArticleList
-                    className={cls.list}
-                    articles={articles}
-                    view={view}
-                    isLoading={isLoading}
-                    onLoadNextPart={onLoadNextPart}
-                    Header={Header}
-                    initialArticleIndex={{
-                        index,
-                        setIndex,
-                    }}
-                />
-            </div>
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                off={(
+                    <DeprecatedArticleInfinity
+                        Header={Header}
+                        isLoading={isLoading}
+                        hasMore={hasMore}
+                        setIndex={setIndex}
+                        onLoadNextPart={onLoadNextPart}
+                        articles={articles}
+                        index={index}
+                        view={view}
+                        className={className}
+                    />
+                )}
+                on={(
+                    <RedesignedArticleInfinity
+                        Header={Header}
+                        isLoading={isLoading}
+                        hasMore={hasMore}
+                        setIndex={setIndex}
+                        onLoadNextPart={onLoadNextPart}
+                        articles={articles}
+                        index={index}
+                        view={view}
+                        className={className}
+                    />
+                )}
+
+            />
         </DynamicModuleLoader>
     );
 };

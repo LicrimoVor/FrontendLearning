@@ -13,7 +13,7 @@ const meta: Meta<typeof ArticleList> = {
         isLoading: false,
         articles: Array(10).fill(articleTest),
         // eslint-disable-next-line i18next/no-literal-string
-        Header: () => <>Заголовок</>,
+        // Header: () => <>Заголовок</>,
     },
 };
 

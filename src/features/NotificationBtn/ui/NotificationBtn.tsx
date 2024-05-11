@@ -9,6 +9,7 @@ import { Drawer } from '@/shared/ui/Drawer';
 import { BrowserView, MobileView } from '@/shared/ui/View';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
+import { toggleFeatures } from '@/shared/lib/features';
 import { NotificationList } from '@/entities/Notification';
 
 import cls from './NotificationBtn.module.scss';
@@ -33,7 +34,16 @@ export const NotificationBtn: FC<NotificationBtnProps> = memo((props: Notificati
         setIsOpen(false);
     }, []);
 
-    const trigger = <Icon theme="inverted" Svg={NotificationSvg} />;
+    const trigger = (
+        <Icon
+            theme={toggleFeatures({
+                name: 'isAppRedesigned',
+                off: () => 'inverted',
+                on: () => undefined,
+            })}
+            Svg={NotificationSvg}
+        />
+    );
 
     return (
         <>

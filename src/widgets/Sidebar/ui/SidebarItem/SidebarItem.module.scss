@@ -20,13 +20,3 @@
         opacity: 1;
     }
 }
-
-.icon {
-    &.secondary {
-        fill: var(--inverted-secondary-color);
-    }
-
-    &.primary {
-        fill: var(--inverted-primary-color);
-    }
-}

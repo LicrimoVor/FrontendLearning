@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
+import { Icon } from '@/shared/ui/Icon';
+import { toggleFeatures } from '@/shared/lib/features';
 import { getUserAuthData } from '@/entities/User';
 
 import { SidebarItemType } from '../../model/types/sidebar';
@@ -33,11 +35,20 @@ export const SidebarItem: FC<SidebarItemProps> = memo((props: SidebarItemProps) 
         <AppLink
             data-testid={item.path}
             to={item.path}
-            inverted
+            inverted={toggleFeatures({
+                name: 'isAppRedesigned',
+                off: () => true,
+                on: () => false,
+            })}
             className={classNames(cls.item)}
         >
-            <item.Icon
-                className={classNames(cls.icon, {}, [cls.primary])}
+            <Icon
+                theme={toggleFeatures({
+                    name: 'isAppRedesigned',
+                    off: () => 'inverted',
+                    on: () => undefined,
+                })}
+                Svg={item.Icon}
             />
             {!collapsed && (
                 <span className={classNames(cls.link)}>

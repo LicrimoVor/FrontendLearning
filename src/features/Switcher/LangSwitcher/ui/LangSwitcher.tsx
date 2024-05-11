@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { toggleFeatures } from '@/shared/lib/features';
+
 import cls from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
@@ -29,7 +31,11 @@ export const LangSwitcher: FC<LangSwitcherProps> = memo((props: LangSwitcherProp
             onClick={hundler}
             className={classNames(cls.LangSwitcher, {}, [className])}
             theme={ButtonTheme.OUTLINE}
-            inverted
+            inverted={toggleFeatures({
+                name: 'isAppRedesigned',
+                off: () => true,
+                on: () => false,
+            })}
         >
             {short ? t('Lang') : t('Languege')}
         </Button>

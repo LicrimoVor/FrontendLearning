@@ -1,5 +1,5 @@
 import {
-    FC, HTMLAttributeAnchorTarget, memo, useRef,
+    FC, forwardRef, HTMLAttributeAnchorTarget, memo, ReactElement, ReactNode, useRef,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
@@ -7,6 +7,7 @@ import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
 import { Text } from '@/shared/ui/Text';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 
 import { Article } from '../../model/types/article';
 import { ArticleView } from '../../model/consts/article';
@@ -20,13 +21,16 @@ interface ArticleListProps {
     isLoading?: boolean,
     view?: ArticleView,
     target?: HTMLAttributeAnchorTarget,
-    Header?: FC,
     onLoadNextPart?: () => void,
     initialArticleIndex?: {
         setIndex: (index: number) => void,
         index: number,
     },
     countSceleton?: number,
+    useWindowScroll?: boolean,
+    hasMore?: boolean,
+    Header?: FC,
+    GridDecorator?: FC,
 }
 
 const getSkeletons = (view: ArticleView, countSceleton: number) => new Array(countSceleton)
@@ -47,10 +51,13 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
         isLoading,
         view = ArticleView.SMALL,
         target,
-        Header,
         onLoadNextPart,
         initialArticleIndex,
-        countSceleton = view === ArticleView.BIG ? 3 : 10,
+        countSceleton = view === ArticleView.BIG ? 3 : 7,
+        useWindowScroll,
+        hasMore,
+        Header,
+        GridDecorator,
     } = props;
 
     const { t } = useTranslation('article');
@@ -78,8 +85,15 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
         />
     );
 
+    if (!isLoading && !articles.length) {
+        return (
+            <Text
+                title={t('NotFoundArticles')}
+            />
+        );
+    }
     const Footer = memo(() => {
-        if (isLoading) {
+        if (isLoading || hasMore) {
             return (
                 <div
                     className={cls.sceleton}
@@ -88,16 +102,9 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
                 </div>
             );
         }
+
         return null;
     });
-
-    if (!isLoading && !articles.length) {
-        return (
-            <Text
-                title={t('NotFoundArticles')}
-            />
-        );
-    }
 
     const ItemSceletonGrid = memo(({ index }: {index: number}) => (
         <ArticleListItemSceleton
@@ -115,35 +122,61 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
             {view === ArticleView.BIG
                 ? (
                     <Virtuoso
+                        useWindowScroll={useWindowScroll}
                         endReached={onLoadNextPart}
                         totalCount={articles.length}
                         itemContent={renderArticle}
                         data={articles}
                         initialTopMostItemIndex={initialArticleIndex?.index}
-                        components={{
-                            Header,
-                            Footer,
-                        }}
+                        components={
+                            {
+
+                                Footer:
+                                    toggleFeatures(
+                                        {
+                                            name: 'isAppRedesigned',
+                                            on: () => undefined,
+                                            off: () => Footer,
+                                        },
+                                    ),
+                                Header,
+                            }
+                        }
+
                     />
                 )
                 : (
                     <VirtuosoGrid
+                        useWindowScroll={useWindowScroll}
                         ref={virtuosoGridRef}
                         endReached={onLoadNextPart}
                         data={articles}
                         itemContent={renderArticle}
                         listClassName={cls.itemsWrapper}
                         components={{
+                            List: GridDecorator,
                             Header,
+                            Footer:
+                                    toggleFeatures(
+                                        {
+                                            name: 'isAppRedesigned',
+                                            on: () => undefined,
+                                            off: () => Footer,
+                                        },
+                                    ),
                             ScrollSeekPlaceholder: ItemSceletonGrid,
-                            Footer,
                         }}
                         scrollSeekConfiguration={{
-                            enter: (velocity) => Math.abs(velocity) > 400,
-                            exit: (velocity) => Math.abs(velocity) < 15,
+                            enter: (velocity) => Math.abs(velocity) > 500,
+                            exit: (velocity) => Math.abs(velocity) < 5,
                         }}
                     />
                 )}
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                off={null}
+                on={<Footer />}
+            />
         </div>
     );
 });

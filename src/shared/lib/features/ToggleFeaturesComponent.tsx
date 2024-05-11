@@ -3,15 +3,16 @@ import { FC, ReactElement } from 'react';
 import { FeatureFlags } from '@/shared/types/featureFlags';
 
 import { getFeatureFlag } from './setFeatureFlags';
+import { typedMemo } from '../typedMemo';
 
 interface ToggleFeaturesProps {
     feature: keyof FeatureFlags,
-    off: ReactElement,
-    on: ReactElement
+    off: ReactElement | null,
+    on: ReactElement | null
 }
 
-/** Компанено с фича-флагами */
-export const ToggleFeatures: FC<ToggleFeaturesProps> = (
+/** Компонент с фича-флагами */
+export const ToggleFeatures: FC<ToggleFeaturesProps> = typedMemo((
     props: ToggleFeaturesProps,
 ) => {
     const {
@@ -22,4 +23,4 @@ export const ToggleFeatures: FC<ToggleFeaturesProps> = (
 
     if (getFeatureFlag(feature)) return on;
     return off;
-};
+});

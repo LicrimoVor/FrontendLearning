@@ -7,16 +7,25 @@
 .app,
 .app_drawer,
 .app_modal {
-    // background: var(--bg-color);
     font: var(--font-m);
     color: var(--primary-color);
 }
 
+.app {
+    background: var(--bg-color);
+    min-height: 100vh;
+}
+
+
+.app-redesigned {
+    background: var(--bg-redesigned);
+    font: var(--font-m-redesigned);
+    color: var(--text-redesigned);
+    min-height: 100vh;
+}
+
 .content-page {
     display: flex;
-    background: var(--bg-color);
-    min-height: calc(100vh - var(--navbar-height));
-    color: var(--primary-color);
 }
 
 *::-webkit-scrollbar {

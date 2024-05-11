@@ -1,6 +1,12 @@
-.ArticlePage {
+.RedesignedArticlePage {
+    // width: 800px;
+    width: calc(200px + 900 * ((100vw - 600px) / (1920 - 600)));
+}
+
+.DeprecatedArticlePage {
     flex-grow: 1;
     overflow-y: hidden;
+    width: calc(100vw - var(--sidebar-width));
 }
 
 .header {

@@ -10,6 +10,7 @@ import { Text, TextTheme } from '@/shared/ui/Text';
 import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { getRouteArticleCreate } from '@/shared/const/route';
 import { HStack } from '@/shared/ui/Stack';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
@@ -41,24 +42,44 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
 
     if (authData) {
         return (
-            <header className={classNames(cls.Navbar, {}, [className])}>
+            <header className={classNames(
+                toggleFeatures({
+                    name: 'isAppRedesigned',
+                    off: () => cls.Navbar,
+                    on: () => cls.NavbarRedesigned,
+                }),
+                {},
+                [className],
+            )}
+            >
                 <HStack
                     justify="spaceBetween"
                     max
                 >
-                    <Text
-                        theme={TextTheme.INVERTED}
-                        className={cls.appName}
-                        title={t('PET-project')}
+
+                    <ToggleFeatures
+                        feature="isAppRedesigned"
+                        off={(
+                            <>
+                                <Text
+                                    theme={TextTheme.INVERTED}
+                                    className={cls.appName}
+                                    title={t('PET-project')}
+                                />
+                                <AppLink
+                                    theme={AppLinkTheme.PRIMARY}
+                                    inverted
+                                    to={getRouteArticleCreate()}
+                                    className={cls.createArticle}
+                                >
+                                    {t('CreateArticle')}
+                                </AppLink>
+                            </>
+
+                        )}
+                        on={null}
                     />
-                    <AppLink
-                        theme={AppLinkTheme.PRIMARY}
-                        inverted
-                        to={getRouteArticleCreate()}
-                        className={cls.createArticle}
-                    >
-                        {t('CreateArticle')}
-                    </AppLink>
+
                     <NotificationBtn
                         className={cls.notification}
                     />
@@ -72,15 +93,31 @@ export const Navbar: FC<NavbarProps> = memo((props: NavbarProps) => {
     }
 
     return (
-        <header className={classNames(cls.Navbar, {}, [className])}>
+        <header className={classNames(
+            toggleFeatures({
+                name: 'isAppRedesigned',
+                off: () => cls.Navbar,
+                on: () => cls.NavbarRedesigned,
+            }),
+            {},
+            [className],
+        )}
+        >
             <HStack
                 justify="spaceBetween"
                 max
             >
-                <Text
-                    theme={TextTheme.INVERTED}
-                    className={cls.appName}
-                    title={t('PET-project')}
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    off={(
+                        <Text
+                            theme={TextTheme.INVERTED}
+                            className={cls.appName}
+                            title={t('PET-project')}
+                        />
+
+                    )}
+                    on={null}
                 />
                 <Button
                     onClick={onOpenModal}

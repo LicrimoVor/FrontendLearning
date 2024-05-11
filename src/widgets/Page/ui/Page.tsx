@@ -11,6 +11,7 @@ import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle';
 import { TestProps } from '@/shared/types/testProps';
+import { toggleFeatures } from '@/shared/lib/features';
 import { getScrollSaveScrollByPath, scrollSaveActions } from '@/features/ScrollSave';
 
 import cls from './Page.module.scss';
@@ -60,7 +61,13 @@ export const Page: FC<PageProps> = memo((props: PageProps) => {
         <main
             ref={wrapperRef}
             onScroll={onScroll}
-            className={classNames(cls.Page, {}, [className])}
+            className={
+                classNames(toggleFeatures({
+                    name: 'isAppRedesigned',
+                    on: () => cls.PageRedesigned,
+                    off: () => cls.Page,
+                }), {}, [className])
+            }
             id={PAGE_ID}
             data-testid={props['data-testid'] ?? 'Page'}
         >

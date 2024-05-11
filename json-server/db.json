@@ -8,10 +8,11 @@
         "ADMIN"
       ],
       "features": {
-        "isArticleRatingEnabled": true
+        "isArticleRatingEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_red_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": false
       },
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
@@ -27,8 +28,8 @@
         "isArticleRatingEnabled": false
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
-        "isFirstVisit": true
+        "theme": "app_light_theme",
+        "isFirstVisit": false
       },
       "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
     },
@@ -913,7 +914,7 @@
       "country": "Armenia",
       "city": "asdasda",
       "username": "admin",
-      "avatar": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png"
+      "avatar": "https://cdnn21.img.ria.ru/images/139676/19/1396761945_0:0:3303:2840_1440x900_80_0_1_df42498fd5af63624d6233a6cba547a6.jpg.webp?source-sid=Fotolia"
     },
     {
       "id": "2",
@@ -990,7 +991,7 @@
     {
       "articleId": "14",
       "userId": "1",
-      "rate": 5,
+      "rate": 2,
       "id": "XRT0VAC",
       "feedback": "asd asdasd asdasd asdwasd asd wa sd wasd"
     },
