@@ -82,7 +82,7 @@
         "eslint-plugin-i18next": "^5.1.2",
         "eslint-plugin-import": "^2.25.3",
         "eslint-plugin-jsx-a11y": "^6.5.1",
-        "eslint-plugin-lkx-fsd": "^0.1.16",
+        "eslint-plugin-lkx-fsd": "^0.1.17",
         "eslint-plugin-n": "^16.3.1",
         "eslint-plugin-promise": "^6.1.1",
         "eslint-plugin-react": "^7.28.0",

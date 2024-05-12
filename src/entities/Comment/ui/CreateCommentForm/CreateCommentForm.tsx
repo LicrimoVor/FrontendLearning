@@ -7,7 +7,7 @@ import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/Dynami
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button } from '@/shared/ui/deprecated/Button';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getCreateCommentError, getCreateCommentText } from '../../model/selectors/createComment';
 import { createCommentActions, createCommentReducer } from '../../model/slice/createCommentSlice';
 import cls from './CreateCommentForm.module.scss';

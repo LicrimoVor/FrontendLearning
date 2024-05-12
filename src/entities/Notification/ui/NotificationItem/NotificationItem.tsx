@@ -3,8 +3,12 @@ import {
 } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink } from '@/shared/ui/deprecated/AppLink';
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Card as CardDeprecated, CardTheme } from '@/shared/ui/deprecated/Card';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { Card } from '@/shared/ui/redesigned/Card';
+
 import { Notification } from '../../model/types/notification';
 import cls from './NotificationItem.module.scss';
 
@@ -22,35 +26,56 @@ export const NotificationItem: FC<NotificationItemProps> = memo((props: Notifica
         inverted,
     } = props;
 
-    const Item = useCallback(() => (
-        <Text
-            className={cls.item}
-            title={data.title}
-            text={data.description}
-            theme={inverted ? TextTheme.INVERTED_COMBINE : TextTheme.PRIMARY}
-        />
-    ), [data, inverted]);
-
     const mods = useMemo(() => ({
         [cls.href]: Boolean(data.href),
         [cls.inverted]: inverted,
     }), [data, inverted]);
 
-    return (
-        <div
-            className={classNames(cls.NotificationItem, mods, [className])}
-        >
-            {data.href
-                ? (
-                    <AppLink
-                        to={data.href}
-                        inverted
-                    >
-                        <Item />
-                    </AppLink>
-                )
-                : <Item />}
+    const Item = useCallback(() => (
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={(
+                <CardDeprecated
+                    theme={CardTheme.OUTLINE}
+                    className={classNames(cls.NotificationItem, mods, [className])}
+                >
+                    <TextDeprecated
+                        title={data.title}
+                        text={data.description}
+                        theme={inverted ? TextTheme.INVERTED_COMBINE : TextTheme.PRIMARY}
+                    />
+                </CardDeprecated>
+            )}
+            on={(
+                <Card
+                    className={classNames(
+                        cls.NotificationItemRedesigned,
+                        mods,
+                        [className],
+                    )}
+                >
+                    <Text
+                        size="s"
+                        className={cls.item}
+                        text={data.description}
+                        title={data.title}
+                    />
+                </Card>
+            )}
+        />
 
-        </div>
-    );
+    ), [data, inverted, mods, className]);
+
+    if (data.href) {
+        return (
+            <a
+                className={cls.link}
+                href={data.href}
+            >
+                <Item />
+            </a>
+        );
+    }
+
+    return <Item />;
 });

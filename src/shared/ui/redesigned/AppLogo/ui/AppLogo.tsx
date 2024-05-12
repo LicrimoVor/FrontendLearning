@@ -3,7 +3,7 @@ import { FC, memo } from 'react';
 import { classNames } from '@/shared/lib/classNames';
 import AppLogoSvg from '@/shared/assets/icons/ghost_simple.svg';
 
-import { HStack } from '../../../deprecated/Stack';
+import { HStack } from '../../Stack';
 import { Icon } from '../../../redesigned/Icon';
 import cls from './AppLogo.module.scss';
 

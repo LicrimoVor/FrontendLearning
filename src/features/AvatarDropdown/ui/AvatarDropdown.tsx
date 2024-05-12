@@ -4,10 +4,13 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Dropdown } from '@/shared/ui/deprecated/Popups';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/route';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Dropdown } from '@/shared/ui/redesigned/Popups';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/User';
@@ -53,13 +56,36 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props: AvatarDropdo
     }
 
     return (
-        <Dropdown
-            data={dropdownData!}
-            label={(
-                <Avatar size={40} src={authData.avatar} fallabackInverted={inverted} />
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={(
+                <DropdownDeprecated
+                    data={dropdownData!}
+                    label={(
+                        <AvatarDeprecated
+                            size={40}
+                            src={authData.avatar}
+                            fallabackInverted={inverted}
+                        />
+                    )}
+                    className={classNames('', {}, [className])}
+                    direction="bottom left"
+                />
             )}
-            className={classNames('', {}, [className])}
-            direction="bottom left"
+            on={(
+                <Dropdown
+                    data={dropdownData!}
+                    label={(
+                        <Avatar
+                            size={40}
+                            src={authData.avatar}
+                        />
+                    )}
+                    className={classNames('', {}, [className])}
+                    direction="bottom left"
+                />
+            )}
         />
+
     );
 });

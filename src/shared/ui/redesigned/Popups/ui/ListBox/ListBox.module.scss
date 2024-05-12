@@ -1,0 +1,33 @@
+.trigger {
+    padding: 0 4px;
+
+    &.disabled {
+        border: none;
+    }
+}
+
+.item {
+    cursor: pointer;
+    color: var(--text-redesigned);
+    border-radius: 10px;
+    padding: 1px 20px;
+    min-width: 100%;
+
+    &.selected {
+        background-color: var(--secondary-color);
+    }
+
+    &.active:not(.readonly) {
+        background-color: var(--light-bg-redesigned);
+    }
+
+    &.readonly {
+        cursor: default;
+        border-radius: 0;
+        opacity: 0.5;
+    }
+}
+
+.listText {
+    margin: 2px 0;
+}

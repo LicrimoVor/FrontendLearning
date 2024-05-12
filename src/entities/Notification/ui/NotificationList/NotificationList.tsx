@@ -2,7 +2,7 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { useNotificationList } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
@@ -26,7 +26,7 @@ export const NotificationList: FC<NotificationListProps> = memo((props: Notifica
 
     if (isLoading) {
         return (
-            <VStack gap={4} className={className}>
+            <VStack gap={12} className={className}>
                 <Skeleton height={57} width="100%" border="10px" />
                 <Skeleton height={57} width="100%" border="10px" />
                 <Skeleton height={57} width="100%" border="10px" />
@@ -44,7 +44,7 @@ export const NotificationList: FC<NotificationListProps> = memo((props: Notifica
     }
 
     return (
-        <div className={className}>
+        <VStack max gap={12} className={className}>
             {data?.map((notification) => (
                 <NotificationItem
                     key={notification.id}
@@ -52,6 +52,6 @@ export const NotificationList: FC<NotificationListProps> = memo((props: Notifica
                     inverted={inverted}
                 />
             ))}
-        </div>
+        </VStack>
     );
 });

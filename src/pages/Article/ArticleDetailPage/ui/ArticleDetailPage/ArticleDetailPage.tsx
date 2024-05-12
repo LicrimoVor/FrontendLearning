@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Card } from '@/shared/ui/deprecated/Card';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleDetail } from '@/entities/Article';
 import { ArticleRecommend } from '@/features/Article/ArticleRecommend';
 import { ArticleCommentForm } from '@/features/Article/ArticleCommentForm';

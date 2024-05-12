@@ -68,6 +68,8 @@ module.exports = {
                     'theme',
                     'feature',
                     'variant',
+                    'size',
+                    'marginTopMenu'
                 ],
             },
         ],

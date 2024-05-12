@@ -114,12 +114,13 @@ const replacedCompFeature = (node: Node) => {
 files.forEach((someFile) => {
     someFile.forEachDescendant((node) => {
         if (node.isKind(SyntaxKind.CallExpression) && isToggleFunciton(node)) {
-            replacedFuncFeature(node);
+            return replacedFuncFeature(node);
         }
 
         if (node.isKind(SyntaxKind.JsxSelfClosingElement) && isToggleComponent(node)) {
-            replacedCompFeature(node);
+            return replacedCompFeature(node);
         }
+        return null;
     });
 });
 

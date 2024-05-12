@@ -8,7 +8,7 @@ import { Input } from '@/shared/ui/deprecated/Input';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { SortOrder } from '@/shared/types/order';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { ArticleViewSwitcher } from '@/features/Article/ArticleViewSwitcher';
 import { ArticleSortSelector } from '@/features/Article/ArticleSortSelector';

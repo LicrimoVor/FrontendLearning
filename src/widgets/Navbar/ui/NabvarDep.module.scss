@@ -1,0 +1,29 @@
+.Navbar {
+    height: var(--navbar-height);
+    background: var(--inverted-bg-color);
+    transition: background-color var(--transition-background-time);
+}
+
+.dropMenu {
+    margin-right: 10px;
+}
+
+.loginBtn {
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+.appName {
+    width: var(--sidebar-width);
+    display: flex;
+    justify-content: center;
+}
+
+.createArticle {
+    margin-left: 20px;
+}
+
+.notification {
+    margin-left: auto;
+    margin-right: 20px;
+}

@@ -1,0 +1,17 @@
+.Dropdown {
+    position: relative;
+    display: flex;
+}
+
+.item {
+    border-radius: 10px;
+    padding: 5px 20px;
+    min-width: 100%;
+    color: var(--text-redesigned);
+
+    &.active,
+    .selected {
+        background-color: var(--light-bg-redesigned);
+        box-shadow: inset 1px 2px var(--dropdown-shadow);
+    }
+}

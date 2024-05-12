@@ -5,7 +5,7 @@ import ListIcon from '@/shared/assets/icons/list.svg';
 import TilesIcon from '@/shared/assets/icons/field.svg';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Icon } from '@/shared/ui/deprecated/Icon';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleView } from '@/entities/Article';
 
 import cls from './ArticleViewSwitcher.module.scss';

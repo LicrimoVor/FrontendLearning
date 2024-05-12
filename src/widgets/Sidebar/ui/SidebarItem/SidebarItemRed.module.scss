@@ -16,11 +16,11 @@
 
     &:not(.collapsed){
         visibility: visible;
-        animation: 0.5s slidein forwards;
+        animation: 0.3s slidein forwards;
     }
 
     &.collapsed{
-        animation: 0.5s fade forwards;
+        animation: 0.3s fade forwards;
     }
 }
 

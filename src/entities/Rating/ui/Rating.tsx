@@ -4,10 +4,10 @@ import {
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { StarRating } from '@/shared/ui/deprecated/StarRating';
 import { Text } from '@/shared/ui/deprecated/Text';
-import { BrowserView, MobileView } from '@/shared/ui/deprecated/View';
+import { BrowserView, MobileView } from '@/shared/ui/redesigned/View';
 import { Modal } from '@/shared/ui/deprecated/Modal';
 import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { Button } from '@/shared/ui/deprecated/Button';

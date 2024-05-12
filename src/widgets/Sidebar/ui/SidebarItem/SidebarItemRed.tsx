@@ -33,7 +33,7 @@ export const SidebarItem: FC<SidebarItemProps> = memo((props: SidebarItemProps) 
         if (collapsed) {
             const timmer = setTimeout(() => {
                 setEndCollapsed(true);
-            }, 500);
+            }, 300);
 
             return () => (clearTimeout(timmer));
         }
