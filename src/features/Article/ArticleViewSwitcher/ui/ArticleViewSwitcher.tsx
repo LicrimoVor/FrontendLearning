@@ -3,9 +3,9 @@ import { FC, memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import ListIcon from '@/shared/assets/icons/list.svg';
 import TilesIcon from '@/shared/assets/icons/field.svg';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
-import { HStack } from '@/shared/ui/Stack';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { HStack } from '@/shared/ui/deprecated/Stack';
 import { ArticleView } from '@/entities/Article';
 
 import cls from './ArticleViewSwitcher.module.scss';
@@ -58,6 +58,7 @@ export const ArticleViewSwitcher: FC<articleViewSwitcherProps> = memo((
                         className={classNames('', {
                             [cls.notSelected]: viewType.view !== view,
                         }, [])}
+                        size={24}
                     />
                 </Button>
             ))}

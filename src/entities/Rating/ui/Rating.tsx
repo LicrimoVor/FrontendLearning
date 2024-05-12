@@ -4,15 +4,15 @@ import {
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/Stack';
-import { StarRating } from '@/shared/ui/StarRating';
-import { Text } from '@/shared/ui/Text';
-import { BrowserView, MobileView } from '@/shared/ui/View';
-import { Modal } from '@/shared/ui/Modal';
-import { Drawer } from '@/shared/ui/Drawer';
-import { Button } from '@/shared/ui/Button';
-import { TextArea } from '@/shared/ui/TextArea';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { StarRating } from '@/shared/ui/deprecated/StarRating';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { BrowserView, MobileView } from '@/shared/ui/deprecated/View';
+import { Modal } from '@/shared/ui/deprecated/Modal';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Button } from '@/shared/ui/deprecated/Button';
+import { TextArea } from '@/shared/ui/deprecated/TextArea';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 
 import cls from './Rating.module.scss';
 

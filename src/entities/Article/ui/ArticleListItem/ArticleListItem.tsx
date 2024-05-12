@@ -2,16 +2,16 @@ import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { Icon } from '@/shared/ui/Icon';
-import { Card } from '@/shared/ui/Card';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { getRouteArticleDetails } from '@/shared/const/route';
-import { AppLink } from '@/shared/ui/AppLink';
-import { AppImage } from '@/shared/ui/AppImage';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
+import { AppImage } from '@/shared/ui/deprecated/AppImage';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 
 import { Article, ArticleBlockText } from '../../model/types/article';
 import { ArticleView, ArticleBlockType } from '../../model/consts/article';

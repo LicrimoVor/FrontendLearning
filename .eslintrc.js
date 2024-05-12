@@ -90,7 +90,7 @@ module.exports = {
                     '**/*.test.{ts,tsx}',
                     '**/cypress/**/*.{ts,tsx}',
                 ],
-                sharedEnclosure: ['lib', 'assets', 'config'],
+                sharedEnclosure: ['lib', 'assets', 'config', 'ui'],
                 featuresEnclosure: ['Article', 'Switcher', 'Profile'],
                 pageEnclosure: ['Article', 'Admin'],
             },

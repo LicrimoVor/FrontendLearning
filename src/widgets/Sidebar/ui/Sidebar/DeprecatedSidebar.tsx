@@ -2,8 +2,8 @@ import { FC, memo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { getUserInited } from '@/entities/User';
 import { ThemeSwitcher } from '@/features/Switcher/ThemeSwitcher';
 import { LangSwitcher } from '@/features/Switcher/LangSwitcher';

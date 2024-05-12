@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
 import { ProfileCard } from '@/entities/Profile';
 import { Currency } from '@/entities/Currency';

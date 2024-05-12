@@ -3,10 +3,10 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Modal } from '@/shared/ui/Modal';
-import { Text } from '@/shared/ui/Text';
+import { Modal } from '@/shared/ui/deprecated/Modal';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { useDevice } from '@/shared/lib/hooks/useDevice';
 import { saveJsonSettings, useJsonSettings } from '@/entities/User';
 

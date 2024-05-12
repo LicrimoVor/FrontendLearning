@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Text } from '@/shared/ui/Text';
-import { HStack } from '@/shared/ui/Stack';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { HStack } from '@/shared/ui/deprecated/Stack';
 import { getUserAuthData } from '@/entities/User';
 
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';

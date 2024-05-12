@@ -4,11 +4,11 @@ import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Input } from '@/shared/ui/Input';
-import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Card } from '@/shared/ui/deprecated/Card';
 import { SortOrder } from '@/shared/types/order';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/deprecated/Stack';
 import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 import { ArticleViewSwitcher } from '@/features/Article/ArticleViewSwitcher';
 import { ArticleSortSelector } from '@/features/Article/ArticleSortSelector';

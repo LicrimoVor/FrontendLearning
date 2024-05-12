@@ -2,9 +2,9 @@ import { FC, memo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { AppLogo } from '@/shared/ui/AppLogo';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
 import { getUserInited } from '@/entities/User';
 import { ThemeSwitcher } from '@/features/Switcher/ThemeSwitcher';
 import { LangSwitcher } from '@/features/Switcher/LangSwitcher';

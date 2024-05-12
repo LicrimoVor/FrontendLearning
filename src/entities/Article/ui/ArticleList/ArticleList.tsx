@@ -1,12 +1,12 @@
 import {
-    FC, forwardRef, HTMLAttributeAnchorTarget, memo, ReactElement, ReactNode, useRef,
+    FC, HTMLAttributeAnchorTarget, memo, useRef,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 
 import { Article } from '../../model/types/article';
@@ -37,7 +37,11 @@ const getSkeletons = (view: ArticleView, countSceleton: number) => new Array(cou
     .fill(0)
     .map((_, index) => (
         <ArticleListItemSceleton
-            className={cls.card}
+            className={toggleFeatures({
+                name: 'isAppRedesigned',
+                off: () => cls.card,
+                on: () => cls.cardRedesigned,
+            })}
             view={view}
             key={index}
         />
@@ -79,7 +83,11 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
             target={target}
             article={article}
             view={view}
-            className={cls.card}
+            className={toggleFeatures({
+                name: 'isAppRedesigned',
+                off: () => cls.card,
+                on: () => cls.cardRedesigned,
+            })}
             key={article.id}
             onClickBtn={() => (initialArticleIndex?.setIndex(index))}
         />

@@ -3,8 +3,8 @@ import {
 } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink } from '@/shared/ui/AppLink';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { AppLink } from '@/shared/ui/deprecated/AppLink';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { Notification } from '../../model/types/notification';
 import cls from './NotificationItem.module.scss';
 
