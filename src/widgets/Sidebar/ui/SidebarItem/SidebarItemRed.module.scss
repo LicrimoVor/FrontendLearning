@@ -1,0 +1,52 @@
+.item {
+    display: flex;
+    width: 100%;
+}
+
+.active {
+    background: linear-gradient(90deg, rgba(21, 82, 250, 0.3) 1.15%, rgba(94,211,243,0) 99.97%);
+
+    border-left: 2px var(--accent-redesigned) solid;
+}
+
+.link {
+    
+    padding-left: 15px;
+    opacity: 1;
+
+    &:not(.collapsed){
+        visibility: visible;
+        animation: 0.5s slidein forwards;
+    }
+
+    &.collapsed{
+        animation: 0.5s fade forwards;
+    }
+}
+
+@keyframes slidein {
+    from {
+        margin-left: -70px;
+        opacity: 0;
+    }
+
+    to {
+        margin-left: 15px;
+        opacity: 1;
+    }
+}
+
+
+@keyframes fade {
+    from {
+        margin-left: 15px;
+        opacity: 1;
+        visibility: visible;
+    }
+    to {
+        margin-left: -70px;
+        opacity: 0;
+        visibility: hidden;
+    }
+  }
+  

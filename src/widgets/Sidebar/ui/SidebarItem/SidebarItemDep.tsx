@@ -5,18 +5,20 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { Icon } from '@/shared/ui/deprecated/Icon';
-import { toggleFeatures } from '@/shared/lib/features';
 import { getUserAuthData } from '@/entities/User';
 
 import { SidebarItemType } from '../../model/types/sidebar';
-import cls from './SidebarItem.module.scss';
+import cls from './SidebarItemDep.module.scss';
 
 interface SidebarItemProps {
     item: SidebarItemType,
     collapsed: boolean,
 }
 
-/** Элемент ссылки в Sidebar */
+/**
+ * @deprecated
+ * Элемент ссылки в Sidebar
+ */
 export const SidebarItem: FC<SidebarItemProps> = memo((props: SidebarItemProps) => {
     const { t } = useTranslation();
 
@@ -35,19 +37,11 @@ export const SidebarItem: FC<SidebarItemProps> = memo((props: SidebarItemProps) 
         <AppLink
             data-testid={item.path}
             to={item.path}
-            inverted={toggleFeatures({
-                name: 'isAppRedesigned',
-                off: () => true,
-                on: () => false,
-            })}
+            inverted
             className={classNames(cls.item)}
         >
             <Icon
-                theme={toggleFeatures({
-                    name: 'isAppRedesigned',
-                    off: () => 'inverted',
-                    on: () => undefined,
-                })}
+                theme="inverted"
                 Svg={item.Icon}
             />
             {!collapsed && (

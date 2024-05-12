@@ -14,8 +14,8 @@ import {
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';
 import { ArticlePageFilter } from '../ArticlePageFilter/ArticlePageFilter';
-import { DeprecatedArticleInfinity } from './DeprecatedArticleInfinity';
-import { RedesignedArticleInfinity } from './RedesignedArticleInfinity';
+import { DeprecatedArticleInfinity } from './ArticleInfinityDep';
+import { RedesignedArticleInfinity } from './ArticleInfinityRed';
 import cls from './ArticlePageInfinity.module.scss';
 
 interface ArticlePageInfinityProps {

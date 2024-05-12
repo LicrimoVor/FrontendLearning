@@ -11,7 +11,7 @@ import ProfileIcon from '@/shared/assets/icons/profile.svg';
 import ArticlesIcon from '@/shared/assets/icons/articles.svg';
 import { userTest } from '@/entities/User/testing';
 
-import { getSidebarItems } from './getSidebarItems';
+import { getSidebarItems } from './getSidebarItemsDep';
 
 describe('getSidebarItems', () => {
     test('Test get items notAuth ', () => {

@@ -4,21 +4,23 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
-import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
 import { getUserInited } from '@/entities/User';
 import { ThemeSwitcher } from '@/features/Switcher/ThemeSwitcher';
 import { LangSwitcher } from '@/features/Switcher/LangSwitcher';
 
-import { getSidebarItems } from '../../model/selectors/getSidebarItems';
-import { SidebarItem } from '../SidebarItem/SidebarItem';
-import cls from './RedesignedSidebar.module.scss';
+import { getSidebarItems } from '../../model/selectors/getSidebarItemsDep';
+import { SidebarItem } from '../SidebarItem/SidebarItemDep';
+import cls from './SidebarDep.module.scss';
 
 interface SidebarProps {
   className?: string
 }
 
-/** Новая боковая панель */
-export const RedesignedSidebar: FC<SidebarProps> = memo((props: SidebarProps) => {
+/**
+ * @deprecated
+ * Устаревшая боковая панель
+ */
+export const DeprecatedSidebar: FC<SidebarProps> = memo((props: SidebarProps) => {
     const {
         className,
     } = props;
@@ -36,7 +38,6 @@ export const RedesignedSidebar: FC<SidebarProps> = memo((props: SidebarProps) =>
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
-
             <Button
                 data-testid="sidebar-wrap-button"
                 onClick={hundlerCollapsed}
@@ -48,25 +49,17 @@ export const RedesignedSidebar: FC<SidebarProps> = memo((props: SidebarProps) =>
                 {collapsed ? '>' : '<'}
             </Button>
             <VStack
-                max
+                className={cls.items}
+                gap={8}
+                Component="nav"
             >
-                <AppLogo
-                    className={cls.appLogo}
-                />
-                <VStack
-                    className={cls.items}
-                    gap={8}
-                    Component="nav"
-                >
-
-                    {inited && sidebarItemsList.map((item) => (
-                        <SidebarItem
-                            key={item.path}
-                            item={item}
-                            collapsed={collapsed}
-                        />
-                    ))}
-                </VStack>
+                {inited && sidebarItemsList.map((item) => (
+                    <SidebarItem
+                        key={item.path}
+                        item={item}
+                        collapsed={collapsed}
+                    />
+                ))}
             </VStack>
             <HStack
                 className={cls.switchers}

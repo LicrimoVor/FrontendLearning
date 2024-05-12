@@ -14,6 +14,9 @@ import { getUserAuthData } from '@/entities/User';
 
 import { SidebarItemType } from '../types/sidebar';
 
+/**
+ * @deprecated
+*/
 export const getSidebarItems = createSelector(
     getUserAuthData,
     (userData) => {

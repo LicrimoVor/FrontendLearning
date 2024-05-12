@@ -2,8 +2,8 @@ import { FC, memo } from 'react';
 
 import { ToggleFeatures } from '@/shared/lib/features';
 
-import { DeprecatedSidebar } from './DeprecatedSidebar';
-import { RedesignedSidebar } from './RedesignedSidebar';
+import { DeprecatedSidebar } from './SidebarDep';
+import { RedesignedSidebar } from './SidebarRed';
 
 interface SidebarProps {
   className?: string

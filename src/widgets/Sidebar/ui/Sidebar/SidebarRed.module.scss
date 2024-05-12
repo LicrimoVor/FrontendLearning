@@ -1,0 +1,91 @@
+.Sidebar {
+    height: 100%;
+    width: var(--sidebar-width);
+    background: var(--light-bg-redesigned);
+    border-radius: 32px;
+    display: flex;
+    position: relative;
+    transition: width 0.5s;
+
+    &.collapsed {
+        width: 50px;
+    }
+}
+
+.switchers {
+    position: absolute;
+    bottom: 20px;
+
+    &:has(.collapsed) {
+        flex-direction: column;
+    }
+}
+
+
+.lang {
+    padding: 0 10px;
+
+    &.collapsed {
+        margin-left: 0;
+    }
+}
+
+.collapsedBtn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    z-index: var(--second-z-index);
+    transform: rotate(180Deg);
+    
+    &.collapsed {
+        transform: rotate(0Deg);
+    }
+}
+
+.items {
+    padding-top: 20px;
+}
+
+.item {
+    padding: 5px;
+    &:not(.collapsed) {
+        padding-left: 20px;
+    }
+
+    &.collapsed {
+        padding-left: 9px;
+    }
+}
+
+.appLogo {
+    
+
+    &.collapsed {
+        padding: 20px 0;
+        animation: 0.5s collapsing forwards;
+    }
+
+    &:not(.collapsed) {
+        padding: 20px;
+        transform: scale(1);
+        animation: 0.5s _collapsing forwards;
+    }
+}
+
+@keyframes collapsing {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0.8);
+    }
+}
+
+@keyframes _collapsing {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}

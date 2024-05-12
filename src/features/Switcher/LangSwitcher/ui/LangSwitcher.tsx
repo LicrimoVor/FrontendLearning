@@ -1,15 +1,17 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { toggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 
-import cls from './LangSwitcher.module.scss';
+import { LangSwitcherDep } from './LangSwitcherDep';
+import { LangSwitcherRed } from './LangSwitcherRed';
 
+/** @deprecated */
 interface LangSwitcherProps {
-  className?: string,
-  short?: boolean,
+    className?: string,
+
+    /** @deprecated */
+    short?: boolean,
 }
 
 /** Кнопка переключения языка */
@@ -19,25 +21,17 @@ export const LangSwitcher: FC<LangSwitcherProps> = memo((props: LangSwitcherProp
         short,
     } = props;
 
-    const { t, i18n } = useTranslation();
+    const { i18n } = useTranslation();
 
-    const hundler = () => {
+    const handler = () => {
         i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru');
     };
 
     return (
-        <Button
-            data-testid="lang-switcher"
-            onClick={hundler}
-            className={classNames(cls.LangSwitcher, {}, [className])}
-            theme={ButtonTheme.OUTLINE}
-            inverted={toggleFeatures({
-                name: 'isAppRedesigned',
-                off: () => true,
-                on: () => false,
-            })}
-        >
-            {short ? t('Lang') : t('Languege')}
-        </Button>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={<LangSwitcherDep onClick={handler} short={short} className={className} />}
+            on={<LangSwitcherRed onClick={handler} className={className} />}
+        />
     );
 });

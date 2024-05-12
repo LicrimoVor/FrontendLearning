@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { Theme } from '@/shared/lib/context/ThemeContext';
-import { ThemeSwitcher } from './ThemeSwitcher';
+import { ThemeSwitcherDep } from './ThemeSwitcherDep';
 
-const meta: Meta<typeof ThemeSwitcher> = {
-    title: 'widgets/ThemeSwitcher',
-    component: ThemeSwitcher,
+const meta: Meta<typeof ThemeSwitcherDep> = {
+    title: 'widgets/ThemeSwitcherDep',
+    component: ThemeSwitcherDep,
 };
 
 export default meta;
-type Story = StoryObj<typeof ThemeSwitcher>;
+type Story = StoryObj<typeof ThemeSwitcherDep>;
 
 export const Light: Story = {
     decorators: [

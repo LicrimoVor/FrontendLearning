@@ -3,8 +3,8 @@ import { FC, memo } from 'react';
 import { classNames } from '@/shared/lib/classNames';
 import AppLogoSvg from '@/shared/assets/icons/ghost_simple.svg';
 
-import { HStack } from '../../Stack';
-import { Icon } from '../../Icon';
+import { HStack } from '../../../deprecated/Stack';
+import { Icon } from '../../../redesigned/Icon';
 import cls from './AppLogo.module.scss';
 
 interface AppLogoProps {
@@ -13,7 +13,6 @@ interface AppLogoProps {
 }
 
 /**
- * @deprecated
  * Иконка проекта
 */
 export const AppLogo: FC<AppLogoProps> = memo((props: AppLogoProps) => {

@@ -47,7 +47,10 @@ const GridDecorator = forwardRef<HTMLDivElement, GridDecoratorProps>((props, ref
     );
 });
 
-/** Устаревший бесконечный список статей с фильтрами */
+/**
+ * @deprecated
+ * Устаревший бесконечный список статей с фильтрами
+ */
 export const DeprecatedArticleInfinity: FC<ArticleInfinityProps> = (props) => {
     const {
         className,
