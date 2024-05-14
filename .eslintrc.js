@@ -69,7 +69,7 @@ module.exports = {
                     'feature',
                     'variant',
                     'size',
-                    'marginTopMenu'
+                    'marginTopMenu',
                 ],
             },
         ],

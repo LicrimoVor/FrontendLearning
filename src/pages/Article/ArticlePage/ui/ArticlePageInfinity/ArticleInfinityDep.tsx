@@ -1,11 +1,11 @@
 import {
-    CSSProperties,
-    FC, forwardRef, ReactElement,
+    CSSProperties, FC, forwardRef, memo, ReactElement,
 } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Article, ArticleList, ArticleView } from '@/entities/Article';
 
+import { FilterContainerDep } from '../FilterContainer/FilterContainerDep';
 import cls from './ArticlePageInfinity.module.scss';
 
 interface ArticleInfinityProps {
@@ -14,7 +14,6 @@ interface ArticleInfinityProps {
     view?: ArticleView,
     isLoading?: boolean,
     hasMore?: boolean,
-    Header: FC,
     onLoadNextPart: () => void,
     index: number,
     setIndex: (index: number) => void,
@@ -54,7 +53,6 @@ const GridDecorator = forwardRef<HTMLDivElement, GridDecoratorProps>((props, ref
 export const DeprecatedArticleInfinity: FC<ArticleInfinityProps> = (props) => {
     const {
         className,
-        Header,
         articles,
         view,
         isLoading,
@@ -63,6 +61,12 @@ export const DeprecatedArticleInfinity: FC<ArticleInfinityProps> = (props) => {
         setIndex,
         hasMore,
     } = props;
+
+    const Header = memo(() => (
+        <FilterContainerDep
+            className={cls.header}
+        />
+    ));
 
     return (
         <div

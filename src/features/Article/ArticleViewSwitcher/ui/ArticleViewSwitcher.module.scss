@@ -1,4 +1,15 @@
-.notSelected {
-    opacity: 0.85;
-    fill: var(--secondary-color);
+.ArticleViewSwitcherRedesigned {
+    .view {
+        display: flex;
+    }
+    .notSelected {
+        color: var(--light-bg-redesigned);
+    }
+}
+
+.ArticleViewSwitcher {
+    .notSelected {
+        opacity: 0.85;
+        fill: var(--secondary-color);
+    }   
 }

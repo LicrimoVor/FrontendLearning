@@ -1,7 +1,8 @@
-import { FC, memo, ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { typedMemo } from '@/shared/lib/typedMemo';
 
 import { HStack } from '../../../Stack';
 import { Text } from '../../../Text';
@@ -11,32 +12,33 @@ import { PopupDirectionConvert } from '../../styles/consts';
 import cls from './ListBox.module.scss';
 import popupsCls from '../../styles/popups.module.scss';
 
-interface ListBoxItem {
-    value: string,
+interface ListBoxItem<T extends string> {
+    value: T,
     component?: ReactNode,
     readonly?: boolean,
+    content?: string,
 }
 
-interface ListBoxProps {
+interface ListBoxProps<T extends string> {
     className?: string,
-    data: ListBoxItem[],
-    selectedValue?: string,
-    defaultValue?: string,
-    disabled?: boolean,
+    data: ListBoxItem<T>[],
+    selectedValue?: T,
+    defaultValue?: T,
+    readonly?: boolean,
     label?: string,
     direction?: PopupDirection,
-    onChange: (value: string) => void,
+    onChange: (value: T) => void,
 }
 
 /**
  * Всплывающее окно с выбором
  */
-export const ListBox: FC<ListBoxProps> = memo((props: ListBoxProps) => {
+export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
     const {
         className,
         data,
         selectedValue,
-        disabled,
+        readonly,
         defaultValue,
         label,
         direction = 'bottom right',
@@ -46,26 +48,33 @@ export const ListBox: FC<ListBoxProps> = memo((props: ListBoxProps) => {
     const optionsClasses = [
         PopupDirectionConvert[direction],
     ];
-    const textBtn = selectedValue || defaultValue || data[0].value;
+
+    const selectedItem = useMemo(() => (
+        data.find((item) => item.value === selectedValue)?.content
+    ), [data, selectedValue]);
+    const textBtn = selectedItem || defaultValue || data[0].content;
 
     return (
-        <HStack gap={4} className={classNames('', {}, [className])}>
-            {label && <Text className={cls.listText} text={`${label}>`} />}
+        <HStack gap={4}>
+            {label && <Text text={label} />}
             <HListbox
                 as="div"
                 value={selectedValue}
                 onChange={onChange}
-                className={popupsCls.Popup}
+                className={classNames(popupsCls.Popup, {}, [className])}
+                disabled={readonly}
             >
                 <HListbox.Button as="div">
                     <Button
-                        disabled={disabled}
-                        className={classNames(cls.trigger, { [cls.disabled]: disabled }, [])}
+                        variant="filled"
+                        disabled={readonly}
                     >
-                        {disabled ? textBtn : `${textBtn} \\/`}
+                        {readonly ? textBtn : `${textBtn} \\/`}
                     </Button>
                 </HListbox.Button>
-                <HListbox.Options className={classNames(popupsCls.popupMenu, {}, optionsClasses)}>
+                <HListbox.Options
+                    className={classNames(popupsCls.popupMenu, {}, optionsClasses)}
+                >
                     {data.map((item) => (
                         <HListbox.Option
                             key={item.value}
@@ -81,7 +90,7 @@ export const ListBox: FC<ListBoxProps> = memo((props: ListBoxProps) => {
                             value={item.value}
                             disabled={item.readonly}
                         >
-                            {item.component ? item.component : item.value}
+                            {item.content || item.component || item.value}
                         </HListbox.Option>
                     ))}
                 </HListbox.Options>

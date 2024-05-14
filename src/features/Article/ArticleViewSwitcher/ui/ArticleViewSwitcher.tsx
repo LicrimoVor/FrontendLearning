@@ -1,11 +1,16 @@
 import { FC, memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import ListIcon from '@/shared/assets/icons/list.svg';
-import TilesIcon from '@/shared/assets/icons/field.svg';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Icon } from '@/shared/ui/deprecated/Icon';
+import ListIconDeprecated from '@/shared/assets/icons/list.svg';
+import TilesIconDeprecated from '@/shared/assets/icons/field.svg';
+import ListIcon from '@/shared/assets/icons/list_redesigned.svg';
+import TilesIcon from '@/shared/assets/icons/field_redesigned.svg';
+import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { HStack } from '@/shared/ui/redesigned/Stack';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Card } from '@/shared/ui/redesigned/Card';
 import { ArticleView } from '@/entities/Article';
 
 import cls from './ArticleViewSwitcher.module.scss';
@@ -19,11 +24,19 @@ interface articleViewSwitcherProps {
 const viewTypes = [
     {
         view: ArticleView.SMALL,
-        icon: TilesIcon,
+        icon: toggleFeatures({
+            name: 'isAppRedesigned',
+            off: () => TilesIconDeprecated,
+            on: () => TilesIcon,
+        }),
     },
     {
         view: ArticleView.BIG,
-        icon: ListIcon,
+        icon: toggleFeatures({
+            name: 'isAppRedesigned',
+            off: () => ListIconDeprecated,
+            on: () => ListIcon,
+        }),
     },
 ];
 
@@ -42,26 +55,57 @@ export const ArticleViewSwitcher: FC<articleViewSwitcherProps> = memo((
     };
 
     return (
-        <HStack
-            className={classNames(cls.ArticleViewSwitcher, {}, [className])}
-            data-testid="ArticleViewSwitcher"
-        >
-            {viewTypes.map((viewType) => (
-                <Button
-                    theme={ButtonTheme.CLEAR}
-                    onClick={onClick(viewType.view)}
-                    key={viewType.view}
-                    data-testid={`ArticleViewSwitcher.${viewType.view}`}
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={(
+                <HStack
+                    className={classNames(cls.ArticleViewSwitcher, {}, [className])}
+                    data-testid="ArticleViewSwitcher"
                 >
-                    <Icon
-                        Svg={viewType.icon}
-                        className={classNames('', {
-                            [cls.notSelected]: viewType.view !== view,
-                        }, [])}
-                        size={24}
-                    />
-                </Button>
-            ))}
-        </HStack>
+                    {viewTypes.map((viewType) => (
+                        <ButtonDeprecated
+                            theme={ButtonTheme.CLEAR}
+                            onClick={onClick(viewType.view)}
+                            key={viewType.view}
+                            data-testid={`ArticleViewSwitcher.${viewType.view}`}
+                        >
+                            <IconDeprecated
+                                Svg={viewType.icon}
+                                className={classNames('', {
+                                    [cls.notSelected]: viewType.view !== view,
+                                }, [])}
+                                size={24}
+                            />
+                        </ButtonDeprecated>
+                    ))}
+                </HStack>
+            )}
+            on={(
+                <Card
+                    className={classNames(cls.ArticleViewSwitcherRedesigned, {}, [className])}
+                    data-testid="ArticleViewSwitcher"
+                    border="round"
+                >
+                    <HStack
+                        gap={16}
+                    >
+                        {viewTypes.map((viewType) => (
+                            <Icon
+                                onClick={onClick(viewType.view)}
+                                key={viewType.view}
+                                data-testid={`ArticleViewSwitcher.${viewType.view}`}
+                                cliclable
+                                Svg={viewType.icon}
+                                className={classNames(cls.view, {
+                                    [cls.notSelected]: viewType.view !== view,
+                                }, [])}
+                                size={24}
+                            />
+                        ))}
+                    </HStack>
+                </Card>
+            )}
+        />
+
     );
 });

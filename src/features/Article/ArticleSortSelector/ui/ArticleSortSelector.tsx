@@ -4,7 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { SortOrder } from '@/shared/types/order';
 import { Select, SelectOption } from '@/shared/ui/deprecated/Select';
-import { HStack } from '@/shared/ui/redesigned/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { ArticleSortField } from '@/entities/Article';
 
 interface ArticleSortSelectorProps {
@@ -56,25 +59,54 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = memo((
     ], [t]);
 
     return (
-        <HStack
-            gap={8}
-            className={classNames('', {}, [className])}
-            data-testid="ArticleSortSelector"
-        >
-            <Select<ArticleSortField>
-                options={sortOptions}
-                label={t('SortBy')}
-                value={sort}
-                onChange={onChangeSort}
-                data-testid="ArticleSortSelector.SORT"
-            />
-            <Select<SortOrder>
-                options={orderOptions}
-                label={t('OrderBy')}
-                value={order}
-                onChange={onChangeOrder}
-                data-testid="ArticleSortSelector.ORDER"
-            />
-        </HStack>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={(
+                <HStack
+                    gap={8}
+                    className={classNames('', {}, [className])}
+                    data-testid="ArticleSortSelector"
+                >
+                    <Select<ArticleSortField>
+                        options={sortOptions}
+                        label={t('SortBy')}
+                        value={sort}
+                        onChange={onChangeSort}
+                        data-testid="ArticleSortSelector.SORT"
+                    />
+                    <Select<SortOrder>
+                        options={orderOptions}
+                        label={t('OrderBy')}
+                        value={order}
+                        onChange={onChangeOrder}
+                        data-testid="ArticleSortSelector.ORDER"
+                    />
+                </HStack>
+            )}
+            on={(
+                <VStack
+                    gap={8}
+                    className={classNames('', {}, [className])}
+                    data-testid="ArticleSortSelector"
+                >
+                    <Text
+                        text={t('SortBy')}
+                    />
+                    <ListBox<ArticleSortField>
+                        data={sortOptions}
+                        selectedValue={sort}
+                        onChange={onChangeSort}
+                        data-testid="ArticleSortSelector.SORT"
+                    />
+                    <ListBox<SortOrder>
+                        data={orderOptions}
+                        selectedValue={order}
+                        onChange={onChangeOrder}
+                        data-testid="ArticleSortSelector.ORDER"
+                    />
+                </VStack>
+            )}
+        />
+
     );
 });

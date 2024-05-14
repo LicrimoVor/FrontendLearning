@@ -2,14 +2,15 @@ import { FC, memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Tabs, TabItem } from '@/shared/ui/deprecated/Tabs';
+import { Tabs as TabsDeplecated, TabItem } from '@/shared/ui/deprecated/Tabs';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Tabs } from '@/shared/ui/redesigned/Tabs';
 import { ArticleType } from '@/entities/Article';
 
 interface articleTypeTabsProps {
     className?: string,
     value: ArticleType,
     onChangeType: (type: ArticleType) => void,
-
 }
 
 /** Фильтр по выбору типа статьи */
@@ -46,12 +47,28 @@ export const ArticleTypeTabs: FC<articleTypeTabsProps> = memo((props: articleTyp
     ], [t]);
 
     return (
-        <Tabs<ArticleType>
-            tabs={typeTabs}
-            value={value}
-            onTabClick={onChangeType}
-            className={classNames('', {}, [className])}
-            data-testid="ArticleTypeTabs"
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={(
+                <TabsDeplecated<ArticleType>
+                    tabs={typeTabs}
+                    value={value}
+                    onTabClick={onChangeType}
+                    className={classNames('', {}, [className])}
+                    data-testid="ArticleTypeTabs"
+                />
+            )}
+            on={(
+                <Tabs<ArticleType>
+                    tabs={typeTabs}
+                    value={value}
+                    onTabClick={onChangeType}
+                    className={classNames('', {}, [className])}
+                    data-testid="ArticleTypeTabs"
+                    direction="column"
+                />
+            )}
         />
+
     );
 });

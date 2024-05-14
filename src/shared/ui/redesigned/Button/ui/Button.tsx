@@ -6,7 +6,7 @@ import {
 import { classNames, Mods } from '@/shared/lib/classNames';
 import cls from './Button.module.scss';
 
-type ButtonVariant = 'clear' | 'outline';
+type ButtonVariant = 'clear' | 'outline' | 'filled';
 type ButtonSize = 'm' | 'l' | 'xl';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -21,9 +21,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 /**
  * Своя кнопочка, поддерживает ref
  */
-export const Button: FC<ButtonProps> = forwardRef((
+export const Button: FC<ButtonProps> = (
     props: ButtonProps,
-    ref: LegacyRef<HTMLButtonElement>,
+    // ref: LegacyRef<HTMLButtonElement>,
 ) => {
     const {
         className,
@@ -49,10 +49,10 @@ export const Button: FC<ButtonProps> = forwardRef((
                 [className, cls[variant], cls[size]],
             )}
             disabled={disabled}
-            ref={ref}
+            // ref={ref}
             {...otherProps}
         >
             {children}
         </button>
     );
-});
+};

@@ -1,8 +1,11 @@
 import { FC } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { StickyComponentLayout } from '@/shared/layouts/StickyComponentLayout';
 import { Article, ArticleList, ArticleView } from '@/entities/Article';
 
+import { FilterContainer } from '../FilterContainer/FilterContainer';
+import { ViewSwitcherContainer } from '../ViewSwitcherContainer/ViewSwitcherContainer';
 import cls from './ArticlePageInfinity.module.scss';
 
 interface ArticleInfinityProps {
@@ -11,7 +14,6 @@ interface ArticleInfinityProps {
     view?: ArticleView,
     isLoading?: boolean,
     hasMore?: boolean,
-    Header: FC,
     onLoadNextPart: () => void,
     index: number,
     setIndex: (index: number) => void,
@@ -21,7 +23,6 @@ interface ArticleInfinityProps {
 export const RedesignedArticleInfinity: FC<ArticleInfinityProps> = (props) => {
     const {
         className,
-        Header,
         articles,
         view,
         isLoading,
@@ -36,18 +37,23 @@ export const RedesignedArticleInfinity: FC<ArticleInfinityProps> = (props) => {
             className={classNames(cls.RedesignedArticlePage, {}, [className])}
             data-testid="ArticlePageInfinity"
         >
-            <Header />
-            <ArticleList
-                articles={articles}
-                view={view}
-                isLoading={isLoading}
-                onLoadNextPart={onLoadNextPart}
-                initialArticleIndex={{
-                    index,
-                    setIndex,
-                }}
-                useWindowScroll
-                hasMore={hasMore}
+            <StickyComponentLayout
+                left={<ViewSwitcherContainer />}
+                content={(
+                    <ArticleList
+                        articles={articles}
+                        view={view}
+                        isLoading={isLoading}
+                        onLoadNextPart={onLoadNextPart}
+                        initialArticleIndex={{
+                            index,
+                            setIndex,
+                        }}
+                        useWindowScroll
+                        hasMore={hasMore}
+                    />
+                )}
+                right={(<FilterContainer className={cls.header} />)}
             />
         </div>
     );

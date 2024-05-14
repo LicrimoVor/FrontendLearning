@@ -1,4 +1,4 @@
-import { FC, memo, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -13,10 +13,8 @@ import {
 } from '../../model/selectors/articlePage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';
-import { ArticlePageFilter } from '../ArticlePageFilter/ArticlePageFilter';
 import { DeprecatedArticleInfinity } from './ArticleInfinityDep';
 import { RedesignedArticleInfinity } from './ArticleInfinityRed';
-import cls from './ArticlePageInfinity.module.scss';
 
 interface ArticlePageInfinityProps {
     className?: string
@@ -52,12 +50,6 @@ export const ArticlePageInfinity: FC<ArticlePageInfinityProps> = (props) => {
         dispatch(articlePageActions.setIndex(index));
     }, [dispatch]);
 
-    const Header = memo(() => (
-        <ArticlePageFilter
-            className={cls.header}
-        />
-    ));
-
     return (
         <DynamicModuleLoader
             reducers={reducers}
@@ -67,7 +59,6 @@ export const ArticlePageInfinity: FC<ArticlePageInfinityProps> = (props) => {
                 feature="isAppRedesigned"
                 off={(
                     <DeprecatedArticleInfinity
-                        Header={Header}
                         isLoading={isLoading}
                         hasMore={hasMore}
                         setIndex={setIndex}
@@ -80,7 +71,6 @@ export const ArticlePageInfinity: FC<ArticlePageInfinityProps> = (props) => {
                 )}
                 on={(
                     <RedesignedArticleInfinity
-                        Header={Header}
                         isLoading={isLoading}
                         hasMore={hasMore}
                         setIndex={setIndex}

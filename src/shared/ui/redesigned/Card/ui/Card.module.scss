@@ -1,14 +1,31 @@
-.Card {
-    padding: 20px;
-    border-radius: 12px;
+
+
+.paddding_4 {
+    padding: 4px;
 }
 
-.withoutPadding {
-    padding: 0;
+.paddding_8 {
+    padding: 8px;
 }
+
+.paddding_12 {
+    padding: 12px;
+}
+
+.paddding_16 {
+    padding: 16px;
+}
+
+.paddding_20 {
+    padding: 20px;
+}
+
+
+
 
 .normal {
     background: var(--dark-bg-redesigned);
+    border-radius: 12px;
 }
 
 .light {
@@ -21,4 +38,8 @@
 
 .max {
     width: 100%;
+}
+
+.round {
+    border-radius: 40px;
 }
