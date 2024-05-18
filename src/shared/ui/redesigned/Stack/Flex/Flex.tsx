@@ -6,7 +6,7 @@ import cls from './Flex.module.scss';
 
 type FlexJustifyType = 'center' | 'end' | 'start' | 'spaceBetween';
 type FlexAlignType = 'center' | 'end' | 'start' | 'baseline';
-type FlexGapType = 4 | 8 | 12 | 16 | 32;
+type FlexGapType = 4 | 8 | 12 | 16 | 24 | 32;
 type FlexDirectionType = 'row' | 'column'
 
 export interface FlexProps {
@@ -39,6 +39,7 @@ const FlexGap: Record<FlexGapType, string> = {
     8: cls.gap8,
     12: cls.gap12,
     16: cls.gap16,
+    24: cls.gap24,
     32: cls.gap32,
 };
 

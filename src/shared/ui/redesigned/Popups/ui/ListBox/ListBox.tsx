@@ -28,6 +28,7 @@ interface ListBoxProps<T extends string> {
     defaultValue?: T,
     readonly?: boolean,
     label?: string,
+    textBtn?: string,
     direction?: PopupDirection,
     onChange: (value: T) => void,
 }
@@ -39,22 +40,19 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
     const {
         className,
         data,
-        selectedValue,
         readonly,
         defaultValue,
         label,
+        selectedValue = defaultValue || data[0],
+        textBtn = defaultValue || data[0].content,
         direction = 'bottom right',
         onChange,
     } = props;
 
     const optionsClasses = [
         PopupDirectionConvert[direction],
+        cls.popupMenu,
     ];
-
-    const selectedItem = useMemo(() => (
-        data.find((item) => item.value === selectedValue)?.content
-    ), [data, selectedValue]);
-    const textBtn = selectedItem || defaultValue || data[0].content;
 
     return (
         <HStack gap={4}>
@@ -70,7 +68,7 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
                     <Button
                         variant="filled"
                         disabled={readonly}
-                        addonRight={readonly ? undefined : <Icon Svg={ArrowDown} />}
+                        addonRight={<Icon Svg={ArrowDown} />}
                     >
                         {textBtn}
                     </Button>

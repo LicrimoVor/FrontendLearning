@@ -6,12 +6,14 @@ import {
 import { classNames, Mods } from '@/shared/lib/classNames';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value'|'onChange' | 'readonly'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'|'value'|'onChange' | 'readonly'>
+
+type InputSize = 's' | 'm' | 'l';
 
 interface InputProps extends HTMLInputProps {
     className?: string,
     value?: string | number,
-    // eslint-disable-next-line no-unused-vars
+    size?: InputSize,
     onChange?: (value: string) => void,
     type?: string,
     autofocus?: boolean,
@@ -33,6 +35,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
         placeholder,
         autofocus,
         readonly,
+        size = 'm',
         ...otherProps
     } = props;
 
@@ -71,7 +74,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
     };
 
     return (
-        <div className={classNames(cls.InputWrapper, {}, [className])}>
+        <div className={classNames(cls.InputWrapper, {}, [className, cls[size]])}>
             {placeholder && (
                 <div className={cls.placeholder}>
                     {`${placeholder}>`}

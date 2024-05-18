@@ -1,10 +1,11 @@
 import {
-    ChangeEvent, FC,
-    InputHTMLAttributes,
-    memo, ReactNode, useEffect, useState,
+    ChangeEvent, FC, InputHTMLAttributes, memo, ReactNode, useEffect, useState,
 } from 'react';
 
 import { classNames, Mods } from '@/shared/lib/classNames';
+
+import { HStack } from '../../Stack';
+import { Text } from '../../Text';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value'|'onChange'|'readonly'>
@@ -12,6 +13,7 @@ type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value'|'onCha
 interface InputProps extends HTMLInputProps {
     className?: string,
     value?: string | number,
+    label?: string,
     onChange?: (value: string) => void,
     type?: string,
     autofocus?: boolean,
@@ -34,6 +36,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
         readonly,
         addonLeft,
         addonRight,
+        label,
         ...otherProps
     } = props;
 
@@ -65,21 +68,24 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
     };
 
     return (
-        <div className={classNames(cls.InputWrapper, mods, [className])}>
-            {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
-            <input
-                data-testid="input"
-                type={type}
-                value={value}
-                className={cls.input}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                onChange={onChangeHandler}
-                readOnly={readonly}
-                placeholder={`${placeholder}>`}
-                {...otherProps}
-            />
-            {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
-        </div>
+        <HStack max gap={8}>
+            {label && <Text text={label} />}
+            <div className={classNames(cls.InputWrapper, mods, [className])}>
+                {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
+                <input
+                    data-testid="input"
+                    type={type}
+                    value={value}
+                    className={cls.input}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    onChange={onChangeHandler}
+                    readOnly={readonly}
+                    placeholder={`${placeholder}>`}
+                    {...otherProps}
+                />
+                {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
+            </div>
+        </HStack>
     );
 });

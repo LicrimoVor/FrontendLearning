@@ -7,7 +7,7 @@ import cls from './Card.module.scss';
 
 type CardVariant = 'normal' | 'outline' | 'light';
 type CardBorder = 'round' | 'normal';
-type CardPadding = 0 | 4 | 8 | 12 | 16 | 20;
+type CardPadding = 0 | 4 | 8 | 12 | 16 | 20 | 32;
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string,
@@ -25,6 +25,7 @@ const CardMapPadding: Record<CardPadding, string> = {
     12: cls.paddding_12,
     16: cls.paddding_16,
     20: cls.paddding_20,
+    32: cls.paddding_32,
 };
 
 /**

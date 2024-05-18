@@ -17,6 +17,12 @@
     }
 }
 
+.disabledBtn {
+    cursor: default;
+    opacity: 0.7;
+}
+
+
 .addonRight, .addonLeft {
     display: flex;
 }
@@ -33,7 +39,7 @@
 }
 
 .withAddon {
-    padding: 6px 12px;
+    padding: 7px 12px;
 }
 
 .filled {
@@ -81,7 +87,3 @@
     font: var(--font-xl-re--font-m-redesigned);
 }
 
-.disabledBtn {
-    cursor: default;
-    opacity: 0.7;
-}
