@@ -2,7 +2,9 @@ import {
     FC, HTMLAttributeAnchorTarget, memo, useRef,
 } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Virtuoso, VirtuosoGrid, VirtuosoGridHandle } from 'react-virtuoso';
+import {
+    Virtuoso, VirtuosoGrid, VirtuosoGridHandle,
+} from 'react-virtuoso';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
@@ -13,6 +15,7 @@ import { Article } from '../../model/types/article';
 import { ArticleView } from '../../model/consts/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSceleton } from '../ArticleListItem/ArticleListItemSceleton';
+import { getCountSceleton } from '../../lib/hook/getCountSceleton';
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
@@ -57,7 +60,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
         target,
         onLoadNextPart,
         initialArticleIndex,
-        countSceleton = view === ArticleView.BIG ? 3 : 7,
+        countSceleton,
         useWindowScroll,
         hasMore,
         Header,
@@ -66,6 +69,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
 
     const { t } = useTranslation('article');
     const virtuosoGridRef = useRef<VirtuosoGridHandle>(null);
+    const refComponent = useRef<HTMLDivElement>(null);
 
     useInitialEffect(() => {
         let timmer: NodeJS.Timeout;
@@ -102,16 +106,24 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
     }
     const Footer = memo(() => {
         if (isLoading || hasMore) {
+            const countScel = countSceleton
+                || getCountSceleton(refComponent, view, cls.itemsWrapper);
             return (
                 <div
                     className={cls.sceleton}
                 >
-                    {getSkeletons(view, countSceleton)}
+                    {getSkeletons(view, countScel)}
                 </div>
             );
         }
 
-        return null;
+        return (
+            <div
+                className={cls.sceleton}
+            >
+                {t('Статьи закончили')}
+            </div>
+        );
     });
 
     const ItemSceletonGrid = memo(({ index }: {index: number}) => (
@@ -126,6 +138,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
         <div
             className={classNames('', {}, [className, cls[view]])}
             data-testid="ArticleList"
+            ref={refComponent}
         >
             {view === ArticleView.BIG
                 ? (
@@ -138,7 +151,6 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
                         initialTopMostItemIndex={initialArticleIndex?.index}
                         components={
                             {
-
                                 Footer:
                                     toggleFeatures(
                                         {
@@ -165,13 +177,13 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
                             List: GridDecorator,
                             Header,
                             Footer:
-                                    toggleFeatures(
-                                        {
-                                            name: 'isAppRedesigned',
-                                            on: () => undefined,
-                                            off: () => Footer,
-                                        },
-                                    ),
+                                toggleFeatures(
+                                    {
+                                        name: 'isAppRedesigned',
+                                        on: () => undefined,
+                                        off: () => Footer,
+                                    },
+                                ),
                             ScrollSeekPlaceholder: ItemSceletonGrid,
                         }}
                         scrollSeekConfiguration={{

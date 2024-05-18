@@ -88,6 +88,7 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = memo((
                     gap={8}
                     className={classNames('', {}, [className])}
                     data-testid="ArticleSortSelector"
+                    max
                 >
                     <Text
                         text={t('SortBy')}

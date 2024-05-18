@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { createRef, FC, useRef } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { StickyComponentLayout } from '@/shared/layouts/StickyComponentLayout';
@@ -32,15 +32,19 @@ export const RedesignedArticleInfinity: FC<ArticleInfinityProps> = (props) => {
         hasMore,
     } = props;
 
+    const refComponent = useRef(null);
+
     return (
         <div
             className={classNames(cls.RedesignedArticlePage, {}, [className])}
             data-testid="ArticlePageInfinity"
+            ref={refComponent}
         >
             <StickyComponentLayout
                 left={<ViewSwitcherContainer />}
                 content={(
                     <ArticleList
+                        className={cls.articleListRedesigned}
                         articles={articles}
                         view={view}
                         isLoading={isLoading}

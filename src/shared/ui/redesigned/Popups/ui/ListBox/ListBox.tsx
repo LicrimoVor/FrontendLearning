@@ -3,12 +3,14 @@ import { Listbox as HListbox } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { typedMemo } from '@/shared/lib/typedMemo';
+import ArrowDown from '@/shared/assets/icons/arrow_down.svg';
 
 import { HStack } from '../../../Stack';
 import { Text } from '../../../Text';
 import { Button } from '../../../Button';
 import { PopupDirection } from '../../styles/types';
 import { PopupDirectionConvert } from '../../styles/consts';
+import { Icon } from '../../../Icon';
 import cls from './ListBox.module.scss';
 import popupsCls from '../../styles/popups.module.scss';
 
@@ -68,8 +70,9 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
                     <Button
                         variant="filled"
                         disabled={readonly}
+                        addonRight={readonly ? undefined : <Icon Svg={ArrowDown} />}
                     >
-                        {readonly ? textBtn : `${textBtn} \\/`}
+                        {textBtn}
                     </Button>
                 </HListbox.Button>
                 <HListbox.Options

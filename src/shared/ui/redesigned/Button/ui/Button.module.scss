@@ -1,13 +1,28 @@
 .Button {
     cursor: pointer;
-    padding: 6px 12px;
+    padding: 8px 12px;
     outline-color: transparent;
     display: flex;
     color: var(--text-redesigned);
+    align-items: center;
+    display: flex;
+    gap: 8px;
 
     &:hover {
         color: var(--accent-redesigned);
+
+        .addonLeft svg, .addonRight svg {
+            color: var(--accent-redesigned);
+        }
     }
+}
+
+.addonRight, .addonLeft {
+    display: flex;
+}
+
+.addonRight svg, .addonLeft svg {
+    color: var(--hint-redesigned);
 }
 
 .clear {
@@ -17,12 +32,15 @@
     outline: none;
 }
 
+.withAddon {
+    padding: 6px 12px;
+}
+
 .filled {
     background: var(--light-bg-redesigned);
     border: none;
     outline: none;
     border-radius: 34px;
-    padding: 8px 16px;
 }
 
 

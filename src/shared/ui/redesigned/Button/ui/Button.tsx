@@ -16,14 +16,16 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     size?: ButtonSize,
     disabled?: boolean,
     children?: ReactNode,
+    addonLeft?: ReactNode,
+    addonRight?: ReactNode,
 }
 
 /**
  * Своя кнопочка, поддерживает ref
  */
-export const Button: FC<ButtonProps> = (
+export const Button: FC<ButtonProps> = forwardRef((
     props: ButtonProps,
-    // ref: LegacyRef<HTMLButtonElement>,
+    ref: LegacyRef<HTMLButtonElement>,
 ) => {
     const {
         className,
@@ -32,12 +34,15 @@ export const Button: FC<ButtonProps> = (
         square,
         size = 'size_m',
         disabled,
+        addonLeft,
+        addonRight,
         ...otherProps
     } = props;
 
     const mods: Mods = {
         [cls.square]: square,
         [cls.disabledBtn]: disabled,
+        [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
     };
 
     return (
@@ -49,10 +54,12 @@ export const Button: FC<ButtonProps> = (
                 [className, cls[variant], cls[size]],
             )}
             disabled={disabled}
-            // ref={ref}
+            ref={ref}
             {...otherProps}
         >
+            {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
             {children}
+            {addonRight && <div className={cls.addonRight}>{addonRight}</div>}
         </button>
     );
-};
+});

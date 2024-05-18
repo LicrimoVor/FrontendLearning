@@ -74,7 +74,7 @@ export const DeprecatedArticleInfinity: FC<ArticleInfinityProps> = (props) => {
             data-testid="ArticlePageInfinity"
         >
             <ArticleList
-                className={cls.list}
+                className={cls.articleList}
                 articles={articles}
                 view={view}
                 isLoading={isLoading}

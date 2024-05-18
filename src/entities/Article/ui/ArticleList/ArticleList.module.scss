@@ -1,4 +1,6 @@
 .BIG {
+    min-width: 300px;
+
     .card {
         margin: 30px 8vw;
     }
@@ -8,6 +10,7 @@
 }
 
 .SMALL {
+    min-width: 100px;
     .sceleton {
         padding: 20px 0 0 0;
         display: flex;
