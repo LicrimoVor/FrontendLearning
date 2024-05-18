@@ -6,6 +6,12 @@
     color: var(--accent-redesigned);
 }
 
+.bold {
+    .title, .text {
+        font-weight: 700;
+    }
+}
+
 .secondary {
     &.title {
         color: var(--red-dark);

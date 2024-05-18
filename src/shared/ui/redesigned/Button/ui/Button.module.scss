@@ -52,7 +52,12 @@
 
 .outline {
     background: none;
-    border: var(--inverted-secondary-color) solid 2px;
+    border: 2px solid var(--light-bg-redesigned);
+    border-radius: 32px;
+
+    &:hover {
+        border: 2px solid var(--accent-redesigned);
+    }
 }
 
 

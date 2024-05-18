@@ -1,17 +1,21 @@
-import { FC, memo } from 'react';
+import { FC, memo, useMemo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+import { toggleFeatures } from '@/shared/lib/features';
+
 import { ArticleView } from '../../model/consts/article';
-import cls from './ArticleListItem.module.scss';
+import cls from './ArticleListItemDeprecated.module.scss';
 
 interface ArticleListItemSceletonProps {
     className?: string,
     view: ArticleView,
 }
 
-/** Докстринг */
+/** Скелетон для статьи */
 export const ArticleListItemSceleton: FC<ArticleListItemSceletonProps> = memo((
     props: ArticleListItemSceletonProps,
 ) => {
@@ -19,6 +23,18 @@ export const ArticleListItemSceleton: FC<ArticleListItemSceletonProps> = memo((
         className,
         view,
     } = props;
+
+    const Skeleton = useMemo(() => toggleFeatures({
+        name: 'isAppRedesigned',
+        off: () => SkeletonDeprecated,
+        on: () => SkeletonRedesigned,
+    }), []);
+
+    const Card = useMemo(() => toggleFeatures({
+        name: 'isAppRedesigned',
+        off: () => CardDeprecated,
+        on: () => CardRedesigned,
+    }), []);
 
     if (view === ArticleView.BIG) {
         return (
