@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { getRouteAdmin, getRouteProfile } from '@/shared/const/route';
+import { getRouteAdmin, getRouteProfile, getRouteSettings } from '@/shared/const/route';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Dropdown } from '@/shared/ui/redesigned/Popups';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
@@ -47,6 +47,7 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props: AvatarDropdo
         return [
             ...(isAdminPanelAvaible ? [{ component: t('Admin'), href: getRouteAdmin() }] : []),
             { component: t('Profile'), href: getRouteProfile(authData.id) },
+            { component: t('Settings'), href: getRouteSettings() },
             { component: t('LogOut'), onClick: onLogout },
         ];
     }, [onLogout, authData, t, isAdmin, isManager]);

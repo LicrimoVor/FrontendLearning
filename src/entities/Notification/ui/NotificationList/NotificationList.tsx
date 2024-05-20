@@ -1,9 +1,12 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { toggleFeatures } from '@/shared/lib/features';
+
 import { useNotificationList } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 
@@ -22,6 +25,12 @@ export const NotificationList: FC<NotificationListProps> = memo((props: Notifica
     const { t } = useTranslation();
     const { data, isLoading, error } = useNotificationList(5, {
         pollingInterval: 10000,
+    });
+
+    const Skeleton = toggleFeatures({
+        name: 'isAppRedesigned',
+        off: () => SkeletonDeprecated,
+        on: () => SkeletonRedesigned,
     });
 
     if (isLoading) {

@@ -83,6 +83,7 @@
   "Science": "Science",
   "Search": "Search",
   "Send": "Send",
+  "Settings": "Settings",
   "Sort by": "Sort by",
   "SortBy": "SortBy",
   "Text": "Text",
@@ -91,6 +92,7 @@
   "ThrowError": "ThrowError",
   "Title": "Title",
   "Username": "Username",
+  "Varaint interface": "Varaint interface",
   "Views": "Views",
   "WasHappenedExcept": "WasHappenedExcept",
   "Wrap": "Wrap",
@@ -99,6 +101,8 @@
   "beda": "beda",
   "loading": "loading",
   "menu": "",
+  "new": "new",
+  "old": "old",
   "profile": {
     "ErrorProfile": "ErrorProfile",
     "RefreshPage": "RefreshPage"

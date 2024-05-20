@@ -14,7 +14,7 @@ import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import { Article } from '../../model/types/article';
 import { ArticleView } from '../../model/consts/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import { ArticleListItemSceleton } from '../ArticleListItem/ArticleListItemSceleton';
+import { ArticleItemSkeleton } from '../ArticleListItem/ArticleItemSkeleton';
 import { getCountSceleton } from '../../lib/hook/getCountSceleton';
 import cls from './ArticleList.module.scss';
 
@@ -39,7 +39,7 @@ interface ArticleListProps {
 const getSkeletons = (view: ArticleView, countSceleton: number) => new Array(countSceleton)
     .fill(0)
     .map((_, index) => (
-        <ArticleListItemSceleton
+        <ArticleItemSkeleton
             className={toggleFeatures({
                 name: 'isAppRedesigned',
                 off: () => cls.card,
@@ -110,7 +110,11 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
                 || getCountSceleton(refComponent, view, cls.itemsWrapper);
             return (
                 <div
-                    className={cls.sceleton}
+                    className={toggleFeatures({
+                        name: 'isAppRedesigned',
+                        off: () => cls.skeletonDeprecated,
+                        on: () => cls.skeletonRedesigned,
+                    })}
                 >
                     {getSkeletons(view, countScel)}
                 </div>
@@ -119,7 +123,11 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
 
         return (
             <div
-                className={cls.sceleton}
+                className={toggleFeatures({
+                    name: 'isAppRedesigned',
+                    off: () => cls.skeletonDeprecated,
+                    on: () => cls.skeletonRedesigned,
+                })}
             >
                 {t('Статьи закончили')}
             </div>
@@ -127,7 +135,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
     });
 
     const ItemSceletonGrid = memo(({ index }: {index: number}) => (
-        <ArticleListItemSceleton
+        <ArticleItemSkeleton
             key={index}
             view={ArticleView.SMALL}
             className={cls.itemSceleton}
@@ -155,8 +163,8 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
                                     toggleFeatures(
                                         {
                                             name: 'isAppRedesigned',
-                                            on: () => undefined,
                                             off: () => Footer,
+                                            on: () => undefined,
                                         },
                                     ),
                                 Header,
@@ -180,8 +188,8 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
                                 toggleFeatures(
                                     {
                                         name: 'isAppRedesigned',
-                                        on: () => undefined,
                                         off: () => Footer,
+                                        on: () => undefined,
                                     },
                                 ),
                             ScrollSeekPlaceholder: ItemSceletonGrid,
