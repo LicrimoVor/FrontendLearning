@@ -6,7 +6,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import NotificationSvgDeprecated from '@/shared/assets/icons/notification.svg';
 import NotificationSvgRedesigned from '@/shared/assets/icons/notification_redesigned.svg';
 import { Popover as PopoverDeprevated } from '@/shared/ui/deprecated/Popups';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
 import { BrowserView, MobileView } from '@/shared/ui/redesigned/View';

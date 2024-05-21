@@ -3,9 +3,10 @@ import { FC, ReactNode, useMemo } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
+import { toggleFeatures } from '@/shared/lib/features';
 
-import { Overlay } from '../../../redesigned/Overlay';
-import { Portal } from '../../../redesigned/Portal';
+import { Overlay } from '../../Overlay';
+import { Portal } from '../../Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -48,9 +49,17 @@ export const Modal: FC<ModalProps> = (props) => {
     }
 
     return (
-        <Portal>
+        <Portal element={document.getElementById('app') ?? document.body}>
             <div
-                className={classNames(cls.Modal, mods, [theme, 'app_modal'])}
+                className={classNames(
+                    cls.Modal,
+                    mods,
+                    [theme, 'app_modal', toggleFeatures({
+                        name: 'isAppRedesigned',
+                        off: () => cls.ModalOld,
+                        on: () => cls.ModalNew,
+                    })],
+                )}
             >
                 <Overlay onClick={close} />
                 <div className={classNames(cls.content, {}, [className])}>

@@ -5,9 +5,10 @@ import {
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AnimationProvider, useAnimationContext } from '@/shared/lib/components/AnimationProvider';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
+import { toggleFeatures } from '@/shared/lib/features';
 
-import { Overlay } from '../../../redesigned/Overlay';
-import { Portal } from '../../../redesigned/Portal';
+import { Overlay } from '../../Overlay';
+import { Portal } from '../../Portal';
 import cls from './Drawer.module.scss';
 
 interface DrawerProps {
@@ -19,7 +20,6 @@ interface DrawerProps {
 }
 
 /**
- * @deprecated
  * Всплывающее окно снизу для телефоном (шторка)
  */
 const DrawerContent: FC<DrawerProps> = memo((props: DrawerProps) => {
@@ -90,8 +90,17 @@ const DrawerContent: FC<DrawerProps> = memo((props: DrawerProps) => {
     const display = y.to((py) => (py < height ? 'block' : 'none'));
 
     return (
-        <Portal>
-            <div className={classNames(cls.Drawer, {}, [className, theme, 'app_drawer'])}>
+        <Portal element={document.getElementById('app') ?? document.body}>
+            <div className={classNames(
+                cls.Drawer,
+                {},
+                [className, theme, 'app_drawer', toggleFeatures({
+                    name: 'isAppRedesigned',
+                    off: () => cls.DrawerOld,
+                    on: () => cls.DrawerNew,
+                })],
+            )}
+            >
                 <Overlay onClick={close} />
                 <a.div
                     className={cls.sheet}

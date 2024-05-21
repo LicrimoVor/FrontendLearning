@@ -74,6 +74,7 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                     autofocus
                     onChange={onChangeUsername}
                     value={username}
+                    size="s"
                 />
                 <Input
                     type="text"
@@ -82,6 +83,7 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                     placeholder={t('EnterPassword')}
                     onChange={onChangePassword}
                     value={password}
+                    size="s"
                 />
                 <div className={cls.footerContent}>
                     {error && (

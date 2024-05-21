@@ -12,10 +12,21 @@
     align-items: center;
 }
 
+.ModalOld {
+    .content {
+        background: var(--bg-color);
+    }
+}
+.ModalNew{
+    .content {
+        background: var(--light-bg-redesigned);
+    }
+}
+
 .content {
     padding: 20px;
     border-radius: 12px;
-    background: var(--bg-color);
+    
     max-width: 60%;
 }
 
