@@ -21,7 +21,7 @@ export const LangSwitcherRed: FC<LangSwitcherProps> = memo((props: LangSwitcherP
     return (
         <Icon
             Svg={LangSvg}
-            cliclable
+            clickable
             onClick={onClick}
             data-testid="lang-switcher"
             className={classNames(cls.LangSwitcher, {}, [className])}

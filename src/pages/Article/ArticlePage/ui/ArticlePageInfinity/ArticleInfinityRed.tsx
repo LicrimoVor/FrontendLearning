@@ -1,7 +1,7 @@
-import { createRef, FC, useRef } from 'react';
+import { FC, useRef } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { StickyComponentLayout } from '@/shared/layouts/StickyComponentLayout';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { Article, ArticleList, ArticleView } from '@/entities/Article';
 
 import { FilterContainer } from '../FilterContainer/FilterContainer';
@@ -40,7 +40,7 @@ export const RedesignedArticleInfinity: FC<ArticleInfinityProps> = (props) => {
             data-testid="ArticlePageInfinity"
             ref={refComponent}
         >
-            <StickyComponentLayout
+            <StickyContentLayout
                 left={<ViewSwitcherContainer />}
                 content={(
                     <ArticleList

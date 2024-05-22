@@ -11,5 +11,10 @@
   "ReadMore": "",
   "Recommend": "",
   "ReturnToList": "",
+  "Views": "Views",
+  "{{count}} Views": "{{count}} Views",
+  "{{count}} Views_plural": "{{count}} Views_plural",
+  "{{count}}Views": "{{count}}Views",
+  "{{count}}Views_plural": "{{count}}Views_plural",
   "Скоро будет рейтинг": "Скоро будет рейтинг"
 }

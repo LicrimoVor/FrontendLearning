@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { Theme, ThemeContext } from '../../context/ThemeContext/ThemeContext';
 
@@ -35,7 +35,11 @@ export function useTheme(): UseThemeResult {
         saveAction?.(newTheme);
     };
 
-    document.body.className = theme as string;
+    useEffect(() => {
+        if (__PROJECT__ !== 'storybook') {
+            document.body.className = theme as string;
+        }
+    }, [theme]);
 
     return {
         theme: theme || Theme.LIGHT,

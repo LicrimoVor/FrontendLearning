@@ -10,5 +10,9 @@
   "FeedbackComplete": "Спасибо за отзыв!",
   "Error": "Произошла ошибка",
   "Comments": "Комментарии",
-  "Recommend": "Рекомендации"
+  "Recommend": "Рекомендации",
+  "{{count}} Views_zero": "{{count}} просмотров",
+  "{{count}} Views_one": "{{count}} просмотр",
+  "{{count}} Views_few": "{{count}} просмотра",
+  "{{count}} Views_many": "{{count}} просмотров"
 }

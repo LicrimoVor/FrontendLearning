@@ -1,7 +1,10 @@
 import { FC, memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { ToggleFeatures } from '@/shared/lib/features';
+
 import { ArticleBlockImage } from '../../model/types/article';
 import cls from './ArticleBlockImageComponent.module.scss';
 
@@ -20,14 +23,31 @@ export const ArticleBlockImageComponent: FC<ArticleBlockImageComponentProps> = m
     } = props;
 
     return (
-        <div
-            className={classNames(cls.ArticleBlockImageComponent, {}, [className])}
-            data-testid="ArticleBlockImageComponent"
-        >
-            <img src={block.src} className={cls.img} alt={block.title} />
-            {block.title && (
-                <Text text={block.title} />
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={(
+                <div
+                    className={classNames('', {}, [className])}
+                    data-testid="ArticleBlockImageComponent"
+                >
+                    <img src={block.src} className={cls.img} alt={block.title} />
+                    {block.title && (
+                        <TextDeprecated text={block.title} />
+                    )}
+                </div>
             )}
-        </div>
+            on={(
+                <div
+                    className={classNames('', {}, [className])}
+                    data-testid="ArticleBlockImageComponent"
+                >
+                    <img src={block.src} className={cls.img} alt={block.title} />
+                    {block.title && (
+                        <Text text={block.title} />
+                    )}
+                </div>
+            )}
+        />
+
     );
 });

@@ -10,6 +10,13 @@
   "FeedbackComplete": "FeedbackComplete",
   "Recommend": "Recommend",
   "ReturnToList": "ReturnToList",
+  "Views": "Views",
+  "{{count}} Views_0": "{{count}} Views_0",
+  "{{count}} Views_1": "{{count}} Views_1",
+  "{{count}} Views_2": "{{count}} Views_2",
+  "{{count}}Views_0": "{{count}}Views_0",
+  "{{count}}Views_1": "{{count}}Views_1",
+  "{{count}}Views_2": "{{count}}Views_2",
   "Скоро будет рейтинг": "Скоро будет рейтинг"
 }
   

@@ -1,3 +1,4 @@
+export { getArticleDetailIsLoadnig } from './model/selectors/articleDetails';
 export { getArticleDetailData } from './model/selectors/articleDetails';
 
 export type { Article } from './model/types/article';

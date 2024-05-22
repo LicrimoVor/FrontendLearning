@@ -10,5 +10,8 @@
   "FeedbackComplete": "Thanks for the feedback!",
   "Error": "An error has occurred",
   "Comments": "Comments",
-  "Recommend": "Recommendations"
+  "Recommend": "Recommendations",
+  "{{count}} Views_zero": "{{count}} views",
+  "{{count}} Views_one": "{{count}} view",
+  "{{count}} Views_other": "{{count}} views"
 }

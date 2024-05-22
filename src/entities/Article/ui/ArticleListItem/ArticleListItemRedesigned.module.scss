@@ -14,7 +14,7 @@
 
 .SMALL {
     width: 240px;
-    height: 350px;
+    height: 360px;
     overflow: hidden;
     transition: 0.2s;
     cursor: pointer;
@@ -31,6 +31,7 @@
         min-height: 200px;
         max-height: 200px;
         object-fit: cover;
+        border-radius: 6px;
     }
 
     .info {

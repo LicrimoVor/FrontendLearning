@@ -58,7 +58,7 @@ export const NotificationBtn: FC<NotificationBtnProps> = memo((props: Notificati
                 <Icon
                     Svg={NotificationSvgRedesigned}
                     size={30}
-                    cliclable
+                    clickable
                     onClick={onOpen}
                     className={classNames(cls.trigger, {}, [className])}
                 />

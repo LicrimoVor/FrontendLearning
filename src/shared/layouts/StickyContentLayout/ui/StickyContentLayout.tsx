@@ -1,9 +1,9 @@
 import { FC, memo, ReactElement } from 'react';
 
 import { classNames } from '@/shared/lib/classNames';
-import cls from './StickyComponentLayout.module.scss';
+import cls from './StickyContentLayout.module.scss';
 
-interface StickyComponentLayoutProps {
+interface StickyContentLayoutProps {
     className?: string,
     left?: ReactElement,
     content: ReactElement,
@@ -11,8 +11,8 @@ interface StickyComponentLayoutProps {
 }
 
 /** Позволяет закреплять левые и правые части относительно контента */
-export const StickyComponentLayout: FC<StickyComponentLayoutProps> = memo((
-    props: StickyComponentLayoutProps,
+export const StickyContentLayout: FC<StickyContentLayoutProps> = memo((
+    props: StickyContentLayoutProps,
 ) => {
     const {
         className,
@@ -22,7 +22,7 @@ export const StickyComponentLayout: FC<StickyComponentLayoutProps> = memo((
     } = props;
 
     return (
-        <div className={classNames(cls.StickyComponentLayout, {}, [className])}>
+        <div className={classNames(cls.StickyContentLayout, {}, [className])}>
             {left && <div className={cls.left}>{left}</div>}
             <div className={cls.content}>{content}</div>
             {right && <div className={cls.right}>{right}</div>}

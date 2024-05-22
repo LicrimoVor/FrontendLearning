@@ -40,7 +40,7 @@ export const RedesignedSidebar: FC<SidebarProps> = memo((props: SidebarProps) =>
 
             <Icon
                 Svg={ArrowSvg}
-                cliclable
+                clickable
                 data-testid="sidebar-wrap-button"
                 onClick={hundlerCollapsed}
                 className={classNames(cls.collapsedBtn, { [cls.collapsed]: collapsed })}

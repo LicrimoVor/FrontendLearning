@@ -94,7 +94,7 @@ export const ArticleViewSwitcher: FC<articleViewSwitcherProps> = memo((
                                 onClick={onClick(viewType.view)}
                                 key={viewType.view}
                                 data-testid={`ArticleViewSwitcher.${viewType.view}`}
-                                cliclable
+                                clickable
                                 Svg={viewType.icon}
                                 className={classNames(cls.view, {
                                     [cls.notSelected]: viewType.view !== view,
