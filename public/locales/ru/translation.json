@@ -12,8 +12,8 @@
   "LogIn": "Войти",
   "Login": "Логин",
   "Password": "Пароль",
-  "Enter:\\Username": "Ввод:\\логин",
-  "Enter:\\Password": "Ввод:\\пароль",
+  "Enter Username": "Ввод:\\логин",
+  "Enter Password": "Ввод:\\пароль",
   "LoginForm": "Форма авторизации",
   "Wrong username or password": "Вы ввели неправильный логин или пароль",
   "LogOut": "Выйти",
@@ -27,6 +27,7 @@
   "Send": "Отправить",
   "Enter a comment": "Введите комментарий",
   "Varaint interface": "Варианты интерфейса",
+  "Settings": "Настройки",
   "new": "новый",
   "old": "старый"
 }

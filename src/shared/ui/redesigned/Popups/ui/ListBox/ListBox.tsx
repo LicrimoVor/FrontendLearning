@@ -1,4 +1,6 @@
-import { ReactNode, useMemo } from 'react';
+import {
+    ReactNode, useEffect, useMemo, useState,
+} from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -44,10 +46,19 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
         defaultValue,
         label,
         selectedValue = defaultValue || data[0],
-        textBtn = defaultValue || data[0].content,
+        textBtn,
         direction = 'bottom right',
         onChange,
     } = props;
+
+    const [textButton, setTextButton] = useState(textBtn);
+
+    useEffect(() => {
+        if (textButton === undefined) {
+            const content = data.find((item) => item.value === selectedValue)?.content;
+            setTextButton(content);
+        }
+    }, [selectedValue, textButton, data]);
 
     const optionsClasses = [
         PopupDirectionConvert[direction],
@@ -70,7 +81,7 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
                         disabled={readonly}
                         addonRight={<Icon Svg={ArrowDown} />}
                     >
-                        {textBtn}
+                        {textButton}
                     </Button>
                 </HListbox.Button>
                 <HListbox.Options

@@ -11,9 +11,8 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { useForceUpdate } from '@/shared/lib/render';
 import { getUserAuthData } from '@/entities/User';
-
-import cls from './UiDesignedSwitcher.module.scss';
 
 interface UiDesignedSwitcherProps {
     className?: string,
@@ -62,7 +61,7 @@ export const UiDesignedSwitcher: FC<UiDesignedSwitcherProps> = memo((
     }
 
     return (
-        <HStack className={classNames(cls.UiDesignedSwitcher, {}, [className])}>
+        <HStack className={className} gap={8}>
             <Text text={t('Varaint interface')} />
             <ListBox
                 selectedValue={isAppRedesigned ? 'new' : 'old'}

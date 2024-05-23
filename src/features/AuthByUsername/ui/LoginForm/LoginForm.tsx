@@ -6,13 +6,13 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
-
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { useForceUpdate } from '@/shared/lib/render';
 
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
@@ -40,6 +40,7 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
 
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
+    const forceUpdate = useForceUpdate();
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
     const error = useSelector(getLoginError);
@@ -57,8 +58,9 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess();
+            forceUpdate();
         }
-    }, [dispatch, username, password, onSuccess]);
+    }, [dispatch, username, password, onSuccess, forceUpdate]);
 
     return (
         <DynamicModuleLoader
@@ -68,15 +70,16 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
             <ToggleFeatures
                 feature="isAppRedesigned"
                 off={(
-                    <div
+                    <form
                         className={classNames(cls.LoginForm, {}, [className])}
+                        onSubmit={onLoginClick}
                     >
                         <TextDeprecated title={t('LoginForm')} />
                         <InputDeprecated
                             type="text"
                             data-testid="username"
                             className={cls.input}
-                            placeholder={t('Enter:\\Username')}
+                            placeholder={t('Enter Username')}
                             autofocus
                             onChange={onChangeUsername}
                             value={username}
@@ -86,7 +89,7 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                             type="text"
                             data-testid="password"
                             className={cls.input}
-                            placeholder={t('Enter:\\Password')}
+                            placeholder={t('Enter Password')}
                             onChange={onChangePassword}
                             value={password}
                             size="s"
@@ -108,11 +111,12 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                                 {t('Login')}
                             </ButtonDeprecated>
                         </div>
-                    </div>
+                    </form>
                 )}
                 on={(
-                    <div
+                    <form
                         className={classNames(cls.LoginForm, {}, [className])}
+                        onSubmit={onLoginClick}
                     >
                         <Text title={t('LoginForm')} />
                         <Input
@@ -143,13 +147,14 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                             <Button
                                 className={cls.loginBtn}
                                 variant="outline"
-                                onClick={onLoginClick}
                                 disabled={isLoading}
+                                onClick={onLoginClick}
+                                type="submit"
                             >
                                 {t('LogIn')}
                             </Button>
                         </div>
-                    </div>
+                    </form>
                 )}
             />
 
