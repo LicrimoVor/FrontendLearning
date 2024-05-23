@@ -56,21 +56,21 @@ export const StarRating: FC<StarRatingProps> = memo((props: StarRatingProps) => 
                     [cls.selected]: isSelected,
                     [cls.hovered]: starId <= hoverId,
                 };
-
                 const data = {
                     onMouseEnter: onHoverStar(starId),
                     onMouseLeave: onLeaveStar,
                     onClick: onSelectStar(starId),
-                    key: starId,
                     'data-testid': `StarRating.${starId}${isSelected ? '.selected' : ''}`,
                 };
 
                 return (
                     <ToggleFeatures
+                        key={starId}
                         feature="isAppRedesigned"
                         off={(
                             <ButtonDeprecated
                                 {...data}
+                                key={starId}
                                 theme={ButtonTheme.CLEAR_FULLL}
                                 className={cls.star}
                             >
@@ -78,17 +78,18 @@ export const StarRating: FC<StarRatingProps> = memo((props: StarRatingProps) => 
                                     Svg={StarSVG}
                                     size={size}
                                     theme="clear"
-                                    className={classNames(cls.starSvg, mods, [])}
+                                    className={classNames(cls.starSvg, mods)}
                                 />
                             </ButtonDeprecated>
                         )}
                         on={(
                             <Icon
                                 {...data}
+                                keyId={starId}
                                 Svg={StarSVG}
                                 size={size}
                                 clickable
-                                className={classNames(cls.starSvgRedesigned, mods, [])}
+                                className={classNames(cls.starSvgRedesigned, mods)}
                             />
                         )}
                     />

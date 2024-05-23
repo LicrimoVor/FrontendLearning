@@ -1,15 +1,18 @@
 import {
     useState, useMemo, FC, ReactNode, useEffect,
 } from 'react';
-// eslint-disable-next-line lkx-fsd/layer-checker
+
+import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage';
 import { useJsonSettings } from '@/entities/User';
 
-import { ThemeContext, Theme } from '../../context/ThemeContext';
+import { ThemeContext, Theme } from '../../../shared/lib/context/ThemeContext';
 
 interface ThemeProviderProps {
     children: ReactNode,
     initialTheme?: Theme
 }
+
+const fallbackTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme;
 
 /** Провайдер тем */
 export const ThemeProvider: FC<ThemeProviderProps> = (props) => {
@@ -19,14 +22,15 @@ export const ThemeProvider: FC<ThemeProviderProps> = (props) => {
     } = props;
     const { theme: defaultTheme } = useJsonSettings();
     const [isThemeInited, setThemeInited] = useState(false);
-    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme || Theme.LIGHT);
+    const [theme, setTheme] = useState<Theme>(initialTheme || fallbackTheme || Theme.LIGHT);
 
     useEffect(() => {
         if (!isThemeInited && defaultTheme) {
             setTheme(defaultTheme);
             setThemeInited(true);
         }
-    }, [defaultTheme, isThemeInited]);
+        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme);
+    }, [defaultTheme, isThemeInited, theme]);
 
     const defaultProps = useMemo(() => ({
         theme,

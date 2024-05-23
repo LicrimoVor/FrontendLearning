@@ -29,11 +29,29 @@
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--card-bg);
+    background: var(--light-bg-redesigned);
     border-radius: 20px;
 }
 
 *::-webkit-scrollbar-thumb {
+    background-color: var(--accent-redesigned);
+    border-radius: 20px;
+    border: 1px solid var(--icon-redesigned);
+}
+
+
+
+.app *::-webkit-scrollbar {
+    width: 12px;
+    height: 8px;
+}
+
+.app *::-webkit-scrollbar-track {
+    background: var(--card-bg);
+    border-radius: 20px;
+}
+
+.app *::-webkit-scrollbar-thumb {
     background-color: var(--inverted-bg-color);
     border-radius: 20px;
     border: 1px solid var(--primary-color);

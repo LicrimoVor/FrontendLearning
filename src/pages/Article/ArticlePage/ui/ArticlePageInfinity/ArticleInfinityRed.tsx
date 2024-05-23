@@ -44,7 +44,6 @@ export const RedesignedArticleInfinity: FC<ArticleInfinityProps> = (props) => {
                 left={<ViewSwitcherContainer />}
                 content={(
                     <ArticleList
-                        className={cls.articleListRedesigned}
                         articles={articles}
                         view={view}
                         isLoading={isLoading}

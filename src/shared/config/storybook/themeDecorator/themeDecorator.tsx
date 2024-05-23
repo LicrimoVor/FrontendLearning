@@ -1,9 +1,9 @@
+/* eslint-disable lkx-fsd/layer-checker */
 import { Decorator } from '@storybook/react';
 import { ReactNode } from 'react';
-// eslint-disable-next-line lkx-fsd/layer-checker
 import '@/app/styles/index.scss';
 
-import { ThemeProvider } from '@/shared/lib/components/ThemeProvider';
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { Theme } from '@/shared/lib/context/ThemeContext';
 
 import cls from './themeDecorator.module.scss';

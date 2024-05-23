@@ -5,12 +5,13 @@ import {
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Icon.module.scss';
 
-type SvgProps = Omit<SVGProps<SVGSVGElement>, 'onClick'>;
+type SvgProps = Omit<SVGProps<SVGSVGElement>, 'onClick' | 'key'>;
 
 interface IconBasicProps extends SvgProps {
     className?: string,
     Svg: FunctionComponent<SVGAttributes<SVGElement>>,
     size?: string | number,
+    keyId?: string | number,
 }
 
 interface NonClickableProps extends IconBasicProps {
@@ -33,6 +34,7 @@ export const Icon = memo((props: IconProps) => {
         Svg,
         size,
         clickable,
+        keyId,
         ...otherProps
     } = props;
 
@@ -47,12 +49,14 @@ export const Icon = memo((props: IconProps) => {
             onClick={undefined}
         />
     );
+
     if (clickable) {
         return (
             <button
                 type="button"
                 className={cls.button}
                 onClick={props.onClick}
+                key={keyId}
             >
                 {icon}
             </button>
