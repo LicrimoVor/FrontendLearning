@@ -2,7 +2,8 @@ import { FC, memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { Card } from '@/shared/ui/deprecated/Card';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Card } from '@/shared/ui/redesigned/Card';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
@@ -47,7 +48,7 @@ const ArticleDetailPage: FC = () => {
                         <ArticleDetail articleId={id} />
                         <ToggleFeatures
                             feature="isArticleRatingEnabled"
-                            off={<Card>{t('Скоро будет рейтинг')}</Card>}
+                            off={<CardDeprecated>{t('Скоро будет рейтинг')}</CardDeprecated>}
                             on={<ArticleRating articleId={id!} className={cls.rating} />}
                         />
                         <ArticleCommentForm articleId={id} />
@@ -59,11 +60,7 @@ const ArticleDetailPage: FC = () => {
                         content={(
                             <VStack gap={32} max>
                                 <ArticleDetailContainer id={id} />
-                                <ToggleFeatures
-                                    feature="isArticleRatingEnabled"
-                                    off={<Card>{t('Скоро будет рейтинг')}</Card>}
-                                    on={<ArticleRating articleId={id!} className={cls.rating} />}
-                                />
+                                <ArticleRating articleId={id!} className={cls.rating} />
                                 <ArticleCommentForm articleId={id} />
                                 <ArticleRecommend />
                             </VStack>

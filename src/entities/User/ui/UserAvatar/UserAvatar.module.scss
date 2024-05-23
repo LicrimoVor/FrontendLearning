@@ -1,0 +1,13 @@
+.UserAvatar {
+    display: flex;
+    align-items: center;
+    max-width: fit-content;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.username {
+    margin-left: 10px;
+}

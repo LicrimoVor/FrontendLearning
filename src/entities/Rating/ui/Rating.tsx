@@ -1,20 +1,10 @@
 import {
     FC, memo, useCallback, useEffect, useState,
 } from 'react';
-import { useTranslation } from 'react-i18next';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/redesigned/Stack';
-import { StarRating } from '@/shared/ui/deprecated/StarRating';
-import { Text } from '@/shared/ui/deprecated/Text';
-import { BrowserView, MobileView } from '@/shared/ui/redesigned/View';
-import { Modal } from '@/shared/ui/redesigned/Modal';
-import { Drawer } from '@/shared/ui/redesigned/Drawer';
-import { Button } from '@/shared/ui/deprecated/Button';
-import { TextArea } from '@/shared/ui/deprecated/TextArea';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-
-import cls from './Rating.module.scss';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { RatingDeprecated } from './RatingDeprecated';
+import { RatingRedesigned } from './RatingRedesigned';
 
 interface RatingProps {
     className?: string,
@@ -44,21 +34,6 @@ export const Rating: FC<RatingProps> = memo((props: RatingProps) => {
 
     const [modalOpen, setModalOpen] = useState(false);
     const [textFeedback, setTextFeedBack] = useState('');
-    const { t } = useTranslation();
-
-    const feedbackContent = (
-        <>
-            <Text
-                title={feedbackTitle}
-            />
-            <TextArea
-                value={textFeedback}
-                onChange={setTextFeedBack}
-                rows={5}
-                data-testid="Rating.text"
-            />
-        </>
-    );
 
     useEffect(() => {
         setTextFeedBack(feedbackValue);
@@ -84,57 +59,25 @@ export const Rating: FC<RatingProps> = memo((props: RatingProps) => {
         setModalOpen(false);
     }, [setModalOpen, onSubmitFeedback, textFeedback]);
 
+    const data = {
+        className,
+        title,
+        modalOpen,
+        onCloseModal,
+        isLoading,
+        selectStar,
+        onSelectStar: onSelectStarHandler,
+        onSubmitFeedback: onSubmitFeedbackHandler,
+        feedbackTitle,
+        textFeedback,
+        setTextFeedBack,
+    };
+
     return (
-        <VStack
-            className={classNames(cls.Rating, {}, [className])}
-            data-testid="Rating"
-        >
-            <Text title={title} />
-            {isLoading
-                ? (
-                    <Skeleton
-                        height={50}
-                        width={290}
-                        border="12px"
-                    />
-                )
-                : (
-                    <StarRating
-                        size={50}
-                        value={isLoading ? 0 : selectStar}
-                        onChange={onSelectStarHandler}
-                    />
-                )}
-            <BrowserView>
-                <Modal
-                    isOpen={modalOpen}
-                    onClose={onCloseModal}
-                    className={cls.modalFeedback}
-                >
-                    {feedbackContent}
-                    <Button
-                        onClick={onSubmitFeedbackHandler}
-                        data-testid="Rating.send"
-                    >
-                        {t('Send')}
-                    </Button>
-                </Modal>
-            </BrowserView>
-            <MobileView>
-                <Drawer
-                    isOpen={modalOpen}
-                    onClose={onCloseModal}
-                    heightPercent={50}
-                >
-                    {feedbackContent}
-                    <Button
-                        onClick={onSubmitFeedbackHandler}
-                        data-testid="Rating.send"
-                    >
-                        {t('Send')}
-                    </Button>
-                </Drawer>
-            </MobileView>
-        </VStack>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={<RatingDeprecated {...data} />}
+            on={<RatingRedesigned {...data} />}
+        />
     );
 });

@@ -20,7 +20,6 @@ interface ModalProps {
 const ANIMATION_DELAY = 300;
 
 /**
- * @deprecated
  * Модальное окно
  */
 export const Modal: FC<ModalProps> = (props) => {

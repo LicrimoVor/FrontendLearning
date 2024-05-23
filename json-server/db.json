@@ -12,7 +12,7 @@
         "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_red_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": false
       },
       "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
@@ -902,6 +902,24 @@
       "text": "test comment",
       "userId": "1",
       "id": "W2JUrNf"
+    },
+    {
+      "articleId": "1",
+      "text": "",
+      "userId": "1",
+      "id": "rhbTOFX"
+    },
+    {
+      "articleId": "1",
+      "text": "asdasd",
+      "userId": "1",
+      "id": "2iKowUE"
+    },
+    {
+      "articleId": "1",
+      "text": "            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia fugiat maiores recusandae suscipit ipsa earum nostrum est, laboriosam repudiandae odio sit nesciunt odit corrupti illo, officiis deserunt commodi culpa veritatis!",
+      "userId": "1",
+      "id": "GFrnP37"
     }
   ],
   "profile": [
@@ -976,8 +994,8 @@
   "article-ratings": [
     {
       "id": "1",
-      "rate": 4,
-      "feedback": "Хорошая статья",
+      "rate": 2,
+      "feedback": "ТОпчик ваще",
       "userId": "1",
       "articleId": "1"
     },

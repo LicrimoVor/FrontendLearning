@@ -4,10 +4,12 @@ import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { CommentList, CreateCommentForm } from '@/entities/Comment';
 
 import { getArticleCommentError, getArticleCommentIsLoading } from '../model/selectors/comments';
@@ -41,6 +43,10 @@ export const ArticleCommentForm: FC<ArticleCommentFormProps> = memo((
     const { t } = useTranslation('article-detail');
 
     const onCommentSend = useCallback((text: string) => {
+        if (text.length < 5) {
+            return;
+        }
+
         dispatch(sendCommentForArticle(
             { text, articleId },
         ));
@@ -62,10 +68,22 @@ export const ArticleCommentForm: FC<ArticleCommentFormProps> = memo((
                 className={classNames('', {}, [className])}
                 data-testid="ArticleCommentForm"
             >
-                <Text
-                    size={TextSize.L}
-                    title={t('Comments')}
-                    className={cls.commentTitle}
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    off={(
+                        <TextDeprecated
+                            size={TextSize.L}
+                            title={t('Comments')}
+                            className={cls.commentTitle}
+                        />
+                    )}
+                    on={(
+                        <Text
+                            size="l"
+                            title={t('Comments')}
+                            className={cls.commentTitle}
+                        />
+                    )}
                 />
                 <CreateCommentForm
                     onCommentSend={onCommentSend}

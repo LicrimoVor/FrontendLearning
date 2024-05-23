@@ -1,0 +1,19 @@
+.TextArea {
+    position: relative;
+    width: 100%;
+}
+
+.textInput {
+    background: transparent;
+    outline: none;
+    width: 100%;
+    color: var(--text-redesigned);
+    border: 2px solid var(--accent-redesigned);
+    border-radius: 14px;
+    resize: none;
+    padding: 10px;
+
+    &:not(.overflow) {
+        overflow: hidden;
+    }
+}

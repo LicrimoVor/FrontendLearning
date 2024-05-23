@@ -1,18 +1,16 @@
 import { FC, memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Text } from '@/shared/ui/deprecated/Text';
-import { HStack } from '@/shared/ui/redesigned/Stack';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { getUserAuthData } from '@/entities/User';
 
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { profileActions } from '../../model/slice/profileSlice';
+import { EditableProfileCardHeaderDep } from './EditableProfileCardHeaderDep';
+import { EditableProfileCardHeaderRed } from './EditableProfileCardHeaderRed';
 import cls from './EditableProfileCardHeader.module.scss';
 
 interface EditableProfileCardHeaderProps {
@@ -23,7 +21,6 @@ interface EditableProfileCardHeaderProps {
 export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = memo((
     props: EditableProfileCardHeaderProps,
 ) => {
-    const { t } = useTranslation('profile');
     const authData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
     const canEdit = authData?.id === profileData?.id;
@@ -47,43 +44,20 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = mem
         dispatch(updateProfileData());
     }, [dispatch]);
 
+    const data = {
+        canEdit,
+        className,
+        readonly,
+        onEdit,
+        onCancelEdit,
+        onSave,
+    };
+
     return (
-        <HStack
-            className={classNames(cls.ProfilePageHeader, {}, [className])}
-            data-testid="EditableProfileCardHeader"
-        >
-            <Text title={t('Profile')} />
-            {canEdit && (
-                readonly ? (
-                    <Button
-                        theme={ButtonTheme.OUTLINE}
-                        className={cls.editBtn}
-                        onClick={onEdit}
-                        data-testid="EditableProfileCardHeader.edit"
-                    >
-                        {t('Edit')}
-                    </Button>
-                ) : (
-                    <>
-                        <Button
-                            theme={ButtonTheme.OUTLINE_RED}
-                            className={cls.cancelBtn}
-                            onClick={onCancelEdit}
-                            data-testid="EditableProfileCardHeader.cancel"
-                        >
-                            {t('Cancel')}
-                        </Button>
-                        <Button
-                            theme={ButtonTheme.OUTLINE}
-                            className={cls.saveBtn}
-                            onClick={onSave}
-                            data-testid="EditableProfileCardHeader.save"
-                        >
-                            {t('Save')}
-                        </Button>
-                    </>
-                )
-            )}
-        </HStack>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={<EditableProfileCardHeaderDep {...data} />}
+            on={<EditableProfileCardHeaderRed {...data} />}
+        />
     );
 });

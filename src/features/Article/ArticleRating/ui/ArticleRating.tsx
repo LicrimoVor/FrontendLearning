@@ -2,7 +2,9 @@ import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Card as CardRedesigned } from '@/shared/ui/redesigned/Card';
 import { Rating } from '@/entities/Rating';
 import { getUserAuthData } from '@/entities/User';
 
@@ -57,18 +59,36 @@ const ArticleRating: FC<ArticleRatingProps> = (props) => {
         }
     }, [updateRating, data]);
 
+    const params = {
+        onSelectStar,
+        onSubmitFeedback,
+        title: data ? t('EvaluationComplete') : t('Evaluation'),
+        isLoading: isFetching || isLoadingUpdate || isLoadingCreate,
+        feedback: true,
+        feedbackTitle: data ? t('FeedbackComplete') : t('Feedback'),
+        feedbackValue: data?.feedback,
+        selectStar: data?.rate,
+    };
+
     return (
-        <Rating
-            className={classNames('', {}, [className])}
-            onSelectStar={onSelectStar}
-            onSubmitFeedback={onSubmitFeedback}
-            title={data ? t('EvaluationComplete') : t('Evaluation')}
-            isLoading={isFetching || isLoadingUpdate || isLoadingCreate}
-            feedback
-            feedbackTitle={data ? t('FeedbackComplete') : t('Feedback')}
-            feedbackValue={data?.feedback}
-            selectStar={data?.rate}
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            off={(
+                <CardDeprecated className={className}>
+                    <Rating
+                        {...params}
+                    />
+                </CardDeprecated>
+            )}
+            on={(
+                <CardRedesigned className={className}>
+                    <Rating
+                        {...params}
+                    />
+                </CardRedesigned>
+            )}
         />
+
     );
 };
 

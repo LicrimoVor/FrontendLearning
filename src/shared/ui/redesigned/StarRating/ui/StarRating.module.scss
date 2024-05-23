@@ -1,7 +1,3 @@
-.StarRating {
-    display: flex;
-}
-
 .star:hover {
     opacity: 1;
     fill-opacity: 1;
@@ -19,5 +15,20 @@
 
     &.hovered {
         fill: var(--primary-color);
+    }
+}
+
+
+.starSvgRedesigned {
+    margin: 0 4px;
+    fill: none;
+    stroke: var(--icon-redesigned);
+
+    &.selected {
+        fill: var(--icon-redesigned);
+    }
+
+    &.hovered {
+        fill: var(--accent-redesigned);
     }
 }

@@ -4,8 +4,10 @@ import { useTranslation } from 'react-i18next';
 
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text';
 import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import { ProfileCard } from '@/entities/Profile';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
@@ -94,10 +96,22 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <EditableProfileCardHeader />
             {validateErrors?.length && validateErrors.map((err) => (
-                <Text
-                    theme={TextTheme.ERROR}
-                    text={validateErrorTranslate[err]}
-                    key={err}
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    off={(
+                        <TextDeprecated
+                            theme={TextTheme.ERROR}
+                            text={validateErrorTranslate[err]}
+                            key={err}
+                        />
+                    )}
+                    on={(
+                        <TextRedesigned
+                            variant="error"
+                            text={validateErrorTranslate[err]}
+                            key={err}
+                        />
+                    )}
                 />
             ))}
             <ProfileCard

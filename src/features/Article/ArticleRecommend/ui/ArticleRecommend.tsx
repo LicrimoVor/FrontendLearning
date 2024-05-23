@@ -2,8 +2,11 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
+
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { ArticleList } from '@/entities/Article';
 
 import { useArticleRecommendList } from '../api/articleRecommendApi';
@@ -32,11 +35,24 @@ const ArticleRecommend: FC<ArticleRecommendProps> = (props) => {
             max
             className={classNames('', {}, [className])}
             data-testid="ArticleRecommend"
+            gap={8}
         >
-            <Text
-                size={TextSize.L}
-                title={t('Recommend')}
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                off={(
+                    <TextDeprecated
+                        size={TextSize.L}
+                        title={t('Recommend')}
+                    />
+                )}
+                on={(
+                    <Text
+                        size="l"
+                        title={t('Recommend')}
+                    />
+                )}
             />
+
             <ArticleList
                 className={classNames(cls.articleRecommend, {}, [className])}
                 articles={articles}
