@@ -8,12 +8,14 @@ import cls from './Button.module.scss';
 
 type ButtonVariant = 'clear' | 'outline' | 'filled';
 type ButtonSize = 'm' | 'l' | 'xl';
+type ButtonColor = 'normal' | 'success' | 'error';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string,
     variant?: ButtonVariant,
     square?: boolean,
     size?: ButtonSize,
+    color?: ButtonColor,
     disabled?: boolean,
     children?: ReactNode,
     addonLeft?: ReactNode,
@@ -36,6 +38,7 @@ export const Button: FC<ButtonProps> = forwardRef((
         disabled,
         addonLeft,
         addonRight,
+        color = 'normal',
         ...otherProps
     } = props;
 
@@ -51,7 +54,7 @@ export const Button: FC<ButtonProps> = forwardRef((
             className={classNames(
                 cls.Button,
                 mods,
-                [className, cls[variant], cls[size]],
+                [className, cls[variant], cls[size], cls[color]],
             )}
             disabled={disabled}
             ref={ref}

@@ -51,10 +51,11 @@ export const EditableProfileCardHeaderRed: FC<EditableProfileCardHeaderProps> = 
                 ) : (
                     <>
                         <Button
-                            variant="filled"
+                            variant="outline"
                             className={cls.cancelBtn}
                             onClick={onCancelEdit}
                             data-testid="EditableProfileCardHeader.cancel"
+                            color="error"
                         >
                             {t('Cancel')}
                         </Button>
@@ -63,6 +64,7 @@ export const EditableProfileCardHeaderRed: FC<EditableProfileCardHeaderProps> = 
                             className={cls.saveBtn}
                             onClick={onSave}
                             data-testid="EditableProfileCardHeader.save"
+                            color="success"
                         >
                             {t('Save')}
                         </Button>

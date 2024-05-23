@@ -6,11 +6,11 @@ import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
 import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
-
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Card } from '@/shared/ui/redesigned/Card';
 import { UserAvatar } from '@/entities/User';
 
 import { Comment } from '../../model/types/comment';
@@ -94,16 +94,18 @@ export const CommentCard: FC<CommentCardProps> = memo((props: CommentCardProps) 
                 </div>
             )}
             on={(
-                <VStack
+                <Card
                     className={className}
                     data-testid="CommentCard"
                 >
-                    <UserAvatar user={comment.user} viewUsername />
-                    <Text
-                        text={comment.text}
-                        className={cls.textRedesigned}
-                    />
-                </VStack>
+                    <VStack>
+                        <UserAvatar user={comment.user} viewUsername />
+                        <Text
+                            text={comment.text}
+                            className={cls.textRedesigned}
+                        />
+                    </VStack>
+                </Card>
             )}
         />
 

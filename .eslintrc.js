@@ -70,6 +70,7 @@ module.exports = {
                     'variant',
                     'size',
                     'marginTopMenu',
+                    'color',
                 ],
             },
         ],

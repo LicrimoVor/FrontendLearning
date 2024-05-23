@@ -81,7 +81,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
                     onBlur={onBlur}
                     onChange={onChangeHandler}
                     readOnly={readonly}
-                    placeholder={`${placeholder}>`}
+                    placeholder={placeholder}
                     {...otherProps}
                 />
                 {addonRight && <div className={cls.addonRight}>{addonRight}</div>}

@@ -48,7 +48,7 @@ export const CommentList: FC<CommentListProps> = memo((props: CommentListProps) 
             max
             className={classNames('', {}, [className])}
             data-testid="CommentList"
-            gap={16}
+            gap={4}
         >
             {comments?.length
                 ? comments.map((comment) => (
