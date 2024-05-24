@@ -1,0 +1,1 @@
+export { useAppRouteGet } from './useAppRouteGet';

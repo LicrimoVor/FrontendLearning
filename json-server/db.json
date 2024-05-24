@@ -32,7 +32,7 @@
         "newFeatures": {
           "isAppRedesigned": true
         },
-        "isAppRedesigned": false
+        "isAppRedesigned": true
       },
       "jsonSettings": {
         "theme": "app_dark_theme",

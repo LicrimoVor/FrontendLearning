@@ -13,17 +13,21 @@ import { Navbar } from '@/widgets/Navbar';
 import { PageLoader } from '@/widgets/PageLoader';
 
 import { AppRouter } from './providers/router';
+import { useAppToolBar } from './lib/useAppToolbar';
 
 /** Главная приложуха */
 function App() {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
+
     useEffect(() => {
         if (!inited) {
             dispatch(initAuthData());
         }
     }, [dispatch, inited]);
+
+    const Toolbar = useAppToolBar();
 
     if (!inited) {
         return (
@@ -63,7 +67,7 @@ function App() {
                             header={<Navbar />}
                             sidebar={<Sidebar />}
                             content={<AppRouter />}
-                            // toolbar={<div>ba</div>}
+                            toolbar={Toolbar}
                         />
                     </Suspense>
                 </div>

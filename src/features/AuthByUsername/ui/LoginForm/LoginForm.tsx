@@ -1,4 +1,7 @@
-import { FC, memo, useCallback } from 'react';
+import {
+    EventHandler,
+    FC, FormEvent, FormEventHandler, memo, useCallback,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -46,20 +49,22 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
     const error = useSelector(getLoginError);
     const isLoading = useSelector(getLoginLoading);
 
-    const onChangeUsername = useCallback((value:string) => {
+    const onChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
     }, [dispatch]);
 
-    const onChangePassword = useCallback((value:string) => {
+    const onChangePassword = useCallback((value: string) => {
         dispatch(loginActions.setPassword(value));
     }, [dispatch]);
 
-    const onLoginClick = useCallback(async () => {
+    const onLoginClick = useCallback(async (event: FormEvent) => {
+        event.preventDefault();
         const result = await dispatch(loginByUsername({ username, password }));
         if (result.meta.requestStatus === 'fulfilled') {
             onSuccess();
             forceUpdate();
         }
+        return false;
     }, [dispatch, username, password, onSuccess, forceUpdate]);
 
     return (
@@ -127,6 +132,7 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                             autofocus
                             onChange={onChangeUsername}
                             value={username}
+                            required
                         />
                         <Input
                             type="text"
@@ -135,6 +141,7 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                             placeholder={t('Password')}
                             onChange={onChangePassword}
                             value={password}
+                            required
                         />
                         <div className={cls.footerContent}>
                             {error && (
@@ -148,8 +155,8 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                                 className={cls.loginBtn}
                                 variant="outline"
                                 disabled={isLoading}
-                                onClick={onLoginClick}
                                 type="submit"
+                                // onClick={onLoginClick}
                             >
                                 {t('LogIn')}
                             </Button>

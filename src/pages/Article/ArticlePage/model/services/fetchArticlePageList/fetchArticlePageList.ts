@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { ThunkConfig } from '@/shared/config/reduxConfig/stateShema';
-import { addQueryParams } from '@/shared/url/addQueryParams';
+import { addQueryParams } from '@/shared/lib/url/addQueryParams';
 import { Article, ArticleType } from '@/entities/Article';
 
 import {
