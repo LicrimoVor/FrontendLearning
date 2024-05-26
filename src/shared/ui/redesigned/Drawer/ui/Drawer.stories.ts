@@ -6,7 +6,7 @@ import { Theme } from '@/shared/lib/context/ThemeContext';
 import { Drawer } from './Drawer';
 
 const meta: Meta<typeof Drawer> = {
-    title: 'shared/Drawer',
+    title: 'shared/redesigned/Drawer',
     component: Drawer,
 };
 

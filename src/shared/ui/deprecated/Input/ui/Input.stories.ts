@@ -7,7 +7,7 @@ import { Theme } from '@/shared/lib/context/ThemeContext';
 import { Input } from './Input';
 
 const meta: Meta<typeof Input> = {
-    title: 'shared/Input',
+    title: 'shared/deprecated/Input',
     component: Input,
     args: {
         autofocus: true,

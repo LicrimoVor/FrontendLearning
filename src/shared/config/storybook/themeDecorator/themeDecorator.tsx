@@ -1,10 +1,11 @@
 /* eslint-disable lkx-fsd/layer-checker */
 import { Decorator } from '@storybook/react';
 import { ReactNode } from 'react';
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import '@/app/styles/index.scss';
 
-import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { Theme } from '@/shared/lib/context/ThemeContext';
+import { getFeatureFlag } from '@/shared/lib/features';
 
 import cls from './themeDecorator.module.scss';
 
@@ -19,9 +20,11 @@ export const TestThemProvider = (props: TestThemProviderProps) => {
         theme,
     } = props;
 
+    const isNewDesigned = getFeatureFlag('isAppRedesigned');
+
     return (
         <ThemeProvider initialTheme={theme}>
-            <div className={`app ${theme} ${cls.background}`}>
+            <div id="app" className={`${isNewDesigned ? 'app-redesigned' : 'app'} ${theme} ${cls.background}`}>
                 {children}
             </div>
         </ThemeProvider>

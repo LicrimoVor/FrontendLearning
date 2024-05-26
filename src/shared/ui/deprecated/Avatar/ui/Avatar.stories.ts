@@ -6,7 +6,7 @@ import AvatarImg from '@/shared/assets/tests/avatar.jpg';
 import { Avatar } from './Avatar';
 
 const meta: Meta<typeof Avatar> = {
-    title: 'shared/Avatar',
+    title: 'shared/deprecated/Avatar',
     component: Avatar,
 };
 

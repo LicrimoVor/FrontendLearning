@@ -5,7 +5,7 @@ import { Theme } from '@/shared/lib/context/ThemeContext';
 import { Text, TextSize, TextTheme } from './Text';
 
 const meta: Meta<typeof Text> = {
-    title: 'shared/Text',
+    title: 'shared/deprecated/Text',
     component: Text,
     args: {
         title: 'Test in story',

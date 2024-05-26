@@ -1,6 +1,6 @@
 /* eslint-disable lkx-fsd/layer-checker */
 import {
-    CombinedState, configureStore, getDefaultMiddleware, Reducer, ReducersMapObject,
+    CombinedState, configureStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 
 import { $api } from '@/shared/api/api';
@@ -33,6 +33,7 @@ export function createReduxStore(
         devTools: __IS_DEV__,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+            // serializableCheck: __PROJECT__ !== 'jest',
             thunk: {
                 extraArgument: extraArg,
             },

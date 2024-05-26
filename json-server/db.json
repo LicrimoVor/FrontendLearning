@@ -927,6 +927,12 @@
       "text": "            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia fugiat maiores recusandae suscipit ipsa earum nostrum est, laboriosam repudiandae odio sit nesciunt odit corrupti illo, officiis deserunt commodi culpa veritatis!",
       "userId": "1",
       "id": "GFrnP37"
+    },
+    {
+      "articleId": "14",
+      "text": "[tlkdg",
+      "userId": "1",
+      "id": "dfVYVos"
     }
   ],
   "profile": [
@@ -1067,7 +1073,7 @@
   "profile-ratings": [
     {
       "id": "1",
-      "rate": 3,
+      "rate": 5,
       "feedback": "Хорошая статья",
       "userId": "1",
       "profileId": "1"

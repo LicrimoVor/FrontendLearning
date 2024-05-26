@@ -7,7 +7,7 @@ import { Text } from '../../Text/ui/Text';
 import { Card, CardTheme } from './Card';
 
 const meta: Meta<typeof Card> = {
-    title: 'shared/Card',
+    title: 'shared/deprecated/Card',
     component: Card,
     args: {
         // eslint-disable-next-line i18next/no-literal-string

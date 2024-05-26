@@ -2,15 +2,19 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { Theme } from '@/shared/lib/context/ThemeContext';
+import { newDesignDecorator } from '@/shared/config/storybook/newDesignDecorator';
 
 import { Code } from './Code';
 
 const meta: Meta<typeof Code> = {
-    title: 'shared/Code',
+    title: 'shared/redesigned/Code',
     component: Code,
     args: {
         text: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
     },
+    decorators: [
+        newDesignDecorator,
+    ],
 };
 
 export default meta;

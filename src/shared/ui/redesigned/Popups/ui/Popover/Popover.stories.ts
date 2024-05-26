@@ -6,7 +6,7 @@ import { Theme } from '@/shared/lib/context/ThemeContext';
 import { Popover } from './Popover';
 
 const meta: Meta<typeof Popover> = {
-    title: 'shared/Popover',
+    title: 'shared/redesigned/Popover',
     component: Popover,
     args: {
         trigger: 'trigger',

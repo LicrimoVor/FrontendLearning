@@ -1,8 +1,9 @@
 import { Preview } from '@storybook/react';
 
-import { storeDecorator } from '../../src/shared/config/storybook/storeDecorator/storeDecorator';
-import { themeDecorator } from '../../src/shared/config/storybook/themeDecorator/themeDecorator';
-import { routerDecorator } from '../../src/shared/config/storybook/routerDecorator/routerDecorator';
+import { storeDecorator } from '../../src/shared/config/storybook/storeDecorator';
+import { themeDecorator } from '../../src/shared/config/storybook/themeDecorator';
+import { routerDecorator } from '../../src/shared/config/storybook/routerDecorator';
+import { featureFlagDecorator } from '../../src/shared/config/storybook/featureFlagDecorator';
 import { Theme } from '../../src/shared/lib/context/ThemeContext';
 
 const preview: Preview = {
@@ -31,21 +32,22 @@ const preview: Preview = {
         routerDecorator,
         themeDecorator(Theme.LIGHT),
         storeDecorator({}),
+        featureFlagDecorator({}),
     ],
-    // globalTypes: {
-    //     locale: {
-    //         name: 'Locale',
-    //         description: 'Переводы!',
-    //         toolbar: {
-    //             icon: 'globe',
-    //             items: [
-    //                 { value: 'en', title: 'English' },
-    //                 { value: 'ru', title: 'Russian' },
-    //             ],
-    //             showName: true,
-    //         },
-    //     },
-    // },
+    globalTypes: {
+        locale: {
+            name: 'Locale',
+            description: 'Переводы!',
+            toolbar: {
+                icon: 'globe',
+                items: [
+                    { value: 'en', title: 'English' },
+                    { value: 'ru', title: 'Russian' },
+                ],
+                showName: true,
+            },
+        },
+    },
 };
 
 export default preview;

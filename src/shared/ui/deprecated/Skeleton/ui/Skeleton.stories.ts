@@ -5,7 +5,7 @@ import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { Skeleton } from './Skeleton';
 
 const meta: Meta<typeof Skeleton> = {
-    title: 'shared/Skeleton',
+    title: 'shared/deprecated/Skeleton',
     component: Skeleton,
     decorators: [
         themeDecorator(Theme.LIGHT),

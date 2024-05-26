@@ -5,7 +5,7 @@ import { Theme } from '@/shared/lib/context/ThemeContext';
 import { TextArea } from './TextArea';
 
 const meta: Meta<typeof TextArea> = {
-    title: 'shared/TextArea',
+    title: 'shared/deprecated/TextArea',
     component: TextArea,
 };
 

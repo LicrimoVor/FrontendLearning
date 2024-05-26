@@ -6,7 +6,7 @@ import { Theme } from '@/shared/lib/context/ThemeContext';
 import { AppLogo } from './AppLogo';
 
 const meta: Meta<typeof AppLogo> = {
-    title: '/AppLogo',
+    title: 'shared/redesigned/AppLogo',
     component: AppLogo,
 };
 

@@ -5,7 +5,7 @@ import { Theme } from '@/shared/lib/context/ThemeContext';
 import { StarRating } from './StarRating';
 
 const meta: Meta<typeof StarRating> = {
-    title: 'shared/StarRating',
+    title: 'shared/redesigned/StarRating',
     component: StarRating,
     args: {
         size: '70px',

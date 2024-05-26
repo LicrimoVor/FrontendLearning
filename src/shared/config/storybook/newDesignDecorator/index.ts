@@ -1,0 +1,1 @@
+export { newDesignDecorator } from './newDesignDecorator';

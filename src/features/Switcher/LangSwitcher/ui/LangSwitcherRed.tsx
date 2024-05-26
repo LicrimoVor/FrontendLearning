@@ -2,7 +2,7 @@ import { FC, memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Icon } from '@/shared/ui/redesigned/Icon';
-import LangSvg from '@/shared/assets/icons/ru.svg';
+import LangSvg from '@/shared/assets/icons/RU.svg';
 
 import cls from './LangSwitcher.module.scss';
 

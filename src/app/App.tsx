@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react';
+import { memo, Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
@@ -14,6 +14,7 @@ import { PageLoader } from '@/widgets/PageLoader';
 
 import { AppRouter } from './providers/router';
 import { useAppToolBar } from './lib/useAppToolbar';
+import { withTheme } from './providers/ThemeProvider';
 
 /** Главная приложуха */
 function App() {
@@ -76,4 +77,4 @@ function App() {
     );
 }
 
-export default App;
+export default withTheme(memo(App));
