@@ -7,6 +7,8 @@ export interface BuildPaths {
   src: string,
   locales: string,
   buildLocales: string,
+  preInit: string,
+  buildPreInit: string,
 }
 
 export interface BuildOptions {

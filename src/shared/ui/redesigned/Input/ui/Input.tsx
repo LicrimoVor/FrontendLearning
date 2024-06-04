@@ -15,7 +15,6 @@ interface InputProps extends HTMLInputProps {
     value?: string | number,
     label?: string,
     onChange?: (value: string) => void,
-    type?: string,
     autofocus?: boolean,
     readonly?: boolean,
     addonLeft?: ReactNode,
@@ -30,7 +29,6 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
         className,
         value,
         onChange,
-        type = 'text',
         placeholder,
         autofocus,
         readonly,
@@ -74,7 +72,6 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
                 {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
                 <input
                     data-testid="input"
-                    type={type}
                     value={value}
                     className={cls.input}
                     onFocus={onFocus}

@@ -5,7 +5,6 @@ import { Popover as HPopover } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { Button, ButtonTheme } from '../../../Button/ui/Button';
 import { PopupDirectionConvert } from '../../styles/consts';
 import { PopupDirection } from '../../styles/types';
 import cls from './Popover.module.scss';

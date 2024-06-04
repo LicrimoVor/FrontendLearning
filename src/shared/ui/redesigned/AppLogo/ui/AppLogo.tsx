@@ -5,6 +5,7 @@ import AppLogoSvg from '@/shared/assets/icons/ghost_simple.svg';
 
 import { HStack } from '../../Stack';
 import { Icon } from '../../../redesigned/Icon';
+import { AppLink } from '../../AppLink';
 import cls from './AppLogo.module.scss';
 
 interface AppLogoProps {
@@ -27,11 +28,13 @@ export const AppLogo: FC<AppLogoProps> = memo((props: AppLogoProps) => {
             justify="center"
             className={classNames(cls.AppLogo, {}, [className])}
         >
-            <Icon
-                size={size}
-                className={cls.appLogoSvg}
-                Svg={AppLogoSvg}
-            />
+            <AppLink to="/">
+                <Icon
+                    size={size}
+                    className={cls.appLogoSvg}
+                    Svg={AppLogoSvg}
+                />
+            </AppLink>
             <div className={cls.gradientBig} />
             <div className={cls.gradientSmall} />
         </HStack>

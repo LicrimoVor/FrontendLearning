@@ -9,6 +9,7 @@ import App from '@/app/App';
 import '@/app/styles/index.scss';
 import '@/shared/config/i18n/i18n';
 import { ForceUpdateProvider } from './shared/lib/render/forceUpdate';
+import { RemovePreloader } from './app/providers/RemovePreloader';
 
 const container = document.getElementById('root');
 
@@ -21,11 +22,13 @@ root.render(
     <BrowserRouter>
         <StoreProvider>
             <ErrorBoundary>
-                <ForceUpdateProvider>
-                    <ThemeProvider>
-                        <App />
-                    </ThemeProvider>
-                </ForceUpdateProvider>
+                <RemovePreloader>
+                    <ForceUpdateProvider>
+                        <ThemeProvider>
+                            <App />
+                        </ThemeProvider>
+                    </ForceUpdateProvider>
+                </RemovePreloader>
             </ErrorBoundary>
         </StoreProvider>
     </BrowserRouter>,

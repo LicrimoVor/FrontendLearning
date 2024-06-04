@@ -23,6 +23,17 @@
     display: flex;
 }
 
+body {
+
+    &:has(.app-redesigned) {
+        background: var(--bg-redesigned);
+    }
+
+    &:has(.app) {
+        background: var(--bg-color);
+    }
+}
+
 *::-webkit-scrollbar {
     width: 12px;
     height: 8px;

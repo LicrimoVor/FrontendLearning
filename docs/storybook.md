@@ -12,7 +12,7 @@
 
 Пример:
 
-```typescript jsx
+```tsx
 import { Meta, StoryObj } from '@storybook/react';
 
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator';

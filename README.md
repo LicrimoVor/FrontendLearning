@@ -2,11 +2,8 @@
 
 Данные проект направлен на освоение и применение основных практик используемых во frontend-приложениях. Проект является учебно-демонстрационным (PET-project).
 
-![PET-project image](/docs/Project.png)
+![PET-project image](/docs/assets/project_new.png)
 
-*Разработчик* 
-
----
 
 ## Используемые библиотеки
 
@@ -58,13 +55,14 @@
 - `npm run storybook` - запуск Storybook
 - `npm run storybook:build` - Сборка storybook
 - `npm run prepare` - прекоммит хуки
+- `md npm run remove-features nameFeature on/off` - переключение feautre-флагов
 
 ----
 
 ## Архитектура проекта
 
 Проект использует архитектуру **feature sliced design** - архитектурная методология для создания интерфейсных приложений. Основная цель этой методологии - сделать проект более понятным и структурированным в условиях постоянно меняющихся бизнес-требований.
-![feature sliced design](docs/FSD.png)
+![feature sliced design](docs/assets/FSD.png)
 Ссылка на документацию FSD - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
 
 ----
@@ -74,7 +72,7 @@
 В проекте используется библиотека **i18next** для работы с переводами.
 Файлы с переводами хранятся в public/locales.
 Присутствует линтер на i18next. При необходимости добавить поля HTML-тегов в игнор-лист нужно зайти в конфиг **.eslintrc.js**, правило i18next/no-literal-string поле ignoreAttribute.
-*Для комфортной работы рекомендуется установить плагин для webstorm/vscode*
+*Для комфортной работы рекомендуется установить плагин для vscode*
 
 Ссылка на документацию i18next - [react i18next](https://react.i18next.com/)
 
@@ -161,3 +159,7 @@ const toggleFeature = toggleFeatures(
 - [ScrollSave](/src/features/ScrollSave/)
 - [ThemeSwitcher](/src/features/Switcher/ThemeSwitcher/)
 - [LangSwitcher](/src/features/Switcher/LangSwitcher/)
+
+## Автор
+
+[LicrimoVor](https://github.com/LicrimoVor) - 0_0

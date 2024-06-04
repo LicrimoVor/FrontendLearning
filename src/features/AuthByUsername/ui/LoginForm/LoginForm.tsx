@@ -135,7 +135,7 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                             required
                         />
                         <Input
-                            type="text"
+                            type="password"
                             data-testid="password"
                             className={cls.input}
                             placeholder={t('Password')}

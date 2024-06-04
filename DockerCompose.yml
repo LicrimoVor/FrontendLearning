@@ -1,0 +1,15 @@
+version: '3.8'
+
+volumes:
+    json_server:
+
+services:
+    front_learn:
+        container_name: front_learn
+        build: ./
+        volumes:
+            - ../build:/app/result/
+            - json_server:/app/json-server/
+        ports:
+            - 8000:8000
+        command: sh -c "cp -r /app/build/. /app/result/ && npm run start:dev:server"

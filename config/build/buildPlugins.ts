@@ -60,6 +60,7 @@ export function BuildPlugins(
         plugins.push(new CopyPlugin({
             patterns: [
                 { from: paths.locales, to: paths.buildLocales },
+                { from: paths.preInit, to: paths.buildPreInit },
             ],
         }));
     }

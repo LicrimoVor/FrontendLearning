@@ -74,7 +74,7 @@ export const ArticleItemSkeleton: FC<ArticleItemSkeletonProps> = memo((
                             <Skeleton width="100%" height={420} />
                             <Skeleton width="100%" height={72} />
                             <HStack max justify="spaceBetween">
-                                <Skeleton width={120} height={38} />
+                                <Skeleton width={120} height={44} />
                                 <Skeleton width={50} height={24} />
                             </HStack>
                         </VStack>

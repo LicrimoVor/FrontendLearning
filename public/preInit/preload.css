@@ -1,0 +1,61 @@
+#preload {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-redesigned);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--text-redesigned);
+    font-size: 28px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.app_light_theme {
+    --bg-redesigned: #EFF5F6;
+    --icon-redesigned: #5ED3F3;
+    --text-redesigned: #141C1F;
+}
+
+.app_dark_theme {
+    --bg-redesigned: #0C1214;
+    --icon-redesigned: #74A2B2;
+    --text-redesigned: #DBDBDB;
+}
+
+.app_red_theme {
+    --bg-redesigned: #b32d31;
+    --icon-redesigned: #7e0a0e;
+    --text-redesigned: #edf1ed;
+}
+
+
+#loader {
+    height: 50px;
+    aspect-ratio: 5;
+    --_g: no-repeat radial-gradient(farthest-side,var(--icon-redesigned) 94%,#0000);
+    background: var(--_g),var(--_g),var(--_g),var(--_g);
+    background-size: 20% 100%;
+    animation:
+      l40-1 2s infinite alternate,
+      l40-2 4s infinite alternate; 
+  }
+  @keyframes l40-1 {
+    0%,
+    10% {background-position: 0 0,0 0,0 0,0 0}
+    33% {background-position: 0 0,calc(100%/3) 0,calc(100%/3) 0,calc(100%/3) 0}
+    66% {background-position: 0 0,calc(100%/3) 0,calc(2*100%/3) 0,calc(2*100%/3) 0}
+    90%,
+    100% {background-position: 0 0,calc(100%/3) 0,calc(2*100%/3) 0,100% 0}
+  }
+  @keyframes l40-2 {
+    0%,49.99% {transform: scale( 1)}
+    50%,100%  {transform: scale(-1)}
+  }

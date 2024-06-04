@@ -49,7 +49,7 @@ export const StarRating: FC<StarRatingProps> = memo((props: StarRatingProps) => 
     }, [onChange]);
 
     return (
-        <HStack className={className}>
+        <HStack className={className} gap={8}>
             {STARS.map((starId) => {
                 const isSelected = value ? starId <= value : false;
                 const mods = {
