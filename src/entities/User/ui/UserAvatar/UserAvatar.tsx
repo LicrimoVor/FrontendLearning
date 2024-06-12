@@ -13,6 +13,7 @@ interface UserAvatarProps {
     className?: string,
     user: User,
     viewUsername?: boolean,
+    draggable?: boolean
 }
 
 /** Аватар пользователя */
@@ -21,12 +22,14 @@ export const UserAvatar: FC<UserAvatarProps> = memo((props: UserAvatarProps) => 
         className,
         user,
         viewUsername,
+        draggable,
     } = props;
 
     return (
         <AppLink
             className={classNames(cls.UserAvatar, {}, [className])}
             to={getRouteProfile(user.id)}
+            draggable={draggable}
         >
             <Avatar
                 size={30}

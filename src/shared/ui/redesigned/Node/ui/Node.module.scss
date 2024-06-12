@@ -1,0 +1,16 @@
+.Node {
+    z-index: var(--canvas-z-index);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    cursor: grab;
+    transition: none;
+
+    &.fixed {
+        cursor: default;
+    }
+    
+}
+

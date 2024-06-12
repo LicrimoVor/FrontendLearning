@@ -8,12 +8,16 @@
     outline: none;
     width: 100%;
     color: var(--text-redesigned);
-    border: 2px solid var(--accent-redesigned);
+    border: 2px solid var(--icon-redesigned);
     border-radius: 14px;
     resize: none;
     padding: 10px;
 
     &:not(.overflow) {
         overflow: hidden;
+    }
+
+    &:focus {
+        border: 2px solid var(--accent-redesigned);
     }
 }

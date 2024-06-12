@@ -49,11 +49,11 @@ const DrawerContent: FC<DrawerProps> = memo((props: DrawerProps) => {
         }
     }, [api, isOpen, openDrawer]);
 
-    const close = (velocity = 0) => {
+    const close = () => {
         api.start({
             y: height,
             immediate: false,
-            config: { ...config.stiff, velocity },
+            config: { ...config.stiff, velocity: 0 },
             onResolve: onClose,
         });
     };

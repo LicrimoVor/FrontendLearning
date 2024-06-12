@@ -1,4 +1,6 @@
+import { Coordinate } from '@/shared/types/canvas';
 import { User } from '@/entities/User';
+
 import { ArticleType, ArticleBlockType } from '../consts/article';
 
 export interface ArticleBlockBase {
@@ -35,4 +37,8 @@ export interface Article {
     type: ArticleType[],
     blocks: ArticleBlock[],
     user: User,
+}
+
+export interface IArticleNode extends Article {
+    coord: Coordinate,
 }

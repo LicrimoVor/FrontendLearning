@@ -5,12 +5,11 @@
 
 .active {
     background: linear-gradient(89.97deg, rgba(94, 211, 243, 0.3) 1.15%, rgba(94,211,243,0) 99.97%);
-
     border-left: 2px var(--accent-redesigned) solid;
 }
 
 .link {
-    
+    user-select: text;
     padding-left: 15px;
     opacity: 1;
 

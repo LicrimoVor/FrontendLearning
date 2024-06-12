@@ -1,9 +1,14 @@
 .MainLayout {
+    user-select: text;
     min-height: 100vh;
     display: grid;
     grid-template-areas:
         'sidebar content rightbar';
     grid-template-columns: min-content 1fr 100px;
+
+    &.maxContentWidth {
+        grid-template-columns: min-content 1fr min-content;
+    }
 }
 
 .sidebar{
@@ -32,6 +37,10 @@
     justify-self: center;
     width: 100%;
     padding: 20px;
+
+    &.maxContentWidth {
+        max-width: none;
+    }
 }
 
 .toolbar {

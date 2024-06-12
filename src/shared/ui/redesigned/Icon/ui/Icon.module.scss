@@ -3,7 +3,7 @@
     color: var(--icon-redesigned);
 }
 
-.button {
+.clickable {
     margin: 0;
     padding: 0;
     border: none;
@@ -12,6 +12,6 @@
     cursor: pointer;
 }
 
-.button:hover .Icon {
+.clickable:hover .Icon {
     color: var(--accent-redesigned);
 }

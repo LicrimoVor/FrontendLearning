@@ -12,7 +12,8 @@ interface AvatarProps {
     className?: string,
     src?: string,
     size?: number,
-    alt?:string,
+    alt?: string,
+    draggable?: boolean,
 }
 
 /**
@@ -24,6 +25,7 @@ export const Avatar: FC<AvatarProps> = (props) => {
         src,
         size = 100,
         alt = 'Avatar',
+        draggable,
     } = props;
 
     const styles = useMemo<CSSProperties>(() => ({
@@ -44,6 +46,7 @@ export const Avatar: FC<AvatarProps> = (props) => {
             style={styles}
             className={classNames(cls.Avatar, {}, [className])}
             alt={alt}
+            draggable={draggable}
         />
     );
 };

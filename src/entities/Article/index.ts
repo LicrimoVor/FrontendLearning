@@ -1,7 +1,7 @@
 export { getArticleDetailIsLoadnig } from './model/selectors/articleDetails';
 export { getArticleDetailData } from './model/selectors/articleDetails';
 
-export type { Article } from './model/types/article';
+export type { Article, IArticleNode } from './model/types/article';
 export type { ArticleDetailSchema } from './model/types/articleDetailSchema';
 export {
     ArticleView,
@@ -11,3 +11,5 @@ export {
 
 export { ArticleDetail } from './ui/ArticleDetail/ArticleDetail';
 export { ArticleList } from './ui/ArticleList/ArticleList';
+export { ArticleNode } from './ui/ArticleNode/ArticleNode';
+export { ArticleNodeSize } from './model/consts/article';

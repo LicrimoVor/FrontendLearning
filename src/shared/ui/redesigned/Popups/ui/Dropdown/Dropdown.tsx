@@ -77,6 +77,7 @@ export const Dropdown: FC<DropdownProps> = memo((props: DropdownProps) => {
                                 disabled={item.disabled}
                                 key={indx}
                                 refName="href"
+                                draggable={false}
                             >
                                 {content}
                             </Menu.Item>

@@ -12,6 +12,7 @@ import { ArticleCommentSchema } from '@/features/Article/ArticleCommentForm';
 import { LoginSchema } from '@/features/AuthByUsername';
 import { ProfileSchema } from '@/features/Profile/EditableProfile';
 import { ScrollSaveSchema } from '@/features/ScrollSave';
+import { ArticleCanvasSchema } from '@/features/Article/ArticleCanvas';
 import { ArticlePageSchema } from '@/pages/Article/ArticlePage';
 
 export interface StateSchema {
@@ -26,6 +27,7 @@ export interface StateSchema {
     articleDetail?: ArticleDetailSchema,
     articleComments?: ArticleCommentSchema,
     articlePage?: ArticlePageSchema,
+    articleCanvas?: ArticleCanvasSchema,
     createCommentForm?: CreateCommentSchema,
 }
 

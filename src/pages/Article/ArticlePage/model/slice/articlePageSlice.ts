@@ -78,12 +78,8 @@ export const articlePageSlice = createSlice({
                     articleAdapter.removeAll(state);
                 }
             })
-            .addCase(fetchArticlePageList.fulfilled, (
-                state,
-                action,
-            ) => {
+            .addCase(fetchArticlePageList.fulfilled, (state, action) => {
                 state.isLoading = false;
-
                 state.hasMore = action.payload.length >= state.limit;
 
                 if (action.meta.arg.replase) {

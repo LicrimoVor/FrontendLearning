@@ -1,5 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { Text } from '@/shared/ui/redesigned/Text';
 import { Page } from '@/widgets/Page';
 
 /** Об проекте */
@@ -8,7 +10,7 @@ const AboutPage: FC = () => {
 
     return (
         <Page data-testid="AboutPage">
-            {t('About page')}
+            <Text text={t('About page')} />
         </Page>
     );
 };

@@ -33,6 +33,6 @@
   "include": [
     "./config/jest/setupTests.ts",
     "./src/**/*.ts",
-    "./src/**/*.tsx",
+    "./src/**/*.tsx", "src/shared/ui/redesigned/Canvas/ui/lol.jsx",
   ]
 }

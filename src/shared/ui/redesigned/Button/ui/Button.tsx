@@ -39,6 +39,7 @@ export const Button: FC<ButtonProps> = forwardRef((
         addonLeft,
         addonRight,
         color = 'normal',
+        draggable = false,
         ...otherProps
     } = props;
 
@@ -58,6 +59,7 @@ export const Button: FC<ButtonProps> = forwardRef((
             )}
             disabled={disabled}
             ref={ref}
+            draggable={draggable}
             {...otherProps}
         >
             {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}

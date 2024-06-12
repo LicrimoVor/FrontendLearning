@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { Article, ArticleList, ArticleView } from '@/entities/Article';
 
-import { FilterContainer } from '../FilterContainer/FilterContainer';
+import { FilterContainer } from '../FilterContainer/FilterContainerRed';
 import { ViewSwitcherContainer } from '../ViewSwitcherContainer/ViewSwitcherContainer';
 import cls from './ArticlePageInfinity.module.scss';
 

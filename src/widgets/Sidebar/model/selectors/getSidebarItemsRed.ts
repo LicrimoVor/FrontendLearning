@@ -4,12 +4,14 @@ import {
     getRouteAbout,
     getRouteArticles,
     getRouteMain,
+    getRouteMineSweeper,
     getRouteProfile,
 } from '@/shared/const/route';
 import MainIcon from '@/shared/assets/icons/home.svg';
 import AboutIcon from '@/shared/assets/icons/about_redesigned.svg';
 import ProfileIcon from '@/shared/assets/icons/user_redesigned.svg';
 import ArticlesIcon from '@/shared/assets/icons/articles_redesigned.svg';
+import MinesweeperIcon from '@/shared/assets/icons/minesweeper.svg';
 import { getUserAuthData } from '@/entities/User';
 
 import { SidebarItemType } from '../types/sidebar';
@@ -46,6 +48,12 @@ export const getSidebarItems = createSelector(
                 },
             );
         }
+        sidebarItemsList.push({
+            path: getRouteMineSweeper(),
+            text: 'Minesweeper',
+            Icon: MinesweeperIcon,
+        });
+
         return sidebarItemsList;
     },
 );

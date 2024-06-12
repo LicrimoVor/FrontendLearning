@@ -15,6 +15,7 @@ import { PageLoader } from '@/widgets/PageLoader';
 import { AppRouter } from './providers/router';
 import { useAppToolBar } from './lib/useAppToolbar';
 import { withTheme } from './providers/ThemeProvider';
+import { useAppPageMods } from './lib/useAppPageMods';
 
 /** Главная приложуха */
 function App() {
@@ -29,6 +30,7 @@ function App() {
     }, [dispatch, inited]);
 
     const Toolbar = useAppToolBar();
+    const pageMods = useAppPageMods();
 
     if (!inited) {
         return (
@@ -69,6 +71,7 @@ function App() {
                             sidebar={<Sidebar />}
                             content={<AppRouter />}
                             toolbar={Toolbar}
+                            mods={pageMods}
                         />
                     </Suspense>
                 </div>

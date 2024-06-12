@@ -3,9 +3,11 @@ import {
 } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+
+import { AppLink } from '../../AppLink';
 import cls from './Icon.module.scss';
 
-type SvgProps = Omit<SVGProps<SVGSVGElement>, 'onClick' | 'key'>;
+type SvgProps = Omit<SVGProps<SVGSVGElement>, 'onClick' | 'key' | 'href'>;
 
 interface IconBasicProps extends SvgProps {
     className?: string,
@@ -20,7 +22,8 @@ interface NonClickableProps extends IconBasicProps {
 
 interface ClickableProps extends IconBasicProps {
     clickable: true,
-    onClick: () => void
+    onClick?: () => void,
+    href?: string,
 }
 
 type IconProps = NonClickableProps | ClickableProps;
@@ -51,10 +54,22 @@ export const Icon = memo((props: IconProps) => {
     );
 
     if (clickable) {
+        if (props.href !== undefined) {
+            return (
+                <AppLink
+                    className={cls.clickable}
+                    to={props.href}
+                    key={keyId}
+                >
+                    {icon}
+                </AppLink>
+            );
+        }
+
         return (
             <button
                 type="button"
-                className={cls.button}
+                className={cls.clickable}
                 onClick={props.onClick}
                 key={keyId}
             >

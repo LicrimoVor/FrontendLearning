@@ -10,6 +10,8 @@ import {
     getRouteAdmin,
     getRouteForbidden,
     getRouteSettings,
+    getRouteMineSweeper,
+    getRouteArticleCanvas,
 } from '@/shared/const/route';
 import { UserRole } from '@/entities/User';
 import { AboutPage } from '@/pages/AboutPages';
@@ -22,6 +24,8 @@ import { AdminPanelPage } from '@/pages/Admin/AdminPanelPage';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { SettingsPage } from '@/pages/SettingsPage';
+import { MineSweeperPage } from '@/pages/MineSweeperPage';
+import { ArticleCanvasPage } from '@/pages/Article/ArticleCanvasPage';
 
 import { AppRoutesProps } from './types';
 
@@ -59,11 +63,21 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         element: <ArticleEditPage />,
         authOnly: true,
     },
+    [AppRoutes.ARTICLE_CANVAS]: {
+        path: getRouteArticleCanvas(),
+        element: <ArticleCanvasPage />,
+        authOnly: true,
+    },
     [AppRoutes.ADMIN_PANEL]: {
         path: getRouteAdmin(),
         element: <AdminPanelPage />,
         authOnly: true,
         roles: [UserRole.ADMIN, UserRole.MANAGER],
+    },
+    [AppRoutes.MINESWEEPER]: {
+        path: getRouteMineSweeper(),
+        element: <MineSweeperPage />,
+        authOnly: true,
     },
     [AppRoutes.SETTINGS]: {
         path: getRouteSettings(),

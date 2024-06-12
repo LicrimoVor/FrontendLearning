@@ -71,6 +71,7 @@ export const NotificationItem: FC<NotificationItemProps> = memo((props: Notifica
             <a
                 className={cls.link}
                 href={data.href}
+                draggable={false}
             >
                 <Item />
             </a>

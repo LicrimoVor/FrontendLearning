@@ -24,7 +24,7 @@ export const RedesignedSidebar: FC<SidebarProps> = memo((props: SidebarProps) =>
         className,
     } = props;
 
-    const [collapsed, setCollapsed] = useState<boolean>(false);
+    const [collapsed, setCollapsed] = useState<boolean>(true);
     const inited = useSelector(getUserInited);
     const sidebarItemsList = useSelector(getSidebarItems);
 

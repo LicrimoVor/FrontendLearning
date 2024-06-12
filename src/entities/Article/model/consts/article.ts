@@ -22,3 +22,8 @@ export enum ArticleSortField {
     TITLE = 'title',
     CREATED = 'createdAt'
 }
+
+export const ArticleNodeSize = {
+    width: 250,
+    height: 400,
+};

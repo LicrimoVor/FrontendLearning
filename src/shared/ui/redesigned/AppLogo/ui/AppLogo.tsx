@@ -28,7 +28,7 @@ export const AppLogo: FC<AppLogoProps> = memo((props: AppLogoProps) => {
             justify="center"
             className={classNames(cls.AppLogo, {}, [className])}
         >
-            <AppLink to="/">
+            <AppLink to="/" draggable={false}>
                 <Icon
                     size={size}
                     className={cls.appLogoSvg}
