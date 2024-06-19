@@ -8,7 +8,6 @@ import { Theme } from '../../src/shared/lib/context/ThemeContext';
 
 const preview: Preview = {
     parameters: {
-        actions: { argTypesRegex: '^on[A-Z].*' },
         controls: {
             matchers: {
                 color: /(background|color)$/i,

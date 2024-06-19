@@ -1,4 +1,3 @@
-// @ts-ignore
 module.exports = {
     env: {
         browser: true,
@@ -28,7 +27,6 @@ module.exports = {
     ],
     rules: {
         quotes: ['error', 'single'],
-        // 'arrow-body-style': ['error', 'as-needed'],
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
         indent: [2, 4],

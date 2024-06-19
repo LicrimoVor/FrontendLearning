@@ -6,9 +6,10 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
 import ForkIsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-import { BuildOptions } from './types/config';
+import AssetsPlugin from 'assets-webpack-plugin';
 
-const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+import { BuildOptions } from './types/config';
+import { ServiceWorkerPlugin } from './plugins/ServiceWorkerPlugin';
 
 /** Настройка плагинов */
 export function BuildPlugins(
@@ -28,6 +29,29 @@ export function BuildPlugins(
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
         }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    globOptions: {
+                        ignore: ['**/public/index.html', '**/*.brak'],
+                    },
+                    from: paths.public,
+                    to: paths.build,
+                },
+            ],
+        }),
+        new AssetsPlugin({
+            fullPath: true,
+            path: paths.assets,
+        }),
+        new ServiceWorkerPlugin({
+            pathAssets: `${paths.assets}/webpack-assets.json`,
+            pathBuildSW: paths.buildSW,
+            ignoreFiles: [
+                '/index.html',
+                '/sw.js',
+            ],
+        }),
     ];
 
     if (isDev) {
@@ -46,7 +70,6 @@ export function BuildPlugins(
         }));
         plugins.push(new ReactRefreshWebpackPlugin());
         plugins.push(new webpack.HotModuleReplacementPlugin());
-        plugins.push(new ReactRefreshPlugin());
         plugins.push(new BundleAnalyzerPlugin({
             openAnalyzer: false,
         }));
@@ -56,12 +79,6 @@ export function BuildPlugins(
         plugins.push(new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css',
-        }));
-        plugins.push(new CopyPlugin({
-            patterns: [
-                { from: paths.locales, to: paths.buildLocales },
-                { from: paths.preInit, to: paths.buildPreInit },
-            ],
         }));
     }
 

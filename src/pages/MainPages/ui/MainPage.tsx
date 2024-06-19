@@ -1,6 +1,8 @@
 import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { Button } from '@/shared/ui/redesigned/Button';
+import { unregister } from '@/shared/lib/serviceWorker';
 import { Rating } from '@/entities/Rating';
 import { GreetingModal } from '@/features/GreetingModal';
 import { Page } from '@/widgets/Page';
@@ -22,6 +24,7 @@ const MainPage: FC = () => {
                 feedbackTitle={t('Оцените что то')}
             />
             <GreetingModal />
+            <Button onClick={() => unregister()}>{t('unregister')}</Button>
         </Page>
     );
 };

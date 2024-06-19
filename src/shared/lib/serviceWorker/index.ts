@@ -1,1 +1,1 @@
-export { initServiceWorker } from './serviceWorker';
+export { register, unregister } from './register';

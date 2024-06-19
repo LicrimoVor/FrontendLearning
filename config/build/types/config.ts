@@ -5,10 +5,9 @@ export interface BuildPaths {
   build: string,
   html: string,
   src: string,
-  locales: string,
-  buildLocales: string,
-  preInit: string,
-  buildPreInit: string,
+  public: string,
+  assets: string,
+  buildSW: string,
 }
 
 export interface BuildOptions {

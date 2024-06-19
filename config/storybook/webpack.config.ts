@@ -10,8 +10,9 @@ export default ({ config }: {config: webpack.Configuration}) => {
         html: '',
         entry: '',
         src: path.resolve(__dirname, '..', '..', 'src'),
-        locales: '',
-        buildLocales: '',
+        public: '',
+        assets: '',
+        buildSW: '',
     };
 
     config.resolve!.alias = { ...config.resolve?.alias, '@': paths.src };

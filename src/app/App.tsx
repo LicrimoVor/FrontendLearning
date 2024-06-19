@@ -7,6 +7,7 @@ import { useTheme } from '@/shared/lib/hooks/useTheme';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { register, unregister } from '@/shared/lib/serviceWorker';
 import { getUserInited, initAuthData } from '@/entities/User';
 import { Sidebar } from '@/widgets/Sidebar';
 import { Navbar } from '@/widgets/Navbar';
@@ -80,4 +81,5 @@ function App() {
     );
 }
 
+register();
 export default withTheme(memo(App));
