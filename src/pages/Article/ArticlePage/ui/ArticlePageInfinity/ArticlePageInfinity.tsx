@@ -64,7 +64,7 @@ export const ArticlePageInfinity: FC<ArticlePageInfinityProps> = (props) => {
                         setIndex={setIndex}
                         onLoadNextPart={onLoadNextPart}
                         articles={articles}
-                        index={index}
+                        index={index || 0}
                         view={view}
                         className={className}
                     />

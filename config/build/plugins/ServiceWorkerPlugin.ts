@@ -52,6 +52,7 @@ export class ServiceWorkerPlugin {
                 if (node.isKind(SyntaxKind.PropertyAccessExpression) && isAddAll(node)) {
                     const parent = node.getParent();
                     const array = parent?.getFirstChildByKind(SyntaxKind.ArrayLiteralExpression);
+                    array?.replaceWithText('[]');
                     array?.addElements(assets);
                 }
             });

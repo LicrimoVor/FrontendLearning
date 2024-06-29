@@ -15,7 +15,7 @@ interface ArticleInfinityProps {
     isLoading?: boolean,
     hasMore?: boolean,
     onLoadNextPart: () => void,
-    index: number,
+    index?: number,
     setIndex: (index: number) => void,
 }
 

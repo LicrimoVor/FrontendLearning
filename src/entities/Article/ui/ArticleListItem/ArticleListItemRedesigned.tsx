@@ -13,6 +13,7 @@ import { AppLink } from '@/shared/ui/redesigned/AppLink';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import DefaultImg from '@/shared/assets/icons/ghost_happy.svg';
 
 import { ArticleBlockText } from '../../model/types/article';
 import { ArticleView, ArticleBlockType } from '../../model/consts/article';
@@ -73,6 +74,7 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = memo((
                         src={article.img}
                         className={cls.img}
                         alt={article.title}
+                        errorFallback={<Icon Svg={DefaultImg} width="100%" height={420} />}
                     />
                     {textBlock && (
                         <Text
@@ -111,6 +113,7 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = memo((
                     src={article.img}
                     className={cls.img}
                     alt={article.title}
+                    errorFallback={<Icon Svg={DefaultImg} width={200} height={200} />}
                 />
                 <VStack className={cls.info} gap={4}>
                     <Text text={article.title} className={cls.title} />

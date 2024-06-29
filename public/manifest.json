@@ -1,0 +1,33 @@
+{
+  "manifest_version": 1,
+  "short_name": "PET-project",
+  "name": "My PET-project LicrimoVor",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "orientation": "portrait",
+  "background_color": "#f0f0f0",
+  "theme_color": "#3c3c3c",
+  "description": "Описание приложения",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/assets/TS.png",
+      "type": "image/png",
+      "sizes": "144x144 512x512"
+    },
+    {
+      "src": "/assets/TS.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "serviceworker": {
+      "src": "./sw.js"
+  }
+}

@@ -2,7 +2,7 @@ import { Config } from '../types/config';
 
 export function registerValidSW(swUrl: string, config?: Config) {
     navigator.serviceWorker
-        .register(swUrl)
+        .register(swUrl, { scope: './' })
         .then((registration) => {
             registration.onupdatefound = () => {
                 const installingWorker = registration.installing;

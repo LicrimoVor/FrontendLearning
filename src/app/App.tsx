@@ -27,6 +27,9 @@ function App() {
     useEffect(() => {
         if (!inited) {
             dispatch(initAuthData());
+            register();
+            // window.addEventListener('offline', () => { state._isOnline = false; });
+            // window.addEventListener('online', () => { state._isOnline = true; });
         }
     }, [dispatch, inited]);
 
@@ -81,5 +84,4 @@ function App() {
     );
 }
 
-register();
 export default withTheme(memo(App));

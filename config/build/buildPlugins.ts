@@ -40,18 +40,7 @@ export function BuildPlugins(
                 },
             ],
         }),
-        new AssetsPlugin({
-            fullPath: true,
-            path: paths.assets,
-        }),
-        new ServiceWorkerPlugin({
-            pathAssets: `${paths.assets}/webpack-assets.json`,
-            pathBuildSW: paths.buildSW,
-            ignoreFiles: [
-                '/index.html',
-                '/sw.js',
-            ],
-        }),
+
     ];
 
     if (isDev) {
@@ -79,6 +68,18 @@ export function BuildPlugins(
         plugins.push(new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css',
+        }));
+        plugins.push(new AssetsPlugin({
+            fullPath: true,
+            path: paths.assets,
+        }));
+        plugins.push(new ServiceWorkerPlugin({
+            pathAssets: `${paths.assets}/webpack-assets.json`,
+            pathBuildSW: paths.buildSW,
+            ignoreFiles: [
+                '/index.html',
+                '/sw.js',
+            ],
         }));
     }
 

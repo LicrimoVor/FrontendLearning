@@ -10,7 +10,7 @@ interface MineSweeperPageProps {
 }
 
 /** Докстринг */
-export const MineSweeperPage: FC <MineSweeperPageProps> = memo((
+const MineSweeperPage: FC <MineSweeperPageProps> = (
     props: MineSweeperPageProps,
 ) => {
     const {
@@ -22,4 +22,6 @@ export const MineSweeperPage: FC <MineSweeperPageProps> = memo((
             <Loader />
         </div>
     );
-});
+};
+
+export default memo(MineSweeperPage);

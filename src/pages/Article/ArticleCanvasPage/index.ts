@@ -1,1 +1,1 @@
-export { ArticleCanvasPage } from './ui/ArticleCanvasPage';
+export { ArticleCanvasPageAsync as ArticleCanvasPage } from './ui/ArticleCanvasPage.async';

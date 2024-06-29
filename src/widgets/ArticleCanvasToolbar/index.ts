@@ -1,1 +1,1 @@
-export { ArticleCanvasToolbar } from './ui/ArticleCanvasToolbar';
+export { ArticleCanvasToolbarAsync as ArticleCanvasToolbar } from './ui/ArticleCanvasToolbar.async';

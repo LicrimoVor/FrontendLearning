@@ -1,1 +1,1 @@
-export { MineSweeperPage } from './ui/MineSweeperPage';
+export { MineSweeperPageAsync as MineSweeperPage } from './ui/MineSweeperPage.async';

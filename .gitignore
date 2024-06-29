@@ -7,3 +7,4 @@ idea/
 /reports/unit
 
 *storybook.log
+/config/build/webpack-assets.json

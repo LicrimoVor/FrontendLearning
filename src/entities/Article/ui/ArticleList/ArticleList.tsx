@@ -27,7 +27,7 @@ interface ArticleListProps {
     onLoadNextPart?: () => void,
     initialArticleIndex?: {
         setIndex: (index: number) => void,
-        index: number,
+        index?: number,
     },
     countSceleton?: number,
     useWindowScroll?: boolean,
@@ -73,9 +73,9 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
 
     useInitialEffect(() => {
         let timmer: NodeJS.Timeout;
-        if (view === ArticleView.SMALL && initialArticleIndex) {
+        if (view === ArticleView.SMALL && initialArticleIndex?.index !== undefined) {
             timmer = setTimeout(() => {
-                virtuosoGridRef.current?.scrollToIndex(initialArticleIndex.index);
+                virtuosoGridRef.current?.scrollToIndex(initialArticleIndex.index!);
             }, 100);
         }
 

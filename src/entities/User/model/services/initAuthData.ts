@@ -6,7 +6,7 @@ import { LOCAL_STORAGE_LAST_DESIGN_KEY, USER_LOCALSTORAGE_KEY } from '@/shared/c
 import { getUserById } from '../../api/userApi';
 import { User } from '../types/user';
 
-/** Асинхронный редюсер для ... */
+/** Асинхронный редюсер для инициализации начальных данных авторизации */
 export const initAuthData = createAsyncThunk<
     User, void, ThunkConfig<string>
 >(
@@ -24,17 +24,18 @@ export const initAuthData = createAsyncThunk<
         }
 
         try {
-            const respone = await dispatch(getUserById(userId)).unwrap();
-            if (!respone) {
+            const response = await dispatch(getUserById(userId));
+
+            if (!response.data) {
                 return rejectWithValue('error');
             }
 
             localStorage.setItem(
                 LOCAL_STORAGE_LAST_DESIGN_KEY,
-                respone.features?.isAppRedesigned ? 'new' : 'old',
+                response.data.features?.isAppRedesigned ? 'new' : 'old',
             );
 
-            return respone;
+            return response.data;
         } catch {
             return rejectWithValue('error');
         }

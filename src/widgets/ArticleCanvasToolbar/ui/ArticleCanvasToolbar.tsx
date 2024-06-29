@@ -16,7 +16,7 @@ interface ArticleCanvasToolbarProps {
 /**
  * Toolbar для бескочного поля статей
  */
-export const ArticleCanvasToolbar: FC <ArticleCanvasToolbarProps> = memo((
+const ArticleCanvasToolbar: FC <ArticleCanvasToolbarProps> = (
     props: ArticleCanvasToolbarProps,
 ) => {
     const {
@@ -60,4 +60,6 @@ export const ArticleCanvasToolbar: FC <ArticleCanvasToolbarProps> = memo((
             />
         </VStack>
     );
-});
+};
+
+export default memo(ArticleCanvasToolbar);

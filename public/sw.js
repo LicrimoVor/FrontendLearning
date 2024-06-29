@@ -1,33 +1,76 @@
 /* eslint-disable no-restricted-globals */
-self.addEventListener('install', (event) => {
-    const cacheKey = 'MyFancyCacheName_v1';
-    console.log('[Service Worker] Installing', event);
+const CACHE_KEY = 'my-cache-key';
+const ASSETS_CACHE = [];
 
-    event.waitUntil(
-        caches.open(cacheKey).then((cache) => {
+// Достаем из кеша.
+function fromCache(request) {
+    return caches.open(CACHE_KEY)
+        .then((cache) => cache.match(request));
+}
+
+// Обновляем кеш.
+function update(request, response) {
+    return caches.open(CACHE_KEY)
+        .then((cache) => cache.put(request, response));
+}
+
+self.addEventListener('install', (ev) => {
+    console.log('[Service Worker] Installing', ev);
+    ev.waitUntil(caches
+        .open(CACHE_KEY)
+        .then((cache) => {
             console.log(
                 '[Service Worker] Предварительное кэширование оболочки приложения',
             );
             cache
-                .addAll([
-                    'https://fonts.gstatic.com/s/nunitosans/v15/pe0AMImSLYBIv1o4X1M8ce2xCx3yop4tQpF_MeTm0lfUVwoNnq4CLz0_kJ3xzA.woff2',
-                    'https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Ubuntu:wght@300;400;500;700&display=swap',
-                    'https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap',
-                ])
-                .then(() =>
-                    console.log('[Service Worker] Кеширование закончено'),
-                );
-        }),
-    );
+                .addAll(ASSETS_CACHE)
+                .then(() => console.log('[Service Worker] Кеширование закончено'))
+                .then(() => self.skipWaiting());
+        }));
 });
 
-self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        caches.match(event.request).then((response) => {
-            if (response) {
-                return response;
+self.addEventListener('activate', (ev) => {
+    ev.waitUntil((async () => {
+        if ('navigationPreload' in self.registration) {
+            await self.registration.navigationPreload.enable();
+        }
+        await caches
+            .keys()
+            .then((keys) => Promise.all(
+                keys.map((key) => {
+                    if (key !== CACHE_KEY) {
+                        return caches.delete(key);
+                    }
+                    return undefined;
+                }),
+            ));
+        await self.clients.claim();
+    })());
+});
+
+self.addEventListener('fetch', (ev) => {
+    ev.respondWith((async () => {
+        if (navigator.onLine) {
+            const preloadResponse = await ev.preloadResponse;
+            if (preloadResponse) {
+                return preloadResponse;
             }
-            return fetch(event.request);
-        }),
-    );
+        }
+
+        if (ASSETS_CACHE.includes(ev.request.url)) {
+            return fromCache(ev.request);
+        }
+
+        const response = await fetch(ev.request)
+            .then((response) => {
+                // if (!response.ok) return fromCache(ev.request);
+                if (response.url.indexOf('http') === 0) update(ev.request, response.clone());
+                return response;
+            })
+            .catch((err) => {
+                console.log(`[Service Worker] Error: ${err}`);
+                return fromCache(ev.request);
+            });
+        return response;
+    })());
 });

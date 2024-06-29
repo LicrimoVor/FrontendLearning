@@ -10,6 +10,7 @@ import { initAuthData } from '../services/initAuthData';
 
 const initialState: UserSchema = {
     _inited: false,
+    _isOnline: false,
 };
 
 export const userSlice = createSlice({
@@ -28,6 +29,9 @@ export const userSlice = createSlice({
         logout: (state) => {
             state.authData = undefined;
             localStorage.removeItem(USER_LOCALSTORAGE_KEY);
+        },
+        setOnline: (state, action: PayloadAction<boolean>) => {
+            state._isOnline = action.payload;
         },
     },
     extraReducers: (builder) => {
