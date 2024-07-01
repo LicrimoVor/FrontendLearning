@@ -7,7 +7,8 @@ import { useTheme } from '@/shared/lib/hooks/useTheme';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
-import { register, unregister } from '@/shared/lib/serviceWorker';
+import { register } from '@/shared/lib/serviceWorker';
+import { useInitOptions } from '@/shared/config/options';
 import { getUserInited, initAuthData } from '@/entities/User';
 import { Sidebar } from '@/widgets/Sidebar';
 import { Navbar } from '@/widgets/Navbar';
@@ -28,10 +29,9 @@ function App() {
         if (!inited) {
             dispatch(initAuthData());
             register();
-            // window.addEventListener('offline', () => { state._isOnline = false; });
-            // window.addEventListener('online', () => { state._isOnline = true; });
         }
     }, [dispatch, inited]);
+    useInitOptions();
 
     const Toolbar = useAppToolBar();
     const pageMods = useAppPageMods();

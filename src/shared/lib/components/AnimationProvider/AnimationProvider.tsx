@@ -23,7 +23,7 @@ const getAsyncAnimationModule = async () => (
 
 const AnimationContext = createContext<AnimationProviderState>({});
 
-/** Ленивая подругзка библиотек */
+/** Ленивая подгрузка библиотек анимации */
 export const AnimationProvider: FC<{children: ReactNode, }> = memo((
     props: {children: ReactNode},
 ) => {

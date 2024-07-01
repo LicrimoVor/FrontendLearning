@@ -44,6 +44,7 @@
     "@chromatic-com/storybook": "^1.5.0",
     "@jest/globals": "^29.7.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
+    "@statoscope/webpack-plugin": "^5.28.2",
     "@storybook/addon-actions": "^8.1.10",
     "@storybook/addon-essentials": "^8.1.10",
     "@storybook/addon-interactions": "^8.1.10",

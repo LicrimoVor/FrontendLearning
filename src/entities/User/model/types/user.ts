@@ -13,6 +13,5 @@ export interface User {
 
 export interface UserSchema {
     authData?: User,
-    _isOnline: boolean,
     _inited: boolean,
 }

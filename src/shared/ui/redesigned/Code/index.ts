@@ -1,1 +1,1 @@
-export { Code } from './ui/Code';
+export { CodeProvided as Code } from './ui/Code';

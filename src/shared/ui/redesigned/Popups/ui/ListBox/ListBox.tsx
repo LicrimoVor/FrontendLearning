@@ -1,11 +1,9 @@
-import {
-    ReactNode, useEffect, useMemo, useState,
-} from 'react';
-import { Listbox as HListbox } from '@headlessui/react';
+import { ReactNode, useEffect, useState } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { typedMemo } from '@/shared/lib/typedMemo';
 import ArrowDown from '@/shared/assets/icons/arrow_down.svg';
+import { HeadlessuiProvider, useHealdessuiContext } from '@/shared/lib/components/HeadlessuiProvider';
 
 import { HStack } from '../../../Stack';
 import { Text } from '../../../Text';
@@ -38,7 +36,7 @@ interface ListBoxProps<T extends string> {
 /**
  * Всплывающее окно с выбором
  */
-export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
+const ListBoxComponent = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
     const {
         className,
         data,
@@ -52,6 +50,7 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
     } = props;
 
     const [textButton, setTextButton] = useState(textBtn);
+    const { library: { Listbox: HListbox } } = useHealdessuiContext();
 
     useEffect(() => {
         if (textButton === undefined) {
@@ -110,3 +109,10 @@ export const ListBox = typedMemo(<T extends string>(props: ListBoxProps<T>) => {
         </HStack>
     );
 });
+
+export default typedMemo(<T extends string>(props: ListBoxProps<T>) => (
+    <HeadlessuiProvider>
+        <ListBoxComponent<T> {...props} />
+    </HeadlessuiProvider>
+));
+export type ListBoxType = typeof ListBoxComponent;

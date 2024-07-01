@@ -43,14 +43,10 @@ export const NavbarRed: FC<NavbarProps> = memo((props: NavbarProps) => {
                 <HStack
                     justify="spaceBetween"
                     max
+                    gap={16}
                 >
-                    <NotificationBtn
-                        className={cls.notification}
-                    />
-                    <AvatarDropdown
-                        inverted
-                        className={cls.dropMenu}
-                    />
+                    <NotificationBtn />
+                    <AvatarDropdown />
                 </HStack>
             </header>
         );
@@ -66,6 +62,7 @@ export const NavbarRed: FC<NavbarProps> = memo((props: NavbarProps) => {
             <HStack
                 justify="spaceBetween"
                 max
+                gap={16}
             >
                 <Button
                     onClick={onOpenModal}

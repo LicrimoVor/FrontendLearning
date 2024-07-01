@@ -1,9 +1,9 @@
 import {
     FC, Fragment, memo, ReactNode,
 } from 'react';
-import { Menu } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { HeadlessuiProvider, useHealdessuiContext } from '@/shared/lib/components/HeadlessuiProvider';
 
 import { AppLink } from '../../../AppLink';
 import { Button } from '../../../Button';
@@ -29,13 +29,15 @@ interface DropdownProps {
 /**
  * Всплывающее меню
  */
-export const Dropdown: FC<DropdownProps> = memo((props: DropdownProps) => {
+const DropdownComponent: FC<DropdownProps> = memo((props: DropdownProps) => {
     const {
         className,
         data,
         label,
         direction = 'bottom right',
     } = props;
+
+    const { library: { Menu } } = useHealdessuiContext();
 
     return (
         <Menu
@@ -97,3 +99,10 @@ export const Dropdown: FC<DropdownProps> = memo((props: DropdownProps) => {
         </Menu>
     );
 });
+
+export default memo((props: DropdownProps) => (
+    <HeadlessuiProvider>
+        <DropdownComponent {...props} />
+    </HeadlessuiProvider>
+));
+export type DropdownType = typeof DropdownComponent;

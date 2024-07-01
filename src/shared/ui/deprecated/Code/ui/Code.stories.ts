@@ -2,25 +2,23 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { Theme } from '@/shared/lib/context/ThemeContext';
+import { newDesignDecorator } from '@/shared/config/storybook/newDesignDecorator';
 
-import Dropdown from './Dropdown';
+import { Code } from './Code';
 
-const meta: Meta<typeof Dropdown> = {
-    title: 'shared/redesigned/Dropdown',
-    component: Dropdown,
+const meta: Meta<typeof Code> = {
+    title: 'shared/redesigned/Code',
+    component: Code,
     args: {
-        data: [
-            { component: 'one', onClick: () => 1 },
-            { component: 'two', onClick: () => 2 },
-            { component: 'three', onClick: () => 3 },
-            { component: 'four', onClick: () => 4 },
-        ],
-        label: 'test',
+        text: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
     },
+    decorators: [
+        newDesignDecorator,
+    ],
 };
 
 export default meta;
-type Story = StoryObj<typeof Dropdown>;
+type Story = StoryObj<typeof Code>;
 
 export const Light: Story = {
     decorators: [

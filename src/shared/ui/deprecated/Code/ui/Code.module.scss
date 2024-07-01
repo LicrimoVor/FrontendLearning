@@ -1,10 +1,9 @@
 .Code {
+    border: 1px solid var(--primary-color);
     padding: 20px;
     position: relative;
-    background: var(--light-bg-redesigned);
-    
-    border: 1px solid var(--accent-redesigned);
-    border-radius: 16px;
+    background: var(--code-bg);
+    overflow: auto;
 }
 
 .codeText {

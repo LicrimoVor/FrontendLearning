@@ -45,6 +45,7 @@ const ArticleCanvasToolbar: FC <ArticleCanvasToolbarProps> = (
             align="center"
             justify="center"
             max
+            gap={16}
         >
             <Icon
                 Svg={HomeSvg}

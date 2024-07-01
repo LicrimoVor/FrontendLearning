@@ -1,11 +1,10 @@
 import {
     CSSProperties, FC, memo, ReactNode,
 } from 'react';
-import { Popover as HPopover } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { HeadlessuiProvider, useHealdessuiContext } from '@/shared/lib/components/HeadlessuiProvider';
 
-import { Button } from '../../../Button';
 import { PopupDirectionConvert } from '../../styles/consts';
 import { PopupDirection } from '../../styles/types';
 import cls from './Popover.module.scss';
@@ -32,7 +31,7 @@ interface PopoverProps {
 /**
  * Тот же дроп-даун, но с любым внутренним содержимым
  */
-export const Popover: FC<PopoverProps> = memo((props: PopoverProps) => {
+const PopoverComponent: FC<PopoverProps> = memo((props: PopoverProps) => {
     const {
         className,
         children,
@@ -42,6 +41,8 @@ export const Popover: FC<PopoverProps> = memo((props: PopoverProps) => {
         autoScroll,
         marginTopMenu,
     } = props;
+
+    const { library: { Popover: HPopover } } = useHealdessuiContext();
 
     const panelClasses = [
         PopupDirectionConvert[direction],
@@ -68,3 +69,12 @@ export const Popover: FC<PopoverProps> = memo((props: PopoverProps) => {
         </HPopover>
     );
 });
+
+export default memo(({ children, ...otherProps }: PopoverProps) => (
+    <HeadlessuiProvider>
+        <PopoverComponent {...otherProps}>
+            {children}
+        </PopoverComponent>
+    </HeadlessuiProvider>
+));
+export type PopoverType = typeof PopoverComponent;

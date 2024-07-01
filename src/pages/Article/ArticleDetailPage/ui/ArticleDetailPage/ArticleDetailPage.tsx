@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
-import { Card } from '@/shared/ui/redesigned/Card';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
@@ -70,7 +69,6 @@ const ArticleDetailPage: FC = () => {
 
                 )}
             />
-
         </Page>
     );
 };

@@ -124,7 +124,7 @@ export const DrawerLoading = memo((props: DrawerProps) => {
     return <DrawerContent {...props} />;
 });
 
-export const Drawer = memo((props: DrawerProps) => (
+export default memo((props: DrawerProps) => (
     <AnimationProvider>
         <DrawerLoading {...props} />
     </AnimationProvider>

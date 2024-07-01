@@ -20,6 +20,7 @@ interface PageProps extends TestProps {
     className?: string,
     children: ReactNode,
     onScrollEnd?: () => void,
+    scrollInit?: boolean,
 }
 
 export const PAGE_ID = 'PAGE_ID';
@@ -30,6 +31,7 @@ export const Page: FC<PageProps> = memo((props: PageProps) => {
         className,
         children,
         onScrollEnd,
+        scrollInit = true,
     } = props;
 
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -46,16 +48,19 @@ export const Page: FC<PageProps> = memo((props: PageProps) => {
         callback: onScrollEnd,
     });
 
-    useInitialEffect(() => {
-        wrapperRef.current.scrollTop = scrollPosition;
-    });
-
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
         dispatch(scrollSaveActions.setScrollPosition({
             path: pathname,
             position: e.currentTarget.scrollTop,
         }));
     }, 500);
+
+    useInitialEffect(() => {
+        if (scrollInit) {
+            document.onscroll = () => onScroll;
+            document.documentElement.scrollTop = scrollPosition;
+        }
+    });
 
     return (
         <main

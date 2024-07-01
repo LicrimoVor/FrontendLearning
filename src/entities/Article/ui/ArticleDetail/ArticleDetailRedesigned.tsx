@@ -39,7 +39,7 @@ export const ArticleDetailRedesigned: FC<ArticleDetailRedesignedProps> = memo((
                 max
                 className={classNames('', {}, [className])}
             >
-                <HStack gap={8}>
+                <HStack gap={8} max>
                     <Skeleton height={32} width={32} border="50%" />
                     <Skeleton height={24} width={100} />
                 </HStack>

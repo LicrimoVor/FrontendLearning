@@ -1,1 +1,3 @@
-export { Drawer } from './ui/Drawer';
+import { lazy } from 'react';
+
+export const Drawer = lazy(() => import('./ui/Drawer'));

@@ -14,12 +14,14 @@ import { ProfileSchema } from '@/features/Profile/EditableProfile';
 import { ScrollSaveSchema } from '@/features/ScrollSave';
 import { ArticleCanvasSchema } from '@/features/Article/ArticleCanvas';
 import { ArticlePageSchema } from '@/pages/Article/ArticlePage';
+import { OptionsSchema } from '../options';
 
 export interface StateSchema {
     // Синхронные редюсеры
     user: UserSchema,
     scroll: ScrollSaveSchema,
     [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>,
+    options: OptionsSchema,
 
     // Асинхронные редюсеры
     loginForm?: LoginSchema,

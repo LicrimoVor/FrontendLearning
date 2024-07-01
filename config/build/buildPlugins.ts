@@ -7,6 +7,7 @@ import CopyPlugin from 'copy-webpack-plugin';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
 import ForkIsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import AssetsPlugin from 'assets-webpack-plugin';
+import StatoscopeWebpackPlugin from '@statoscope/webpack-plugin';
 
 import { BuildOptions } from './types/config';
 import { ServiceWorkerPlugin } from './plugins/ServiceWorkerPlugin';
@@ -61,6 +62,11 @@ export function BuildPlugins(
         plugins.push(new webpack.HotModuleReplacementPlugin());
         plugins.push(new BundleAnalyzerPlugin({
             openAnalyzer: false,
+        }));
+        plugins.push(new StatoscopeWebpackPlugin({
+            saveReportTo: `${paths.build}/report-[name]-hash.html`,
+            open: 'file',
+            // compressor: 'gzip'
         }));
     }
 

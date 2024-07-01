@@ -1,12 +1,16 @@
 import { FC, memo } from 'react';
+
+import { Page } from '@/widgets/Page';
+
 import { ArticlePageInfinity } from '../ArticlePageInfinity/ArticlePageInfinity';
 
 /** Старница списка статей */
 const ArticlePage: FC = () => (
-    <div
+    <Page
         data-testid="ArticlePage"
+        scrollInit={false}
     >
         <ArticlePageInfinity />
-    </div>
+    </Page>
 );
 export default memo(ArticlePage);

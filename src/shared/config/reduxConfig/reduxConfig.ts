@@ -10,6 +10,7 @@ import { scrollSaveReducer } from '@/features/ScrollSave';
 
 import { createReducerManager } from './reducerManager';
 import { StateSchema, ThunkExtraArg } from './stateShema';
+import { optionsReducer } from '../options';
 
 /** Создаем глобал стор */
 export function createReduxStore(
@@ -21,6 +22,7 @@ export function createReduxStore(
         scroll: scrollSaveReducer,
         user: userReducer,
         api: rtkApi.reducer,
+        options: optionsReducer,
     };
 
     const reducerManager = createReducerManager(rootReducers);

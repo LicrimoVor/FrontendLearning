@@ -1,7 +1,10 @@
 import { FC, memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Code } from '@/shared/ui/redesigned/Code';
+import { Code as CodeDeprecated } from '@/shared/ui/deprecated/Code';
+import { Code as CodeRedesigned } from '@/shared/ui/redesigned/Code';
+import { ToggleFeatures } from '@/shared/lib/features';
+
 import { ArticleBlockCode } from '../../model/types/article';
 import cls from './ArticleBlockCodeComponent.module.scss';
 
@@ -24,7 +27,11 @@ export const ArticleBlockCodeComponent: FC<ArticleBlockCodeComponentProps> = mem
             className={classNames(cls.ArticleBlockCodeComponent, {}, [className])}
             data-testid="ArticleBlockCodeComponent"
         >
-            <Code text={block.code} />
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                off={<CodeDeprecated text={block.code} />}
+                on={<CodeRedesigned text={block.code} />}
+            />
         </div>
     );
 });
