@@ -42,7 +42,7 @@ const PopoverComponent: FC<PopoverProps> = memo((props: PopoverProps) => {
         marginTopMenu,
     } = props;
 
-    const { library: { Popover: HPopover } } = useHealdessuiContext();
+    const { library: ui, isLoading } = useHealdessuiContext();
 
     const panelClasses = [
         PopupDirectionConvert[direction],
@@ -55,18 +55,22 @@ const PopoverComponent: FC<PopoverProps> = memo((props: PopoverProps) => {
         overflowY: autoScroll ? 'scroll' : undefined,
     };
 
+    if (isLoading) {
+        return null;
+    }
+
     return (
-        <HPopover className={classNames(cls.Popover, {}, [className, popupsCls.Popup])}>
-            <HPopover.Button as="div">
+        <ui.Popover className={classNames(cls.Popover, {}, [className, popupsCls.Popup])}>
+            <ui.Popover.Button as="div">
                 {trigger}
-            </HPopover.Button>
-            <HPopover.Panel
+            </ui.Popover.Button>
+            <ui.Popover.Panel
                 style={styles}
                 className={classNames(cls.menu, {}, panelClasses)}
             >
                 {children}
-            </HPopover.Panel>
-        </HPopover>
+            </ui.Popover.Panel>
+        </ui.Popover>
     );
 });
 

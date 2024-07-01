@@ -91,6 +91,7 @@ export const ArticleViewSwitcher: FC<articleViewSwitcherProps> = memo((
                     >
                         {viewTypes.map((viewType) => (
                             <Icon
+                                aria-labelledby={`article-view-${viewType.view}`}
                                 onClick={onClick(viewType.view)}
                                 key={viewType.view}
                                 data-testid={`ArticleViewSwitcher.${viewType.view}`}

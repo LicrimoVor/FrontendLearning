@@ -85,6 +85,7 @@ export const StarRating: FC<StarRatingProps> = memo((props: StarRatingProps) => 
                         on={(
                             <Icon
                                 {...data}
+                                aria-labelledby={`star#${starId}`}
                                 keyId={starId}
                                 Svg={StarSVG}
                                 size={size}

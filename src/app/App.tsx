@@ -18,25 +18,28 @@ import { AppRouter } from './providers/router';
 import { useAppToolBar } from './lib/useAppToolbar';
 import { withTheme } from './providers/ThemeProvider';
 import { useAppPageMods } from './lib/useAppPageMods';
+import { useGetFonts } from './lib/useGetFonts';
 
 /** Главная приложуха */
 function App() {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
+    const { init: fontInit, getFonts } = useGetFonts();
 
     useEffect(() => {
         if (!inited) {
+            getFonts();
             dispatch(initAuthData());
             register();
         }
-    }, [dispatch, inited]);
+    }, [dispatch, inited, getFonts]);
     useInitOptions();
 
     const Toolbar = useAppToolBar();
     const pageMods = useAppPageMods();
 
-    if (!inited) {
+    if (!inited || !fontInit) {
         return (
             <ToggleFeatures
                 feature="isAppRedesigned"

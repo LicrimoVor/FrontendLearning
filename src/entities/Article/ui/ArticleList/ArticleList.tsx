@@ -15,7 +15,7 @@ import { Article } from '../../model/types/article';
 import { ArticleView } from '../../model/consts/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleItemSkeleton } from '../ArticleListItem/ArticleItemSkeleton';
-import { getCountSceleton } from '../../lib/hook/getCountSceleton';
+import { getCountSceleton } from '../../lib/getCountSceleton';
 import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {

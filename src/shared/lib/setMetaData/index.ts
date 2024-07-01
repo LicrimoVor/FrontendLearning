@@ -1,0 +1,1 @@
+export { setMetaData } from './setMetaData';

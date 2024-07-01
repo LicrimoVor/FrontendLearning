@@ -47,6 +47,7 @@ export const FilterContainer: FC<FilterContainerProps> = memo((
             />
             <div className={cls.canvas}>
                 <Icon
+                    aria-labelledby="canvas-article"
                     clickable
                     href={getRouteArticleCanvas()}
                     Svg={ArticleCanvas}

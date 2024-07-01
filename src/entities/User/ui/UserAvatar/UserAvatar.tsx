@@ -30,6 +30,7 @@ export const UserAvatar: FC<UserAvatarProps> = memo((props: UserAvatarProps) => 
             className={classNames(cls.UserAvatar, {}, [className])}
             to={getRouteProfile(user.id)}
             draggable={draggable}
+            ariaLabel={`link-${user.username}`}
         >
             <Avatar
                 size={30}

@@ -52,12 +52,14 @@ const ArticleCanvasToolbar: FC <ArticleCanvasToolbarProps> = (
                 onClick={onHomeClick}
                 clickable
                 size={32}
+                aria-labelledby="home-position"
             />
             <Icon
                 Svg={FetchSvg}
                 onClick={onFetchArticle}
                 clickable
                 size={32}
+                aria-labelledby="more-articles"
             />
         </VStack>
     );

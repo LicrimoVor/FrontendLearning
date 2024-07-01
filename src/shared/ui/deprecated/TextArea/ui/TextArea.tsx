@@ -59,6 +59,7 @@ export const TextArea: FC<TextAreaProps> = memo((props: TextAreaProps) => {
                 wrap="soft"
                 rows={rows}
                 className={classNames(cls.textInput, modsArea)}
+                typeof="text"
                 {...otherProps}
             />
             <span

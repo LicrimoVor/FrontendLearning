@@ -23,8 +23,6 @@ interface PageProps extends TestProps {
     scrollInit?: boolean,
 }
 
-export const PAGE_ID = 'PAGE_ID';
-
 /** Обертка для страницы. */
 export const Page: FC<PageProps> = memo((props: PageProps) => {
     const {
@@ -62,6 +60,8 @@ export const Page: FC<PageProps> = memo((props: PageProps) => {
         }
     });
 
+    console.log('RENDER');
+
     return (
         <main
             ref={wrapperRef}
@@ -73,7 +73,6 @@ export const Page: FC<PageProps> = memo((props: PageProps) => {
                     off: () => cls.Page,
                 }), {}, [className])
             }
-            id={PAGE_ID}
             data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}

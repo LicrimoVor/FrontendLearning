@@ -37,20 +37,24 @@ const DropdownComponent: FC<DropdownProps> = memo((props: DropdownProps) => {
         direction = 'bottom right',
     } = props;
 
-    const { library: { Menu } } = useHealdessuiContext();
+    const { library: ui, isLoading } = useHealdessuiContext();
+
+    if (isLoading) {
+        return null;
+    }
 
     return (
-        <Menu
+        <ui.Menu
             as="div"
             className={classNames(cls.Dropdown, {}, [className])}
         >
-            <Menu.Button
+            <ui.Menu.Button
                 as={Button}
                 variant="clear"
             >
                 {label}
-            </Menu.Button>
-            <Menu.Items
+            </ui.Menu.Button>
+            <ui.Menu.Items
                 className={classNames(popupsCls.popupMenu, {}, [PopupDirectionConvert[direction]])}
             >
                 {data.map((item, indx) => {
@@ -73,7 +77,7 @@ const DropdownComponent: FC<DropdownProps> = memo((props: DropdownProps) => {
 
                     if (item.href) {
                         return (
-                            <Menu.Item
+                            <ui.Menu.Item
                                 as={AppLink}
                                 to={item.href}
                                 disabled={item.disabled}
@@ -82,21 +86,21 @@ const DropdownComponent: FC<DropdownProps> = memo((props: DropdownProps) => {
                                 draggable={false}
                             >
                                 {content}
-                            </Menu.Item>
+                            </ui.Menu.Item>
                         );
                     }
 
                     return (
-                        <Menu.Item
+                        <ui.Menu.Item
                             as={Fragment}
                             key={indx}
                         >
                             {content}
-                        </Menu.Item>
+                        </ui.Menu.Item>
                     );
                 })}
-            </Menu.Items>
-        </Menu>
+            </ui.Menu.Items>
+        </ui.Menu>
     );
 });
 

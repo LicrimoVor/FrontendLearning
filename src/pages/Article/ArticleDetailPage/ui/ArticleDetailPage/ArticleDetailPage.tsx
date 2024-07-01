@@ -48,7 +48,7 @@ const ArticleDetailPage: FC = () => {
                         <ToggleFeatures
                             feature="isArticleRatingEnabled"
                             off={<CardDeprecated>{t('Скоро будет рейтинг')}</CardDeprecated>}
-                            on={<ArticleRating articleId={id!} className={cls.rating} />}
+                            on={<ArticleRating articleId={id} className={cls.rating} />}
                         />
                         <ArticleCommentForm articleId={id} />
                         <ArticleRecommend />
@@ -59,7 +59,7 @@ const ArticleDetailPage: FC = () => {
                         content={(
                             <VStack gap={32} max>
                                 <ArticleDetailContainer id={id} />
-                                <ArticleRating articleId={id!} className={cls.rating} />
+                                <ArticleRating articleId={id} className={cls.rating} />
                                 <ArticleCommentForm articleId={id} />
                                 <ArticleRecommend />
                             </VStack>

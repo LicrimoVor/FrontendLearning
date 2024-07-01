@@ -7,12 +7,13 @@ import cls from './AppLink.module.scss';
 
 type AppLinkVariant = 'primary' | 'red';
 
-interface AppLinkProps extends LinkProps {
+interface AppLinkProps extends Omit<LinkProps, 'aria-label'> {
     className?: string,
     variant?: AppLinkVariant,
     children?: ReactNode,
     disabled?: boolean,
-    activeClassname?: string
+    activeClassname?: string,
+    ariaLabel?: string,
 }
 
 /**
@@ -26,12 +27,14 @@ export const AppLink: FC<AppLinkProps> = memo((props: AppLinkProps) => {
         variant = 'primary',
         disabled,
         activeClassname = '',
+        ariaLabel,
         ...otherProps
     } = props;
 
     return (
         <NavLink
             to={to}
+            aria-label={ariaLabel || String(to)}
             className={({ isActive }) => classNames(
                 cls.AppLink,
                 { [activeClassname]: isActive },

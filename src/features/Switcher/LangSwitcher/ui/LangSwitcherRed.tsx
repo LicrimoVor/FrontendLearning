@@ -20,6 +20,7 @@ export const LangSwitcherRed: FC<LangSwitcherProps> = memo((props: LangSwitcherP
 
     return (
         <Icon
+            aria-labelledby="switch-lang"
             Svg={LangSvg}
             clickable
             onClick={onClick}

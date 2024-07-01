@@ -44,6 +44,7 @@ export const ScrollToTopButton: FC<ScrollToTopButtonProps> = memo((
 
     return (
         <Icon
+            aria-labelledby="scroll-down"
             clickable
             onClick={onClick}
             Svg={ArrowUpSvg}

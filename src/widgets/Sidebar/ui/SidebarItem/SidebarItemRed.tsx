@@ -54,6 +54,7 @@ export const SidebarItem: FC<SidebarItemProps> = memo((props: SidebarItemProps) 
             className={classNames(cls.item, {}, [className])}
             activeClassname={cls.active}
             draggable={false}
+            ariaLabel={item.text}
         >
             <Icon
                 Svg={item.Icon}

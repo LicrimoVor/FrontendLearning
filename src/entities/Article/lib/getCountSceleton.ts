@@ -1,5 +1,5 @@
 import { RefObject } from 'react';
-import { ArticleView } from '../../model/consts/article';
+import { ArticleView } from '../model/consts/article';
 
 // const HEIGHT_BIG =
 const HEIGHT_SMALL = 300;

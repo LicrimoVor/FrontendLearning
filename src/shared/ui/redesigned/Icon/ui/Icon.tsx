@@ -23,6 +23,7 @@ interface NonClickableProps extends IconBasicProps {
 interface ClickableProps extends IconBasicProps {
     clickable: true,
     onClick?: () => void,
+    'aria-labelledby': string,
     href?: string,
 }
 
@@ -60,6 +61,8 @@ export const Icon = memo((props: IconProps) => {
                     className={cls.clickable}
                     to={props.href}
                     key={keyId}
+                    ariaLabel={props['aria-labelledby']}
+                    draggable={false}
                 >
                     {icon}
                 </AppLink>
@@ -71,6 +74,8 @@ export const Icon = memo((props: IconProps) => {
                 type="button"
                 className={cls.clickable}
                 onClick={props.onClick}
+                draggable={false}
+                aria-labelledby={props['aria-labelledby']}
                 key={keyId}
             >
                 {icon}

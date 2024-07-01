@@ -50,7 +50,7 @@ const ListBoxComponent = typedMemo(<T extends string>(props: ListBoxProps<T>) =>
     } = props;
 
     const [textButton, setTextButton] = useState(textBtn);
-    const { library: { Listbox: HListbox } } = useHealdessuiContext();
+    const { library: ui, isLoading } = useHealdessuiContext();
 
     useEffect(() => {
         if (textButton === undefined) {
@@ -64,17 +64,21 @@ const ListBoxComponent = typedMemo(<T extends string>(props: ListBoxProps<T>) =>
         cls.popupMenu,
     ];
 
+    if (isLoading) {
+        return null;
+    }
+
     return (
         <HStack gap={4}>
             {label && <Text text={label} />}
-            <HListbox
+            <ui.Listbox
                 as="div"
                 value={selectedValue}
                 onChange={onChange}
                 className={classNames(popupsCls.Popup, {}, [className])}
                 disabled={readonly}
             >
-                <HListbox.Button as="div">
+                <ui.Listbox.Button as="div">
                     <Button
                         variant="filled"
                         disabled={readonly}
@@ -82,12 +86,12 @@ const ListBoxComponent = typedMemo(<T extends string>(props: ListBoxProps<T>) =>
                     >
                         {textButton}
                     </Button>
-                </HListbox.Button>
-                <HListbox.Options
+                </ui.Listbox.Button>
+                <ui.Listbox.Options
                     className={classNames(popupsCls.popupMenu, {}, optionsClasses)}
                 >
                     {data.map((item) => (
-                        <HListbox.Option
+                        <ui.Listbox.Option
                             key={item.value}
                             className={({ active, selected }) => classNames(
                                 cls.item,
@@ -102,10 +106,10 @@ const ListBoxComponent = typedMemo(<T extends string>(props: ListBoxProps<T>) =>
                             disabled={item.readonly}
                         >
                             {item.content || item.component || item.value}
-                        </HListbox.Option>
+                        </ui.Listbox.Option>
                     ))}
-                </HListbox.Options>
-            </HListbox>
+                </ui.Listbox.Options>
+            </ui.Listbox>
         </HStack>
     );
 });

@@ -69,6 +69,7 @@ module.exports = {
                     'size',
                     'marginTopMenu',
                     'color',
+                    'aria-labelledby',
                 ],
             },
         ],

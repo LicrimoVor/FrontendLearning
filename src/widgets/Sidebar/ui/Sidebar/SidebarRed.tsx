@@ -39,6 +39,7 @@ export const RedesignedSidebar: FC<SidebarProps> = memo((props: SidebarProps) =>
         >
 
             <Icon
+                aria-labelledby="home"
                 Svg={ArrowSvg}
                 clickable
                 data-testid="sidebar-wrap-button"

@@ -35,6 +35,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
         addonLeft,
         addonRight,
         label,
+        type = 'text',
         ...otherProps
     } = props;
 
@@ -79,6 +80,7 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
                     onChange={onChangeHandler}
                     readOnly={readonly}
                     placeholder={placeholder}
+                    type={type}
                     {...otherProps}
                 />
                 {addonRight && <div className={cls.addonRight}>{addonRight}</div>}

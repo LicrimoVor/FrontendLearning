@@ -56,6 +56,7 @@ export const NotificationBtn: FC<NotificationBtnProps> = memo((props: Notificati
             )}
             on={(
                 <Icon
+                    aria-labelledby="notification"
                     Svg={NotificationSvgRedesigned}
                     size={30}
                     clickable
