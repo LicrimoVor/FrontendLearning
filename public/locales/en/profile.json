@@ -1,10 +1,10 @@
 {
   "Change": "Change",
-  "FirstName": "FirstName",
+  "First name": "FirstName",
   "Profile": "Profile",
-  "LastName": "LastName",
-  "ErrorProfile": "An error occurred while uploading the profile",
-  "UpdatePage": "Refresh page",
+  "Last name": "LastName",
+  "Error profile": "An error occurred while uploading the profile",
+  "Update page": "Refresh page",
   "Edit": "Edit",
   "Cancel": "Cancel",
   "Save": "Save",
@@ -13,14 +13,17 @@
   "Country": "Country",
   "Username": "Username",
   "Currency": "Currency",
-  "ProfileAvatar": "Avatar",
+  "Profile avatar": "Avatar",
+  "Not found": "Profie not found",
+
   "INCORRECT_USER_DATA": "First and last name are required",
   "INCORRECT_AGE": "Incorrect age",
   "INCORRECT_COUNTRY": "Incorrect country",
   "NO_DATA": "The data is not specified",
   "SERVER_ERROR": "Server error",
+
   "Evaluation": "Evaluation of the profile",
-  "EvaluationComplete": "Thanks for the assessment!",
+  "Evaluation complete": "Thanks for the assessment!",
   "Feedback": "Write a review",
-  "FeedbackComplete": "Thanks for the feedback!"
+  "Feedback complete": "Thanks for the feedback!"
 }

@@ -40,6 +40,7 @@ export const ArticleNode: FC<ArticleNodeProps> = memo((
     } = props;
 
     const { t } = useTranslation('article');
+
     if (isLoading) {
         return (
             <Card
@@ -107,7 +108,7 @@ export const ArticleNode: FC<ArticleNodeProps> = memo((
                     draggable={false}
                 >
                     <Button variant="outline">
-                        {t('ReadMore')}
+                        {t('Read more')}
                     </Button>
                 </AppLink>
             </VStack>

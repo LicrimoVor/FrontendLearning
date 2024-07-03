@@ -30,7 +30,7 @@ export const ArticleDetailRedesigned: FC<ArticleDetailRedesignedProps> = memo((
         error,
     } = props;
 
-    const { t } = useTranslation('article-detail');
+    const { t } = useTranslation('article');
 
     if (isLoading) {
         return (
@@ -54,7 +54,7 @@ export const ArticleDetailRedesigned: FC<ArticleDetailRedesignedProps> = memo((
     if (error) {
         return (
             <Text
-                title={t('ArticleErrorInLoading')}
+                title={t('Error loading the article')}
                 align="center"
                 variant="error"
                 className={classNames('', {}, [className])}

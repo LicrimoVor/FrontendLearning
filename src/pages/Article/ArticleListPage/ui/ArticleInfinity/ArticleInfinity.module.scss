@@ -1,0 +1,13 @@
+.DeprecatedArticlePage {
+    flex-grow: 1;
+    overflow-y: hidden;
+    width: calc(100vw - var(--sidebar-width));
+
+    .header {
+        margin: 30px;
+    }
+}
+
+.articleList {
+    height: calc(100vh - var(--navbar-height));
+}

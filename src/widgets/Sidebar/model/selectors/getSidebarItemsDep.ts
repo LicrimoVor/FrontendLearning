@@ -2,7 +2,7 @@ import { createSelector } from '@reduxjs/toolkit';
 
 import {
     getRouteAbout,
-    getRouteArticles,
+    getRouteArticleList,
     getRouteMain,
     getRouteProfile,
 } from '@/shared/const/route';
@@ -42,7 +42,7 @@ export const getSidebarItems = createSelector(
                     authOnly: true,
                 },
                 {
-                    path: getRouteArticles(),
+                    path: getRouteArticleList(),
                     text: 'Articles',
                     Icon: ArticlesIcon,
                     authOnly: true,

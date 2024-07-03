@@ -73,7 +73,6 @@ export const SidebarItem: FC<SidebarItemProps> = memo((props: SidebarItemProps) 
                         </span>
                     )
             }
-
         </AppLink>
     );
 });

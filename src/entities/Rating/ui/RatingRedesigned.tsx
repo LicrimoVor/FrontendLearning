@@ -54,9 +54,12 @@ export const RatingRedesigned: FC<RatingRedesignedProps> = memo((
     const feedbackContent = (
         <VStack gap={12} max>
             <Text
+                textTag="label"
+                htmlFor={feedbackTitle || title || 'feedback'}
                 title={feedbackTitle}
             />
             <TextArea
+                id={feedbackTitle || title || 'feedback'}
                 value={textFeedback}
                 onChange={setTextFeedBack}
                 rows={5}

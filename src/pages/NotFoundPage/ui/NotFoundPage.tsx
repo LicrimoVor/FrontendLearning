@@ -6,7 +6,7 @@ import cls from './NotFoundPage.module.scss';
 
 /** Страница с ошибкой 404 */
 export const NotFoundPage: FC = () => {
-    const { t } = useTranslation('not_found');
+    const { t } = useTranslation();
 
     return (
         <Page

@@ -37,7 +37,7 @@ export const PageError: FC<PageErrorProps> = (props) => {
                         data-testid="button-reload"
                         onClick={refreshPage}
                     >
-                        {t('Refresh')}
+                        {t('Refresh page')}
                     </ButtonDeprecated>
                 )}
                 on={(
@@ -45,7 +45,7 @@ export const PageError: FC<PageErrorProps> = (props) => {
                         data-testid="button-reload"
                         onClick={refreshPage}
                     >
-                        {t('Refresh')}
+                        {t('Refresh page')}
                     </Button>
                 )}
             />

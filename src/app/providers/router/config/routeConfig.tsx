@@ -3,7 +3,7 @@ import {
     getRouteMain,
     getRouteAbout,
     getRouteProfile,
-    getRouteArticles,
+    getRouteArticleList,
     getRouteArticleCreate,
     getRouteArticleDetails,
     getRouteArticleEdit,
@@ -17,7 +17,7 @@ import { UserRole } from '@/entities/User';
 import { AboutPage } from '@/pages/AboutPages';
 import { MainPage } from '@/pages/MainPages';
 import { ProfilePage } from '@/pages/ProfilePage';
-import { ArticlePage } from '@/pages/Article/ArticlePage';
+import { ArticleListPage } from '@/pages/Article/ArticleListPage';
 import { ArticleDetailPage } from '@/pages/Article/ArticleDetailPage';
 import { ArticleEditPage } from '@/pages/Article/ArticleEditPage';
 import { AdminPanelPage } from '@/pages/Admin/AdminPanelPage';
@@ -43,9 +43,9 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
         element: <ProfilePage />,
         authOnly: true,
     },
-    [AppRoutes.ARTICLES]: {
-        path: getRouteArticles(),
-        element: <ArticlePage />,
+    [AppRoutes.ARTICLE_LIST]: {
+        path: getRouteArticleList(),
+        element: <ArticleListPage />,
         authOnly: true,
     },
     [AppRoutes.ARTICLE_DETAIL]: {

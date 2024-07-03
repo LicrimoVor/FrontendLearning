@@ -35,7 +35,7 @@ export const ArticleDetailDeprecated: FC<ArticleDetailDeprecatedProps> = memo((
         error,
     } = props;
 
-    const { t } = useTranslation('article-detail');
+    const { t } = useTranslation('article');
 
     if (isLoading) {
         return (
@@ -57,7 +57,7 @@ export const ArticleDetailDeprecated: FC<ArticleDetailDeprecatedProps> = memo((
     if (error) {
         return (
             <Text
-                title={t('ArticleErrorInLoading')}
+                title={t('Error loading the article')}
                 align={TextAlign.CENTER}
                 theme={TextTheme.ERROR}
                 className={classNames('', {}, [className])}

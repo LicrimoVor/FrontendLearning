@@ -9,14 +9,14 @@ import { articleDetailReducer } from '@/entities/Article/testing';
 import { articleCommentReducer } from '@/features/Article/ArticleCommentForm/testing';
 import { loginReducer } from '@/features/AuthByUsername/testing';
 import { profileReducer } from '@/features/Profile/EditableProfile/testing';
-import { articlePageReducer } from '@/pages/Article/ArticlePage/testing';
+import { articleListPageReducer } from '@/pages/Article/ArticleListPage/testing';
 
 import { StateSchema } from '../../reduxConfig/stateShema';
 
 const defaultAsyncReducers: ReducerList = {
     loginForm: loginReducer,
     profile: profileReducer,
-    articlePage: articlePageReducer,
+    articleListPage: articleListPageReducer,
     articleDetail: articleDetailReducer,
     articleComments: articleCommentReducer,
     createCommentForm: createCommentReducer,

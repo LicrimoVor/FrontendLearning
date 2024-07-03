@@ -89,7 +89,7 @@ export const ArticleListItemDeprecated: FC<ArticleListItemProps> = memo((
                             <Button
                                 theme={ButtonTheme.OUTLINE}
                             >
-                                {t('ReadMore')}
+                                {t('Read more')}
                             </Button>
                         </AppLink>
                         {views}

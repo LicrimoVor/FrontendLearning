@@ -36,11 +36,11 @@ export const ArticleCommentForm: FC<ArticleCommentFormProps> = memo((
         articleId,
     } = props;
 
+    const { t } = useTranslation('article');
     const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComments.selectAll);
     const isLoading = useSelector(getArticleCommentIsLoading);
     const error = useSelector(getArticleCommentError);
-    const { t } = useTranslation('article-detail');
 
     const onCommentSend = useCallback((text: string) => {
         if (text.length < 5) {

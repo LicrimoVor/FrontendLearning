@@ -33,7 +33,7 @@ export const LangSwitcherDep: FC<LangSwitcherProps> = memo((props: LangSwitcherP
             theme={ButtonTheme.OUTLINE}
             inverted
         >
-            {short ? t('Lang') : t('Languege')}
+            {short ? t('Lang') : t('Language')}
         </Button>
     );
 });

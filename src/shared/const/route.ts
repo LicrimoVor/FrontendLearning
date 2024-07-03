@@ -2,7 +2,7 @@ export enum AppRoutes {
     MAIN = 'main',
     ABOUT = 'about',
     PROFILE = 'profile',
-    ARTICLES = 'articles',
+    ARTICLE_LIST = 'articles',
     ARTICLE_DETAIL = 'article_detail',
     ARTICLE_CREATE = 'article_create',
     ARTICLE_EDIT = 'article_edit',
@@ -18,7 +18,7 @@ export enum AppRoutes {
 export const getRouteMain = () => '/';
 export const getRouteAbout = () => '/about';
 export const getRouteProfile = (id: string) => `/profile/${id}`;
-export const getRouteArticles = () => '/articles';
+export const getRouteArticleList = () => '/articles';
 export const getRouteArticleDetails = (id: string) => `/articles/${id}`;
 export const getRouteArticleCreate = () => '/articles/new';
 export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`;
@@ -32,7 +32,7 @@ export const AppPatternPathByRoute: Record<string, AppRoutes> = {
     [getRouteMain()]: AppRoutes.MAIN,
     [getRouteAbout()]: AppRoutes.ABOUT,
     [getRouteProfile(':id')]: AppRoutes.PROFILE,
-    [getRouteArticles()]: AppRoutes.ARTICLES,
+    [getRouteArticleList()]: AppRoutes.ARTICLE_LIST,
     [getRouteArticleDetails(':id')]: AppRoutes.ARTICLE_DETAIL,
     [getRouteArticleCreate()]: AppRoutes.ARTICLE_CREATE,
     [getRouteArticleEdit(':id')]: AppRoutes.ARTICLE_EDIT,

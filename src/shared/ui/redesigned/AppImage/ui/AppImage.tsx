@@ -6,6 +6,8 @@ interface AppImageProps extends ImgHTMLAttributes<HTMLImageElement> {
     className?: string,
     fallback?: ReactElement,
     errorFallback?: ReactElement,
+    width?: number,
+    height?:number,
 }
 
 /**
@@ -18,6 +20,8 @@ export const AppImage: FC<AppImageProps> = memo((props: AppImageProps) => {
         alt = 'image',
         fallback,
         errorFallback,
+        width,
+        height,
         ...otherProps
     } = props;
 
@@ -25,15 +29,16 @@ export const AppImage: FC<AppImageProps> = memo((props: AppImageProps) => {
     const [hasError, setHasError] = useState(false);
 
     useLayoutEffect(() => {
-        const img = new Image();
-        img.src = src ?? '';
-        img.onload = () => {
-            setIsloading(false);
-        };
+        const img = new Image(width, height);
         img.onerror = () => {
             setIsloading(false);
             setHasError(true);
+            // console.warn(`Image download error: ${src}`);
         };
+        img.onload = () => {
+            setIsloading(false);
+        };
+        img.src = src ?? '';
     });
 
     if (isLoading && fallback) {
@@ -49,6 +54,8 @@ export const AppImage: FC<AppImageProps> = memo((props: AppImageProps) => {
             alt={alt}
             src={src}
             className={className}
+            width={width}
+            height={height}
             {...otherProps}
         />
     );

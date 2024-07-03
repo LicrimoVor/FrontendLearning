@@ -2,6 +2,7 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
+import { MetaData } from '@/shared/lib/components/MetaData';
 import { Page } from '@/widgets/Page';
 
 /** Страница для редактирования статьи */
@@ -12,9 +13,10 @@ const ArticleEditPage: FC = () => {
 
     return (
         <Page>
+            <MetaData title={t('Article edit')} description={t('PET-project. Editing an article')} />
             {isEdit
-                ? t('EditArticleById') + id
-                : t('CreateNewArticle')}
+                ? `${t('Edit article by id')} ${id}`
+                : t('Create new article')}
         </Page>
     );
 };

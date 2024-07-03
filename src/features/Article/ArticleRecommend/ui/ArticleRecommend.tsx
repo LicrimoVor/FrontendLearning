@@ -22,7 +22,7 @@ const ArticleRecommend: FC<ArticleRecommendProps> = (props) => {
         className,
     } = props;
 
-    const { t } = useTranslation('article-detail');
+    const { t } = useTranslation('article');
 
     const { data: articles, error, isLoading } = useArticleRecommendList(5);
 

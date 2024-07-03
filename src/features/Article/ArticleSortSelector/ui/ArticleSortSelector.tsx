@@ -69,14 +69,14 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = memo((
                 >
                     <Select<ArticleSortField>
                         options={sortOptions}
-                        label={t('SortBy')}
+                        label={t('Sort by')}
                         value={sort}
                         onChange={onChangeSort}
                         data-testid="ArticleSortSelector.SORT"
                     />
                     <Select<SortOrder>
                         options={orderOptions}
-                        label={t('OrderBy')}
+                        label={t('Order by')}
                         value={order}
                         onChange={onChangeOrder}
                         data-testid="ArticleSortSelector.ORDER"
@@ -91,7 +91,7 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = memo((
                     max
                 >
                     <Text
-                        text={t('SortBy')}
+                        text={t('Sort by')}
                     />
                     <ListBox<ArticleSortField>
                         data={sortOptions}

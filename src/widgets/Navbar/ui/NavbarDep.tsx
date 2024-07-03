@@ -61,7 +61,7 @@ export const NavbarDep: FC<NavbarProps> = memo((props: NavbarProps) => {
                         to={getRouteArticleCreate()}
                         className={cls.createArticle}
                     >
-                        {t('CreateArticle')}
+                        {t('Create article')}
                     </AppLink>
                     <NotificationBtn
                         className={cls.notification}
@@ -97,7 +97,7 @@ export const NavbarDep: FC<NavbarProps> = memo((props: NavbarProps) => {
                     className={cls.loginBtn}
                     inverted
                 >
-                    {t('LogIn')}
+                    {t('Sign in')}
                 </Button>
                 <LoginModal isOpen={isOpenAuth} onClose={onCloseModal} />
             </HStack>

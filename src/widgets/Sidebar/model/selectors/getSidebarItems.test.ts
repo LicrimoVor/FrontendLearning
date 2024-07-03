@@ -1,7 +1,7 @@
 import { StateSchema } from '@/shared/config/reduxConfig/stateShema';
 import {
     getRouteAbout,
-    getRouteArticles,
+    getRouteArticleList,
     getRouteMain,
     getRouteProfile,
 } from '@/shared/const/route';
@@ -63,7 +63,7 @@ describe('getSidebarItems', () => {
                     authOnly: true,
                 },
                 {
-                    path: getRouteArticles(),
+                    path: getRouteArticleList(),
                     text: 'Articles',
                     Icon: ArticlesIcon,
                     authOnly: true,

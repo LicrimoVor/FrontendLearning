@@ -51,8 +51,8 @@ export const ProfileCardDeprecated: FC<ProfileCardProps> = (props) => {
             >
                 <Text
                     theme={TextTheme.ERROR}
-                    text={t('RefreshPage')}
-                    title={t('ErrorProfile')}
+                    text={t('Refresh page')}
+                    title={t('Error profile')}
                     align={TextAlign.CENTER}
                 />
             </div>
@@ -74,7 +74,7 @@ export const ProfileCardDeprecated: FC<ProfileCardProps> = (props) => {
             )}
             <Input
                 value={data?.first}
-                placeholder={t('FirstName')}
+                placeholder={t('First name')}
                 className={cls.input}
                 onChange={onChangeFirstName}
                 readonly={readonly}
@@ -82,7 +82,7 @@ export const ProfileCardDeprecated: FC<ProfileCardProps> = (props) => {
             />
             <Input
                 value={data?.lastname}
-                placeholder={t('LastName')}
+                placeholder={t('Last name')}
                 className={cls.input}
                 onChange={onChangeLastname}
                 readonly={readonly}
@@ -106,7 +106,7 @@ export const ProfileCardDeprecated: FC<ProfileCardProps> = (props) => {
             />
             <Input
                 value={data?.avatar}
-                placeholder={t('ProfileAvatar')}
+                placeholder={t('Profile avatar')}
                 className={cls.input}
                 onChange={onChangeAvatar}
                 readonly={readonly}

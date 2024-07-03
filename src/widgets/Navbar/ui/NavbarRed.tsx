@@ -69,7 +69,7 @@ export const NavbarRed: FC<NavbarProps> = memo((props: NavbarProps) => {
                     variant="outline"
                     className={cls.loginBtn}
                 >
-                    {t('LogIn')}
+                    {t('Sign in')}
                 </Button>
                 <LoginModal isOpen={isOpenAuth} onClose={onCloseModal} />
             </HStack>

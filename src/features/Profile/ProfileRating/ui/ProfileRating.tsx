@@ -60,10 +60,10 @@ export const ProfileRating: FC<ProfileRatingProps> = memo((
             className={classNames('', {}, [className])}
             onSelectStar={onSelectStar}
             onSubmitFeedback={onSubmitFeedback}
-            title={data ? t('EvaluationComplete') : t('Evaluation')}
+            title={data ? t('Evaluation complete') : t('Evaluation')}
             isLoading={isFetching || isLoadingUpdate || isLoadingCreate}
             feedback
-            feedbackTitle={data ? t('FeedbackComplete') : t('Feedback')}
+            feedbackTitle={data ? t('Feedback complete') : t('Feedback')}
             feedbackValue={data?.feedback}
             selectStar={data?.rate}
             data-testid="ProfileRating"

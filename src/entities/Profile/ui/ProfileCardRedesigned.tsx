@@ -73,8 +73,8 @@ export const ProfileCardRedesigned: FC<ProfileCardProps> = (props) => {
                 align="center"
             >
                 <Text
-                    text={t('RefreshPage')}
-                    title={t('ErrorProfile')}
+                    text={t('Refresh page')}
+                    title={t('Error profile')}
                     align="center"
                     variant="error"
                 />
@@ -103,14 +103,14 @@ export const ProfileCardRedesigned: FC<ProfileCardProps> = (props) => {
                     <VStack gap={24} max>
                         <Input
                             value={data?.first}
-                            label={t('FirstName')}
+                            label={t('First name')}
                             onChange={onChangeFirstName}
                             readonly={readonly}
                             data-testid="ProfileCard.firstname"
                         />
                         <Input
                             value={data?.lastname}
-                            label={t('LastName')}
+                            label={t('Last name')}
                             onChange={onChangeLastname}
                             readonly={readonly}
                             data-testid="ProfileCard.lastname"
@@ -134,7 +134,7 @@ export const ProfileCardRedesigned: FC<ProfileCardProps> = (props) => {
                     <VStack gap={24} max>
                         <Input
                             value={data?.avatar}
-                            label={t('ProfileAvatar')}
+                            label={t('Profile avatar')}
                             onChange={onChangeAvatar}
                             readonly={readonly}
                             data-testid="ProfileCard.avatar"

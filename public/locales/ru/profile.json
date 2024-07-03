@@ -1,10 +1,10 @@
 {
   "Change": "Редактировать",
-  "FirstName": "Имя",
+  "First name": "Имя",
   "Profile": "Профиль",
-  "LastName": "Фамилия",
-  "ErrorProfile": "Произошла ошибка при загрузке профиля",
-  "UpdatePage": "Обновите страницу",
+  "Last name": "Фамилия",
+  "Error profile": "Произошла ошибка при загрузке профиля",
+  "Update page": "Обновите страницу",
   "Edit": "Изменить",
   "Cancel": "Отменить",
   "Save": "Сохранить",
@@ -13,14 +13,17 @@
   "Country": "Страна",
   "Currency": "Валюта",
   "Username": "Никнейм",
-  "ProfileAvatar": "Аватар",
+  "Profile avatar": "Аватар",
+  "Not found": "Профиль не найден",
+
   "INCORRECT_USER_DATA": "Обязательны имя и фамилия",
   "INCORRECT_AGE": "Некорректный возраст",
   "INCORRECT_COUNTRY": "Некорретный регион",
   "NO_DATA": "Данные не указаны",
   "SERVER_ERROR": "Ошибка сервера",
+
   "Evaluation": "Оцените профиль",
-  "EvaluationComplete": "Спасибо за оценку!",
+  "Evaluation complete": "Спасибо за оценку!",
   "Feedback": "Напишите отзыв",
-  "FeedbackComplete": "Спасибо за отзыв!"
+  "Feedback complete": "Спасибо за отзыв!"
 }

@@ -48,7 +48,7 @@ export const AvatarDropdown: FC<AvatarDropdownProps> = memo((props: AvatarDropdo
             ...(isAdminPanelAvaible ? [{ component: t('Admin'), href: getRouteAdmin() }] : []),
             { component: t('Profile'), href: getRouteProfile(authData.id) },
             { component: t('Settings'), href: getRouteSettings() },
-            { component: t('LogOut'), onClick: onLogout },
+            { component: t('Sign out'), onClick: onLogout },
         ];
     }, [onLogout, authData, t, isAdmin, isManager]);
 

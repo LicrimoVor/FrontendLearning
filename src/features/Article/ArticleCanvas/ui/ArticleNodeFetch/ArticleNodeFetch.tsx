@@ -23,7 +23,7 @@ export const ArticleNodeFetch: FC <ArticleNodeFetchProps> = memo((
         className,
     } = props;
 
-    const { t } = useTranslation('articles');
+    const { t } = useTranslation('article');
     const dispatch = useAppDispatch();
     const hasMore = useSelector(getArticleCanvasHasMore);
     const isLoading = useSelector(getArticleCanvasIsLoading);
@@ -35,7 +35,7 @@ export const ArticleNodeFetch: FC <ArticleNodeFetchProps> = memo((
     if (!hasMore) {
         return (
             <Card className={className}>
-                <Text text={t('Ничего нет')} />
+                <Text text={t('There are no articles left')} />
             </Card>
 
         );
@@ -52,7 +52,7 @@ export const ArticleNodeFetch: FC <ArticleNodeFetchProps> = memo((
     return (
         <Card className={className}>
             <Button onClick={onClick}>
-                {t('Add_more')}
+                {t('Add more')}
             </Button>
         </Card>
     );

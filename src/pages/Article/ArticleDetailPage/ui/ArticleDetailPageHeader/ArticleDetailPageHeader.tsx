@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/deprecated/Button';
-import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/route';
+import { getRouteArticleEdit, getRouteArticleList } from '@/shared/const/route';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { getArticleDetailData } from '@/entities/Article';
 
@@ -22,13 +22,13 @@ export const ArticleDetailPageHeader: FC<ArticleDetailPageHeaderProps> = memo((
     const {
         className,
     } = props;
-    const { t } = useTranslation('article-detail');
+    const { t } = useTranslation('article');
     const navigate = useNavigate();
     const canEdit = useSelector(getArticleCanEdit);
     const article = useSelector(getArticleDetailData);
 
     const onBackToList = useCallback(() => {
-        navigate(getRouteArticles());
+        navigate(getRouteArticleList());
     }, [navigate]);
 
     const onEditArticle = useCallback(() => {
@@ -45,7 +45,7 @@ export const ArticleDetailPageHeader: FC<ArticleDetailPageHeaderProps> = memo((
             data-testid="ArticleDetailPageHeader"
         >
             <Button onClick={onBackToList}>
-                {t('ReturnToList')}
+                {t('Return to list')}
             </Button>
             {canEdit && (
                 <Button

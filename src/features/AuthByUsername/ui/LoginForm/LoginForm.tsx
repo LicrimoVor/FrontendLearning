@@ -1,6 +1,5 @@
 import {
-    EventHandler,
-    FC, FormEvent, FormEventHandler, memo, useCallback,
+    FC, FormEvent, memo, useCallback,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -123,7 +122,7 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                         className={classNames(cls.LoginForm, {}, [className])}
                         onSubmit={onLoginClick}
                     >
-                        <Text title={t('LoginForm')} />
+                        <Text title={t('Login form')} />
                         <Input
                             type="text"
                             data-testid="username"
@@ -156,7 +155,6 @@ const LoginForm: FC<LoginFormProps> = memo((props: LoginFormProps) => {
                                 variant="outline"
                                 disabled={isLoading}
                                 type="submit"
-                                // onClick={onLoginClick}
                             >
                                 {t('LogIn')}
                             </Button>

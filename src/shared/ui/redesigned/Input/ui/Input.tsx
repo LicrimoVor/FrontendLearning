@@ -68,10 +68,11 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
 
     return (
         <HStack max gap={8}>
-            {label && <Text text={label} />}
+            {label && <Text text={label} textTag="label" htmlFor={label} />}
             <div className={classNames(cls.InputWrapper, mods, [className])}>
                 {addonLeft && <div className={cls.addonLeft}>{addonLeft}</div>}
                 <input
+                    id={label}
                     data-testid="input"
                     value={value}
                     className={cls.input}

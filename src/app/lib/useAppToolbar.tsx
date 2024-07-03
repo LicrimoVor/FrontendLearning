@@ -6,7 +6,7 @@ import { ScrollToolbar } from '@/widgets/ScrollToolbar';
 import { ArticleCanvasToolbar } from '@/widgets/ArticleCanvasToolbar';
 
 const AppToolbarByRoute: OptionalRecord<AppRoutes, ReactElement> = {
-    [AppRoutes.ARTICLES]: <ScrollToolbar />,
+    [AppRoutes.ARTICLE_LIST]: <ScrollToolbar />,
     [AppRoutes.ARTICLE_DETAIL]: <ScrollToolbar />,
     [AppRoutes.ARTICLE_CANVAS]: <ArticleCanvasToolbar />,
 };

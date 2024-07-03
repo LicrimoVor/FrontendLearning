@@ -28,7 +28,7 @@ export const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = memo((
         isLoading = true,
     } = props;
 
-    const { t } = useTranslation('article-detail');
+    const { t } = useTranslation('article');
 
     if (isLoading) {
         return (

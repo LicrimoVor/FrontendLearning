@@ -4,21 +4,19 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { classNames } from '@/shared/lib/classNames';
 import { ListBox } from '@/shared/ui/redesigned/Popups';
 import { getFeatureFlag, updateFeatureFlags } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
-import { useForceUpdate } from '@/shared/lib/render';
 import { getUserAuthData } from '@/entities/User';
 
 interface UiDesignedSwitcherProps {
     className?: string,
 }
 
-/** Докстринг */
+/** Кнопка смены дизайна со старого на новый */
 export const UiDesignedSwitcher: FC<UiDesignedSwitcherProps> = memo((
     props: UiDesignedSwitcherProps,
 ) => {

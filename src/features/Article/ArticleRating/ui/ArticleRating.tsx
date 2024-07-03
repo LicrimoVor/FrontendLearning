@@ -22,7 +22,7 @@ const ArticleRating: FC<ArticleRatingProps> = (props) => {
         articleId,
     } = props;
 
-    const { t } = useTranslation('article-detail');
+    const { t } = useTranslation('article');
     const authData = useSelector(getUserAuthData);
     const { data, isFetching } = useGetArticleRating(
         { userId: authData!.id, articleId },
@@ -62,10 +62,10 @@ const ArticleRating: FC<ArticleRatingProps> = (props) => {
     const params = {
         onSelectStar,
         onSubmitFeedback,
-        title: data ? t('EvaluationComplete') : t('Evaluation'),
+        title: data ? t('Evaluation complete') : t('Evaluation'),
         isLoading: isFetching || isLoadingUpdate || isLoadingCreate,
         feedback: true,
-        feedbackTitle: data ? t('FeedbackComplete') : t('Feedback'),
+        feedbackTitle: data ? t('Feedback complete') : t('Feedback'),
         feedbackValue: data?.feedback,
         selectStar: data?.rate,
     };

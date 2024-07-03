@@ -89,7 +89,7 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = memo((
                             onClick={onClickBtn}
                         >
                             <Button variant="outline">
-                                {t('ReadMore')}
+                                {t('Read more')}
                             </Button>
                         </AppLink>
                         {views}
@@ -110,6 +110,8 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = memo((
             <Card>
                 <AppImage
                     fallback={<Skeleton width={200} height={200} />}
+                    width={200}
+                    height={200}
                     src={article.img}
                     className={cls.img}
                     alt={article.title}

@@ -100,7 +100,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
     if (!isLoading && !articles.length) {
         return (
             <Text
-                title={t('NotFoundArticles')}
+                title={t('Not found articles')}
             />
         );
     }
@@ -129,7 +129,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props: ArticleListProps) 
                     on: () => cls.skeletonRedesigned,
                 })}
             >
-                {t('Статьи закончили')}
+                {t('The articles are over')}
             </div>
         );
     });

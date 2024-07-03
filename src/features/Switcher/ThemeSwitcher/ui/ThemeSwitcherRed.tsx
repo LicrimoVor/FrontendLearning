@@ -30,16 +30,14 @@ export const ThemeSwitcherRed: FC<ThemeSwitcherProps> = memo((props: ThemeSwitch
     } = props;
 
     return (
-        <Button
+        <Icon
+            Svg={IconTheme[theme]}
+            size={24}
+            clickable
+            aria-labelledby="Theme switcher"
+            onClick={changeTheme}
             data-testid="theme-switcher-button"
             className={classNames('', {}, [className])}
-            onClick={changeTheme}
-            variant="clear"
-        >
-            <Icon
-                Svg={IconTheme[theme]}
-                size={24}
-            />
-        </Button>
+        />
     );
 });

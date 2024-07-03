@@ -13,7 +13,7 @@ import { LoginSchema } from '@/features/AuthByUsername';
 import { ProfileSchema } from '@/features/Profile/EditableProfile';
 import { ScrollSaveSchema } from '@/features/ScrollSave';
 import { ArticleCanvasSchema } from '@/features/Article/ArticleCanvas';
-import { ArticlePageSchema } from '@/pages/Article/ArticlePage';
+import { ArticleListPageSchema } from '@/pages/Article/ArticleListPage';
 import { OptionsSchema } from '../options';
 
 export interface StateSchema {
@@ -28,7 +28,7 @@ export interface StateSchema {
     profile?: ProfileSchema,
     articleDetail?: ArticleDetailSchema,
     articleComments?: ArticleCommentSchema,
-    articlePage?: ArticlePageSchema,
+    articleListPage?: ArticleListPageSchema,
     articleCanvas?: ArticleCanvasSchema,
     createCommentForm?: CreateCommentSchema,
 }

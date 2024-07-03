@@ -9,7 +9,7 @@ const AdminPanelPage: FC = () => {
 
     return (
         <Page data-testid="AdminPanelPage">
-            {t('Adminka')}
+            {t('Admin panel')}
         </Page>
     );
 };

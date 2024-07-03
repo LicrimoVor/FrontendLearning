@@ -24,6 +24,7 @@ interface ClickableProps extends IconBasicProps {
     clickable: true,
     onClick?: () => void,
     'aria-labelledby': string,
+    'aria-label'?: string,
     href?: string,
 }
 
@@ -76,6 +77,7 @@ export const Icon = memo((props: IconProps) => {
                 onClick={props.onClick}
                 draggable={false}
                 aria-labelledby={props['aria-labelledby']}
+                aria-label={props['aria-label'] || props['aria-labelledby']}
                 key={keyId}
             >
                 {icon}

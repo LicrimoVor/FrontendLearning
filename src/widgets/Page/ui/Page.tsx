@@ -60,8 +60,6 @@ export const Page: FC<PageProps> = memo((props: PageProps) => {
         }
     });
 
-    console.log('RENDER');
-
     return (
         <main
             ref={wrapperRef}
