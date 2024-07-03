@@ -43,31 +43,31 @@
 }
 
 .s {
-    &.title {
+    .title {
         font: var(--font-m-redesigned);
     }
 
-    &.text {
+    .text {
         font: var(--font-s-redesigned);
     }
 }
 
 .m {
-    &.title {
+    .title {
         font: var(--font-l-redesigned);
     }
 
-    &.text {
+    .text {
         font: var(--font-m-redesigned);
     }
 }
 
 .l {
-    &.title {
+    .title {
         font: var(--font-xl-redesigned);
     }
 
-    &.text {
+    .text {
         font: var(--font-l-redesigned);
     }
 }

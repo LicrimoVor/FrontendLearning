@@ -8,6 +8,7 @@ export interface BuildPaths {
   public: string,
   assets: string,
   buildSW: string,
+  buildHtml: string,
 }
 
 export interface BuildOptions {

@@ -1,4 +1,6 @@
-import { FC, memo, useState } from 'react';
+import {
+    FC, memo, useCallback, useMemo, useState,
+} from 'react';
 import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -6,6 +8,8 @@ import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import ArrowSvg from '@/shared/assets/icons/arrow.svg';
+import { getSidebarCollapsed, optionsActions } from '@/shared/config/options';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { getUserInited } from '@/entities/User';
 import { ThemeSwitcher } from '@/features/Switcher/ThemeSwitcher';
 import { LangSwitcher } from '@/features/Switcher/LangSwitcher';
@@ -24,27 +28,34 @@ export const RedesignedSidebar: FC<SidebarProps> = memo((props: SidebarProps) =>
         className,
     } = props;
 
-    const [collapsed, setCollapsed] = useState<boolean>(true);
-    const inited = useSelector(getUserInited);
+    const collapsed = useSelector(getSidebarCollapsed);
+    const [initAnimate, setInitAnimate] = useState(false);
+    const dispatch = useAppDispatch();
+    const initUser = useSelector(getUserInited);
     const sidebarItemsList = useSelector(getSidebarItems);
 
-    const hundlerCollapsed = () => {
-        setCollapsed(!collapsed);
-    };
+    const setCollapsed = useCallback(() => {
+        dispatch(optionsActions.setSidebarCollapsed(!collapsed));
+        setInitAnimate(true);
+    }, [dispatch, collapsed]);
+
+    const mods = useMemo(() => ({
+        [cls.collapsed]: collapsed,
+        [cls.notInit]: !initAnimate,
+    }), [collapsed, initAnimate]);
 
     return (
         <aside
             data-testid="sidebar"
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
+            className={classNames(cls.Sidebar, mods, [className])}
         >
-
             <Icon
                 aria-labelledby="home"
                 Svg={ArrowSvg}
                 clickable
                 data-testid="sidebar-wrap-button"
-                onClick={hundlerCollapsed}
-                className={classNames(cls.collapsedBtn, { [cls.collapsed]: collapsed })}
+                onClick={setCollapsed}
+                className={classNames(cls.collapsedBtn, mods)}
             />
             <VStack
                 max
@@ -52,25 +63,25 @@ export const RedesignedSidebar: FC<SidebarProps> = memo((props: SidebarProps) =>
                 <AppLogo
                     className={classNames(
                         cls.appLogo,
-                        { [cls.collapsed]: collapsed },
+                        mods,
                     )}
                 />
                 <VStack
                     className={classNames(
                         cls.items,
-                        { [cls.collapsed]: collapsed },
+                        mods,
                     )}
                     gap={8}
                     Component="nav"
                     max
                 >
-
-                    {inited && sidebarItemsList.map((item) => (
+                    {initUser && sidebarItemsList.map((item) => (
                         <SidebarItem
+                            animate={initAnimate}
                             key={item.path}
                             item={item}
                             collapsed={collapsed}
-                            className={classNames(cls.item, { [cls.collapsed]: collapsed })}
+                            className={classNames(cls.item, mods)}
                         />
                     ))}
                 </VStack>
@@ -83,7 +94,7 @@ export const RedesignedSidebar: FC<SidebarProps> = memo((props: SidebarProps) =>
             >
                 <ThemeSwitcher />
                 <LangSwitcher
-                    className={classNames(cls.lang, { [cls.collapsed]: collapsed })}
+                    className={classNames(cls.lang, mods)}
                     short={collapsed}
                 />
             </HStack>

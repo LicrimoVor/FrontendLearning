@@ -49,7 +49,6 @@
 }
 
 .appLogo {
-    
 
     &.collapsed {
         padding: 20px 0;
@@ -79,4 +78,9 @@
     to {
         transform: scale(1);
     }
+}
+
+.notInit {
+    animation: none !important;
+    transition: none !important;
 }

@@ -70,9 +70,7 @@ export const Text: FC<TextProps> = memo((props: TextProps) => {
             )}
         >
             {title && (
-                <TitleTag
-                    className={cls.title}
-                >
+                <TitleTag className={cls.title}>
                     {title}
                 </TitleTag>
             )}

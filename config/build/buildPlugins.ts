@@ -11,6 +11,7 @@ import StatoscopeWebpackPlugin from '@statoscope/webpack-plugin';
 
 import { BuildOptions } from './types/config';
 import { ServiceWorkerPlugin } from './plugins/ServiceWorkerPlugin';
+import { PreloadPlugin } from './plugins/PreloadPlugin';
 
 /** Настройка плагинов */
 export function BuildPlugins(
@@ -34,7 +35,7 @@ export function BuildPlugins(
             patterns: [
                 {
                     globOptions: {
-                        ignore: ['**/public/index.html', '**/*.brak'],
+                        ignore: ['**/public/index.html', '**/*.brak', '**/*.notCp/*'],
                     },
                     from: paths.public,
                     to: paths.build,
@@ -66,7 +67,7 @@ export function BuildPlugins(
         plugins.push(new StatoscopeWebpackPlugin({
             saveReportTo: `${paths.build}/report-[name]-hash.html`,
             open: 'file',
-            // compressor: 'gzip'
+            compressor: 'gzip',
         }));
     }
 
@@ -86,6 +87,11 @@ export function BuildPlugins(
                 '/index.html',
                 '/sw.js',
             ],
+        }));
+        plugins.push(new PreloadPlugin({
+            pathBuildIndex: paths.buildHtml,
+            pathCssPreload: `${paths.public}/preInit.notCp/preload.css`,
+            pathJsPreload: `${paths.public}/preInit.notCp/preload.js`,
         }));
     }
 

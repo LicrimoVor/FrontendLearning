@@ -18,6 +18,7 @@ export default (env: BuildEnv) => {
         public: path.resolve(__dirname, 'public'),
         assets: path.resolve(__dirname, 'config', 'build'),
         buildSW: path.resolve(__dirname, 'build', 'sw.js'),
+        buildHtml: path.resolve(__dirname, 'build', 'index.html'),
     };
 
     const config: webpack.Configuration = BuildWebpackConfig({

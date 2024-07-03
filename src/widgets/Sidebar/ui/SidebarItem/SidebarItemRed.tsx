@@ -1,5 +1,5 @@
 import {
-    FC, memo, useEffect, useState,
+    FC, memo, useEffect, useMemo, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -15,6 +15,7 @@ import cls from './SidebarItemRed.module.scss';
 interface SidebarItemProps {
     item: SidebarItemType,
     collapsed: boolean,
+    animate?: boolean,
     className?: string
 }
 
@@ -23,6 +24,7 @@ export const SidebarItem: FC<SidebarItemProps> = memo((props: SidebarItemProps) 
     const {
         item,
         collapsed,
+        animate = true,
         className,
     } = props;
 
@@ -30,18 +32,25 @@ export const SidebarItem: FC<SidebarItemProps> = memo((props: SidebarItemProps) 
     const { t } = useTranslation();
 
     useEffect(() => {
-        if (collapsed) {
+        setEndCollapsed(false);
+        if (!animate) {
+            setEndCollapsed(collapsed);
+        } else if (collapsed) {
             const timmer = setTimeout(() => {
                 setEndCollapsed(true);
             }, 300);
 
             return () => (clearTimeout(timmer));
         }
-        setEndCollapsed(false);
+
         return undefined;
-    }, [collapsed]);
+    }, [collapsed, animate]);
 
     const isAuth = useSelector(getUserAuthData);
+    const mods = useMemo(() => ({
+        [cls.collapsed]: collapsed,
+        [cls.animate]: animate,
+    }), [collapsed, animate]);
 
     if (item.authOnly && !isAuth) {
         return null;
@@ -60,19 +69,11 @@ export const SidebarItem: FC<SidebarItemProps> = memo((props: SidebarItemProps) 
                 Svg={item.Icon}
                 size={24}
             />
-            {
-                endCollapsed
-                    ? null
-                    : (
-                        <span className={classNames(
-                            cls.link,
-                            { [cls.collapsed]: collapsed },
-                        )}
-                        >
-                            {t(item.text)}
-                        </span>
-                    )
-            }
+            {!endCollapsed && (
+                <span className={classNames(cls.link, mods)}>
+                    {t(item.text)}
+                </span>
+            )}
         </AppLink>
     );
 });

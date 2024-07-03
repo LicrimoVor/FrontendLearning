@@ -11,7 +11,7 @@ const initialState: OptionsSchema = {
 
 /** Слайс (он же редюсер) для настроек страницы */
 export const optionsSlice = createSlice({
-    name: 'name',
+    name: 'optionsSlice',
     initialState,
     reducers: {
         setOnline: (state, action: PayloadAction<boolean>) => {

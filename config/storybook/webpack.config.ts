@@ -13,6 +13,7 @@ export default ({ config }: {config: webpack.Configuration}) => {
         public: '',
         assets: '',
         buildSW: '',
+        buildHtml: '',
     };
 
     config.resolve!.alias = { ...config.resolve?.alias, '@': paths.src };

@@ -13,13 +13,29 @@
     padding-left: 15px;
     opacity: 1;
 
-    &:not(.collapsed){
-        visibility: visible;
-        animation: 0.3s slidein forwards;
+    &.animate {
+        &:not(.collapsed){
+            visibility: visible;
+            animation: 0.3s slidein forwards;
+        }
+    
+        &.collapsed{
+            animation: 0.3s fade forwards;
+        }
     }
 
-    &.collapsed{
-        animation: 0.3s fade forwards;
+    &:not(.animate) {
+        &:not(.collapsed){
+            margin-left: 15px;
+            opacity: 1;
+            visibility: visible;
+        }
+    
+        &.collapsed{
+            margin-left: -70px;
+            opacity: 0;
+            visibility: hidden;
+        }
     }
 }
 
