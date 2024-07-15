@@ -8,7 +8,9 @@ export const getArticlePageView = (
 ) => state.articleListPage?.view || ArticleView.SMALL;
 export const getArticlePageLimit = (state: StateSchema) => state.articleListPage?.limit || 10;
 export const getArticlePagePage = (state: StateSchema) => state.articleListPage?.page || 1;
-export const getArticlePageHasMore = (state: StateSchema) => state.articleListPage?.hasMore;
+export const getArticlePageHasMore = (state: StateSchema) => (
+    state.options.isOnline && state.articleListPage?.hasMore
+);
 export const getArticlePageInited = (state: StateSchema) => state.articleListPage?._inited;
 export const getArticlePageOrder = (state: StateSchema) => state.articleListPage?.order || 'asc';
 export const getArticlePageSort = (

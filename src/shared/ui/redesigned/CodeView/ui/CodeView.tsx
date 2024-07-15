@@ -4,10 +4,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import CopyIconRedesigned from '@/shared/assets/icons/copy_redesigned.svg';
 import { ColorSyntaxProvider } from '@/shared/lib/components/ColorSyntaxProvider';
 
-import { Icon } from '../../../redesigned/Icon';
-import cls from './Code.module.scss';
+import { Icon } from '../../Icon';
+import cls from './CodeView.module.scss';
 
-interface CodeProps {
+interface CodeViewProps {
     className?: string,
     text: string,
     programLng?: string,
@@ -16,7 +16,7 @@ interface CodeProps {
 /**
  * Код
  */
-const CodeComponent: FC<CodeProps> = memo((props: CodeProps) => {
+const CodeViewComponent: FC<CodeViewProps> = memo((props: CodeViewProps) => {
     const {
         className,
         text,
@@ -47,8 +47,8 @@ const CodeComponent: FC<CodeProps> = memo((props: CodeProps) => {
     );
 });
 
-export const CodeProvided: FC<CodeProps> = memo((props: CodeProps) => (
+export const CodeViewProvided: FC<CodeViewProps> = memo((props: CodeViewProps) => (
     <ColorSyntaxProvider>
-        <CodeComponent {...props} />
+        <CodeViewComponent {...props} />
     </ColorSyntaxProvider>
 ));

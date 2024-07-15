@@ -13,7 +13,8 @@ interface UserAvatarProps {
     className?: string,
     user: User,
     viewUsername?: boolean,
-    draggable?: boolean
+    draggable?: boolean,
+    size?: number,
 }
 
 /** Аватар пользователя */
@@ -23,6 +24,7 @@ export const UserAvatar: FC<UserAvatarProps> = memo((props: UserAvatarProps) => 
         user,
         viewUsername,
         draggable,
+        size = 30,
     } = props;
 
     return (
@@ -33,8 +35,9 @@ export const UserAvatar: FC<UserAvatarProps> = memo((props: UserAvatarProps) => 
             ariaLabel={`link-${user.username}`}
         >
             <Avatar
-                size={30}
+                size={size}
                 src={user.avatar}
+                alt={user.username}
             />
             {viewUsername && (
                 <Text

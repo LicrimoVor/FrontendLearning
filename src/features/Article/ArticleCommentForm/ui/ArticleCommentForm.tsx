@@ -8,7 +8,7 @@ import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader';
 import { VStack } from '@/shared/ui/redesigned/Stack';
-import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { CommentList, CreateCommentForm } from '@/entities/Comment';
 

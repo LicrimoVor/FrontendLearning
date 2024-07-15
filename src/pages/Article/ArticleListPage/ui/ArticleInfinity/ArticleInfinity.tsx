@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { ToggleFeatures } from '@/shared/lib/features';
 
 import { articleListPageReducer, articleListPageActions, getArticles } from '../../model/slice/articleListPageSlice';

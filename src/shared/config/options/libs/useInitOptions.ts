@@ -1,5 +1,5 @@
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { optionsActions } from '../model/slice';
 
 export const useInitOptions = () => {

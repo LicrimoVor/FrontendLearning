@@ -14,12 +14,13 @@ import { CountrySelect } from '@/entities/Country';
 import { ProfileCardProps } from '../model/types/profileProps';
 import cls from './ProfileCardRedesigned.module.scss';
 
-const ProfileCardSceleton = memo(() => (
+const ProfileCardSceleton = memo(({ className }: {className?: string}) => (
     <Card
         data-testid="ProfileCard"
         max
         border="round"
         padding={32}
+        className={className}
     >
         <VStack gap={24} max>
             <HStack justify="center" max>
@@ -64,7 +65,7 @@ export const ProfileCardRedesigned: FC<ProfileCardProps> = (props) => {
     } = props;
 
     if (isLoading) {
-        return <ProfileCardSceleton />;
+        return <ProfileCardSceleton className={className} />;
     }
 
     if (error) {

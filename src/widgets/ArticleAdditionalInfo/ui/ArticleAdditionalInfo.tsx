@@ -2,11 +2,14 @@ import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
-import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import EyeIcon from '@/shared/assets/icons/eye_redesigned.svg';
+import CalednarIcon from '@/shared/assets/icons/calendar_redesigned.svg';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Article } from '@/entities/Article';
+import { UserAvatar } from '@/entities/User';
 
 interface ArticleAdditionalInfoProps {
     className?: string,
@@ -57,12 +60,17 @@ export const ArticleAdditionalInfo: FC<ArticleAdditionalInfoProps> = memo((
             gap={12}
         >
             <HStack gap={8}>
-                <Avatar src={article.user.avatar} size={32} />
-                <Text text={article.user.username} bold />
+                <UserAvatar user={article.user} viewUsername />
             </HStack>
-            <Text text={article.createdAt} />
+            <HStack gap={8}>
+                <Icon Svg={CalednarIcon} />
+                <Text text={article.createdAt} />
+            </HStack>
+            <HStack gap={8}>
+                <Icon Svg={EyeIcon} />
+                <Text text={t('{{count}} Views', { count: article.views })} />
+            </HStack>
             {canEdit && <Button onClick={onEdit}>{t('Edit')}</Button>}
-            <Text text={t('{{count}} Views', { count: article.views })} />
         </VStack>
     );
 });

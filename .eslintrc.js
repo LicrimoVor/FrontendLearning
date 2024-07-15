@@ -70,6 +70,7 @@ module.exports = {
                     'marginTopMenu',
                     'color',
                     'textTag',
+                    'template',
                     'aria-labelledby',
                     'aria-label',
                 ],

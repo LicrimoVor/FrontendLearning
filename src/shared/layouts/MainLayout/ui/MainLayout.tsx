@@ -1,6 +1,10 @@
-import { FC, memo, ReactElement } from 'react';
+import {
+    FC, memo, ReactElement, useMemo,
+} from 'react';
+import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames';
+import { getOptionsIsOnline } from '@/shared/config/options';
 
 import { PageMods } from '../types/pageMods';
 import cls from './MainLayout.module.scss';
@@ -25,9 +29,12 @@ export const MainLayout: FC<MainLayoutProps> = memo((props: MainLayoutProps) => 
         mods,
     } = props;
 
-    const classMods = {
+    const isOnline = useSelector(getOptionsIsOnline);
+
+    const classMods = useMemo(() => ({
         [cls.maxContentWidth]: mods?.maxContentWidth,
-    };
+        [cls.offline]: !isOnline,
+    }), [mods, isOnline]);
 
     return (
         <div className={classNames(cls.MainLayout, classMods, [className])}>

@@ -7,7 +7,7 @@ import {
 } from 'react-virtuoso';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 

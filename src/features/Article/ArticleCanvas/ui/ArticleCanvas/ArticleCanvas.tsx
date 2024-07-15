@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Canvas } from '@/shared/ui/redesigned/Canvas';
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { Coordinate, NodeType } from '@/shared/types/canvas';
 import { Loader } from '@/shared/ui/redesigned/Loader';
 import { ArticleNode, ArticleNodeSize, IArticleNode } from '@/entities/Article';

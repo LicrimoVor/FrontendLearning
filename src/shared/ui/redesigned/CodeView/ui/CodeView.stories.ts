@@ -4,11 +4,11 @@ import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { Theme } from '@/shared/lib/context/ThemeContext';
 import { newDesignDecorator } from '@/shared/config/storybook/newDesignDecorator';
 
-import { CodeProvided as Code } from './Code';
+import { CodeViewProvided as CodeView } from './CodeView';
 
-const meta: Meta<typeof Code> = {
+const meta: Meta<typeof CodeView> = {
     title: 'shared/redesigned/Code',
-    component: Code,
+    component: CodeView,
     args: {
         text: '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;',
     },
@@ -18,7 +18,7 @@ const meta: Meta<typeof Code> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Code>;
+type Story = StoryObj<typeof CodeView>;
 
 export const Light: Story = {
     decorators: [

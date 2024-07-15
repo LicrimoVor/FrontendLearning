@@ -7,6 +7,7 @@ import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { UserAvatar } from '@/entities/User';
 
 import { renderArticleBlock } from './renderArticleBlock';
 import { Article } from '../../model/types/article';
@@ -32,7 +33,7 @@ export const ArticleDetailRedesigned: FC<ArticleDetailRedesignedProps> = memo((
 
     const { t } = useTranslation('article');
 
-    if (isLoading) {
+    if (isLoading || article === undefined) {
         return (
             <VStack
                 gap={12}
@@ -70,20 +71,20 @@ export const ArticleDetailRedesigned: FC<ArticleDetailRedesignedProps> = memo((
             data-testid="ArticleDetail"
         >
             <HStack gap={8}>
-                <Avatar size={32} src={article?.user.avatar} />
+                <UserAvatar user={article.user} viewUsername />
                 <Text
-                    text={article?.createdAt}
+                    text={article.createdAt}
                 />
             </HStack>
             <Text
-                title={article?.title}
-                text={article?.subtitle}
+                title={article.title}
+                text={article.subtitle}
                 size="l"
             />
             <HStack max justify="center">
                 <AppImage
                     fallback={<Skeleton width="100%" height={420} border="16px" />}
-                    src={article?.img}
+                    src={article.img}
                     className={cls.img}
                 />
             </HStack>

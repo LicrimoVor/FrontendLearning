@@ -7,7 +7,7 @@ import { BuildOptions } from './types/config';
 /** Настройка загрузчиков файлов */
 export function BuildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
     const fileLoader = {
-        test: /\.(png|jpe?g|gif|woff)$/i,
+        test: /\.(png|jpe?g|gif|woff|ttf)$/i,
         use: [
             {
                 loader: 'file-loader',
@@ -35,13 +35,18 @@ export function BuildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
         }],
     };
 
-    const cssLoader = buildCssLoader(isDev);
+    const cssLoader = {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+    };
+    const scssLoader = buildCssLoader(isDev);
     const codeBabelLoader = buildBabelLoader({ isDev, isTsx: false });
     const tsxBabelLoader = buildBabelLoader({ isDev, isTsx: true });
 
     return [
         codeBabelLoader,
         tsxBabelLoader,
+        scssLoader,
         cssLoader,
         fileLoader,
         svgLoader,

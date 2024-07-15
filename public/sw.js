@@ -10,6 +10,7 @@ function fromCache(request) {
 
 // Обновляем кеш.
 function update(request, response) {
+    if (request.url.indexOf('http') === 0) return null;
     return caches.open(CACHE_KEY)
         .then((cache) => cache.put(request, response));
 }
@@ -63,7 +64,6 @@ self.addEventListener('fetch', (ev) => {
 
         const response = await fetch(ev.request)
             .then((response) => {
-                // if (!response.ok) return fromCache(ev.request);
                 if (response.url.indexOf('http') === 0) update(ev.request, response.clone());
                 return response;
             })

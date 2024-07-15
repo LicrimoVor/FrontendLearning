@@ -4,7 +4,7 @@
   "name": "My PET-project LicrimoVor",
   "display": "standalone",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/index.html",
   "orientation": "portrait",
   "background_color": "#f0f0f0",
   "theme_color": "#3c3c3c",

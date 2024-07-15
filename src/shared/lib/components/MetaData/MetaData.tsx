@@ -1,7 +1,7 @@
 import {
     FC, memo, useEffect, useRef,
 } from 'react';
-import { useInitialEffect } from '../../hooks/userInitialEffect';
+import { useInitialEffect } from '../../hooks/useInitialEffect';
 
 interface VariantProps {
     title?: string,

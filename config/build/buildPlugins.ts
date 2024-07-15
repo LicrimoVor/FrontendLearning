@@ -8,6 +8,7 @@ import CircularDependencyPlugin from 'circular-dependency-plugin';
 import ForkIsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import AssetsPlugin from 'assets-webpack-plugin';
 import StatoscopeWebpackPlugin from '@statoscope/webpack-plugin';
+import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
 
 import { BuildOptions } from './types/config';
 import { ServiceWorkerPlugin } from './plugins/ServiceWorkerPlugin';
@@ -31,6 +32,7 @@ export function BuildPlugins(
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
         }),
+        new MonacoWebpackPlugin(),
         new CopyPlugin({
             patterns: [
                 {

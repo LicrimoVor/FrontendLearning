@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react';
 import { useDispatch, useStore } from 'react-redux';
 
 import { ReduxStoreWithManager, StateSchemaKey } from '@/shared/config/reduxConfig/stateShema';
-import { useInitialEffect } from '../../hooks/userInitialEffect/userInitialEffect';
+import { useInitialEffect } from '../../hooks/useInitialEffect/useInitialEffect';
 import { ReducerList } from './types';
 
 interface DynamicModuleLoaderProps {

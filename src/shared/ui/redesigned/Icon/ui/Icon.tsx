@@ -37,7 +37,7 @@ export const Icon = memo((props: IconProps) => {
     const {
         className,
         Svg,
-        size,
+        size = 16,
         clickable,
         keyId,
         ...otherProps

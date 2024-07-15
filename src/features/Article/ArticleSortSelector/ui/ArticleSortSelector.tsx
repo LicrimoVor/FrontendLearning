@@ -84,28 +84,30 @@ export const ArticleSortSelector: FC<ArticleSortSelectorProps> = memo((
                 </HStack>
             )}
             on={(
-                <VStack
-                    gap={8}
-                    className={classNames('', {}, [className])}
-                    data-testid="ArticleSortSelector"
-                    max
-                >
+                <>
                     <Text
                         text={t('Sort by')}
                     />
-                    <ListBox<ArticleSortField>
-                        data={sortOptions}
-                        selectedValue={sort}
-                        onChange={onChangeSort}
-                        data-testid="ArticleSortSelector.SORT"
-                    />
-                    <ListBox<SortOrder>
-                        data={orderOptions}
-                        selectedValue={order}
-                        onChange={onChangeOrder}
-                        data-testid="ArticleSortSelector.ORDER"
-                    />
-                </VStack>
+                    <VStack
+                        gap={8}
+                        className={classNames('', {}, [className])}
+                        data-testid="ArticleSortSelector"
+                        max
+                    >
+                        <ListBox<ArticleSortField>
+                            data={sortOptions}
+                            selectedValue={sort}
+                            onChange={onChangeSort}
+                            data-testid="ArticleSortSelector.SORT"
+                        />
+                        <ListBox<SortOrder>
+                            data={orderOptions}
+                            selectedValue={order}
+                            onChange={onChangeOrder}
+                            data-testid="ArticleSortSelector.ORDER"
+                        />
+                    </VStack>
+                </>
             )}
         />
 

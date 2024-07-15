@@ -14,6 +14,7 @@ import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import DefaultImg from '@/shared/assets/icons/ghost_happy.svg';
+import { UserAvatar } from '@/entities/User';
 
 import { ArticleBlockText } from '../../model/types/article';
 import { ArticleView, ArticleBlockType } from '../../model/consts/article';
@@ -54,18 +55,8 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = memo((
             >
                 <VStack max gap={12}>
                     <HStack gap={8} max>
-                        <Avatar
-                            size={30}
-                            src={article.user.avatar}
-                            alt={article.user.username}
-                        />
-                        <Text
-                            text={article.user.username}
-                            bold
-                        />
-                        <Text
-                            text={article.createdAt}
-                        />
+                        <UserAvatar user={article.user} viewUsername />
+                        <Text text={article.createdAt} />
                     </HStack>
                     <Text title={article.title} bold />
                     <Text title={article.subtitle} size="s" />
@@ -126,12 +117,13 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = memo((
                         />
                         {views}
                     </HStack>
-                    <HStack>
+                    <HStack gap={8}>
                         <Avatar
                             size={30}
                             src={article.user.avatar}
                             alt={article.user.username}
                         />
+                        <Text text={article.user.username} bold />
                     </HStack>
                 </VStack>
             </Card>

@@ -22,6 +22,7 @@ export const optionsSlice = createSlice({
             localStorage.setItem(LOCAL_STORAGE_OPTIONS, JSON.stringify(state));
         },
         initData: (state) => {
+            state.isOnline = window.navigator.onLine;
             const localData = localStorage.getItem(LOCAL_STORAGE_OPTIONS);
             if (localData) {
                 const data: OptionsSchema = JSON.parse(localData);

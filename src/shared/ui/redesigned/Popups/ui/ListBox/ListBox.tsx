@@ -53,11 +53,11 @@ const ListBoxComponent = typedMemo(<T extends string>(props: ListBoxProps<T>) =>
     const { library: ui, isLoading } = useHealdessuiContext();
 
     useEffect(() => {
-        if (textButton === undefined) {
+        if (textBtn === undefined) {
             const content = data.find((item) => item.value === selectedValue)?.content;
             setTextButton(content);
         }
-    }, [selectedValue, textButton, data]);
+    }, [selectedValue, textButton, data, textBtn]);
 
     const optionsClasses = [
         PopupDirectionConvert[direction],

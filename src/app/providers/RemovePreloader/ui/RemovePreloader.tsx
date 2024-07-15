@@ -1,6 +1,6 @@
 import { FC, memo, ReactElement } from 'react';
 
-import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 
 interface RemovePreloaderProps {
     children?: ReactElement,

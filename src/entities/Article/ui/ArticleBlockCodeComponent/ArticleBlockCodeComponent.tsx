@@ -1,8 +1,8 @@
 import { FC, memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Code as CodeDeprecated } from '@/shared/ui/deprecated/Code';
-import { Code as CodeRedesigned } from '@/shared/ui/redesigned/Code';
+import { Code as CodeViewDeprecated } from '@/shared/ui/deprecated/Code';
+import { CodeView as CodeViewRedesigned } from '@/shared/ui/redesigned/CodeView';
 import { ToggleFeatures } from '@/shared/lib/features';
 
 import { ArticleBlockCode } from '../../model/types/article';
@@ -29,8 +29,8 @@ export const ArticleBlockCodeComponent: FC<ArticleBlockCodeComponentProps> = mem
         >
             <ToggleFeatures
                 feature="isAppRedesigned"
-                off={<CodeDeprecated text={block.code} />}
-                on={<CodeRedesigned text={block.code} />}
+                off={<CodeViewDeprecated text={block.code} />}
+                on={<CodeViewRedesigned text={block.code} />}
             />
         </div>
     );

@@ -1,8 +1,6 @@
 import { Compiler } from 'webpack';
-import { Project, PropertyAccessExpression, SyntaxKind } from 'ts-morph';
+import { Project, SyntaxKind } from 'ts-morph';
 import fs from 'fs';
-
-const isAddAll = (node: PropertyAccessExpression): boolean => node.getName() === 'addAll';
 
 const format = (value: string): string => (`'${value}',`);
 
@@ -49,11 +47,9 @@ export class ServiceWorkerPlugin {
             const assets = getAssets(this.options.pathAssets);
 
             file?.forEachDescendant((node) => {
-                if (node.isKind(SyntaxKind.PropertyAccessExpression) && isAddAll(node)) {
-                    const parent = node.getParent();
-                    const array = parent?.getFirstChildByKind(SyntaxKind.ArrayLiteralExpression);
-                    array?.replaceWithText('[]');
-                    array?.addElements(assets);
+                if (node.isKind(SyntaxKind.VariableDeclaration) && node.getName() === 'ASSETS_CACHE') {
+                    const array = node.getInitializer();
+                    array?.replaceWithText(`[${assets.join('')}]`);
                 }
             });
             project.save();

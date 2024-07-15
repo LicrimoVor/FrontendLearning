@@ -6,8 +6,8 @@ import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/Dynami
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
 import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text';
-import { useInitialEffect } from '@/shared/lib/hooks/userInitialEffect';
-import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { ProfileCard } from '@/entities/Profile';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';

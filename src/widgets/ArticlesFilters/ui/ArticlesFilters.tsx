@@ -3,12 +3,13 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames';
 import { Card } from '@/shared/ui/redesigned/Card';
-import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Flex, VStack } from '@/shared/ui/redesigned/Stack';
 import { Input as InputDeplecated } from '@/shared/ui/deprecated/Input';
 import { Input } from '@/shared/ui/redesigned/Input';
 import { SortOrder } from '@/shared/types/order';
 import { ToggleFeatures } from '@/shared/lib/features';
 import SearchSVG from '@/shared/assets/icons/search.svg';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { ArticleSortSelector } from '@/features/Article/ArticleSortSelector';
 import { ArticleTypeTabs } from '@/features/Article/ArticleTypeTabs';
@@ -64,15 +65,18 @@ export const ArticlesFilters: FC<ArticlesFiltersProps> = memo((props: ArticlesFi
                             placeholder={t('Search')}
                             onChange={onChangeSearch}
                             value={search}
-                            addonLeft={<SearchSVG />}
+                            addonLeft={<Icon Svg={SearchSVG} />}
                         />
                     )}
                 />
 
-                <ArticleTypeTabs
-                    value={type}
-                    onChangeType={onChangeType}
-                />
+                <Flex max align="center" justify="center">
+                    <ArticleTypeTabs
+                        value={type}
+                        onChangeType={onChangeType}
+                        className={cls.tabs}
+                    />
+                </Flex>
                 <ArticleSortSelector
                     sort={sort}
                     order={order}

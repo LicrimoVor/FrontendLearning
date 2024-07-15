@@ -8,6 +8,10 @@
     &.maxContentWidth {
         grid-template-columns: min-content 1fr min-content;
     }
+
+    &.offline {
+        box-shadow: inset 0 0 40px var(--accent-redesigned);
+    }
 }
 
 .sidebar{

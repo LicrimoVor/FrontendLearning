@@ -2,6 +2,8 @@ import {
     ReactElement, createContext, memo, useContext, useEffect, useMemo, useRef, useState,
 } from 'react';
 
+import { Loader } from '@/shared/ui/redesigned/Loader';
+
 type Rainbow = typeof import('./rainbow.js');
 
 interface ColorSyntaxState {
@@ -22,11 +24,10 @@ export const ColorSyntaxProvider = memo(({ children }: {children: ReactElement})
     const Rainbow = useRef<Rainbow>();
 
     useEffect(() => {
-        getRainbowScript().then(([rainbow, cls]) => {
+        getRainbowScript().then(([rainbow, _]) => {
             setIsLoading(true);
             rainbow.highlightAll();
             Rainbow.current = rainbow;
-            console.log('!!');
         });
     }, [setIsLoading]);
 
