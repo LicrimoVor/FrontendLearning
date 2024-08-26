@@ -34,7 +34,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * @deprecated
  * Своя кнопочка, поддерживает ref
  */
-export const Button: FC<ButtonProps> = forwardRef((
+const Button: FC<ButtonProps> = forwardRef((
     props: ButtonProps,
     ref: LegacyRef<HTMLButtonElement>,
 ) => {
@@ -69,3 +69,6 @@ export const Button: FC<ButtonProps> = forwardRef((
         </button>
     );
 });
+
+export default Button;
+export type ButtonType = typeof Button;

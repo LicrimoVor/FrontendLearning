@@ -24,7 +24,7 @@ const themeClass: Record<IconTheme, string> = {
  * @deprecated
  * Иконка
  */
-export const Icon: FC<IconProps> = memo((props: IconProps) => {
+const Icon: FC<IconProps> = memo((props: IconProps) => {
     const {
         className,
         Svg,
@@ -44,3 +44,6 @@ export const Icon: FC<IconProps> = memo((props: IconProps) => {
         />
     );
 });
+
+export default Icon;
+export type IconType = typeof Icon;

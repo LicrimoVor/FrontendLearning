@@ -30,7 +30,7 @@ interface DropdownProps {
  * @deprecated
  * Всплывающее меню
  */
-export const Dropdown: FC<DropdownProps> = memo((props: DropdownProps) => {
+const Dropdown: FC<DropdownProps> = memo((props: DropdownProps) => {
     const {
         className,
         data,
@@ -98,3 +98,6 @@ export const Dropdown: FC<DropdownProps> = memo((props: DropdownProps) => {
         </Menu>
     );
 });
+
+export default Dropdown;
+export type DropdownType = typeof Dropdown;

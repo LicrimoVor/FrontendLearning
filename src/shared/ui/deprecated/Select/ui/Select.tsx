@@ -18,7 +18,7 @@ interface SelectProps<T extends string> {
  * @deprecated
  * Выбор из выпадающего списка
  */
-export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
+const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
     const {
         className,
         label,
@@ -69,3 +69,6 @@ export const Select = typedMemo(<T extends string>(props: SelectProps<T>) => {
         </div>
     );
 });
+
+export default Select;
+export type SelectType = typeof Select;

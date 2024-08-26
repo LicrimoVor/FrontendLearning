@@ -106,7 +106,7 @@ export const ArticleListItemRedesigned: FC<ArticleListItemProps> = memo((
                     src={article.img}
                     className={cls.img}
                     alt={article.title}
-                    errorFallback={<Icon Svg={DefaultImg} width={200} height={200} />}
+                    errorFallback={<Icon Svg={DefaultImg} size={200} />}
                 />
                 <VStack className={cls.info} gap={4}>
                     <Text text={article.title} className={cls.title} />

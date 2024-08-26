@@ -94,7 +94,7 @@ export const EditableProfileCard: FC<EditableProfileCardProps> = (props) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-            <EditableProfileCardHeader />
+            <EditableProfileCardHeader profileId={profileId} />
             {validateErrors?.length && validateErrors.map((err) => (
                 <ToggleFeatures
                     feature="isAppRedesigned"

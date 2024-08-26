@@ -20,7 +20,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
  * @deprecated
  * Карточка для данных
  */
-export const Card: FC<CardProps> = memo((props: CardProps) => {
+const Card: FC<CardProps> = memo((props: CardProps) => {
     const {
         className,
         children,
@@ -37,3 +37,6 @@ export const Card: FC<CardProps> = memo((props: CardProps) => {
         </div>
     );
 });
+
+export default Card;
+export type CardType = typeof Card;

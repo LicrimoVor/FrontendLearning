@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from '@/shared/lib/context/ThemeContext';
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 
-import { Skeleton } from './Skeleton';
+import Skeleton from './Skeleton';
 
 const meta: Meta<typeof Skeleton> = {
     title: 'shared/deprecated/Skeleton',

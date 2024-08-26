@@ -11,10 +11,13 @@ interface LoaderProps {
  * @deprecated
  * Пакмен загрузка
  */
-export const Loader: FC<LoaderProps> = memo((props: LoaderProps) => {
+const Loader: FC<LoaderProps> = memo((props: LoaderProps) => {
     const {
         className,
     } = props;
 
     return <div className={classNames(cls.Loader, {}, [className])} />;
 });
+
+export default Loader;
+export type LoaderType = typeof Loader;

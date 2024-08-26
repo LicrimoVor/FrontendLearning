@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { Theme } from '@/shared/lib/context/ThemeContext';
 
-import { Dropdown } from './Dropdown';
+import Dropdown from './Dropdown';
 
 const meta: Meta<typeof Dropdown> = {
     title: 'shared/deprecated/Dropdown',

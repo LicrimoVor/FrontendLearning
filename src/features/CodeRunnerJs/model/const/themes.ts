@@ -1,5 +1,6 @@
+import type { SandpackTheme } from '@codesandbox/sandpack-react';
+
 import { Theme } from '@/shared/lib/context/ThemeContext';
-import { SandpackTheme } from '../types';
 
 const DarkTheme: DeepPartial<SandpackTheme> = {
     colors: {

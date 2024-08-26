@@ -18,7 +18,7 @@ interface TabsProps<T extends string> {
  * @deprecated
  * Картички, которые можно переключать м/у собой
  */
-export const Tabs = typedMemo(<T extends string>(props: TabsProps<T>) => {
+const Tabs = typedMemo(<T extends string>(props: TabsProps<T>) => {
     const {
         className,
         tabs,
@@ -45,3 +45,6 @@ export const Tabs = typedMemo(<T extends string>(props: TabsProps<T>) => {
         </div>
     );
 });
+
+export default Tabs;
+export type TabsType = typeof Tabs;

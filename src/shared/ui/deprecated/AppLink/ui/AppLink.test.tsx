@@ -1,7 +1,7 @@
 import { fireEvent } from '@testing-library/react';
 
 import { renderWithRouter } from '@/shared/lib/tests/renderWithRouter';
-import { AppLink, AppLinkTheme } from './AppLink';
+import AppLink, { AppLinkTheme } from './AppLink';
 
 describe('AppLink', () => {
     test('Test jump to', () => {

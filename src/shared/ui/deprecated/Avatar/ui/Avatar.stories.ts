@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { Theme } from '@/shared/lib/context/ThemeContext';
 import AvatarImg from '@/shared/assets/tests/avatar.jpg';
-import { Avatar } from './Avatar';
+import Avatar from './Avatar';
 
 const meta: Meta<typeof Avatar> = {
     title: 'shared/deprecated/Avatar',

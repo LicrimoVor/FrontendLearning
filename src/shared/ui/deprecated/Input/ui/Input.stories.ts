@@ -4,7 +4,7 @@ import { userEvent, within } from '@storybook/testing-library';
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { Theme } from '@/shared/lib/context/ThemeContext';
 
-import { Input } from './Input';
+import Input from './Input';
 
 const meta: Meta<typeof Input> = {
     title: 'shared/deprecated/Input',

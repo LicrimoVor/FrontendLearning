@@ -3,8 +3,8 @@ import { Meta, StoryObj } from '@storybook/react';
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { Theme } from '@/shared/lib/context/ThemeContext';
 
-import { Text } from '../../Text/ui/Text';
-import { Card, CardTheme } from './Card';
+import { Text } from '../../Text';
+import Card, { CardTheme } from './Card';
 
 const meta: Meta<typeof Card> = {
     title: 'shared/deprecated/Card',

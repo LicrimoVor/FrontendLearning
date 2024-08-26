@@ -5,16 +5,16 @@ import {
 import { AxiosInstance } from 'axios';
 
 import { rtkApi } from '@/shared/api/rtkApi';
-import { ArticleDetailSchema } from '@/entities/Article';
-import { UserSchema } from '@/entities/User';
-import { CreateCommentSchema } from '@/entities/Comment';
-import { ArticleCommentSchema } from '@/features/Article/ArticleCommentForm';
-import { LoginSchema } from '@/features/AuthByUsername';
-import { ProfileSchema } from '@/features/Profile/EditableProfile';
-import { ScrollSaveSchema } from '@/features/ScrollSave';
-import { ArticleCanvasSchema } from '@/features/Article/ArticleCanvas';
-import { ArticleListPageSchema } from '@/pages/Article/ArticleListPage';
-import { OptionsSchema } from '../options';
+import type { ArticleDetailSchema } from '@/entities/Article';
+import type { UserSchema } from '@/entities/User';
+import type { CreateCommentSchema } from '@/entities/Comment';
+import type { ArticleCommentSchema } from '@/features/Article/ArticleCommentForm';
+import type { LoginSchema } from '@/features/AuthByUsername';
+import type { ProfileSchema } from '@/features/Profile/EditableProfile';
+import type { ScrollSaveSchema } from '@/features/ScrollSave';
+import type { ArticleCanvasSchema } from '@/features/Article/ArticleCanvas';
+import type { ArticleListPageSchema } from '@/pages/Article/ArticleListPage';
+import type { OptionsSchema } from '../options';
 
 export interface StateSchema {
     // Синхронные редюсеры

@@ -26,7 +26,7 @@ interface InputProps extends HTMLInputProps {
  * Каретку в продакшене не повторять!
  * Такие изащрения не нужны!
  */
-export const Input: FC<InputProps> = memo((props: InputProps) => {
+const Input: FC<InputProps> = memo((props: InputProps) => {
     const {
         className,
         value,
@@ -105,3 +105,6 @@ export const Input: FC<InputProps> = memo((props: InputProps) => {
         </div>
     );
 });
+
+export default Input;
+export type InputType = typeof Input;

@@ -9,7 +9,10 @@ import { ToggleFeatures } from '@/shared/lib/features';
 
 import { articleListPageReducer, articleListPageActions, getArticles } from '../../model/slice/articleListPageSlice';
 import {
-    getArticlePageHasMore, getArticlePageIndex, getArticlePageIsLoading, getArticlePageView,
+    getArticlePageHasMore,
+    getArticlePageIndex,
+    getArticlePageIsLoading,
+    getArticlePageView,
 } from '../../model/selectors/articleListPage';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';

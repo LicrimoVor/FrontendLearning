@@ -4,8 +4,8 @@ import { Listbox as HListbox } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { HStack } from '../../../../redesigned/Stack';
-import { Text } from '../../../Text/ui/Text';
-import { Button } from '../../../Button/ui/Button';
+import { Text } from '../../../Text';
+import { Button } from '../../../Button';
 import { PopupDirection } from '../../styles/types';
 import { PopupDirectionConvert } from '../../styles/consts';
 import cls from './ListBox.module.scss';
@@ -32,7 +32,7 @@ interface ListBoxProps {
  * @deprecated
  * Всплывающее окно с выбором
  */
-export const ListBox: FC<ListBoxProps> = memo((props: ListBoxProps) => {
+const ListBox: FC<ListBoxProps> = memo((props: ListBoxProps) => {
     const {
         className,
         data,
@@ -90,3 +90,6 @@ export const ListBox: FC<ListBoxProps> = memo((props: ListBoxProps) => {
         </HStack>
     );
 });
+
+export default ListBox;
+export type ListBoxType = typeof ListBox;

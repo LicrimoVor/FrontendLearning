@@ -3,7 +3,7 @@ import { FC, memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import CopyIcon from '@/shared/assets/icons/copy.svg';
 
-import { Button, ButtonTheme } from '../../Button/ui/Button';
+import { Button, ButtonTheme } from '../../Button';
 import cls from './Code.module.scss';
 
 interface CodeProps {
@@ -15,7 +15,7 @@ interface CodeProps {
  * @deprecated
  * Код
  */
-export const Code: FC<CodeProps> = memo((props: CodeProps) => {
+const Code: FC<CodeProps> = memo((props: CodeProps) => {
     const {
         className,
         text,
@@ -38,3 +38,6 @@ export const Code: FC<CodeProps> = memo((props: CodeProps) => {
         </pre>
     );
 });
+
+export default Code;
+export type CodeType = typeof Code;

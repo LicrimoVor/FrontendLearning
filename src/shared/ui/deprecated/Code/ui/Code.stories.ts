@@ -4,7 +4,7 @@ import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { Theme } from '@/shared/lib/context/ThemeContext';
 import { newDesignDecorator } from '@/shared/config/storybook/newDesignDecorator';
 
-import { Code } from './Code';
+import Code from './Code';
 
 const meta: Meta<typeof Code> = {
     title: 'shared/redesigned/Code',

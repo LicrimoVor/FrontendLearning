@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { Theme } from '@/shared/lib/context/ThemeContext';
-import { TextArea } from './TextArea';
+import TextArea from './TextArea';
 
 const meta: Meta<typeof TextArea> = {
     title: 'shared/deprecated/TextArea',

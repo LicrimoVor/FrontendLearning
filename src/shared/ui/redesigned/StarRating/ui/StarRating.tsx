@@ -7,7 +7,7 @@ import StarSVG from '@/shared/assets/icons/star.svg';
 import { ToggleFeatures } from '@/shared/lib/features';
 
 import { Icon as IconDeprecated } from '../../../deprecated/Icon';
-import { Button as ButtonDeprecated, ButtonTheme } from '../../../deprecated/Button/ui/Button';
+import { Button as ButtonDeprecated, ButtonTheme } from '../../../deprecated/Button';
 import { Icon } from '../../Icon';
 import { HStack } from '../../Stack';
 import cls from './StarRating.module.scss';
@@ -24,7 +24,7 @@ const STARS = [1, 2, 3, 4, 5];
 /**
  * Рейтинг звездочками
  */
-export const StarRating: FC<StarRatingProps> = memo((props: StarRatingProps) => {
+const StarRating: FC<StarRatingProps> = memo((props: StarRatingProps) => {
     const {
         className,
         onChange,
@@ -99,3 +99,6 @@ export const StarRating: FC<StarRatingProps> = memo((props: StarRatingProps) => 
         </HStack>
     );
 });
+
+export default StarRating;
+export type StarRatingType = typeof StarRating;

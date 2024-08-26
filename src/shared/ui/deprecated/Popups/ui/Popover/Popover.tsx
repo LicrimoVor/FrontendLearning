@@ -23,7 +23,7 @@ interface PopoverProps {
  * @deprecated
  * Тот же дроп-даун, но с любым внутренним содержимым
  */
-export const Popover: FC<PopoverProps> = memo((props: PopoverProps) => {
+const Popover: FC<PopoverProps> = memo((props: PopoverProps) => {
     const {
         className,
         children,
@@ -57,3 +57,6 @@ export const Popover: FC<PopoverProps> = memo((props: PopoverProps) => {
         </HPopover>
     );
 });
+
+export default Popover;
+export type PopoverType = typeof Popover;

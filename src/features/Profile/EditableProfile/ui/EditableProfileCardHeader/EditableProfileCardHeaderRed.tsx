@@ -5,6 +5,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 
 import cls from './EditableProfileCardHeader.module.scss';
 
@@ -15,6 +16,8 @@ interface EditableProfileCardHeaderProps {
     onEdit: () => void,
     onCancelEdit: () => void,
     onSave: () => void,
+    isLoading?: boolean,
+    loadingEditable: boolean,
 }
 
 /** Шапка профиля */
@@ -28,9 +31,23 @@ export const EditableProfileCardHeaderRed: FC<EditableProfileCardHeaderProps> = 
         onEdit,
         onCancelEdit,
         onSave,
+        isLoading,
+        loadingEditable,
     } = props;
 
     const { t } = useTranslation('profile');
+
+    if (isLoading) {
+        return (
+            <HStack
+                className={classNames(cls.ProfilePageHeader, {}, [className])}
+                data-testid="EditableProfileCardHeader"
+            >
+                <Text title={t('Profile')} />
+                {loadingEditable && <Skeleton className={cls.editBtn} height={44} width={100} border="32px" />}
+            </HStack>
+        );
+    }
 
     return (
         <HStack

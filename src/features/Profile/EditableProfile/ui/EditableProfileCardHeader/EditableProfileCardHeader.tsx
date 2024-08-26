@@ -11,24 +11,27 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { profileActions } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeaderDep } from './EditableProfileCardHeaderDep';
 import { EditableProfileCardHeaderRed } from './EditableProfileCardHeaderRed';
+import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import cls from './EditableProfileCardHeader.module.scss';
 
 interface EditableProfileCardHeaderProps {
     className?: string,
+    profileId: string,
 }
 
 /** Шапка профиля */
 export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = memo((
     props: EditableProfileCardHeaderProps,
 ) => {
-    const authData = useSelector(getUserAuthData);
-    const profileData = useSelector(getProfileData);
-    const canEdit = authData?.id === profileData?.id;
-
     const {
         className,
+        profileId,
     } = props;
 
+    const authData = useSelector(getUserAuthData);
+    const profileData = useSelector(getProfileData);
+    const isLoading = useSelector(getProfileIsLoading);
+    const canEdit = authData?.id === profileData?.id;
     const readonly = useSelector(getProfileReadonly);
     const dispatch = useAppDispatch();
 
@@ -51,6 +54,8 @@ export const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = mem
         onEdit,
         onCancelEdit,
         onSave,
+        isLoading,
+        loadingEditable: profileId === authData?.id,
     };
 
     return (

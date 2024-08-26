@@ -45,7 +45,7 @@ interface TextProps {
  * @deprecated
  * Красивенький текст везде и всюду
  */
-export const Text: FC<TextProps> = memo((props: TextProps) => {
+const Text: FC<TextProps> = memo((props: TextProps) => {
     const {
         className,
         title,
@@ -80,3 +80,6 @@ export const Text: FC<TextProps> = memo((props: TextProps) => {
         </div>
     );
 });
+
+export default Text;
+export type TextType = typeof Text;

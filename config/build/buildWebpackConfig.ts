@@ -12,7 +12,7 @@ export function BuildWebpackConfig(options: BuildOptions): webpack.Configuration
 
     return {
         mode,
-        // файлы для сборки
+        target: 'web',
         entry: paths.entry,
         output: {
             filename: '[name].[contenthash].js',

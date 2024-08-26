@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { Theme } from '@/shared/lib/context/ThemeContext';
 
-import { Loader } from './Loader';
+import Loader from './Loader';
 
 const meta: Meta<typeof Loader> = {
     title: 'shared/deprecated/Loader',

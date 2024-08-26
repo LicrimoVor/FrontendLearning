@@ -21,7 +21,7 @@ interface TextAreaProps extends HTMLTextAreaProps {
  * @deprecated
  * Текстовое поле для ввода
  */
-export const TextArea: FC<TextAreaProps> = memo((props: TextAreaProps) => {
+const TextArea: FC<TextAreaProps> = memo((props: TextAreaProps) => {
     const {
         className,
         value,
@@ -71,3 +71,6 @@ export const TextArea: FC<TextAreaProps> = memo((props: TextAreaProps) => {
 
     );
 });
+
+export default TextArea;
+export type TextAreaType = typeof TextArea;

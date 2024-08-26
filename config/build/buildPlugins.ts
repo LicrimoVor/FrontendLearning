@@ -9,7 +9,7 @@ import ForkIsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import AssetsPlugin from 'assets-webpack-plugin';
 import StatoscopeWebpackPlugin from '@statoscope/webpack-plugin';
 import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
-
+import { PyodidePlugin } from '@pyodide/webpack-plugin';
 import { BuildOptions } from './types/config';
 import { ServiceWorkerPlugin } from './plugins/ServiceWorkerPlugin';
 import { PreloadPlugin } from './plugins/PreloadPlugin';
@@ -23,6 +23,7 @@ export function BuildPlugins(
     const isProd = !isDev;
 
     const plugins: webpack.WebpackPluginInstance[] = [
+        new PyodidePlugin(),
         new HtmlWebpackPlugin({
             template: paths.html,
         }),

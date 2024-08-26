@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 import { Theme } from '@/shared/lib/context/ThemeContext';
-import { Tabs } from './Tabs';
+import Tabs from './Tabs';
 
 const meta: Meta<typeof Tabs> = {
     title: 'shared/deprecated/Tabs',

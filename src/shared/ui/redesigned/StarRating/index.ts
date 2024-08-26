@@ -1,1 +1,4 @@
-export { StarRating } from './ui/StarRating';
+import { lazy } from 'react';
+import type { StarRatingType } from './ui/StarRating';
+
+export const StarRating = lazy(() => import('./ui/StarRating')) as StarRatingType;

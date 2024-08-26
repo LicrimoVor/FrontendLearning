@@ -14,7 +14,7 @@ interface SkeletonProps {
  * @deprecated
  * Скелетон?! втф
  */
-export const Skeleton: FC<SkeletonProps> = memo((props: SkeletonProps) => {
+const Skeleton: FC<SkeletonProps> = memo((props: SkeletonProps) => {
     const {
         className,
         height,
@@ -35,3 +35,6 @@ export const Skeleton: FC<SkeletonProps> = memo((props: SkeletonProps) => {
         />
     );
 });
+
+export default Skeleton;
+export type SkeletonType = typeof Skeleton;

@@ -3,7 +3,7 @@ import { Theme } from '@/shared/lib/context/ThemeContext';
 
 import { themeDecorator } from '@/shared/config/storybook/themeDecorator';
 
-import { AppLink } from './AppLink';
+import AppLink from './AppLink';
 
 const meta: Meta<typeof AppLink> = {
     title: 'shared/deprecated/AppLink',

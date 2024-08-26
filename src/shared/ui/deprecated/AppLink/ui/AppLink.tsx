@@ -21,7 +21,7 @@ interface AppLinkProps extends LinkProps {
  * @deprecated
  * Ссылочка
  */
-export const AppLink: FC<AppLinkProps> = memo((props: AppLinkProps) => {
+const AppLink: FC<AppLinkProps> = memo((props: AppLinkProps) => {
     const {
         className,
         to,
@@ -44,3 +44,6 @@ export const AppLink: FC<AppLinkProps> = memo((props: AppLinkProps) => {
         </Link>
     );
 });
+
+export default AppLink;
+export type AppLinkType = typeof AppLink;

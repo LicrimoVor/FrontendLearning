@@ -3,8 +3,7 @@ import {
 } from 'react';
 
 import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage';
-
-import { ThemeContext, Theme } from '../../../shared/lib/context/ThemeContext';
+import { Theme, ThemeContext } from '@/shared/lib/context/ThemeContext';
 
 interface ThemeProviderProps {
     children: ReactNode,

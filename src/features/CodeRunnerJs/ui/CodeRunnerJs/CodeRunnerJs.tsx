@@ -1,24 +1,27 @@
 import { FC, memo } from 'react';
+import type { SandpackPredefinedTemplate, SandpackFiles } from '@codesandbox/sandpack-react';
 
 import { CodeSandboxProvider, useCodeSandboxContext } from '@/shared/lib/components/CodeSandbox';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
-import { SandpackFiles, SandpackTemplate } from '../../types';
+
 import { MonacoEditor } from '../MonacoEditor/MonacoEditor';
-import { ThemeAppInSandbox } from '../../const/themes';
 import { CodeFileExplorer } from '../CodeFileExplorer/CodeFileExplorer';
 import { CodeFileTabs } from '../CodeFileTabs/CodeFileTabs';
+import { ThemeAppInSandbox } from '../../model/const/themes';
 
 interface CodeSandboxProps {
     className?: string,
-    height?: string| number,
+    height?: string | number,
+    viewFiles?: boolean,
 }
 
-const CodeSandboxComponent: FC <CodeSandboxProps> = memo((
+const CodeRunnerJsComponent: FC<CodeSandboxProps> = memo((
     props: CodeSandboxProps,
 ) => {
     const {
         className,
         height,
+        viewFiles = true,
     } = props;
 
     const { library } = useCodeSandboxContext();
@@ -27,13 +30,20 @@ const CodeSandboxComponent: FC <CodeSandboxProps> = memo((
     return (
         <div className={className}>
             <library.SandpackLayout style={{ height }}>
-                <CodeFileExplorer />
-                <library.SandpackStack style={{ height: '100%' }}>
-                    <CodeFileTabs />
-                    <MonacoEditor />
-                </library.SandpackStack>
+                {viewFiles
+                    ? (
+                        <>
+                            <CodeFileExplorer />
+                            <library.SandpackStack style={{ height: '100%' }}>
+                                <CodeFileTabs />
+                                <MonacoEditor />
+                            </library.SandpackStack>
+                        </>
+                    )
+                    : <library.SandpackStack style={{ height: '100%' }}><MonacoEditor /></library.SandpackStack> }
                 <library.SandpackStack style={{ height: '100%' }}>
                     <library.SandpackPreview
+                        style={{ height: '100%' }}
                         showOpenInCodeSandbox={false}
                         showRefreshButton
                         showRestartButton
@@ -41,7 +51,7 @@ const CodeSandboxComponent: FC <CodeSandboxProps> = memo((
                         showOpenNewtab
                     />
                     <library.SandpackConsole
-                        style={{ fontSize: 18 }}
+                        style={{ fontSize: 18, height: '50%' }}
                         showSyntaxError
                         showRestartButton
                         showResetConsoleButton
@@ -54,11 +64,11 @@ const CodeSandboxComponent: FC <CodeSandboxProps> = memo((
 });
 
 type CodeSandboxLoadingProps = CodeSandboxProps & {
-    template: SandpackTemplate | 'python',
+    template: SandpackPredefinedTemplate,
     files?: SandpackFiles,
 }
 
-const CodeSandboxLoading: FC <CodeSandboxLoadingProps> = memo((
+const CodeRunnerJsLoading: FC<CodeSandboxLoadingProps> = memo((
     { template, files, ...props }: CodeSandboxLoadingProps,
 ) => {
     const { isLoading, library } = useCodeSandboxContext();
@@ -68,31 +78,21 @@ const CodeSandboxLoading: FC <CodeSandboxLoadingProps> = memo((
         return 'loading...';
     }
 
-    if (template === 'python') {
-        return (
-            <library.SandpackProvider
-                theme={ThemeAppInSandbox[theme]}
-            >
-                {null}
-            </library.SandpackProvider>
-        );
-    }
-
     return (
         <library.SandpackProvider
             template={template}
             theme={ThemeAppInSandbox[theme]}
             files={files}
         >
-            <CodeSandboxComponent {...props} />
+            <CodeRunnerJsComponent {...props} />
         </library.SandpackProvider>
     );
 });
 
-export const CodeSandbox: FC <CodeSandboxLoadingProps> = memo((
+export const CodeRunnerJs: FC<CodeSandboxLoadingProps> = memo((
     props: CodeSandboxLoadingProps,
 ) => (
     <CodeSandboxProvider>
-        <CodeSandboxLoading {...props} />
+        <CodeRunnerJsLoading {...props} />
     </CodeSandboxProvider>
 ));

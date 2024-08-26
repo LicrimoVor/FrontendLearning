@@ -20,7 +20,7 @@ interface AvatarProps {
  * @deprecated
  * Аватар
 */
-export const Avatar: FC<AvatarProps> = (props) => {
+const Avatar: FC<AvatarProps> = (props) => {
     const {
         className,
         src,
@@ -55,3 +55,6 @@ export const Avatar: FC<AvatarProps> = (props) => {
         />
     );
 };
+
+export default Avatar;
+export type AvatarType = typeof Avatar;

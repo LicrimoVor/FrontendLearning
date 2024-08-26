@@ -9,7 +9,7 @@ interface MineSweeperPageProps {
     className?: string,
 }
 
-/** Докстринг */
+/** Страница с сапером */
 const MineSweeperPage: FC <MineSweeperPageProps> = (
     props: MineSweeperPageProps,
 ) => {
